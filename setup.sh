@@ -116,7 +116,7 @@ echo -e " 🔰 PORT OPENSSH                   : 443"         |tee -a log-install
 echo -e " 🔰 PORT OVPN SSL                  : 443"         |tee -a log-install.txt
 echo -e " 🔰 PORT DROPBEAR                  : 443"         |tee -a log-install.txt
 echo -e " 🔰 PORT OVPN WS TLS               : 443"         |tee -a log-install.txt
-echo -e " 🔰 WEBSOCKET TLS                  : 8443,2096,2053,443" |tee -a log-install.txt
+echo -e " 🔰 WEBSOCKET TLS                  : 8443"        |tee -a log-install.txt
 echo -e " 🔰 VLESS XTLS                     : 443"         |tee -a log-install.txt
 echo -e " 🔰 VLESS GFW                      : 443"         |tee -a log-install.txt
 echo -e " 🔰 VLESS WS TLS                   : 443"         |tee -a log-install.txt
