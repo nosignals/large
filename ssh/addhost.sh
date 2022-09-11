@@ -18,5 +18,3 @@ echo "IP=$domain" >>/var/lib/wisnucs/ipvps.conf
 rm -rf /etc/xray/domain
 echo $domain > /etc/xray/domain
 certxray
-
-
