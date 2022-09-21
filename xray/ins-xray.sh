@@ -15,6 +15,8 @@ LIGHT='\033[0;37m'
 MYIP=$(wget -qO- ipinfo.io/ip);
 clear
 domain=$(cat /root/domain)
+domain2=$(cat /root/domain2)
+domain3=$(cat /root/domain3)
 apt update ; apt upgrade -y
 apt install python -y ; apt install python3-pip -y
 apt install iptables iptables-persistent -y
