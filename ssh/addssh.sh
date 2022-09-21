@@ -20,9 +20,7 @@ clear
 read -p "Username : " Login
 read -p "Password : " Pass
 read -p "Expired (Days): " masaaktif
-
 clear
-
 if [ -e "/var/log/auth.log" ]; then
         LOG="/var/log/auth.log";
 fi
@@ -81,6 +79,7 @@ echo -e "\033[1;31m━━━━━━━━━━━━━━━━━━━━�
 echo -e "\033[1;31m━━━━━━━━━━━━━━━━━━\033[0m"
 echo -e "🔺️SSH HOST➡️${domain}"
 echo -e "🔺️OVPN HOST➡️${domain2}"
+echo -e "🔺️CF HOST➡️${domain3}"
 echo -e "🔺️USERNAME➡️$Login"
 echo -e "🔺️PASSWORD➡️$Pass"
 echo -e "🔺️DROPBEAR➡️$dropbearport"
