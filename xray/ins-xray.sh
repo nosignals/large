@@ -44,6 +44,9 @@ mkdir -p /usr/bin/xray
 mkdir -p /etc/xray
 mkdir -p /etc/ssl/private
 mkdir -p /usr/local/etc/xray
+mkdir -p /www/wwwroot/a
+mkdir -p /www/wwwroot/b
+mkdir -p /www/wwwroot/c
 mkdir -p /home/sstp
 mkdir -p /home/vps/public_html
 # / / Unzip Xray Linux 64
@@ -80,12 +83,42 @@ alias acme.sh=~/.acme.sh/acme.sh
 #/root/.acme.sh/acme.sh --issue -d "${domain}" --standalone --keylength ec-2048
 /root/.acme.sh/acme.sh --issue -d "${domain}" --standalone --keylength ec-256
 /root/.acme.sh/acme.sh --install-cert -d "${domain}" --ecc \
---fullchain-file /etc/ssl/private/fullchain.pem \
---key-file /etc/ssl/private/privkey.pem
+--fullchain-file /www/wwwroot/a/xray.crt \
+--key-file /www/wwwroot/a/xray.key
 chown -R nobody:nogroup /etc/xray
-chown -R nobody:nogroup /etc/ssl/private
-chmod 644 /etc/ssl/private/fullchain.pem
-chmod 644 /etc/ssl/private/privkey.pem
+chown -R nobody:nogroup /www/wwwroot/a
+chmod 644 /www/wwwroot/a/xray.crt
+chmod 644 /www/wwwroot/a/xray.key
+
+##Generate acme certificate
+curl https://get.acme.sh | sh
+alias acme.sh=~/.acme.sh/acme.sh
+/root/.acme.sh/acme.sh --upgrade --auto-upgrade
+/root/.acme.sh/acme.sh --set-default-ca --server letsencrypt
+#/root/.acme.sh/acme.sh --issue -d "${domain}" --standalone --keylength ec-2048
+/root/.acme.sh/acme.sh --issue -d "${domain2}" --standalone --keylength ec-256
+/root/.acme.sh/acme.sh --install-cert -d "${domain}" --ecc \
+--fullchain-file /www/wwwroot/a/xray.crt \
+--key-file /www/wwwroot/b/xray.key
+chown -R nobody:nogroup /etc/xray
+chown -R nobody:nogroup /www/wwwroot/b
+chmod 644 /www/wwwroot/b/xray.crt
+chmod 644 /www/wwwroot/b/xray.key
+
+##Generate acme certificate
+curl https://get.acme.sh | sh
+alias acme.sh=~/.acme.sh/acme.sh
+/root/.acme.sh/acme.sh --upgrade --auto-upgrade
+/root/.acme.sh/acme.sh --set-default-ca --server letsencrypt
+#/root/.acme.sh/acme.sh --issue -d "${domain}" --standalone --keylength ec-2048
+/root/.acme.sh/acme.sh --issue -d "${domain3}" --standalone --keylength ec-256
+/root/.acme.sh/acme.sh --install-cert -d "${domain}" --ecc \
+--fullchain-file /www/wwwroot/a/xray.crt \
+--key-file /www/wwwroot/c/xray.key
+chown -R nobody:nogroup /etc/xray
+chown -R nobody:nogroup /www/wwwroot/c
+chmod 644 /www/wwwroot/c/xray.crt
+chmod 644 /www/wwwroot/c/xray.key
 
 #sudo lsof -t -i tcp:80 -s tcp:listen | sudo xargs kill
 #cd /root/
