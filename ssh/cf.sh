@@ -143,7 +143,7 @@ RESULT=$(curl -sLX PUT "https://api.cloudflare.com/client/v4/zones/${ZONE}/dns_r
      -H "Content-Type: application/json" \
      --data '{"type":"A","name":"'${WILD}'","content":"'${IP}'","ttl":300,"proxied":false}')
 echo "Host : $SUB_DO"
-echo $SUB_DO > /root/domain
+echo $SUB_DO > /root/domain2
 # / / Make Main Directory
 mkdir -p /usr/bin/xray
 mkdir -p /etc/xray
@@ -208,7 +208,7 @@ RESULT=$(curl -sLX PUT "https://api.cloudflare.com/client/v4/zones/${ZONE}/dns_r
      -H "Content-Type: application/json" \
      --data '{"type":"A","name":"'${PROXIED}'","content":"'${IP}'","ttl":300,"proxied":false}')
 echo "Host : $SUB_PROXIED"
-echo $SUB_PROXIED > /root/domain
+echo $SUB_PROXIED > /root/domain3
 # / / Make Main Directory
 mkdir -p /usr/bin/xray
 mkdir -p /etc/xray
