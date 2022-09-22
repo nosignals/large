@@ -115,7 +115,7 @@ RESULT=$(curl -sLX PUT "https://api.cloudflare.com/client/v4/zones/${ZONE}/dns_r
      -H "Content-Type: application/json" \
      --data '{"type":"A","name":"'${SUB_DO}'","content":"'${IP}'","ttl":300,"proxied":false}')
 
-WILD="*.$SUB_WILL"
+WILD="*.$SUB_DO"
 set -euo pipefail
 echo ""
 echo "Updating DNS for ${WILD}..."
@@ -147,7 +147,7 @@ echo $SUB_DO > /root/domain2
 # / / Make Main Directory
 mkdir -p /usr/bin/xray
 mkdir -p /etc/xray
-cp /root/domain /etc/xray
+cp /root/domain2 /etc/xray
 rm -f /root/cf.sh
 
 SUB_PROXIED=cf.gandring.my.id
@@ -212,5 +212,5 @@ echo $SUB_PROXIED > /root/domain3
 # / / Make Main Directory
 mkdir -p /usr/bin/xray
 mkdir -p /etc/xray
-cp /root/domain /etc/xray
+cp /root/domain3 /etc/xray
 rm -f /root/cf.sh
