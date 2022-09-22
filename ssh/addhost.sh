@@ -14,7 +14,15 @@ LIGHT='\033[0;37m'
 MYIP=$(wget -qO- ipinfo.io/ip);
 clear
 read -rp "Domain/Host : " -e domain
+read -rp "Domain Ovpn : " -e domain2
+read -rp "Domain Cf : " -e domain3
 echo "IP=$domain" >>/var/lib/wisnucs/ipvps.conf
+echo "IP=$domain2" >>/var/lib/wisnucs/ipvps.conf
+echo "IP=$domain3" >>/var/lib/wisnucs/ipvps.conf
 rm -rf /etc/xray/domain
+rm -rf /etc/xray/domain2
+rm -rf /etc/xray/domain3
 echo $domain > /etc/xray/domain
-certxray
+echo $domain2 > /etc/xray/domain2
+echo $domain3 > /etc/xray/domain3
+setmenu
