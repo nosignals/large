@@ -99,8 +99,8 @@ alias acme.sh=~/.acme.sh/acme.sh
 /root/.acme.sh/acme.sh --set-default-ca --server letsencrypt
 #/root/.acme.sh/acme.sh --issue -d "${domain}" --standalone --keylength ec-2048
 /root/.acme.sh/acme.sh --issue -d "${domain2}" --standalone --keylength ec-256
-/root/.acme.sh/acme.sh --install-cert -d "${domain}" --ecc \
---fullchain-file /www/wwwroot/a/xray.crt \
+/root/.acme.sh/acme.sh --install-cert -d "${domain2}" --ecc \
+--fullchain-file /www/wwwroot/b/xray.crt \
 --key-file /www/wwwroot/b/xray.key
 chown -R nobody:nogroup /etc/xray
 chown -R nobody:nogroup /www/wwwroot/b
@@ -114,8 +114,8 @@ alias acme.sh=~/.acme.sh/acme.sh
 /root/.acme.sh/acme.sh --set-default-ca --server letsencrypt
 #/root/.acme.sh/acme.sh --issue -d "${domain}" --standalone --keylength ec-2048
 /root/.acme.sh/acme.sh --issue -d "${domain3}" --standalone --keylength ec-256
-/root/.acme.sh/acme.sh --install-cert -d "${domain}" --ecc \
---fullchain-file /www/wwwroot/a/xray.crt \
+/root/.acme.sh/acme.sh --install-cert -d "${domain3}" --ecc \
+--fullchain-file /www/wwwroot/c/xray.crt \
 --key-file /www/wwwroot/c/xray.key
 chown -R nobody:nogroup /etc/xray
 chown -R nobody:nogroup /www/wwwroot/c
@@ -680,8 +680,8 @@ cat > /etc/trojan-go/config.json << END
       "ssl": {
        "verify": true,
         "verify_hostname": true,
-         "cert": "/etc/xray/xray.crt",
-          "key": "/etc/xray/xray.key",
+         "cert": "/www/wwwroot/a/xray.crt",
+          "key": "/www/wwwroot/a/xray.key",
            "key_password": "",
             "cipher": "TLS_ECDHE_ECDSA_WITH_AES_256_GCM_SHA384:TLS_ECDHE_ECDSA_WITH_AES_128_GCM_SHA256:TLS_ECDHE_ECDSA_WITH_CHACHA20_POLY1305_SHA256",
              "curves": "",
@@ -758,8 +758,8 @@ cat > /etc/trojan-go/config.json << END
        "api_port": 10808,
         "ssl": {
          "enabled": true,
-          "key": "/etc/xray/xray.key",
-           "cert": "/etc/xray/xray.crt",
+          "key": "/www/wwwroot/a/xray.key",
+           "cert": "/www/wwwroot/a/xray.crt",
             "verify_client": false,
              "client_cert": []
     }
