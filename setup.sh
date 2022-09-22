@@ -46,9 +46,9 @@ domain=$(cat /etc/xray/domain)
 domain2=$(cat /etc/xray/domain2)
 domain3=$(cat /etc/xray/domain3)
 #if [ -f "/etc/v2ray/domain" ]; then
+if [ -f "/etc/xray/domain2" ];
+if [ -f "/etc/xray/domain3" ];
 if [ -f "/etc/xray/domain" ]; then
-if [ -f "/etc/xray/domain2" ]; then
-if [ -f "/etc/xray/domain3" ]; then
 echo "Script Already Installed"
 exit 0
 fi
