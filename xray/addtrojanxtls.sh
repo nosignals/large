@@ -17,7 +17,7 @@ MYIP=$(wget -qO- https://ipv4.icanhazip.com);
 MYIP6=$(wget -qO- https://ipv6.icanhazip.com);
 clear
 domain=$(cat /etc/xray/domain)
-
+domain2=$(cat /root/domain2)
 #uuid=$(cat /proc/sys/kernel/random/uuid)
 txtls="$(cat ~/log-install.txt | grep -w "TROJAN XTLS" | cut -d: -f2|sed 's/ //g')"
 tgfw="$(cat ~/log-install.txt | grep -w "TROJAN GFW" | cut -d: -f2|sed 's/ //g')"
@@ -110,7 +110,7 @@ echo -e "\033[1;46m🔰 AKUN TROJAN XTLS GFW 🔰\e[m"
 echo -e "\033[1;31m━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
 echo -e "🔺️Nama➡️ ${user}"
 echo -e "🔺️IP/Host➡️ ${MYIP}"
-echo -e "🔺️Alamat➡️ ${domain}"
+echo -e "🔺️Alamat➡️ ${domain2}"
 echo -e "🔺️Protokol➡️ tcp"
 echo -e "🔺️Port XTLS➡️ ${txtls}"
 echo -e "🔺️Port GFW➡️ ${tgfw}"
