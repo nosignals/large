@@ -8,6 +8,9 @@ echo start
 sleep 0.5
 source /var/lib/wisnucs/ipvps.conf
 domain=$(cat /etc/xray/domain)
+domain2=$(cat /etc/xray/domain2)
+domain3=$(cat /etc/xray/domain3)
+
 echo -e "[ ${green}INFO${NC} ] Start " 
 sleep 1
 Cek=$(lsof -i:80 | cut -d' ' -f1 | awk 'NR==2 {print $1}')
@@ -28,9 +31,27 @@ bash acme.sh --install >/dev/null 2>&1
 /root/.acme.sh/acme.sh --set-default-ca --server letsencrypt >/dev/null 2>&1
 /root/.acme.sh/acme.sh --issue -d $domain --standalone --force --keylength ec-256 --server letsencrypt
 #/root/.acme.sh/acme.sh --issue -d $domain --standalone --force --keylength ec-256 --server letsencrypt --listen-v6
-/root/.acme.sh/acme.sh --installcert -d $domain --ecc --fullchainpath /etc/ssl/private/fullchain.pem --keypath /etc/ssl/private/privkey.pem
+/root/.acme.sh/acme.sh --installcert -d $domain --ecc --fullchainpath /www/wwwroot/a/xray.crt --keypath /www/wwwroot/a/xray.key
 echo -e "[ ${green}INFO${NC} ] Renew cert done... "
-sleep 5
+sleep 2
+curls acme.sh/acme.sh >/dev/null 2>&1
+bash acme.sh --install >/dev/null 2>&1
+/root/.acme.sh/acme.sh --upgrade --auto-upgrade >/dev/null 2>&1
+/root/.acme.sh/acme.sh --set-default-ca --server letsencrypt >/dev/null 2>&1
+/root/.acme.sh/acme.sh --issue -d $domain2 --standalone --force --keylength ec-256 --server letsencrypt
+#/root/.acme.sh/acme.sh --issue -d $domain --standalone --force --keylength ec-256 --server letsencrypt --listen-v6
+/root/.acme.sh/acme.sh --installcert -d $domain --ecc --fullchainpath /www/wwwroot/b/xray.crt --keypath /www/wwwroot/b/xray.key
+echo -e "[ ${green}INFO${NC} ] Renew cert done... 
+sleep 2
+curls acme.sh/acme.sh >/dev/null 2>&1
+bash acme.sh --install >/dev/null 2>&1
+/root/.acme.sh/acme.sh --upgrade --auto-upgrade >/dev/null 2>&1
+/root/.acme.sh/acme.sh --set-default-ca --server letsencrypt >/dev/null 2>&1
+/root/.acme.sh/acme.sh --issue -d $domain3 --standalone --force --keylength ec-256 --server letsencrypt
+#/root/.acme.sh/acme.sh --issue -d $domain --standalone --force --keylength ec-256 --server letsencrypt --listen-v6
+/root/.acme.sh/acme.sh --installcert -d $domain --ecc --fullchainpath /www/wwwroot/c/xray.crt --keypath /www/wwwroot/c/xray.key
+echo -e "[ ${green}INFO${NC} ] Renew cert done... 
+sleep 2
 rm acme.sh >/dev/null 2>&1
 echo -e "[ ${green}INFO${NC} ] Renew cert done... "
 restart
