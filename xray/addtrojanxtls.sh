@@ -18,7 +18,8 @@ MYIP6=$(wget -qO- https://ipv6.icanhazip.com);
 clear
 domain=$(cat /etc/xray/domain)
 domain2=$(cat /etc/xray/domain2)
-uuid=$(cat /proc/sys/kernel/random/uuid)
+#uuid=$(cat /proc/sys/kernel/random/uuid)
+uuid=$(openssl rand -hex 7)
 txtls="$(cat ~/log-install.txt | grep -w "TROJAN XTLS" | cut -d: -f2|sed 's/ //g')"
 tgfw="$(cat ~/log-install.txt | grep -w "TROJAN GFW" | cut -d: -f2|sed 's/ //g')"
 until [[ $user =~ ^[a-zA-Z0-9_]+$ && ${user_EXISTS} == '0' ]]; do
