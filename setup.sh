@@ -42,6 +42,9 @@ wisnuvpnnnnnnnnnn="raw.githubusercontent.com/inoyaksorojawi/large/sae/ohp"
 # Getting
 MYIP=$(wget -qO- ipinfo.io/ip);
 rm -f setup.sh
+echo $domain > /root/domain
+echo $domain2 > /root/domain2
+echo $domain3 > /root/domain3
 domain=$(cat /etc/xray/domain)
 domain2=$(cat /etc/xray/domain2)
 domain3=$(cat /etc/xray/domain3)
