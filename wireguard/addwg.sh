@@ -25,7 +25,7 @@ fi
 source /var/lib/wisnucs/ipvps.conf
 if [[ "$IP2" = "" ]]; then
 #domain=$(cat /etc/xray/domain)
-domain=$(cat /etc/xray/domain)
+domain2=$(cat /root/domain2)
 else
 domain=$IP2
 fi
@@ -99,7 +99,7 @@ echo -e "\033[1;46m       🔰 AKUN WIREGUARD 🔰       \e[m"
 echo -e "\033[1;31m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
 echo -e "🔺️Nama➡️ $CLIENT_NAME"
 echo -e "🔺️IP➡️ $MYIP"
-echo -e "🔺️Domain➡️ $domain"
+echo -e "🔺️Domain➡️ $domain2"
 echo -e "🔺️Port➡️ $portwg"
 echo -e "🔺️Dibuat➡️ $hariini"
 echo -e "🔺️Kadaluarsa➡️ $exp"
