@@ -101,6 +101,8 @@ sed -i '/#trojan-grpc$/a\### '"$user $exp"'\
 },{"password": "'""$uuid""'","email": "'""$user""'"' /etc/xray/xvless.json
 sed -i '/#trojan-xtls$/a\### '"$user $exp"'\
 },{"password": "'""$uuid""'","flow": "'""xtls-rprx-direct""'", "email": "'""$user""'"' /etc/xray/xtrojan.json
+sed -i '/#trojan-xtls$/a\### '"$user $exp"'\
+},{"password": "'""$uuid""'","flow": "'""xtls-rprx-direct""'", "email": "'""$user""'"' /etc/xray/xvmess.json
 sed -i '/#trojan-hdua$/a\### '"$user $exp"'\
 },{"password": "'""$uuid""'","email": "'""$user""'"' /etc/xray/xtrojan.json
 sed -i '/#trojan-hdua$/a\### '"$user $exp"'\
@@ -169,7 +171,7 @@ echo -e ""
 echo -e "\033[1;31m━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
 echo -e "\033[1;46m 🔰 AKUN TROJAN TESTER 🔰 \e[m"       
 echo -e "\033[1;31m━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
-echo -e "🔺️IP➡️${MYIP} / $domain"
+echo -e "🔺️IP➡️${MYIP} / $domain2"
 echo -e " 🔺️CDN HOST➡️$domain3"
 echo -e "🔺️NAMA➡️ ${user}"
 echo -e "🔺️Protokol➡️ GRPC,H2C,GFW,XTLS,WS,KCP,HTTP,GO,QUIC"
