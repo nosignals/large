@@ -15,7 +15,7 @@ LIGHT='\033[0;37m'
 MYIP=$(wget -qO- ipinfo.io/ip);
 clear
 domain=$(cat /etc/xray/domain)
-#domain=$(cat /etc/v2ray/domain)
+domain3=$(cat /etc/xray/domain3)
 
 trgo="$(cat ~/log-install.txt | grep -w "TROJAN GO" | cut -d: -f2|sed 's/ //g')"
 until [[ $user =~ ^[a-zA-Z0-9_]+$ && ${user_EXISTS} == '0' ]]; do
@@ -35,7 +35,7 @@ sed -i '/"'""$uuid""'"$/a\,"'""$user""'"' /etc/trojan-go/config.json
 exp=`date -d "$masaaktif days" +"%Y-%m-%d"`
 hariini=`date -d "0 days" +"%Y-%m-%d"`
 echo -e "### $user $exp" >> /etc/trojan-go/akun.conf
-link="trojan-go://$user@$domain:$trgo?type=ws&sni=$domain&host=$domain&path=%252Fgandring-go#%F0%9F%94%B0TROJAN+GO+$user"
+link="trojan-go://$user@$domain3:$trgo?type=ws&sni=$domain3&host=$domain3&path=%252Fgandring-go#%F0%9F%94%B0TROJAN+GO+$user"
 systemctl restart trojan-go.service
 echo -e "\033[1;31m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
 echo -e "\033[1;46m      🔰 AKUN TROJAN-GO 🔰        \e[m"   
@@ -43,6 +43,7 @@ echo -e "\033[1;31m━━━━━━━━━━━━━━━━━━━━�
 echo -e "🔺️Nama➡️ ${user}"
 echo -e "🔺️IP➡️ ${MYIP}"
 echo -e "🔺️Address➡️ ${domain}"
+echo -e "🔺️Address➡️ ${domain3}"
 echo -e "🔺️Port➡️ ${trgo}"
 echo -e "🔺️Key➡️ ${user}"
 echo -e "🔺️Path➡️ /gandring-go"
