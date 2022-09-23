@@ -669,7 +669,7 @@ cat > /etc/trojan-go/config.json << END
    "local_addr": "0.0.0.0",
     "local_port": 2083,
      "remote_addr": "127.0.0.1",
-      "remote_port": 88,
+      "remote_port": 80,
        "log_level": 1,
         "log_file": "/var/log/trojan-go/trojan-go.log",
          "password": [
@@ -680,13 +680,13 @@ cat > /etc/trojan-go/config.json << END
       "ssl": {
        "verify": true,
         "verify_hostname": true,
-         "cert": "/www/wwwroot/a/xray.crt",
-          "key": "/www/wwwroot/a/xray.key",
+         "cert": "/www/wwwroot/c/xray.crt",
+          "key": "/www/wwwroot/c/xray.key",
            "key_password": "",
             "cipher": "TLS_ECDHE_ECDSA_WITH_AES_256_GCM_SHA384:TLS_ECDHE_ECDSA_WITH_AES_128_GCM_SHA256:TLS_ECDHE_ECDSA_WITH_CHACHA20_POLY1305_SHA256",
              "curves": "",
               "prefer_server_cipher": true,
-               "sni": "$domain",
+               "sni": "$domain3",
                 "alpn": [
                  "h2",
                   "http/1.1"
@@ -695,7 +695,7 @@ cat > /etc/trojan-go/config.json << END
      "reuse_session": true,
       "plain_http_response": "",
        "fallback_addr": "127.0.0.1",
-        "fallback_port": 443,
+        "fallback_port": 2096,
          "fingerprint": "chrome"
     },
     "tcp": {
@@ -721,7 +721,7 @@ cat > /etc/trojan-go/config.json << END
     "websocket": {
      "enabled": true,
       "path": "/gandring-go",
-       "host": "$domain"
+       "host": "$domain3"
     },
     "shadowsocks": {
      "enabled": false,
@@ -758,8 +758,8 @@ cat > /etc/trojan-go/config.json << END
        "api_port": 10808,
         "ssl": {
          "enabled": true,
-          "key": "/www/wwwroot/a/xray.key",
-           "cert": "/www/wwwroot/a/xray.crt",
+          "key": "/www/wwwroot/c/xray.key",
+           "cert": "/www/wwwroot/c/xray.crt",
             "verify_client": false,
              "client_cert": []
     }
