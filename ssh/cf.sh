@@ -20,7 +20,7 @@ apt install jq curl -y
 DOMAIN=gandring.my.id
 #sub=$(</dev/urandom tr -dc a-z0-9 | head -c2)
 
-SUB_PROXIED=cf.gandring.my.id
+SUB_PROXIED=cdn.gandring.my.id
 CF_ID=djarumpentol01@gmail.com
 CF_KEY=00dffab0559c394b8e9dcd7b05fcf1fcd274d
 set -euo pipefail
