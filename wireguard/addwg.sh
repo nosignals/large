@@ -25,9 +25,9 @@ fi
 source /var/lib/wisnucs/ipvps.conf
 if [[ "$IP2" = "" ]]; then
 #domain=$(cat /etc/xray/domain)
-domain2=$(cat /root/domain2)
+domain2=$(cat /etc/xray/domain2)
 else
-domain=$IP2
+domain2=$IP2
 fi
 echo ""
 portwg="$(cat ~/log-install.txt | grep -w "WIREGUARD" | cut -d: -f2|sed 's/ //g')"
@@ -43,7 +43,7 @@ until [[ ${CLIENT_NAME} =~ ^[a-zA-Z0-9_]+$ && ${CLIENT_EXISTS} == '0' ]]; do
 done
 
 echo "IPv4 Detected"
-ENDPOINT="${domain}:$SERVER_PORT"
+ENDPOINT="${domain2}:$SERVER_PORT"
 WG_CONFIG="/etc/wireguard/wg0.conf"
 LASTIP=$( grep "/32" $WG_CONFIG | tail -n1 | awk '{print $3}' | cut -d "/" -f 1 | cut -d "." -f 4 )
 if [[ "$LASTIP" = "" ]]; then
