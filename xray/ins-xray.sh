@@ -46,9 +46,9 @@ mkdir -p /usr/bin/xray
 mkdir -p /etc/xray
 mkdir -p /etc/ssl/private
 mkdir -p /usr/local/etc/xray
-mkdir -p /www/wwwroot/a
-mkdir -p /www/wwwroot/b
-mkdir -p /www/wwwroot/c
+mkdir -p /etc/xray/a
+mkdir -p /etc/xray/b
+mkdir -p /etc/xray/c
 mkdir -p /home/sstp
 mkdir -p /home/vps/public_html
 # / / Unzip Xray Linux 64
@@ -85,12 +85,12 @@ alias acme.sh=~/.acme.sh/acme.sh
 #/root/.acme.sh/acme.sh --issue -d "${domain}" --standalone --keylength ec-2048
 /root/.acme.sh/acme.sh --issue -d "${domain}" --standalone --keylength ec-256
 /root/.acme.sh/acme.sh --install-cert -d "${domain}" --ecc \
---fullchain-file /www/wwwroot/a/xray.crt \
---key-file /www/wwwroot/a/xray.key
+--fullchain-file /etc/xray/a/xray.crt \
+--key-file /etc/xray/a/xray.key
 chown -R nobody:nogroup /etc/xray
-chown -R nobody:nogroup /www/wwwroot/a
-chmod 644 /www/wwwroot/a/xray.crt
-chmod 644 /www/wwwroot/a/xray.key
+chown -R nobody:nogroup /etc/xray/a
+chmod 644 /etc/xray/a/xray.crt
+chmod 644 /etc/xray/a/xray.key
 
 ##Generate acme certificate
 curl https://get.acme.sh | sh
@@ -100,12 +100,12 @@ alias acme.sh=~/.acme.sh/acme.sh
 #/root/.acme.sh/acme.sh --issue -d "${domain}" --standalone --keylength ec-2048
 /root/.acme.sh/acme.sh --issue -d "${domain2}" --standalone --keylength ec-256
 /root/.acme.sh/acme.sh --install-cert -d "${domain2}" --ecc \
---fullchain-file /www/wwwroot/b/xray.crt \
---key-file /www/wwwroot/b/xray.key
+--fullchain-file /etc/xray/b/xray.crt \
+--key-file /etc/xray/b/xray.key
 chown -R nobody:nogroup /etc/xray
-chown -R nobody:nogroup /www/wwwroot/b
-chmod 644 /www/wwwroot/b/xray.crt
-chmod 644 /www/wwwroot/b/xray.key
+chown -R nobody:nogroup /etc/xray/b
+chmod 644 /etc/xray/b/xray.crt
+chmod 644 /etc/xray/b/xray.key
 
 ##Generate acme certificate
 curl https://get.acme.sh | sh
@@ -115,12 +115,12 @@ alias acme.sh=~/.acme.sh/acme.sh
 #/root/.acme.sh/acme.sh --issue -d "${domain}" --standalone --keylength ec-2048
 /root/.acme.sh/acme.sh --issue -d "${domain3}" --standalone --keylength ec-256
 /root/.acme.sh/acme.sh --install-cert -d "${domain3}" --ecc \
---fullchain-file /www/wwwroot/c/xray.crt \
---key-file /www/wwwroot/c/xray.key
+--fullchain-file /etc/xray/c/xray.crt \
+--key-file /etc/xray/c/xray.key
 chown -R nobody:nogroup /etc/xray
-chown -R nobody:nogroup /www/wwwroot/c
-chmod 644 /www/wwwroot/c/xray.crt
-chmod 644 /www/wwwroot/c/xray.key
+chown -R nobody:nogroup /etc/xray/c
+chmod 644 /etc/xray/c/xray.crt
+chmod 644 /etc/xray/c/xray.key
 
 #sudo lsof -t -i tcp:80 -s tcp:listen | sudo xargs kill
 #cd /root/
@@ -680,13 +680,13 @@ cat > /etc/trojan-go/config.json << END
       "ssl": {
        "verify": true,
         "verify_hostname": true,
-         "cert": "/www/wwwroot/c/xray.crt",
-          "key": "/www/wwwroot/c/xray.key",
+         "cert": "/etc/xray/a/xray.crt",
+          "key": "/etc/xray/a/xray.key",
            "key_password": "",
             "cipher": "TLS_ECDHE_ECDSA_WITH_AES_256_GCM_SHA384:TLS_ECDHE_ECDSA_WITH_AES_128_GCM_SHA256:TLS_ECDHE_ECDSA_WITH_CHACHA20_POLY1305_SHA256",
              "curves": "",
               "prefer_server_cipher": true,
-               "sni": "$domain3",
+               "sni": "$domain",
                 "alpn": [
                  "h2",
                   "http/1.1"
@@ -695,7 +695,7 @@ cat > /etc/trojan-go/config.json << END
      "reuse_session": true,
       "plain_http_response": "",
        "fallback_addr": "127.0.0.1",
-        "fallback_port": 2096,
+        "fallback_port": 9443,
          "fingerprint": "chrome"
     },
     "tcp": {
@@ -721,7 +721,7 @@ cat > /etc/trojan-go/config.json << END
     "websocket": {
      "enabled": true,
       "path": "/gandring-go",
-       "host": "$domain3"
+       "host": "$domain"
     },
     "shadowsocks": {
      "enabled": false,
@@ -757,9 +757,9 @@ cat > /etc/trojan-go/config.json << END
       "api_addr": "127.0.0.1",
        "api_port": 10808,
         "ssl": {
-         "enabled": true,
-          "key": "/www/wwwroot/c/xray.key",
-           "cert": "/www/wwwroot/c/xray.crt",
+         "enabled": false,
+          "key": "",
+           "cert": "",
             "verify_client": false,
              "client_cert": []
     }
@@ -835,6 +835,8 @@ sudo netfilter-persistent save >/dev/null 2>&1
 sudo netfilter-persistent reload >/dev/null 2>&1
 
 cp /root/domain /etc/xray
+cp /root/domain2 /etc/xray
+cp /root/domain3 /etc/xray
 cp /root/domain /usr/local/etc/xray
 cp /etc/ssl/private/fullchain.pem /etc/xray/xray.crt
 cp /etc/ssl/private/privkey.pem /etc/xray/xray.key
