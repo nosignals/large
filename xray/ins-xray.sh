@@ -46,9 +46,6 @@ mkdir -p /usr/bin/xray
 mkdir -p /etc/xray
 mkdir -p /etc/ssl/private
 mkdir -p /usr/local/etc/xray
-mkdir -p /etc/xray/a
-mkdir -p /etc/xray/b
-mkdir -p /etc/xray/c
 mkdir -p /home/sstp
 mkdir -p /home/vps/public_html
 # / / Unzip Xray Linux 64
@@ -85,12 +82,11 @@ alias acme.sh=~/.acme.sh/acme.sh
 #/root/.acme.sh/acme.sh --issue -d "${domain}" --standalone --keylength ec-2048
 /root/.acme.sh/acme.sh --issue -d "${domain}" --standalone --keylength ec-256
 /root/.acme.sh/acme.sh --install-cert -d "${domain}" --ecc \
---fullchain-file /etc/xray/a/xray.crt \
---key-file /etc/xray/a/xray.key
+--fullchain-file /etc/xray/xray.crt \
+--key-file /etc/xray/xray.key
 chown -R nobody:nogroup /etc/xray
-chown -R nobody:nogroup /etc/xray/a
-chmod 644 /etc/xray/a/xray.crt
-chmod 644 /etc/xray/a/xray.key
+chmod 644 /etc/xray/xray.crt
+chmod 644 /etc/xray/xray.key
 
 ##Generate acme certificate
 curl https://get.acme.sh | sh
@@ -100,12 +96,11 @@ alias acme.sh=~/.acme.sh/acme.sh
 #/root/.acme.sh/acme.sh --issue -d "${domain}" --standalone --keylength ec-2048
 /root/.acme.sh/acme.sh --issue -d "${domain2}" --standalone --keylength ec-256
 /root/.acme.sh/acme.sh --install-cert -d "${domain2}" --ecc \
---fullchain-file /etc/xray/b/xray.crt \
---key-file /etc/xray/b/xray.key
+--fullchain-file /etc/xray/crt.pem \
+--key-file /etc/xray/key.pem
 chown -R nobody:nogroup /etc/xray
-chown -R nobody:nogroup /etc/xray/b
-chmod 644 /etc/xray/b/xray.crt
-chmod 644 /etc/xray/b/xray.key
+chmod 644 /etc/xray/crt.pem
+chmod 644 /etc/xray/key.pem
 
 ##Generate acme certificate
 curl https://get.acme.sh | sh
@@ -115,12 +110,11 @@ alias acme.sh=~/.acme.sh/acme.sh
 #/root/.acme.sh/acme.sh --issue -d "${domain}" --standalone --keylength ec-2048
 /root/.acme.sh/acme.sh --issue -d "${domain3}" --standalone --keylength ec-256
 /root/.acme.sh/acme.sh --install-cert -d "${domain3}" --ecc \
---fullchain-file /etc/xray/c/xray.crt \
---key-file /etc/xray/c/xray.key
+--fullchain-file /etc/xray/prox.crt \
+--key-file /etc/xray/prox.key
 chown -R nobody:nogroup /etc/xray
-chown -R nobody:nogroup /etc/xray/c
-chmod 644 /etc/xray/c/xray.crt
-chmod 644 /etc/xray/c/xray.key
+chmod 644 /etc/xray/prox.crt
+chmod 644 /etc/xray/prox.key
 
 #sudo lsof -t -i tcp:80 -s tcp:listen | sudo xargs kill
 #cd /root/
@@ -680,8 +674,8 @@ cat > /etc/trojan-go/config.json << END
       "ssl": {
        "verify": true,
         "verify_hostname": true,
-         "cert": "/etc/xray/a/xray.crt",
-          "key": "/etc/xray/a/xray.key",
+         "cert": "/etc/xray/xray.crt",
+          "key": "/etc/xray/xray.key",
            "key_password": "",
             "cipher": "TLS_ECDHE_ECDSA_WITH_AES_256_GCM_SHA384:TLS_ECDHE_ECDSA_WITH_AES_128_GCM_SHA256:TLS_ECDHE_ECDSA_WITH_CHACHA20_POLY1305_SHA256",
              "curves": "",
