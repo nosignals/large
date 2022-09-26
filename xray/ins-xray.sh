@@ -689,7 +689,7 @@ cat > /etc/trojan-go/config.json << END
      "reuse_session": true,
       "plain_http_response": "",
        "fallback_addr": "127.0.0.1",
-        "fallback_port": 9443,
+        "fallback_port": 443,
          "fingerprint": "chrome"
     },
     "tcp": {
@@ -751,9 +751,9 @@ cat > /etc/trojan-go/config.json << END
       "api_addr": "127.0.0.1",
        "api_port": 10808,
         "ssl": {
-         "enabled": false,
-          "key": "",
-           "cert": "",
+         "enabled": true,
+          "key": "/etc/xray/xray.key",
+           "cert": "/etc/xray/xray.crt",
             "verify_client": false,
              "client_cert": []
     }
