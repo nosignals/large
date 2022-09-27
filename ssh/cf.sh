@@ -78,11 +78,11 @@ RESULT=$(curl -sLX PUT "https://api.cloudflare.com/client/v4/zones/${ZONE}/dns_r
      -H "Content-Type: application/json" \
      --data '{"type":"A","name":"'${WILD_DOMAIN}'","content":"'${IP}'","ttl":300,"proxied":false}')
 echo "Host : $SUB_DOMAIN"
-echo $SUB_DOMAIN > /root/domain
+echo $SUB_DOMAIN > /root/domain2
 # / / Make Main Directory
 mkdir -p /usr/bin/xray
 mkdir -p /etc/xray
-cp /root/domain /etc/xray
+cp /root/domain2 /etc/xray
 rm -f /root/cf.sh
 
 SUB_DO=gg.gandring.my.id
@@ -143,9 +143,9 @@ RESULT=$(curl -sLX PUT "https://api.cloudflare.com/client/v4/zones/${ZONE}/dns_r
      -H "Content-Type: application/json" \
      --data '{"type":"A","name":"'${WILD}'","content":"'${IP}'","ttl":300,"proxied":false}')
 echo "Host : $SUB_DO"
-echo $SUB_DO > /root/domain2
+echo $SUB_DO > /root/domain
 # / / Make Main Directory
 mkdir -p /usr/bin/xray
 mkdir -p /etc/xray
-cp /root/domain2 /etc/xray
+cp /root/domain /etc/xray
 rm -f /root/cf.sh
