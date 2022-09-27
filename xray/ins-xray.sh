@@ -600,6 +600,26 @@ LimitNOFILE=1000000
 WantedBy=multi-user.target
 END
 
+# / / Installation Xray Service
+cat > /etc/systemd/system/xray@.service << END
+[Unit]
+Description=XRay Service ( %i )
+Documentation=https://github.com/XTLS/Xray-core
+After=network.target nss-lookup.target
+
+[Service]
+User=root
+NoNewPrivileges=true
+ExecStart=/usr/local/bin/xray -config /etc/xray/%i.json
+Restart=on-failure
+RestartPreventExitStatus=23
+LimitNPROC=10000
+LimitNOFILE=1000000
+
+[Install]
+WantedBy=multi-user.target
+END
+
 systemctl daemon-reload
 systemctl enable xray.service
 systemctl start xray.service
