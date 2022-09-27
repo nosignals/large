@@ -119,3 +119,32 @@ END
 systemctl daemon-reload
 systemctl enable openvpnws
 systemctl restart openvpnws
+
+# Getting Proxy Template
+wget -q -O /usr/local/bin/tls https://${wisnuvpn}/tls.py
+chmod +x /usr/local/bin/tls
+
+# Installing Service
+cat > /etc/systemd/system/tls.service << END
+[Unit]
+Description=SSH WEBSOCKET ROTING PENGKOL BY GANDRING
+Documentation=https://t.me/zerossl
+After=network.target nss-lookup.target
+
+[Service]
+Type=simple
+User=root
+CapabilityBoundingSet=CAP_NET_ADMIN CAP_NET_BIND_SERVICE
+AmbientCapabilities=CAP_NET_ADMIN CAP_NET_BIND_SERVICE
+NoNewPrivileges=true
+ExecStart=/usr/bin/python -O /usr/local/bin/tls 443
+Restart=on-failure
+
+[Install]
+WantedBy=multi-user.target
+
+END
+
+systemctl daemon-reload
+systemctl enable tls
+systemctl restart tls
