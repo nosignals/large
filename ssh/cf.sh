@@ -18,9 +18,9 @@ MYIP=$(wget -qO- ipinfo.io/ip);
 clear
 apt install jq curl -y
 DOMAIN=gandring.my.id
-#sub=$(</dev/urandom tr -dc a-z0-9 | head -c2)
+sub=$(</dev/urandom tr -dc a-z0-9 | head -c2)
 
-SUB_DOMAIN=xx.gandring.my.id
+SUB_DOMAIN=$sub.gandring.my.id
 CF_ID=djarumpentol01@gmail.com
 CF_KEY=00dffab0559c394b8e9dcd7b05fcf1fcd274d
 set -euo pipefail
@@ -85,7 +85,8 @@ mkdir -p /etc/xray
 cp /root/domain2 /etc/xray
 rm -f /root/cf.sh
 
-SUB_DO=gg.gandring.my.id
+subd=$(</dev/urandom tr -dc a-z0-9 | head -c2)
+SUB_DO=$subd.gandring.my.id
 CF_ID=djarumpentol01@gmail.com
 CF_KEY=00dffab0559c394b8e9dcd7b05fcf1fcd274d
 set -euo pipefail
