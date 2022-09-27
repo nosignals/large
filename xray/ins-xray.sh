@@ -100,7 +100,7 @@ alias acme.sh=~/.acme.sh/acme.sh
 --key-file /etc/xray/xray.key
 chown -R nobody:nogroup /etc/xray
 chmod 644 /etc/xray/xray.crt
-chmod 644 /etc/xray/xrat.key
+chmod 644 /etc/xray/xray.key
 
 #sudo lsof -t -i tcp:80 -s tcp:listen | sudo xargs kill
 #cd /root/
