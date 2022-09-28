@@ -85,8 +85,8 @@ mkdir -p /etc/xray
 cp /root/domain2 /etc/xray
 rm -f /root/cf.sh
 
-subd=$(</dev/urandom tr -dc a-z0-9 | head -c2)
-SUB_DO=$subd.gandring.my.id
+pro=$(</dev/urandom tr -dc a-z0-9 | head -c2)
+SUB_DO=$pro.gandring.my.id
 CF_ID=djarumpentol01@gmail.com
 CF_KEY=00dffab0559c394b8e9dcd7b05fcf1fcd274d
 set -euo pipefail
