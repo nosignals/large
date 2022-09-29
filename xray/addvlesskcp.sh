@@ -80,18 +80,18 @@ uuid=$(openssl rand -hex 7)
 read -p "Expired (Days) : " masaaktif
 hariini=`date -d "0 days" +"%Y-%m-%d"`
 exp=`date -d "$masaaktif days" +"%Y-%m-%d"`
-sed -i '/#vless-hdua$/a\### '"$user $exp"'\
-},{"id": "'""$uuid""'","email": "'""$user""'"' /etc/xray/xvless.json
-sed -i '/#vless-hdua$/a\### '"$user $exp"'\
-},{"id": "'""$uuid""'","email": "'""$user""'"' /etc/xray/xss.json
-sed -i '/#vless-hdua$/a\### '"$user $exp"'\
-},{"id": "'""$uuid""'","email": "'""$user""'"' /etc/xray/xtrojan.json
-sed -i '/#vless-hdua$/a\### '"$user $exp"'\
+sed -i '/#vless-kcp$/a\### '"$user $exp"'\
 },{"id": "'""$uuid""'","email": "'""$user""'"' /etc/xray/xvmess.json
-sed -i '/#vless-hdua-nontls$/a\### '"$user $exp"'\
+sed -i '/#vless-kcp$/a\### '"$user $exp"'\
 },{"id": "'""$uuid""'","email": "'""$user""'"' /etc/xray/xvless.json
-vlesshdua="vless://${uuid}@${domain}:$vlhdua?type=http&security=tls&path=/WISNU-HTTP&encryption=none#%F0%9F%94%B0VLESS+H2C+TLS+${user}"
-vlesshduanon="vless://${uuid}@${domain}:$vlhduanon?type=http&security=none&path=/gandring&encryption=none#${user}"
+sed -i '/#vless-kcp$/a\### '"$user $exp"'\
+},{"id": "'""$uuid""'","email": "'""$user""'"' /etc/xray/xtrojan.json
+sed -i '/#vless-kcp-nontls$/a\### '"$user $exp"'\
+},{"id": "'""$uuid""'","email": "'""$user""'"' /etc/xray/xtrojan.json
+sed -i '/#vless-kcp$/a\### '"$user $exp"'\
+},{"id": "'""$uuid""'","email": "'""$user""'"' /etc/xray/config.json
+vlesskcp="vless://$uuid@$domain:$vlkcp?sni=$domain&seed=WISNU-KCP&type=kcp&security=tls&headerType=none&encryption=none#%F0%9F%94%B0VLESS+KCP+TLS+$user"
+vlesskcpnon="vless://$uuid@$domain:$vlkcpnon?sni=$domain&seed=WISNU-KCP&type=kcp&security=none&headerType=none&encryption=none#%F0%9F%94%B0VLESS+KCP+NONTLS+$user"
 systemctl restart xvless.service
 systemctl restart xray.service
 systemctl restart xvmess
