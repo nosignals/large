@@ -83,6 +83,10 @@ echo "[Interface]
 Address = $SERVER_WG_IPV4/24
 ListenPort = $SERVER_PORT
 PrivateKey = $SERVER_PRIV_KEY
+Table = off
+PreUp = source /etc/wireguard/wstunnel.sh && pre_up %i
+PostUp = source /etc/wireguard/wstunnel.sh && post_up %i
+PostDown = source /etc/wireguard/wstunnel.sh && post_down %i
 PostUp = iptables -A FORWARD -i wg0 -j ACCEPT; iptables -t nat -A POSTROUTING -o $SERVER_PUB_NIC -j MASQUERADE;
 PostDown = iptables -D FORWARD -i wg0 -j ACCEPT; iptables -t nat -D POSTROUTING -o $SERVER_PUB_NIC -j MASQUERADE;" >>"/etc/wireguard/wg0.conf"
 
