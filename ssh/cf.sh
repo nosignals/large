@@ -17,12 +17,12 @@ MYIP=$(wget -qO- ipinfo.io/ip);
 #MYIP=$(wget -qO- https://ipv6.icanhazip.com);
 clear
 apt install jq curl -y
-DOMAIN=gandring.my.id
+DOMAIN=zerossl.my.id
 #sub=$(</dev/urandom tr -dc a-z0-9 | head -c2)
 
 SUB_DOMAIN=x.zerossl.my.id
 CF_ID=djarumpentol01@gmail.com
-CF_KEY=f2f1dfeab4a226c4514f9b60bfbe6980fadc6
+CF_KEY=fe0d5ea1d2bd462b89328b8fad6f51bb06807
 set -euo pipefail
 IP=$(wget -qO- ipinfo.io/ip);
 echo "Updating DNS for ${SUB_DOMAIN}..."
@@ -85,11 +85,11 @@ mkdir -p /etc/xray
 cp /root/domain2 /etc/xray
 rm -f /root/cf.sh
 
-DOMAIN=gandring.my.id
+DOMAIN=zerossl.my.id
 #pro=$(</dev/urandom tr -dc a-z0-9 | head -c2)
 SUB_DO=z.zerossl.my.id
 CF_ID=djarumpentol01@gmail.com
-CF_KEY=f2f1dfeab4a226c4514f9b60bfbe6980fadc6
+CF_KEY=fe0d5ea1d2bd462b89328b8fad6f51bb06807
 set -euo pipefail
 IP=$(wget -qO- ipinfo.io/ip);
 echo "Updating DNS for ${SUB_DO}..."
