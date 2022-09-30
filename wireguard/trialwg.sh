@@ -50,9 +50,9 @@ fi
 	fi
 
 	# Adguard DNS by default
-	CLIENT_DNS_1="1.1.1.1"
+	CLIENT_DNS_1="94.140.14.15"
 
-	CLIENT_DNS_2="1.0.0.1"
+	CLIENT_DNS_2="94.140.15.16"
 	MYIP2=$(curl -sS ifconfig.me);
 	#read -p "Expired (days): " Hariii
 	exp=`date -d "$Hariii days" +"%Y-%m-%d"`
