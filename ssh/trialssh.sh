@@ -38,16 +38,12 @@ Login=tes`</dev/urandom tr -dc X-Z0-9 | head -c2`
 hari="1"
 Pass=1
 clear
+systemctl restart sslh
 systemctl restart stunnelws
 systemctl restart nontls
 systemctl restart otls
 systemctl restart openvpnws
-systemctl restart sslh
 systemctl restart stunnel5
-systemctl restart ssh-ohp
-systemctl restart dropbear-ohp
-systemctl restart openvpn-ohp
-systemctl restart privoxy
 #systemctl restart nginx
 useradd -e `date -d "$masaaktif days" +"%Y-%m-%d"` -s /bin/false -M $Login
 exp="$(chage -l $Login | grep "Account expires" | awk -F": " '{print $2}')"
@@ -59,20 +55,20 @@ echo -e "\033[1;31m━━━━━━━━━━━━━━━━━━━━�
 echo -e "\033[1;46m 🔰 TEST SSH DAN OVPN 🔰  \e[m"   
 echo -e "\033[1;31m━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
 echo -e "\033[1;31m━━━━━━━━━━━━━━━━━━\033[0m"
-echo -e "🔺️SSH HOST➡️${domain}"
-echo -e "🔺️OVPN HOST➡️${domain2}"
+echo -e "🔺️HOST➡️${domain}"
 #echo -e "🔺️CF HOST➡️${domain3}"
 echo -e "🔺️USERNAME➡️$Login"
 echo -e "🔺️PASSWORD➡️$Pass"
-echo -e "🔺️DROPBEAR➡️$dropbearport"
+echo -e "🔺️DIRECT➡️$dropbearport"
+echo -e "🔺️DIRECT PILOT➡️80,2095,2086,2052"
 echo -e "🔺️OPENSSH➡️443"
-echo -e "🔺️WS TLS➡️$ws"
-echo -e "🔺️OVPN WS TLS➡️$otls,2096,2087,2053"
-echo -e "🔺️OVPN SSL➡️$ossl"
+echo -e "🔺️SSH SSL➡️$stunnel5port"
+echo -e "🔺️SSH WS TLS➡️$ws,2096,2087,8443,2053"
+echo -e "🔺️OVPN WS TLS➡️$otls,,8443,2096,2087,2053"
+echo -e "🔺️OVPN SSL➡️$ossl,8443"
 echo -e "🔺️Link OVPN➡️http://$MYIP:88/"
 echo -e "\033[1;31m━━━━━━━━━━━━━━━━━━\033[0m"
-echo -e "🔺️STUNNEL5➡️$stunnel5port"
-echo -e "🔺️WS NONTLS➡️ws2"
+echo -e "🔺️SSH WS NONTLS➡️ws2,8080,2095,2086,2052"
 echo -e "🔺️OVPN WS NONTLS➡️8880,2095,2086,2052,$onontls"
 echo -e "🔺️OVPN UDP➡️$oudp"
 echo -e "🔺️PRIVOXY➡️$priv"
@@ -81,7 +77,7 @@ echo -e "🔺️UDPGW➡️$udpgw"
 echo -e "🔺️Dibuat➡️$hariini"
 echo -e "🔺️Kadaluarsa➡️$expi"
 echo -e "\033[1;31m━━━━━━━━━━━━━━━━━━\033[0m"
-echo -e "🔺️GET ws://bugmu.com [protocol][crlf]/HTTP/1.1[crlf]/HTTP/2[crlf]/HTTP/3[crlf]Host: $domain/$domain2[crlf]Upgrade: Websocket[crlf]Connection: Keep-Alive[crlf]User-Agent: [ua][crlf][crlf]"
+echo -e "🔺️GET ws://bugmu.com [protocol][crlf]/HTTP/1.1[crlf]/HTTP/2[crlf]/HTTP/3[crlf]Host: $domain [crlf]Upgrade: Websocket[crlf]Connection: Keep-Alive[crlf]User-Agent: [ua][crlf][crlf]"
 echo -e "\033[1;31m━━━━━━━━━━━━━━━━━━\033[0m"
 echo -e "\033[1;31m━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
 echo -e "\033[1;46m🔰LUXURY EDITION ZEROSSL🔰\e[m"   
