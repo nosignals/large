@@ -83,10 +83,6 @@ echo "[Interface]
 Address = $SERVER_WG_IPV4/24
 ListenPort = $SERVER_PORT
 PrivateKey = $SERVER_PRIV_KEY
-Table = off
-PreUp = source /etc/wireguard/wstunnel.sh && pre_up %i
-PostUp = source /etc/wireguard/wstunnel.sh && post_up %i
-PostDown = source /etc/wireguard/wstunnel.sh && post_down %i
 PostUp = iptables -A FORWARD -i wg0 -j ACCEPT; iptables -t nat -A POSTROUTING -o $SERVER_PUB_NIC -j MASQUERADE;
 PostDown = iptables -D FORWARD -i wg0 -j ACCEPT; iptables -t nat -D POSTROUTING -o $SERVER_PUB_NIC -j MASQUERADE;" >>"/etc/wireguard/wg0.conf"
 
@@ -102,6 +98,13 @@ iptables-save > /etc/iptables.up.rules
 iptables-restore -t < /etc/iptables.up.rules
 netfilter-persistent save
 netfilter-persistent reload
+
+wget https://github.com/erebe/wstunnel/releases/download/v4.0/wstunnel-x64-linux
+sudo mv wstunnel-x64-linux /usr/local/bin/wstunnel
+sudo chmod +x /usr/local/bin/wstunnel
+wget https://raw.githubusercontent.com/jnsgruk/wireguard-over-wss/master/wstunnel.sh
+sudo mv wstunnel.sh /etc/wireguard/wstunnel.sh
+sudo chmod +x /etc/wireguard/wstunnel.sh
 
 systemctl start "wg-quick@wg0"
 systemctl enable "wg-quick@wg0"
