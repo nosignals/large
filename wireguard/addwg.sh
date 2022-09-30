@@ -75,7 +75,12 @@ DNS = $CLIENT_DNS_1,$CLIENT_DNS_2
 [Peer]
 PublicKey = $SERVER_PUB_KEY
 PresharedKey = $CLIENT_PRE_SHARED_KEY
-Endpoint = $ENDPOINT
+#Endpoint = $ENDPOINT
+Endpoint = 127.0.0.1:51820
+Table = off
+PreUp = source /etc/wireguard/wstunnel.sh && pre_up %i
+PostUp = source /etc/wireguard/wstunnel.sh && post_up %i
+PostDown = source /etc/wireguard/wstunnel.sh && post_down %i
 AllowedIPs = 0.0.0.0/0,::/0" >>"$HOME/$SERVER_WG_NIC-client-$CLIENT_NAME.conf"
 
 # Add the client as a peer to the server
@@ -97,12 +102,12 @@ clear
 echo -e "\033[1;31m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
 echo -e "\033[1;46m       🔰 AKUN WIREGUARD 🔰       \e[m"   
 echo -e "\033[1;31m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
-echo -e "🔺️Nama➡️ $CLIENT_NAME"
-echo -e "🔺️IP➡️ $MYIP"
-echo -e "🔺️Domain➡️ $domain2"
-echo -e "🔺️Port➡️ $portwg"
-echo -e "🔺️Dibuat➡️ $hariini"
-echo -e "🔺️Kadaluarsa➡️ $exp"
+echo -e "🔺️Nama➡️$CLIENT_NAME"
+echo -e "🔺️IP➡️$MYIP"
+echo -e "🔺️Domain➡️$domain2"
+echo -e "🔺️Port➡️$portwg"
+echo -e "🔺️Dibuat➡️$hariini"
+echo -e "🔺️Kadaluarsa➡️$exp"
 echo -e "\033[1;31m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
 echo -e "🔺️Link WG➡️ http://$MYIP:88/$CLIENT_NAME.conf"
 echo -e "\033[1;31m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
