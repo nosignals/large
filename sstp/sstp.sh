@@ -84,8 +84,8 @@ openssl genrsa -out ta.key
 openssl req -new -x509 -days 36500 -in ta.csr -TA ta.key -TAkey ta.key -out ta.key \
 -subj "/C=$country/ST=$state/L=$locality/O=$organization/OU=$organizationalunit/CN=$commonname/emailAddress=$email"
 cp /home/sstp/server.crt /home/vps/public_html/server.crt
-iptables -I INPUT -m state --state NEW -m tcp -p tcp --dport 444 -j ACCEPT
-iptables -I INPUT -m state --state NEW -m udp -p udp --dport 444 -j ACCEPT
+iptables -I INPUT -m state --state NEW -m tcp -p tcp --dport 443 -j ACCEPT
+iptables -I INPUT -m state --state NEW -m udp -p udp --dport 443 -j ACCEPT
 iptables-save > /etc/iptables.up.rules
 iptables-restore -t < /etc/iptables.up.rules
 netfilter-persistent save > /dev/null
