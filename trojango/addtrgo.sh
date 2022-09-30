@@ -15,7 +15,7 @@ LIGHT='\033[0;37m'
 MYIP=$(wget -qO- ipinfo.io/ip);
 clear
 domain=$(cat /etc/xray/domain)
-domain3=$(cat /etc/xray/domain3)
+domain2=$(cat /etc/xray/domain2)
 
 trgo="$(cat ~/log-install.txt | grep -w "TROJAN GO" | cut -d: -f2|sed 's/ //g')"
 until [[ $user =~ ^[a-zA-Z0-9_]+$ && ${user_EXISTS} == '0' ]]; do
@@ -43,7 +43,7 @@ echo -e "\033[1;31m━━━━━━━━━━━━━━━━━━━━�
 echo -e "🔺️Nama➡️ ${user}"
 echo -e "🔺️IP➡️ ${MYIP}"
 echo -e "🔺️Address➡️ ${domain}"
-echo -e "🔺️Address➡️ ${domain3}"
+echo -e "🔺️Address➡️ ${domain2}"
 echo -e "🔺️Port➡️ ${trgo}"
 echo -e "🔺️Key➡️ ${user}"
 echo -e "🔺️Path➡️ /gandring-go"
