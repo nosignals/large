@@ -121,11 +121,11 @@ systemctl enable openvpnws
 systemctl restart openvpnws
 
 # Getting Proxy Template
-wget -q -O /usr/local/bin/tls https://${wisnuvpn}/tls.py
-chmod +x /usr/local/bin/tls
+wget -q -O /usr/local/bin/wstunnel https://${wisnuvpn}/wstunnel.py
+chmod +x /usr/local/bin/wstunnel
 
 # Installing Service
-cat > /etc/systemd/system/tls.service << END
+cat > /etc/systemd/system/wstunnel.service << END
 [Unit]
 Description=WIREGUARD WEBSOCKET ROTING PENGKOL BY GANDRING
 Documentation=https://t.me/zerossl
@@ -137,7 +137,8 @@ User=root
 CapabilityBoundingSet=CAP_NET_ADMIN CAP_NET_BIND_SERVICE
 AmbientCapabilities=CAP_NET_ADMIN CAP_NET_BIND_SERVICE
 NoNewPrivileges=true
-ExecStart=/usr/local/bin/tls -v --server wss://0.0.0.0:443 --restrictTo=127.0.0.1:51820
+ExecStart=/usr/bin/python -O /usr/local/bin/wstunnel 443
+#ExecStart=/usr/local/bin/wstunnel -v --server wss://0.0.0.0:443 --restrictTo=127.0.0.1:443
 Restart=on-failure
 
 [Install]
@@ -146,5 +147,5 @@ WantedBy=multi-user.target
 END
 
 systemctl daemon-reload
-systemctl enable tls
-systemctl restart tls
+systemctl enable wstunnel
+systemctl restart wstunnel
