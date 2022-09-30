@@ -53,9 +53,9 @@ CLIENT_ADDRESS="10.11.11.$((LASTIP+1))"
 fi
 
 # Adguard DNS by default
-CLIENT_DNS_1="1.1.1.1"
+CLIENT_DNS_1="94.140.14.15"
 
-CLIENT_DNS_2="1.0.0.1"
+CLIENT_DNS_2="94.140.15.16"
 MYIP=$(wget -qO- ifconfig.co);
 read -p "Expired (Days) : " masaaktif
 hariini=`date -d "0 days" +"%Y-%m-%d"`
@@ -71,16 +71,16 @@ echo "[Interface]
 PrivateKey = $CLIENT_PRIV_KEY
 Address = $CLIENT_ADDRESS/24
 DNS = $CLIENT_DNS_1,$CLIENT_DNS_2
+Table = off
+PreUp = source /etc/wireguard/wstunnel.sh && pre_up %i
+PostUp = source /etc/wireguard/wstunnel.sh && post_up %i
+PostDown = source /etc/wireguard/wstunnel.sh && post_down %i
 
 [Peer]
 PublicKey = $SERVER_PUB_KEY
 PresharedKey = $CLIENT_PRE_SHARED_KEY
 #Endpoint = $ENDPOINT
 Endpoint = 127.0.0.1:51820
-Table = off
-PreUp = source /etc/wireguard/wstunnel.sh && pre_up %i
-PostUp = source /etc/wireguard/wstunnel.sh && post_up %i
-PostDown = source /etc/wireguard/wstunnel.sh && post_down %i
 AllowedIPs = 0.0.0.0/0,::/0" >>"$HOME/$SERVER_WG_NIC-client-$CLIENT_NAME.conf"
 
 # Add the client as a peer to the server
