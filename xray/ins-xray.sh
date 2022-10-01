@@ -45,6 +45,20 @@ xraycore_link="https://github.com/XTLS/Xray-core/releases/download/v$latest_vers
 mkdir -p /usr/bin/xray
 mkdir -p /etc/xray
 mkdir -p /etc/ssl/private
+sudo mkdir /etc/ssl/nginx
+cd /etc/ssl/nginx
+sudo cp nginx-repo.crt /etc/ssl/nginx/
+sudo cp nginx-repo.key /etc/ssl/nginx/
+sudo apt-get install apt-transport-https lsb-release ca-certificates wget gnupg2 debian-archive-keyring
+sudo apt-get install apt-transport-https lsb-release ca-certificates wget gnupg2 ubuntu-keyring
+wget -qO - https://cs.nginx.com/static/keys/nginx_signing.key | gpg --dearmor | sudo tee /usr/share/keyrings/nginx-archive-keyring.gpg >/dev/null
+wget -qO - https://cs.nginx.com/static/keys/app-protect-security-updates.key | gpg --dearmor | sudo tee /usr/share/keyrings/app-protect-security-updates.gpg >/dev/null
+printf "deb [signed-by=/usr/share/keyrings/nginx-archive-keyring.gpg] https://pkgs.nginx.com/plus/ubuntu `lsb_release -cs` nginx-plus\n" | sudo tee /etc/apt/sources.list.d/nginx-plus.list
+printf "deb [signed-by=/usr/share/keyrings/nginx-archive-keyring.gpg] https://pkgs.nginx.com/modsecurity/ubuntu `lsb_release -cs` nginx-plus\n" | sudo tee /etc/apt/sources.list.d/nginx-modsecurity.list
+sudo wget -P /etc/apt/apt.conf.d https://cs.nginx.com/static/files/90pkgs-nginx
+sudo apt-get install -y nginx-plus
+sudo apt-get install app-protect app-protect-attack-signatures
+sudo apt-get install nginx-plus nginx-plus-module-modsecurity
 mkdir -p /usr/local/etc/xray
 mkdir -p /home/sstp
 mkdir -p /home/vps/public_html
