@@ -41,8 +41,8 @@ bash acme.sh --install >/dev/null 2>&1
 /root/.acme.sh/acme.sh --issue -d $domain --standalone --force --keylength ec-256 --server letsencrypt
 #/root/.acme.sh/acme.sh --issue -d $domain --standalone --force --keylength ec-256 --server letsencrypt --listen-v6
 /root/.acme.sh/acme.sh --installcert -d $domain --ecc --fullchainpath /etc/xray/xray.crt --keypath /etc/xray/xray.key
-echo -e "[ ${green}INFO${NC} ] Renew cert done... 
+echo -e "[ ${green}INFO${NC} ] Renew cert done... " 
 sleep 2
 rm acme.sh >/dev/null 2>&1
 echo -e "[ ${green}INFO${NC} ] Renew cert done... "
-restart
+restart && status
