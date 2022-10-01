@@ -52,3 +52,4 @@ systemctl restart ssrmu
 screen -dmS badvpn badvpn-udpgw --listen-addr 127.0.0.1:99
 sleep 0.5
 echo -e "🔰RESTART LAYANAN TUNNEL SELESAI✅"
+status
