@@ -16,6 +16,7 @@ MYIP=$(wget -qO- ipinfo.io/ip);
 clear
 domain=$(cat /etc/xray/domain)
 domain2=$(cat /etc/xray/domain2)
+domain3=$(cat /etc/xray/domain3)
 #uuid=$(cat /proc/sys/kernel/random/uuid)
 thdua="$(cat ~/log-install.txt | grep -w "TROJAN H2C TLS" | cut -d: -f2|sed 's/ //g')"
 until [[ $user =~ ^[a-zA-Z0-9_]+$ && ${user_EXISTS} == '0' ]]; do
