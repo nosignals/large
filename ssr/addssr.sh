@@ -25,7 +25,7 @@ fi
 source /var/lib/wisnucs/ipvps.conf
 if [[ "$IP2" = "" ]]; then
 domain=$(cat /etc/xray/domain)
-#domain=$(cat /etc/v2ray/domain)
+domain2=$(cat /etc/cray/domain2)
 else
 domain=$IP2
 fi
@@ -64,18 +64,18 @@ clear
 echo -e "\033[1;31m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
 echo -e "\033[1;46m    🔰 AKUN SHADOWSOCKS-RR 🔰     \e[m"   
 echo -e "\033[1;31m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
-echo -e "🔺️IP ➡️ ${IP}"
-echo -e "🔺️Domain ➡️ $domain"
-echo -e "🔺️Port ➡️ ${ssr_port}"
-echo -e "🔺️Password ➡️ ${ssr_password}"
-echo -e "🔺️Encryption ➡️ ${ssr_method}"
-echo -e "🔺️Protocol ➡️ ${Red_font_prefix}${ssr_protocol}"
-echo -e "🔺️Obfs ➡️ ${Red_font_prefix}${ssr_obfs}"
-echo -e "🔺️Max Device ➡️ ${ssr_protocol_param}"
-echo -e "🔺️Dibuat ➡️ $hariini"
-echo -e "🔺️Kadaluarsa ➡️ ${exp} "
+echo -e "🔺️IP➡️ ${IP},$domain"
+echo -e "🔺️Domain➡️ $domain"
+echo -e "🔺️Port➡️ ${ssr_port}"
+echo -e "🔺️Password➡️ ${ssr_password}"
+echo -e "🔺️Encryption➡️ ${ssr_method}"
+echo -e "🔺️Protocol➡️ ${Red_font_prefix}${ssr_protocol}"
+echo -e "🔺️Obfs➡️ ${Red_font_prefix}${ssr_obfs}"
+echo -e "🔺️Max Device➡️ ${ssr_protocol_param}"
+echo -e "🔺️Dibuat➡️ $hariini"
+echo -e "🔺️Kadaluarsa➡️ ${exp} "
 echo -e "\033[1;31m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
-echo -e "🔺️Link SSR ➡️  ${ssr_link}"
+echo -e "🔺️Link SSR➡️  ${ssr_link}"
 echo -e "\033[1;31m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
 echo -e "\033[1;46m  🔰LUXURY EDITION BY ZEROSSL🔰   \e[m"   
 echo -e "\033[1;31m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
