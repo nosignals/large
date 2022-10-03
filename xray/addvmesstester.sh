@@ -16,6 +16,8 @@ MYIP=$(wget -qO- https://ipv4.icanhazip.com);
 MYIP6=$(wget -qO- https://ipv6.icanhazip.com);
 clear
 domain=$(cat /etc/xray/domain)
+domain2=$(cat /etc/xray/domain2)
+domain3=$(cat /etc/xray/domain3)
 tls="$(cat ~/log-install.txt | grep -w "VMESS WS TLS" | cut -d: -f2|sed 's/ //g')"
 nontls="$(cat ~/log-install.txt | grep -w "VMESS WS NON TLS" | cut -d: -f2|sed 's/ //g')"
 vmhttp="$(cat ~/log-install.txt | grep -w "VMESS HTTP TLS" | cut -d: -f2|sed 's/ //g')"
@@ -482,7 +484,7 @@ echo -e "\033[1;31m━━━━━━━━━━━━━━━━━━━━�
 echo -e "\033[1;46m  🔰AKUN VMESS TESTER🔰   \e[m"   
 echo -e "\033[1;31m━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
 echo -e "\033[1;31m━━━━━━━━━━━━━━━━━━\033[0m"
-echo -e "🔺️IP➡️ ${MYIP}"
+echo -e "🔺️IP➡️ ${MYIP},$domain"
 echo -e "🔺️HOST➡️$domain2"
 echo -e "🔺️NAMA➡️ ${user}"
 echo -e "🔺️Port WS TLS➡️ ${tls},8443,2096,2087,2053"
