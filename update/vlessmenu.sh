@@ -16,20 +16,20 @@ echo -e "06\e[1;33m) Hapus Akun VLESS GRPC \e[m"
 echo -e "07\e[1;33m) Perpanjang Masa Aktif Akun VLESS GRPC \e[m"
 echo -e "08\e[1;33m) Cek User Login VLESS GRPC \e[m"
 echo -e "\033[1;36m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
-echo -e "09\e[1;33m) Buat Akun VLESS H2C \e[m"
-echo -e "10\e[1;33m) Hapus Akun VLESS H2C \e[m"
-echo -e "11\e[1;33m) Perpanjang Masa Aktif Akun VLESS H2C \e[m"
-echo -e "12\e[1;33m) Cek User Login VLESS H2C \e[m"
+echo -e "09\e[1;33m) Buat Akun VLESS HTTP \e[m"
+echo -e "10\e[1;33m) Hapus Akun VLESS HTTP \e[m"
+echo -e "11\e[1;33m) Perpanjang Masa Aktif Akun VLESS HTTP \e[m"
+echo -e "12\e[1;33m) Cek User Login VLESS HTTP \e[m"
 echo -e "\033[1;36m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
 echo -e "13\e[1;33m) Buat Akun VLESS XTLS \e[m"
 echo -e "14\e[1;33m) Hapus Akun VLESS XTLS  \e[m"
 echo -e "15\e[1;33m) Perpanjang Masa Aktif Akun VLESS XTLS  \e[m"
 echo -e "16\e[1;33m) Cek User Login VLESS XTLS  \e[m"
 echo -e "\033[1;36m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
-echo -e "17\e[1;33m) Buat Akun VLESS HTTP \e[m"
-echo -e "18\e[1;33m) Hapus Akun VLESS HTTP \e[m"
-echo -e "19\e[1;33m) Perpanjang Masa Aktif Akun VLESS HTTP \e[m"
-echo -e "20\e[1;33m) Cek User Login VLESS HTTP \e[m"
+echo -e "17\e[1;33m) Buat Akun VLESS H2C \e[m"
+echo -e "18\e[1;33m) Hapus Akun VLESS H2C \e[m"
+echo -e "19\e[1;33m) Perpanjang Masa Aktif Akun VLESS H2C \e[m"
+echo -e "20\e[1;33m) Cek User Login VLESS H2C \e[m"
 echo -e "\033[1;36m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
 echo -e "21\e[1;33m) Buat Akun VLESS QUIC \e[m"
 echo -e "22\e[1;33m) Hapus Akun VLESS QUIC \e[m"
@@ -75,16 +75,16 @@ renewvlessgroc
 cekvlessgrpc
 ;;
 9)
-addvlesshdua
+addvlesshttp
 ;;
 10)
-delvlesshdua
+delvlesshttp
 ;;
 11)
-renewvlesshdua
+renewvlesshttp
 ;;
 12)
-cekvlesshdua
+cekvlesshttp
 ;;
 13)
 addvlessxtls
@@ -99,16 +99,16 @@ renewvlessxtls
 cekvlessxtls
 ;;
 17)
-addvlesshttp
+addvlesshdua
 ;;
 18)
-delvlesshttp
+delvlesshdua
 ;;
 19)
-renewvlesshttp
+renewvlesshdua
 ;;
 20)
-cekvlesshttp
+cekvlesshdua
 ;;
 21)
 addvlessquic
