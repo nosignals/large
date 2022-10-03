@@ -42,11 +42,14 @@ sed -i '/^,"'"$user"'"$/d' /etc/trojan-go/config.json
 systemctl restart trojan-go.service
 service cron restart
 clear
+echo -e "\033[0;34m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
+echo " Akun Trojan Go Dihapus"
+echo -e "\033[0;34m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
+echo " Client Name : $user"
+echo " Expired On  : $exp"
+echo -e "\033[0;34m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
 echo ""
-echo "============================"
-echo "  TrojanGo Account Deleted  "
-echo "============================"
-echo "Username : $user"
-echo "Expired  : $exp"
-echo "============================"
-echo "Script By @zerossl"
+rm /etc/trojan-go/tmp
+read -n 1 -s -r -p "Press any key to back on menu"
+
+trojanmenu
