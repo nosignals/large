@@ -16,6 +16,8 @@ MYIP=$(wget -qO- https://ipv4.icanhazip.com);
 MYIP6=$(wget -qO- https://ipv6.icanhazip.com);
 clear
 domain=$(cat /etc/xray/domain)
+domain2=$(cat /etc/xray/domain2)
+domain3=$(cat /etc/xray/domain3)
 vlquic="$(cat ~/log-install.txt | grep -w "VLESS QUIC TLS" | cut -d: -f2|sed 's/ //g')"
 vlgrpc="$(cat ~/log-install.txt | grep -w "VLESS GRPC TLS" | cut -d: -f2|sed 's/ //g')"
 vlgrpcnon="$(cat ~/log-install.txt | grep -w "VLESS GRPC NON TLS" | cut -d: -f2|sed 's/ //g')"
@@ -162,7 +164,7 @@ echo -e "\033[1;46m 🔰 AKUN VLESS TESTER 🔰  \e[m"
 echo -e "\033[1;31m━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
 echo -e "\033[1;31m━━━━━━━━━━━━━━━━━━\033[0m"
 echo -e "🔺️Protokol➡️ WS,GRPC,HTTP,KCP,H2C,GFW,XTLS,QUIC"
-echo -e "🔺️IP➡️ ${MYIP} / $domain"
+echo -e "🔺️IP➡️ ${MYIP}, $domain"
 echo -e "🔺️NAMA➡️ ${user}"
 echo -e "🔺️Flow➡️ ONLY ORIGIN'S TYPE NOT ALLOWED"
 echo -e "🔺️Port GRPC➡️ $vlgrpc,8443,2096,2087,2053"
