@@ -15,7 +15,7 @@ LIGHT='\033[0;37m'
 MYIP=$(wget -qO- ipinfo.io/ip);
 clear
 domain=$(cat /etc/xray/domain)
-
+domain2=$(cat /etc/xray/domain2)
 #uuid=$(cat /proc/sys/kernel/random/uuid)
 thdua="$(cat ~/log-install.txt | grep -w "TROJAN H2C TLS" | cut -d: -f2|sed 's/ //g')"
 until [[ $user =~ ^[a-zA-Z0-9_]+$ && ${user_EXISTS} == '0' ]]; do
@@ -100,7 +100,7 @@ echo -e "\033[1;31m━━━━━━━━━━━━━━━━━━━━�
 echo -e "\033[1;46m 🔰 AKUN TROJAN HTTP/2 🔰 \e[m"       
 echo -e "\033[1;31m━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
 echo -e "🔺️Nama➡️ ${user}"
-echo -e "🔺️IP➡️ ${MYIP}"
+echo -e "🔺️IP➡️ ${MYIP},$domain2"
 echo -e "🔺️Host➡️ ${domain}"
 echo -e "🔺️Protocol➡️ H2C"
 echo -e "🔺️Path➡️ /GANDRING-HTTP"
