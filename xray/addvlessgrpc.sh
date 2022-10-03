@@ -15,7 +15,8 @@ LIGHT='\033[0;37m'
 MYIP=$(wget -qO- ipinfo.io/ip);
 clear
 domain=$(cat /etc/xray/domain)
-
+domain2=$(cat /etc/xray/domain2)
+domain3=$(cat /etc/xray/domain3)
 vlgrpc="$(cat ~/log-install.txt | grep -w "VLESS GRPC TLS" | cut -d: -f2|sed 's/ //g')"
 #vlgrpcnon="$(cat ~/log-install.txt | grep -w "VLESS GRPC NON TLS" | cut -d: -f2|sed 's/ //g')"
 until [[ $user =~ ^[a-zA-Z0-9_]+$ && ${user_EXISTS} == '0' ]]; do
@@ -98,7 +99,7 @@ echo -e "\033[1;31m━━━━━━━━━━━━━━━━━━━━�
 echo -e "\033[1;46m  🔰 AKUN VLESS GRPC 🔰   \e[m"   
 echo -e "\033[1;31m━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
 echo -e "🔺️Nama➡️ ${user}"
-echo -e "🔺️IP/Host➡️ ${MYIP}"
+echo -e "🔺️IP➡️ ${MYIP},$domain2"
 echo -e "🔺️Address➡️ ${domain}"
 echo -e "🔺️Port TLS➡️ $vlgrpc,8443,2096,2087,2053"
 #echo -e "🔺️Port NON TLS➡️ $vlgrpcnon"
