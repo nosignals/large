@@ -30,8 +30,10 @@ fi
 source /var/lib/wisnucs/ipvps.conf
 if [[ "$IP2" = "" ]]; then
 domain=$(cat /etc/xray/domain)
+domain2=$(cat /etc/xray/domain2)
 else
 domain=$IP2
+domain2=$IP2
 fi
 echo ""
 echo "Masukkan Password"
@@ -98,7 +100,7 @@ clear
 echo -e "\033[1;31m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
 echo -e "\033[1;46m     🔰 AKUN SHADOWSOCKS 🔰       \e[m"   
 echo -e "\033[1;31m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
-echo -e "🔺️IP ➡️ $MYIP"
+echo -e "🔺️IP➡️ $MYIP,$domain2"
 echo -e "🔺️Domain ➡️ $domain"
 echo -e "🔺️Port TLS ➡️ $tls"
 echo -e "🔺️Port HTTP ➡️ $http"
@@ -115,4 +117,4 @@ echo -e "\033[1;46m    🔰LUXURY EDITION ZEROSSL🔰    \e[m"
 echo -e "\033[1;31m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
 echo ""
 read -n 1 -s -r -p "Ketik Bebas Untuk Ke Menu Utama"
-menu
+ssmenu
