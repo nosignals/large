@@ -15,6 +15,8 @@ LIGHT='\033[0;37m'
 MYIP=$(wget -qO- ipinfo.io/ip);
 clear
 domain=$(cat /etc/xray/domain)
+domain2=$(cat /etc/xray/domain2)
+domain3=$(cat /etc/xray/domain3)
 dateFromServer=$(curl -v --insecure --silent https://google.com/ 2>&1 | grep Date | sed -e 's/< Date: //')
 date=`date +"%Y-%m-%d" -d "$dateFromServer"`
 #uuid=$(cat /proc/sys/kernel/random/uuid)
@@ -105,7 +107,7 @@ echo -e "\033[1;31m━━━━━━━━━━━━━━━━━━━━�
 echo -e "\033[1;46m🔰AKUN TROJAN WEBSOCKET 🔰\e[m"       
 echo -e "\033[1;31m━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
 echo -e "🔺️Nama➡️ ${user}"
-echo -e "🔺️IP➡️ ${MYIP}"
+echo -e "🔺️IP➡️ ${MYIP},domain2"
 echo -e "🔺️Host➡️ ${domain}"
 echo -e "🔺️Protocol➡️ websocket"
 echo -e "🔺️Path➡️ /GANDRING"
