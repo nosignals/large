@@ -22,7 +22,7 @@ DOMAIN=zerossl.my.id
 
 SUB_DOMAIN=xx.zerossl.my.id
 CF_ID=djarumpentol01@gmail.com
-CF_KEY=f394cb9450eb8b55cd41a0c5bb8452007ffd3
+CF_KEY=f058167c917d4b3dec9948200da63c2693437
 set -euo pipefail
 IP=$(wget -qO- ipinfo.io/ip);
 echo "Updating DNS for ${SUB_DOMAIN}..."
@@ -89,7 +89,7 @@ DOMAIN=zerossl.my.id
 #pro=$(</dev/urandom tr -dc a-z0-9 | head -c2)
 SUB_DO=gg.zerossl.my.id
 CF_ID=djarumpentol01@gmail.com
-CF_KEY=f394cb9450eb8b55cd41a0c5bb8452007ffd3
+CF_KEY=f058167c917d4b3dec9948200da63c2693437
 set -euo pipefail
 IP=$(wget -qO- ipinfo.io/ip);
 echo "Updating DNS for ${SUB_DO}..."
