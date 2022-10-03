@@ -106,7 +106,7 @@ echo -e "\033[1;31m━━━━━━━━━━━━━━━━━━━━�
 echo -e "\033[1;46m    🔰 AKUN TROJAN KCP 🔰 \e[m"       
 echo -e "\033[1;31m━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
 echo -e "🔺️Nama➡️ ${user}"
-echo -e "🔺️IP➡️ ${MYIP},$domain2"
+echo -e "🔺️IP➡️ ${MYIP}"
 echo -e "🔺️Host➡️ ${domain}"
 echo -e "🔺️Protocol➡️ KCP"
 echo -e "🔺️Path➡️ GANDRING-KCP"
