@@ -15,15 +15,15 @@ echo -e "06\e[1;33m) Hapus Akun VMESS GRPC \e[m"
 echo -e "07\e[1;33m) Perpanjang Masa Aktif Akun VMESS GRPC \e[m"
 echo -e "08\e[1;33m) Cek User Login VMESS GRPC \e[m"
 echo -e "\033[1;36m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
-echo -e "09\e[1;33m) Buat Akun VMESS HTTP/2 \e[m"
-echo -e "10\e[1;33m) Hapus Akun VMESS HTTP/2 \e[m"
-echo -e "11\e[1;33m) Perpanjang Masa Aktif Akun Vmess HTTP/2 \e[m"
-echo -e "12\e[1;33m) Cek User Login VMESS HTTP/2 \e[m"
+echo -e "09\e[1;33m) Buat Akun VMESS HTTP \e[m"
+echo -e "10\e[1;33m) Hapus Akun VMESS HTTP \e[m"
+echo -e "11\e[1;33m) Perpanjang Masa Aktif Akun Vmess HTTP \e[m"
+echo -e "12\e[1;33m) Cek User Login VMESS HTTP \e[m"
 echo -e "\033[1;36m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
-echo -e "13\e[1;33m) Buat Akun VMESS HTTP \e[m"
-echo -e "14\e[1;33m) Hapus Akun VMESS HTTP \e[m"
-echo -e "15\e[1;33m) Perpanjang Masa Aktif Akun VMESS HTTP \e[m"
-echo -e "16\e[1;33m) Cek User Login VMESS HTTP \e[m"
+echo -e "13\e[1;33m) Buat Akun VMESS HTTP/2 \e[m"
+echo -e "14\e[1;33m) Hapus Akun VMESS HTTP/2 \e[m"
+echo -e "15\e[1;33m) Perpanjang Masa Aktif Akun VMESS HTTP2 \e[m"
+echo -e "16\e[1;33m) Cek User Login VMESS HTTP/2 \e[m"
 echo -e "\033[1;36m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
 echo -e "17\e[1;33m) Buat Akun VMESS QUIC \e[m"
 echo -e "18\e[1;33m) Hapus Akun VMESS QUIC \e[m"
@@ -70,28 +70,28 @@ renewvmessgrpc
 cekvmessgrpc
 ;;
 9)
-addvmesshdua
-;;
-10)
-delvmesshdua
-;;
-11)
-renewvmesshdua
-;;
-12)
-cekvmesshdua
-;;
-13)
 addvmesshttp
 ;;
-14)
+10)
 delvmesshttp
 ;;
-15)
+11)
 renewvmesshttp
 ;;
-16)
+12)
 cekvmesshttp
+;;
+13)
+addvmesshdua
+;;
+14)
+delvmesshdua
+;;
+15)
+renewvmesshdua
+;;
+16)
+cekvmesshdua
 ;;
 17)
 addvmessquic
