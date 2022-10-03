@@ -16,6 +16,8 @@ MYIP=$(wget -qO- https://ipv4.icanhazip.com);
 MYIP6=$(wget -qO- https://ipv6.icanhazip.com);
 clear
 domain=$(cat /etc/xray/domain)
+domain2=$(cat /etc/xray/domain2)
+domain3=$(cat /etc/xray/domain3)
 dateFromServer=$(curl -v --insecure --silent https://google.com/ 2>&1 | grep Date | sed -e 's/< Date: //')
 date=`date +"%Y-%m-%d" -d "$dateFromServer"`
 #uuid=$(cat /proc/sys/kernel/random/uuid)
@@ -102,7 +104,7 @@ echo -e "\033[1;31m━━━━━━━━━━━━━━━━━━━━�
 echo -e "\033[1;46m  🔰 AKUN TROJAN GRPC 🔰  \e[m"       
 echo -e "\033[1;31m━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
 echo -e "🔺️Nama➡️ ${user}"
-echo -e "🔺️IP➡️ ${MYIP}"
+echo -e "🔺️IP➡️ ${MYIP},$domain2"
 echo -e "🔺️Host➡️ ${domain}"
 echo -e "🔺️Protocol➡️ GRPC"
 echo -e "🔺️ServiceName➡️ SATRIO"
