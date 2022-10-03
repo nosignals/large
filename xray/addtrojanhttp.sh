@@ -15,6 +15,8 @@ LIGHT='\033[0;37m'
 MYIP=$(wget -qO- ipinfo.io/ip);
 clear
 domain=$(cat /etc/xray/domain)
+domain2=$(cat /etc/xray/domain2)
+domain3=$(cat /etc/xray/domain3)
 #uuid=$(cat /proc/sys/kernel/random/uuid)
 thttp="$(cat ~/log-install.txt | grep -w "TROJAN HTTP TLS" | cut -d: -f2|sed 's/ //g')"
 thttpnon="$(cat ~/log-install.txt | grep -w "TROJAN HTTP NON TLS" | cut -d: -f2|sed 's/ //g')"
@@ -101,7 +103,7 @@ echo -e "\033[1;31m━━━━━━━━━━━━━━━━━━━━�
 echo -e "\033[1;46m  🔰 AKUN TROJAN HTTP 🔰   \e[m"       
 echo -e "\033[1;31m━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
 echo -e "🔺️Nama➡️ ${user}"
-echo -e "🔺️Ip➡️ ${MYIP}"
+echo -e "🔺️Ip➡️ ${MYIP},$domain2"
 echo -e "🔺️Host➡️ ${domain}"
 echo -e "🔺️Protocol➡️ tcp"
 echo -e "🔺️Path➡️ /GANDRING-TCP"
