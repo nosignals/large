@@ -15,22 +15,22 @@ LIGHT='\033[0;37m'
 MYIP=$(wget -qO- ipinfo.io/ip);
 clear
 domain=$(cat /etc/xray/domain)
-domain2=$(cat /etc/xray/domain2)
+#domain=$(cat /etc/v2ray/domain)
 
 trgo="$(cat ~/log-install.txt | grep -w "TROJAN GO" | cut -d: -f2|sed 's/ //g')"
 until [[ $user =~ ^[a-zA-Z0-9_]+$ && ${user_EXISTS} == '0' ]]; do
-read -rp "Password : " -e user
-user_EXISTS=$(grep -w $user /etc/trojan-go/akun.conf | wc -l)
+		read -rp "Password : " -e user
+		user_EXISTS=$(grep -w $user /etc/trojan-go/akun.conf | wc -l)
 
-if [[ ${user_EXISTS} == '1' ]]; then
-echo ""
-echo -e "Username ${RED}${user}${NC} Already On VPS Please Choose Another"
-exit 1
-fi
-done
+		if [[ ${user_EXISTS} == '1' ]]; then
+			echo ""
+			echo -e "Username ${RED}${user}${NC} Already On VPS Please Choose Another"
+			exit 1
+		fi
+	done
 #uuid=$(cat /proc/sys/kernel/random/uuid)
 uuid=$(cat /etc/trojan-go/uuid.txt)
-
+read -p "Expired (Days) : " masaaktif
 sed -i '/"'""$uuid""'"$/a\,"'""$user""'"' /etc/trojan-go/config.json
 exp=`date -d "$masaaktif days" +"%Y-%m-%d"`
 hariini=`date -d "0 days" +"%Y-%m-%d"`
@@ -42,15 +42,17 @@ echo -e "\033[1;46m      🔰 AKUN TROJAN-GO 🔰        \e[m"
 echo -e "\033[1;31m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
 echo -e "🔺️Nama➡️ ${user}"
 echo -e "🔺️IP➡️ ${MYIP}"
-echo -e "🔺️Address➡️ ${domain}"
-echo -e "🔺️Address➡️ ${domain2}"
+echo -e "🔺️Host➡️ ${domain}"
 echo -e "🔺️Port➡️ ${trgo}"
-echo -e "🔺️Key➡️ ${user}"
+echo -e "🔺️Key:➡️ ${user}"
 echo -e "🔺️Path➡️ /gandring-go"
 echo -e "🔺️Dibuat➡️ $hariini"
 echo -e "🔺️Kadaluarsa➡️ $exp"
-echo -e "\033[1;31m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
-echo -e "🔺️TROJAN GO➡️  ${link}"
+echo -e "\033[1;31m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
+echo -e "🔺️TROJAN GO➡️ ${link}"
 echo -e "\033[1;31m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
 echo -e "\033[1;46m  🔰LUXURY EDITION BY ZEROSSL🔰   \e[m"   
 echo -e "\033[1;31m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
+echo ""
+read -n 1 -s -r -p "Ketik Bebas Untuk Ke Menu Utama"
+trojanmenu
