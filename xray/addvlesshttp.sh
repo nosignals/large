@@ -15,7 +15,8 @@ LIGHT='\033[0;37m'
 MYIP=$(wget -qO- ipinfo.io/ip);
 clear
 domain=$(cat /etc/xray/domain)
-
+domain2=$(cat /etc/xray/domain2)
+domain3=$(cat /etc/xray/domain3)
 vlhttp="$(cat ~/log-install.txt | grep -w "VLESS HTTP TLS" | cut -d: -f2|sed 's/ //g')"
 vlhttpnon="$(cat ~/log-install.txt | grep -w "VLESS HTTP NON TLS" | cut -d: -f2|sed 's/ //g')"
 until [[ $user =~ ^[a-zA-Z0-9_]+$ && ${user_EXISTS} == '0' ]]; do
@@ -108,7 +109,7 @@ echo -e "\033[1;31m━━━━━━━━━━━━━━━━━━━━�
 echo -e "\033[1;46m  🔰 AKUN VLESS HTTP 🔰   \e[m"   
 echo -e "\033[1;31m━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
 echo -e "🔺️Nama➡️ ${user}"
-echo -e "🔺️IP/Host➡️ ${MYIP}"
+echo -e "🔺️IP➡️ ${MYIP},$domain2"
 echo -e "🔺️Address➡️ ${domain}"
 echo -e "🔺️Port TLS➡️ $vlhttp,8443,2096"
 echo -e "🔺️Port NONTLS➡️ $vlhttpnon"
