@@ -38,14 +38,14 @@ do
 done
 MYIP=$(wget -qO- ipinfo.io/ip);
 MYIP6=$(wget -qO- https://ipv6.icanhazip.com);
-ws="$(cat ~/log-install.txt | grep -w "WEBSOCKET TLS" | cut -d: -f2|sed 's/ //g')"
-otcp="$(cat ~/log-install.txt | grep -w "PORT OVPN TCP" | cut -d: -f2|sed 's/ //g')"
-oudp="$(cat ~/log-install.txt | grep -w "PORT OVPN UDP" | cut -d: -f2|sed 's/ //g')"
-ossl="$(cat ~/log-install.txt | grep -w "PORT OVPN SSL" | cut -d: -f2|sed 's/ //g')"
-otls="$(cat ~/log-install.txt | grep -w "OVPN WS TLS" | cut -d: -f2|sed 's/ //g')"
-udpgw="$(cat ~/log-install.txt | grep -w "PORT UDPGW" | cut -d: -f2|sed 's/ //g')"
-priv="$(cat ~/log-install.txt | grep -w "PORT PRIVOXY" | cut -d: -f2|sed 's/ //g')"
-onontls="$(cat ~/log-install.txt | grep -w "OVPN WS NON TLS" | cut -d: -f2|sed 's/ //g')"
+ws="$(cat ~/log-install.txt | grep -w "SSH WS TLS" | cut -d: -f2|sed 's/ //g')"
+otcp="$(cat ~/log-install.txt | grep -w "OPENVPN TCP" | cut -d: -f2|sed 's/ //g')"
+oudp="$(cat ~/log-install.txt | grep -w "OPENVPN UDP" | cut -d: -f2|sed 's/ //g')"
+ossl="$(cat ~/log-install.txt | grep -w "OPENVPN SSL" | cut -d: -f2|sed 's/ //g')"
+otls="$(cat ~/log-install.txt | grep -w "OPENVPN WS TLS" | cut -d: -f2|sed 's/ //g')"
+udpgw="$(cat ~/log-install.txt | grep -w "UDPGW" | cut -d: -f2|sed 's/ //g')"
+priv="$(cat ~/log-install.txt | grep -w "PRIVOXY" | cut -d: -f2|sed 's/ //g')"
+onontls="$(cat ~/log-install.txt | grep -w "OPENVPN WS NON TLS" | cut -d: -f2|sed 's/ //g')"
 ws2="$(cat ~/log-install.txt | grep -w "SSH WS NON TLS" | cut -d: -f2|sed 's/ //g')"
 stunnel5port="$(cat ~/log-install.txt | grep -w "STUNNEL5" | cut -d: -f2|sed 's/ //g')"
 opensshport="$(cat ~/log-install.txt | grep -w "OPENSSH" | cut -d: -f2|sed 's/ //g')"
