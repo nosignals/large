@@ -486,6 +486,7 @@ echo -e "\033[1;31m━━━━━━━━━━━━━━━━━━━━�
 echo -e "\033[1;31m━━━━━━━━━━━━━━━━━━\033[0m"
 echo -e "🔺️IP➡️ ${MYIP},$domain"
 echo -e "🔺️HOST➡️$domain2"
+echo -e "🔺️CF Host➡️${domain3}"
 echo -e "🔺️NAMA➡️ ${user}"
 echo -e "🔺️Port WS TLS➡️ ${tls},8443,2096,2087,2053"
 echo -e "🔺️Port WS NONTLS➡️ ${nontls},2095,2086,2052"
