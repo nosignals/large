@@ -49,16 +49,16 @@ sudo mkdir /etc/ssl/nginx
 cd /etc/ssl/nginx
 sudo cp nginx-repo.crt /etc/ssl/nginx/
 sudo cp nginx-repo.key /etc/ssl/nginx/
-sudo apt-get install apt-transport-https lsb-release ca-certificates wget gnupg2 debian-archive-keyring
-sudo apt-get install apt-transport-https lsb-release ca-certificates wget gnupg2 ubuntu-keyring
+sudo apt-get install -y apt-transport-https lsb-release ca-certificates wget gnupg2 debian-archive-keyring
+sudo apt-get install -y apt-transport-https lsb-release ca-certificates wget gnupg2 ubuntu-keyring
 wget -qO - https://cs.nginx.com/static/keys/nginx_signing.key | gpg --dearmor | sudo tee /usr/share/keyrings/nginx-archive-keyring.gpg >/dev/null
 wget -qO - https://cs.nginx.com/static/keys/app-protect-security-updates.key | gpg --dearmor | sudo tee /usr/share/keyrings/app-protect-security-updates.gpg >/dev/null
 printf "deb [signed-by=/usr/share/keyrings/nginx-archive-keyring.gpg] https://pkgs.nginx.com/plus/ubuntu `lsb_release -cs` nginx-plus\n" | sudo tee /etc/apt/sources.list.d/nginx-plus.list
 printf "deb [signed-by=/usr/share/keyrings/nginx-archive-keyring.gpg] https://pkgs.nginx.com/modsecurity/ubuntu `lsb_release -cs` nginx-plus\n" | sudo tee /etc/apt/sources.list.d/nginx-modsecurity.list
 sudo wget -P /etc/apt/apt.conf.d https://cs.nginx.com/static/files/90pkgs-nginx
 sudo apt-get install -y nginx-plus
-sudo apt-get install app-protect app-protect-attack-signatures
-sudo apt-get install nginx-plus nginx-plus-module-modsecurity
+sudo apt-get install -y app-protect app-protect-attack-signatures
+sudo apt-get install -y nginx-plus nginx-plus-module-modsecurity
 mkdir -p /usr/local/etc/xray
 mkdir -p /home/sstp
 mkdir -p /home/vps/public_html
@@ -87,6 +87,20 @@ cd /root/
 #/root/.acme.sh/acme.sh --set-default-ca --server letsencrypt
 #/root/.acme.sh/acme.sh --issue -d $domain --standalone -k ec-256
 #~/.acme.sh/acme.sh --installcert -d $domain --fullchainpath /etc/xray/xray.crt --keypath /etc/xray/xray.key --ecc
+
+##Generate acme certificate
+curl https://get.acme.sh | sh
+alias acme.sh=~/.acme.sh/acme.sh
+/root/.acme.sh/acme.sh --upgrade --auto-upgrade
+/root/.acme.sh/acme.sh --set-default-ca --server letsencrypt
+#/root/.acme.sh/acme.sh --issue -d "${domain3}" --standalone --keylength ec-2048
+/root/.acme.sh/acme.sh --issue -d "${domain3}" --standalone --keylength ec-256
+/root/.acme.sh/acme.sh --install-cert -d "${domain3}" --ecc \
+--fullchain-file /etc/xray/cdn.crt \
+--key-file /etc/xray/cdn.key
+chown -R nobody:nogroup /etc/xray
+chmod 644 /etc/xray/cdn.crt
+chmod 644 /etc/xray/cdn.key
 
 ##Generate acme certificate
 curl https://get.acme.sh | sh
@@ -619,6 +633,30 @@ LimitNOFILE=1000000
 [Install]
 WantedBy=multi-user.target
 END
+
+cat > /etc/systemd/system/gandring.service <<EOF
+[Unit]
+Description=ENABLER XRAY TUNNEL
+After=network.target
+
+[Service]
+Type=simple
+User=root
+ExecStartPre=-/bin/mkdir -p /var/run/xray
+ExecStart=/bin/chown www-data:www-data /var/run/xray
+Restart=on-abort
+
+[Install]
+WantedBy=multi-user.target
+EOF
+
+# Restart Service
+sleep 1
+systemctl daemon-reload
+sleep 1
+# Enable & restart xray
+systemctl enable gandring
+systemctl restart gandring
 
 systemctl daemon-reload
 systemctl enable xray.service
