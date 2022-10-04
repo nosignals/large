@@ -138,6 +138,7 @@ echo -e "\033[1;31m━━━━━━━━━━━━━━━━━━━━�
 echo -e "🔺️Nama➡️ ${user}"
 echo -e "🔺️Host➡️ ${domain}"
 echo -e "🔺️IP➡️ ${MYIP},$domain2"
+echo -e "🔺️CF Host➡️${domain3}"
 echo -e "🔺️Port TLS➡️ ${vmgrpc},8443,2096,2087,2053"
 #echo -e "🔺️Port NonTLS➡️ ${vmgrpcnon}"
 echo -e "🔺️Protokol➡️ GRPC"
