@@ -117,7 +117,7 @@ echo -e "\033[1;36m━━━━━━━━━━━━━━━━━━━━�
 echo -e " 🔰 OPENSSH                        : 443"         |tee -a log-install.txt
 echo -e " 🔰 OPENVPN SSL                    : 443"         |tee -a log-install.txt
 echo -e " 🔰 DROPBEAR                       : 443"         |tee -a log-install.txt
-echo -e " 🔰 STUNNEL5                       : 443,500"     |tee -a log-install.txt
+echo -e " 🔰 STUNNEL 5                      : 443,500"     |tee -a log-install.txt
 echo -e " 🔰 OPENVPN WS TLS                 : 443"         |tee -a log-install.txt
 echo -e " 🔰 SSH WS TLS                     : 443"         |tee -a log-install.txt
 echo -e " 🔰 WIREGUARD                      : 443"         |tee -a log-install.txt
