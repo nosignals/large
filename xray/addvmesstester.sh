@@ -28,7 +28,7 @@ vmhdua="$(cat ~/log-install.txt | grep -w "VMESS H2C TLS" | cut -d: -f2|sed 's/ 
 vmquic="$(cat ~/log-install.txt | grep -w "VMESS QUIC TLS" | cut -d: -f2|sed 's/ //g')"
 vmkcp="$(cat ~/log-install.txt | grep -w "VMESS KCP TLS" | cut -d: -f2|sed 's/ //g')"
 until [[ $user =~ ^[a-zA-Z0-9_]+$ && ${user_EXISTS} == '0' ]]; do
-read -rp "Password : " -e user
+read -rp "Username : " -e user
 user_EXISTS=$(grep -w $user /etc/xray/xtrojan.json | wc -l)
 
 if [[ ${user_EXISTS} == '1' ]]; then
@@ -37,9 +37,8 @@ echo -e "Username ${RED}${user}${NC} Already On VPS Please Choose Another"
 exit 1
 fi
 done
-
 until [[ $user =~ ^[a-zA-Z0-9_]+$ && ${user_EXISTS} == '0' ]]; do
-read -rp "Password : " -e user
+read -rp "Username : " -e user
 user_EXISTS=$(grep -w $user /etc/xray/xvmess.json | wc -l)
 
 if [[ ${user_EXISTS} == '1' ]]; then
@@ -48,9 +47,8 @@ echo -e "Username ${RED}${user}${NC} Already On VPS Please Choose Another"
 exit 1
 fi
 done
-
 until [[ $user =~ ^[a-zA-Z0-9_]+$ && ${user_EXISTS} == '0' ]]; do
-read -rp "Password : " -e user
+read -rp "Username : " -e user
 user_EXISTS=$(grep -w $user /etc/xray/config.json | wc -l)
 
 if [[ ${user_EXISTS} == '1' ]]; then
@@ -59,9 +57,8 @@ echo -e "Username ${RED}${user}${NC} Already On VPS Please Choose Another"
 exit 1
 fi
 done
-
 until [[ $user =~ ^[a-zA-Z0-9_]+$ && ${user_EXISTS} == '0' ]]; do
-read -rp "Password : " -e user
+read -rp "Username : " -e user
 user_EXISTS=$(grep -w $user /etc/xray/xvless.json | wc -l)
 
 if [[ ${user_EXISTS} == '1' ]]; then
@@ -70,9 +67,8 @@ echo -e "Username ${RED}${user}${NC} Already On VPS Please Choose Another"
 exit 1
 fi
 done
-
 until [[ $user =~ ^[a-zA-Z0-9_]+$ && ${user_EXISTS} == '0' ]]; do
-read -rp "Password : " -e user
+read -rp "Username : " -e user
 user_EXISTS=$(grep -w $user /etc/xray/xss.json | wc -l)
 
 if [[ ${user_EXISTS} == '1' ]]; then
@@ -95,6 +91,52 @@ sed -i '/#vmess-tls$/a\### '"$user $exp"'\
 },{"id": "'""$uuid""'"' /etc/xray/xtrojan.json
 sed -i '/#vmess-nontls$/a\### '"$user $exp"'\
 },{"id": "'""$uuid""'"' /etc/xray/config.json
+sed -i '/#vmess-grpc-tls$/a\### '"$user $exp"'\
+},{"id": "'""$uuid""'","alterId": '"0"',"email": "'""$user""'"' /etc/xray/config.json
+sed -i '/#vmess-grpc-tls$/a\### '"$user $exp"'\
+},{"id": "'""$uuid""'","alterId": '"0"',"email": "'""$user""'"' /etc/xray/xvmess.json
+sed -i '/#vmess-grpc-tls$/a\### '"$user $exp"'\
+},{"id": "'""$uuid""'","alterId": '"0"',"email": "'""$user""'"' /etc/xray/xvless.json
+sed -i '/#vmess-grpc-tls$/a\### '"$user $exp"'\
+},{"id": "'""$uuid""'","alterId": '"0"',"email": "'""$user""'"' /etc/xray/xtrojan.json
+sed -i '/#vmess-grpc-nontls$/a\### '"$user $exp"'\
+},{"id": "'""$uuid""'","alterId": '"0"',"email": "'""$user""'"' /etc/xray/config.json
+sed -i '/#vmess-quic$/a\### '"$user $exp"'\
+},{"id": "'""$uuid""'","alterId": '"0"',"email": "'""$user""'"' /etc/xray/xvless.json
+sed -i '/#vmess-quic$/a\### '"$user $exp"'\
+},{"id": "'""$uuid""'","alterId": '"0"',"email": "'""$user""'"' /etc/xray/xtrojan.json
+sed -i '/#vmess-quic$/a\### '"$user $exp"'\
+},{"id": "'""$uuid""'","alterId": '"0"',"email": "'""$user""'"' /etc/xray/xvmess.json
+sed -i '/#vmess-hdua$/a\### '"$user $exp"'\
+},{"id": "'""$uuid""'","alterId": '"0"',"email": "'""$user""'"' /etc/xray/xvless.json
+sed -i '/#vmess-hdua$/a\### '"$user $exp"'\
+},{"id": "'""$uuid""'","alterId": '"0"',"email": "'""$user""'"' /etc/xray/config.json
+sed -i '/#vmess-hdua$/a\### '"$user $exp"'\
+},{"id": "'""$uuid""'","alterId": '"0"',"email": "'""$user""'"' /etc/xray/xvmess.json
+sed -i '/#vmess-hdua$/a\### '"$user $exp"'\
+},{"id": "'""$uuid""'","alterId": '"0"',"email": "'""$user""'"' /etc/xray/xtrojan.json
+sed -i '/#vmess-kcp$/a\### '"$user $exp"'\
+},{"id": "'""$uuid""'","alterId": '"0"',"email": "'""$user""'"' /etc/xray/xvless.json
+sed -i '/#vmess-kcp$/a\### '"$user $exp"'\
+},{"id": "'""$uuid""'","alterId": '"0"',"email": "'""$user""'"' /etc/xray/config.json
+sed -i '/#vmess-kcp$/a\### '"$user $exp"'\
+},{"id": "'""$uuid""'","alterId": '"0"',"email": "'""$user""'"' /etc/xray/xvmess.json
+sed -i '/#vmess-kcp$/a\### '"$user $exp"'\
+},{"id": "'""$uuid""'","alterId": '"0"',"email": "'""$user""'"' /etc/xray/xtrojan.json
+
+sed -i '/#vmess-http-tls$/a\### '"$user $exp"'\
+},{"id": "'""$uuid""'","alterId": '"0"',"email": "'""$user""'"' /etc/xray/xvmess.json
+sed -i '/#vmess-http-tls$/a\### '"$user $exp"'\
+},{"id": "'""$uuid""'","alterId": '"0"',"email": "'""$user""'"' /etc/xray/xvless.json
+sed -i '/#vmess-http-tls$/a\### '"$user $exp"'\
+},{"id": "'""$uuid""'","alterId": '"0"',"email": "'""$user""'"' /etc/xray/xtrojan.json
+sed -i '/#vmess-http-nontls$/a\### '"$user $exp"'\
+},{"id": "'""$uuid""'","alterId": '"0"',"email": "'""$user""'"' /etc/xray/xtrojan.json
+sed -i '/#vmess-http-nontls$/a\### '"$user $exp"'\
+},{"id": "'""$uuid""'","alterId": '"0"',"email": "'""$user""'"' /etc/xray/xvless.json
+sed -i '/#vmess-http-nontls$/a\### '"$user $exp"'\
+},{"id": "'""$uuid""'","alterId": '"0"',"email": "'""$user""'"' /etc/xray/config.json
+
 cat>/etc/xray/vmess-$user-tls.json<<EOF
       {
       "v": "4",
@@ -132,71 +174,6 @@ vmess2="vmess://$(base64 -w 0 /etc/xray/vmess-$user-nontls.json)"
 rm -rf /etc/xray/vmess-$user-tls.json
 rm -rf /etc/xray/vmess-$user-nontls.json
 
-until [[ $user =~ ^[a-zA-Z0-9_]+$ && ${CLIENT_EXISTS} == '0' ]]; do
-until [[ $user =~ ^[a-zA-Z0-9_]+$ && ${user_EXISTS} == '0' ]]; do
-read -rp "Password : " -e user
-user_EXISTS=$(grep -w $user /etc/xray/xtrojan.json | wc -l)
-
-if [[ ${user_EXISTS} == '1' ]]; then
-echo ""
-echo -e "Username ${RED}${user}${NC} Already On VPS Please Choose Another"
-exit 1
-fi
-done
-
-until [[ $user =~ ^[a-zA-Z0-9_]+$ && ${user_EXISTS} == '0' ]]; do
-read -rp "Password : " -e user
-user_EXISTS=$(grep -w $user /etc/xray/xvmess.json | wc -l)
-
-if [[ ${user_EXISTS} == '1' ]]; then
-echo ""
-echo -e "Username ${RED}${user}${NC} Already On VPS Please Choose Another"
-exit 1
-fi
-done
-
-until [[ $user =~ ^[a-zA-Z0-9_]+$ && ${user_EXISTS} == '0' ]]; do
-read -rp "Password : " -e user
-user_EXISTS=$(grep -w $user /etc/xray/config.json | wc -l)
-
-if [[ ${user_EXISTS} == '1' ]]; then
-echo ""
-echo -e "Username ${RED}${user}${NC} Already On VPS Please Choose Another"
-exit 1
-fi
-done
-
-until [[ $user =~ ^[a-zA-Z0-9_]+$ && ${user_EXISTS} == '0' ]]; do
-read -rp "Password : " -e user
-user_EXISTS=$(grep -w $user /etc/xray/xvless.json | wc -l)
-
-if [[ ${user_EXISTS} == '1' ]]; then
-echo ""
-echo -e "Username ${RED}${user}${NC} Already On VPS Please Choose Another"
-exit 1
-fi
-done
-
-until [[ $user =~ ^[a-zA-Z0-9_]+$ && ${user_EXISTS} == '0' ]]; do
-read -rp "Password : " -e user
-user_EXISTS=$(grep -w $user /etc/xray/xss.json | wc -l)
-
-if [[ ${user_EXISTS} == '1' ]]; then
-echo ""
-echo -e "Username ${RED}${user}${NC} Already On VPS Please Choose Another"
-exit 1
-fi
-done
-sed -i '/#vmess-grpc-tls$/a\### '"$user $exp"'\
-},{"id": "'""$uuid""'","alterId": '"0"',"email": "'""$user""'"' /etc/xray/config.json
-sed -i '/#vmess-grpc-tls$/a\### '"$user $exp"'\
-},{"id": "'""$uuid""'","alterId": '"0"',"email": "'""$user""'"' /etc/xray/xvmess.json
-sed -i '/#vmess-grpc-tls$/a\### '"$user $exp"'\
-},{"id": "'""$uuid""'","alterId": '"0"',"email": "'""$user""'"' /etc/xray/xvless.json
-sed -i '/#vmess-grpc-tls$/a\### '"$user $exp"'\
-},{"id": "'""$uuid""'","alterId": '"0"',"email": "'""$user""'"' /etc/xray/xtrojan.json
-sed -i '/#vmess-grpc-nontls$/a\### '"$user $exp"'\
-},{"id": "'""$uuid""'","alterId": '"0"',"email": "'""$user""'"' /etc/xray/config.json
 cat>/etc/xray/vmess-$user-tls.json<<EOF
       {
       "v": "4",
@@ -234,66 +211,6 @@ vmessgrpcnon="vmess://$(base64 -w 0 /etc/xray/vmess-$user-nontls.json)"
 rm -rf /etc/xray/vmess-$user-tls.json
 rm -rf /etc/xray/vmess-$user-nontls.json
 
-until [[ $user =~ ^[a-zA-Z0-9_]+$ && ${user_EXISTS} == '0' ]]; do
-read -rp "Password : " -e user
-user_EXISTS=$(grep -w $user /etc/xray/xtrojan.json | wc -l)
-
-if [[ ${user_EXISTS} == '1' ]]; then
-echo ""
-echo -e "Username ${RED}${user}${NC} Already On VPS Please Choose Another"
-exit 1
-fi
-done
-
-until [[ $user =~ ^[a-zA-Z0-9_]+$ && ${user_EXISTS} == '0' ]]; do
-read -rp "Password : " -e user
-user_EXISTS=$(grep -w $user /etc/xray/xvmess.json | wc -l)
-
-if [[ ${user_EXISTS} == '1' ]]; then
-echo ""
-echo -e "Username ${RED}${user}${NC} Already On VPS Please Choose Another"
-exit 1
-fi
-done
-
-until [[ $user =~ ^[a-zA-Z0-9_]+$ && ${user_EXISTS} == '0' ]]; do
-read -rp "Password : " -e user
-user_EXISTS=$(grep -w $user /etc/xray/config.json | wc -l)
-
-if [[ ${user_EXISTS} == '1' ]]; then
-echo ""
-echo -e "Username ${RED}${user}${NC} Already On VPS Please Choose Another"
-exit 1
-fi
-done
-
-until [[ $user =~ ^[a-zA-Z0-9_]+$ && ${user_EXISTS} == '0' ]]; do
-read -rp "Password : " -e user
-user_EXISTS=$(grep -w $user /etc/xray/xvless.json | wc -l)
-
-if [[ ${user_EXISTS} == '1' ]]; then
-echo ""
-echo -e "Username ${RED}${user}${NC} Already On VPS Please Choose Another"
-exit 1
-fi
-done
-
-until [[ $user =~ ^[a-zA-Z0-9_]+$ && ${user_EXISTS} == '0' ]]; do
-read -rp "Password : " -e user
-user_EXISTS=$(grep -w $user /etc/xray/xss.json | wc -l)
-
-if [[ ${user_EXISTS} == '1' ]]; then
-echo ""
-echo -e "Username ${RED}${user}${NC} Already On VPS Please Choose Another"
-exit 1
-fi
-done
-sed -i '/#vmess-quic$/a\### '"$user $exp"'\
-},{"id": "'""$uuid""'","alterId": '"0"',"email": "'""$user""'"' /etc/xray/xvless.json
-sed -i '/#vmess-quic$/a\### '"$user $exp"'\
-},{"id": "'""$uuid""'","alterId": '"0"',"email": "'""$user""'"' /etc/xray/xtrojan.json
-sed -i '/#vmess-quic$/a\### '"$user $exp"'\
-},{"id": "'""$uuid""'","alterId": '"0"',"email": "'""$user""'"' /etc/xray/xvmess.json
 cat>/etc/xray/vmess-$user-tls.json<<EOF
       {
       "v": "4",
@@ -316,14 +233,6 @@ vmessquic="vmess://$(base64 -w 0 /etc/xray/vmess-$user-tls.json)"
 rm -rf /etc/xray/vmess-$user-tls.json
 rm -rf /etc/xray/vmess-hdua-$user-nontls.json
 
-sed -i '/#vmess-hdua$/a\### '"$user $exp"'\
-},{"id": "'""$uuid""'","alterId": '"0"',"email": "'""$user""'"' /etc/xray/xvless.json
-sed -i '/#vmess-hdua$/a\### '"$user $exp"'\
-},{"id": "'""$uuid""'","alterId": '"0"',"email": "'""$user""'"' /etc/xray/config.json
-sed -i '/#vmess-hdua$/a\### '"$user $exp"'\
-},{"id": "'""$uuid""'","alterId": '"0"',"email": "'""$user""'"' /etc/xray/xvmess.json
-sed -i '/#vmess-hdua$/a\### '"$user $exp"'\
-},{"id": "'""$uuid""'","alterId": '"0"',"email": "'""$user""'"' /etc/xray/xtrojan.json
 cat>/etc/xray/vmess-$user-tls.json<<EOF
       {
       "v": "4",
@@ -346,14 +255,6 @@ vmesshdua="vmess://$(base64 -w 0 /etc/xray/vmess-$user-tls.json)"
 rm -rf /etc/xray/vmess-$user-tls.json
 rm -rf /etc/xray/vmess-hdua-$user-nontls.json
 
-sed -i '/#vmess-kcp$/a\### '"$user $exp"'\
-},{"id": "'""$uuid""'","alterId": '"0"',"email": "'""$user""'"' /etc/xray/xvless.json
-sed -i '/#vmess-kcp$/a\### '"$user $exp"'\
-},{"id": "'""$uuid""'","alterId": '"0"',"email": "'""$user""'"' /etc/xray/config.json
-sed -i '/#vmess-kcp$/a\### '"$user $exp"'\
-},{"id": "'""$uuid""'","alterId": '"0"',"email": "'""$user""'"' /etc/xray/xvmess.json
-sed -i '/#vmess-kcp$/a\### '"$user $exp"'\
-},{"id": "'""$uuid""'","alterId": '"0"',"email": "'""$user""'"' /etc/xray/xtrojan.json
 cat>/etc/xray/vmess-$user-tls.json<<EOF
       {
       "v": "4",
@@ -369,65 +270,11 @@ cat>/etc/xray/vmess-$user-tls.json<<EOF
       "tls": "tls"
 }
 EOF
-vmesskcp_base641=$( base64 -w 0 <<< $vmess_json1)
-vmesskcp_base642=$( base64 -w 0 <<< $vmess_json2)
+vmess_base641=$( base64 -w 0 <<< $vmess_json1)
 vmesskcp="vmess://$(base64 -w 0 /etc/xray/vmess-$user-tls.json)"
-#vmesshttpnon="vmess://$(base64 -w 0 /etc/xray/vmess-$user-nontls.json)"
+
 rm -rf /etc/xray/vmess-$user-tls.json
-rm -rf /etc/xray/vmess-$user-nontls.json
 
-until [[ $user =~ ^[a-zA-Z0-9_]+$ && ${CLIENT_EXISTS} == '0' ]]; do
-		read -rp "User: " -e user
-		CLIENT_EXISTS=$(grep -w $user /etc/xray/xtrojan.json | wc -l)
-
-		if [[ ${CLIENT_EXISTS} == '1' ]]; then
-			echo ""
-			echo "A Client Username Was Already Created, Please Enter New Username"
-			exit 1
-		fi
-	done
-until [[ $user =~ ^[a-zA-Z0-9_]+$ && ${CLIENT_EXISTS} == '0' ]]; do
-		read -rp "User: " -e user
-		CLIENT_EXISTS=$(grep -w $user /etc/xray/config.json | wc -l)
-
-		if [[ ${CLIENT_EXISTS} == '1' ]]; then
-			echo ""
-			echo "A Client Username Was Already Created, Please Enter New Username"
-			exit 1
-		fi
-	done
-until [[ $user =~ ^[a-zA-Z0-9_]+$ && ${CLIENT_EXISTS} == '0' ]]; do
-		read -rp "User: " -e user
-		CLIENT_EXISTS=$(grep -w $user /etc/xray/xvmess.json | wc -l)
-
-		if [[ ${CLIENT_EXISTS} == '1' ]]; then
-			echo ""
-			echo "A Client Username Was Already Created, Please Enter New Username"
-			exit 1
-		fi
-	done
-until [[ $user =~ ^[a-zA-Z0-9_]+$ && ${CLIENT_EXISTS} == '0' ]]; do
-		read -rp "User: " -e user
-		CLIENT_EXISTS=$(grep -w $user /etc/xray/xvless.json | wc -l)
-
-		if [[ ${CLIENT_EXISTS} == '1' ]]; then
-			echo ""
-			echo "A Client Username Was Already Created, Please Enter New Username"
-			exit 1
-		fi
-	done
-sed -i '/#vmess-http-tls$/a\### '"$user $exp"'\
-},{"id": "'""$uuid""'","alterId": '"0"',"email": "'""$user""'"' /etc/xray/xvmess.json
-sed -i '/#vmess-http-tls$/a\### '"$user $exp"'\
-},{"id": "'""$uuid""'","alterId": '"0"',"email": "'""$user""'"' /etc/xray/xvless.json
-sed -i '/#vmess-http-tls$/a\### '"$user $exp"'\
-},{"id": "'""$uuid""'","alterId": '"0"',"email": "'""$user""'"' /etc/xray/xtrojan.json
-sed -i '/#vmess-http-nontls$/a\### '"$user $exp"'\
-},{"id": "'""$uuid""'","alterId": '"0"',"email": "'""$user""'"' /etc/xray/xtrojan.json
-sed -i '/#vmess-http-nontls$/a\### '"$user $exp"'\
-},{"id": "'""$uuid""'","alterId": '"0"',"email": "'""$user""'"' /etc/xray/xvless.json
-sed -i '/#vmess-http-nontls$/a\### '"$user $exp"'\
-},{"id": "'""$uuid""'","alterId": '"0"',"email": "'""$user""'"' /etc/xray/config.json
 cat>/etc/xray/vmess-$user-tls.json<<EOF
       {
       "v": "4",
@@ -443,12 +290,9 @@ cat>/etc/xray/vmess-$user-tls.json<<EOF
       "tls": "tls"
 }
 EOF
-vmesshttp_base641=$( base64 -w 0 <<< $vmess_json1)
-vmesshttp_base642=$( base64 -w 0 <<< $vmess_json2)
+vmess_base641=$( base64 -w 0 <<< $vmess_json1)
 vmesshttp="vmess://$(base64 -w 0 /etc/xray/vmess-$user-tls.json)"
-vmesshttpnon="vmess://$(base64 -w 0 /etc/xray/vmess-$user-nontls.json)"
 rm -rf /etc/xray/vmess-$user-tls.json
-rm -rf /etc/xray/vmess-$user-nontls.json
 
 cat>/etc/xray/vmess-$user-nontls.json<<EOF
       {
@@ -465,11 +309,8 @@ cat>/etc/xray/vmess-$user-nontls.json<<EOF
       "tls": "none"
 }
 EOF
-vmesshttp_base641=$( base64 -w 0 <<< $vmess_json1)
-vmesshttp_base642=$( base64 -w 0 <<< $vmess_json2)
-vmesshttp="vmess://$(base64 -w 0 /etc/xray/vmess-$user-tls.json)"
+vmess_base642=$( base64 -w 0 <<< $vmess_json2)
 vmesshttpnon="vmess://$(base64 -w 0 /etc/xray/vmess-$user-nontls.json)"
-rm -rf /etc/xray/vmess-$user-tls.json
 rm -rf /etc/xray/vmess-$user-nontls.json
 
 systemctl restart xvless
@@ -481,7 +322,7 @@ systemctl restart xss
 service cron restart
 clear
 echo -e "\033[1;31m━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
-echo -e "\033[1;46m  🔰AKUN VMESS TESTER🔰   \e[m"   
+echo -e "\033[1;46m  🔰AKUN VMESS TESTER🔰   \e[m"
 echo -e "\033[1;31m━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
 echo -e "\033[1;31m━━━━━━━━━━━━━━━━\033[0m"
 echo -e "🔺️IP➡️ ${MYIP},$domain"
@@ -524,9 +365,8 @@ echo -e "\033[1;31m━━━━━━━━━━━━━━━━\033[0m"
 echo -e "🔺️HTTP NONTLS➡️ ${vmesshttpnon}"
 echo -e "\033[1;31m━━━━━━━━━━━━━━━━\033[0m"
 echo -e "\033[1;31m━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
-echo -e "\033[1;46m🔰LUXURY EDITION ZEROSSL🔰\e[m"   
+echo -e "\033[1;46m🔰LUXURY EDITION ZEROSSL🔰\e[m"
 echo -e "\033[1;31m━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
 echo ""
 read -n 1 -s -r -p "Ketik Bebas Untuk Ke Menu Utama"
-
-testermenu
+menu
