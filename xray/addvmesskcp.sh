@@ -21,7 +21,7 @@ vmkcp="$(cat ~/log-install.txt | grep -w "VMESS KCP TLS" | cut -d: -f2|sed 's/ /
 vmkcpnon="$(cat ~/log-install.txt | grep -w "VMESS KCP NON TLS" | cut -d: -f2|sed 's/ //g')"
 nontls="$(cat ~/log-install.txt | grep -w "VMESS WS NON TLS" | cut -d: -f2|sed 's/ //g')"
 until [[ $user =~ ^[a-zA-Z0-9_]+$ && ${user_EXISTS} == '0' ]]; do
-read -rp "Password : " -e user
+read -rp "Username : " -e user
 user_EXISTS=$(grep -w $user /etc/xray/xtrojan.json | wc -l)
 
 if [[ ${user_EXISTS} == '1' ]]; then
@@ -30,9 +30,8 @@ echo -e "Username ${RED}${user}${NC} Already On VPS Please Choose Another"
 exit 1
 fi
 done
-
 until [[ $user =~ ^[a-zA-Z0-9_]+$ && ${user_EXISTS} == '0' ]]; do
-read -rp "Password : " -e user
+read -rp "Username : " -e user
 user_EXISTS=$(grep -w $user /etc/xray/xvmess.json | wc -l)
 
 if [[ ${user_EXISTS} == '1' ]]; then
@@ -41,9 +40,8 @@ echo -e "Username ${RED}${user}${NC} Already On VPS Please Choose Another"
 exit 1
 fi
 done
-
 until [[ $user =~ ^[a-zA-Z0-9_]+$ && ${user_EXISTS} == '0' ]]; do
-read -rp "Password : " -e user
+read -rp "Username : " -e user
 user_EXISTS=$(grep -w $user /etc/xray/config.json | wc -l)
 
 if [[ ${user_EXISTS} == '1' ]]; then
@@ -52,9 +50,8 @@ echo -e "Username ${RED}${user}${NC} Already On VPS Please Choose Another"
 exit 1
 fi
 done
-
 until [[ $user =~ ^[a-zA-Z0-9_]+$ && ${user_EXISTS} == '0' ]]; do
-read -rp "Password : " -e user
+read -rp "Username : " -e user
 user_EXISTS=$(grep -w $user /etc/xray/xvless.json | wc -l)
 
 if [[ ${user_EXISTS} == '1' ]]; then
@@ -63,9 +60,8 @@ echo -e "Username ${RED}${user}${NC} Already On VPS Please Choose Another"
 exit 1
 fi
 done
-
 until [[ $user =~ ^[a-zA-Z0-9_]+$ && ${user_EXISTS} == '0' ]]; do
-read -rp "Password : " -e user
+read -rp "Username : " -e user
 user_EXISTS=$(grep -w $user /etc/xray/xss.json | wc -l)
 
 if [[ ${user_EXISTS} == '1' ]]; then
