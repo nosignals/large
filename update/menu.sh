@@ -51,7 +51,7 @@ menutester
 l2tppmenu
 ;;
 8)
-setmenu
+setingmenu
 ;;
 0)
 status
