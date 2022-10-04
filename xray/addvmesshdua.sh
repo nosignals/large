@@ -15,7 +15,7 @@ vmhdua="$(cat ~/log-install.txt | grep -w "VMESS H2C TLS" | cut -d: -f2|sed 's/ 
 #none="$(cat ~/log-install.txt | grep -w "Vmess None TLS" | cut -d: -f2|sed 's/ //g')"
 until [[ $user =~ ^[a-zA-Z0-9_]+$ && ${CLIENT_EXISTS} == '0' ]]; do
 until [[ $user =~ ^[a-zA-Z0-9_]+$ && ${user_EXISTS} == '0' ]]; do
-read -rp "Password : " -e user
+read -rp "Username : " -e user
 user_EXISTS=$(grep -w $user /etc/xray/xtrojan.json | wc -l)
 
 if [[ ${user_EXISTS} == '1' ]]; then
@@ -26,7 +26,7 @@ fi
 done
 
 until [[ $user =~ ^[a-zA-Z0-9_]+$ && ${user_EXISTS} == '0' ]]; do
-read -rp "Password : " -e user
+read -rp "Username : " -e user
 user_EXISTS=$(grep -w $user /etc/xray/xvmess.json | wc -l)
 
 if [[ ${user_EXISTS} == '1' ]]; then
@@ -37,7 +37,7 @@ fi
 done
 
 until [[ $user =~ ^[a-zA-Z0-9_]+$ && ${user_EXISTS} == '0' ]]; do
-read -rp "Password : " -e user
+read -rp "Username : " -e user
 user_EXISTS=$(grep -w $user /etc/xray/config.json | wc -l)
 
 if [[ ${user_EXISTS} == '1' ]]; then
@@ -48,7 +48,7 @@ fi
 done
 
 until [[ $user =~ ^[a-zA-Z0-9_]+$ && ${user_EXISTS} == '0' ]]; do
-read -rp "Password : " -e user
+read -rp "Username : " -e user
 user_EXISTS=$(grep -w $user /etc/xray/xvless.json | wc -l)
 
 if [[ ${user_EXISTS} == '1' ]]; then
@@ -59,7 +59,7 @@ fi
 done
 
 until [[ $user =~ ^[a-zA-Z0-9_]+$ && ${user_EXISTS} == '0' ]]; do
-read -rp "Password : " -e user
+read -rp "Username : " -e user
 user_EXISTS=$(grep -w $user /etc/xray/xss.json | wc -l)
 
 if [[ ${user_EXISTS} == '1' ]]; then
