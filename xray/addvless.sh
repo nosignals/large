@@ -110,6 +110,7 @@ echo -e "\033[1;31m━━━━━━━━━━━━━━━━━━━━�
 echo -e "🔺️Nama➡️ ${user}"
 echo -e "🔺️IP➡️ ${MYIP}),$domain2"
 echo -e "🔺️Host➡️ ${domain}"
+echo -e "🔺️CF Host➡️${domain3}"
 echo -e "🔺️Port TLS➡️ $vltls,8443,2096,2087,2053"
 echo -e "🔺️Port No TLS➡️ $vlnontls,2095,2086,2052"
 echo -e "🔺️Protokol➡️ WS"
