@@ -247,7 +247,7 @@ renewvmess
 cekvmess
 ;;
 36)
-certv2ray
+wisnu
 ;;
 37)
 addvmessgrpc
