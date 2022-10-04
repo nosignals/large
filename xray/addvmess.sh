@@ -147,6 +147,7 @@ echo -e "\033[1;31m━━━━━━━━━━━━━━━━━━━━�
 echo -e "🔺️Nama➡️ ${user}"
 echo -e "🔺️IP➡️ ${MYIP},$domain2"
 echo -e "🔺️Alamat➡️ ${domain}"
+echo -e "🔺️CF Host➡️${domain3}"
 echo -e "🔺️Port TLS➡️ ${tls},8443,2096,2087,2053"
 echo -e "🔺️Port No TLS➡️ ${nontls},2095,2086,2052"
 echo -e "🔺️Protokol➡️ WEBSOCKET"
