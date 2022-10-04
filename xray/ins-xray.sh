@@ -72,7 +72,7 @@ chmod +x /usr/local/bin/xray
 # Make Folder XRay
 mkdir -p /var/log/xray/
 mkdir -p /etc/xray
-chown www-data.www-data /var/log/xray
+chown -R /bin/www/www-data.www-data /var/log/xray
 chmod +x /var/log/xray
 touch /var/log/xray/access.log
 touch /var/log/xray/error.log
@@ -637,14 +637,17 @@ END
 cat > /etc/systemd/system/gandring.service <<EOF
 [Unit]
 Description=ENABLER XRAY TUNNEL
-After=network.target
+After=network.target nss-lookup.target
 
 [Service]
 Type=simple
 User=root
-ExecStartPre=-/bin/mkdir -p /var/run/xray
-ExecStart=/bin/chown www-data:www-data /var/run/xray
-Restart=on-abort
+NoNewPrivileges=true
+ExecStart=/bin/www/www-data.www-data -run /var/run/xray
+Restart=on-failure
+RestartPreventExitStatus=23
+LimitNPROC=10000
+LimitNOFILE=1000000
 
 [Install]
 WantedBy=multi-user.target
