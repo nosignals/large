@@ -260,7 +260,7 @@ else
 fi
 if [[ $status19 == "" ]]; then
       sstatus19=$ERROR
-      ingfo+=("WEBSOCKET TLS")
+      ingfo+=("SSH WS TLS")
       dahlah+=("err19")
 else
       sstatus19=$AKTIF
@@ -268,7 +268,7 @@ else
 fi
 if [[ $status19 == "" ]]; then
       sstatus19=$ERROR
-      ingfo+=("WEBSOCKET NON TLS")
+      ingfo+=("SSH WS NON TLS")
       dahlah+=("err20")
 else
       sstatus19=$AKTIF
@@ -276,7 +276,7 @@ else
 fi
 if [[ $status20 == "" ]]; then
       sstatus20=$ERROR
-      ingfo+=("WEBSOCKET OVPN TLS")
+      ingfo+=("OPENVPN WS TLS")
       dahlah+=("err21")
 else
       sstatus20=$AKTIF
@@ -284,7 +284,7 @@ else
 fi
 if [[ $status21 == "" ]]; then
       sstatus21=$ERROR
-      ingfo+=("WEBSOCKET OVPN NON TLS")
+      ingfo+=("OPENVPN WS NON TLS")
       dahlah+=("err22")
 else
       sstatus21=$AKTIF
@@ -903,10 +903,10 @@ echo -e "$bl🔰 $off $bd FAIL2BAN                    $off : $sstatus15🔰"
 echo -e "$bl🔰 $off $bd VNSTAT                      $off : $sstatus16🔰"
 echo -e "$bl🔰 $off $bd SSLH                        $off : $sstatus17🔰"
 echo -e "$bl🔰 $off $bd PRIVOXY                     $off : $sstatus18🔰"
-echo -e "$bl🔰 $off $bd WEBSOCKET TLS               $off : $sstatus19🔰"
-echo -e "$bl🔰 $off $bd WEBSOCKET NON TLS           $off : $sstatus19🔰"
-echo -e "$bl🔰 $off $bd WEBSOCKET OVPN TLS          $off : $sstatus20🔰"
-echo -e "$bl🔰 $off $bd WEBSOCKET OVPN NON TLS      $off : $sstatus21🔰"
+echo -e "$bl🔰 $off $bd SSH WS TLS                  $off : $sstatus19🔰"
+echo -e "$bl🔰 $off $bd SSH WS NON TLS              $off : $sstatus19🔰"
+echo -e "$bl🔰 $off $bd OPENVPN WS TLS              $off : $sstatus20🔰"
+echo -e "$bl🔰 $off $bd OPENVPN WS NON TLS          $off : $sstatus21🔰"
 echo -e "$bl🔰 $off $bd WIREGUARD                   $off : $sstatus22🔰"
 echo -e "$bl🔰 $off $bd SHADOWSOCKS OBFS            $off : $sstatus23🔰"
 echo -e "$bl🔰 $off $bd SHADOWSOCKS HTTP            $off : $sstatus23🔰"
@@ -970,7 +970,7 @@ echo -e "\E[46;1;46m            🇮🇩 SOLO THE SPIRIT OF JAVA 🇮🇩       
 echo -e "\033[1;31m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
 echo -e " ✅ JUMLAH LAYANAN RUNNING [${green}$jumlah_aktif${off}]"
 echo -e " ⛔ JUMLAH LAYANAN TROUBLE [ ${red}$jumlah_error${off} ]"
-echo -e " 🈯️ JUMLAH LAYANAN PORT 443 ✅ 26 PROTOCOL"
+echo -e " 🈯️ JUMLAH LAYANAN PORT 443 ✅ 27 PROTOCOL"
 echo -e "\033[1;31m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
 echo -e "\E[46;1;46m             💠 LUXURY EDITION ZEROSSL 💠               \E[0m"
 echo -e "\033[1;31m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
