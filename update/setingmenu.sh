@@ -53,7 +53,7 @@ case $menu in
 addhost
 ;;
 2)
-certxray
+wisnu
 ;;
 3)
 changeport
