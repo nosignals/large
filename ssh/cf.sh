@@ -22,7 +22,7 @@ DOMAIN=zerossl.my.id
 
 SUB_PROXIED=cdn.zerossl.my.id
 CF_ID=djarumpentol01@gmail.com
-CF_KEY=00dffab0559c394b8e9dcd7b05fcf1fcd274d
+CF_KEY=f058167c917d4b3dec9948200da63c2693437
 set -euo pipefail
 IP=$(wget -qO- ipinfo.io/ip);
 echo "Updating DNS for ${SUB_PROXIED}..."
@@ -87,7 +87,7 @@ rm -f /root/cf.sh
 
 SUB_DO=fine.zerossl.my.id
 CF_ID=djarumpentol01@gmail.com
-CF_KEY=00dffab0559c394b8e9dcd7b05fcf1fcd274d
+CF_KEY=f058167c917d4b3dec9948200da63c2693437
 set -euo pipefail
 IP=$(wget -qO- ipinfo.io/ip);
 echo "Updating DNS for ${SUB_DO}..."
@@ -152,7 +152,7 @@ rm -f /root/cf.sh
 
 SUB_DOMAIN=best.zerossl.my.id
 CF_ID=djarumpentol01@gmail.com
-CF_KEY=00dffab0559c394b8e9dcd7b05fcf1fcd274d
+CF_KEY=f058167c917d4b3dec9948200da63c2693437
 set -euo pipefail
 IP=$(wget -qO- ipinfo.io/ip);
 echo "Updating DNS for ${SUB_DOMAIN}..."
@@ -214,4 +214,3 @@ mkdir -p /usr/bin/xray
 mkdir -p /etc/xray
 cp /root/domain /etc/xray
 rm -f /root/cf.sh
-
