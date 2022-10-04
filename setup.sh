@@ -114,11 +114,11 @@ echo -e "\E[44;1;41m           🔰 SETUP SERVER BY ZEROSSL 🔰            \E[0
 echo -e "\033[1;36m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m" |tee -a log-install.txt
 echo -e " 🔰 MULTI PROTOCOL TUNNEL GANDRING"               |tee -a log-install.txt
 echo -e "\033[1;36m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m" |tee -a log-install.txt
-echo -e " 🔰 PORT OPENSSH                   : 443"         |tee -a log-install.txt
-echo -e " 🔰 PORT OVPN SSL                  : 443"         |tee -a log-install.txt
-echo -e " 🔰 PORT DROPBEAR                  : 443"         |tee -a log-install.txt
-echo -e " 🔰 PORT STUNNEL5                  : 443,500"     |tee -a log-install.txt
-echo -e " 🔰 OVPN WS TLS                    : 443"         |tee -a log-install.txt
+echo -e " 🔰 OPENSSH                        : 443"         |tee -a log-install.txt
+echo -e " 🔰 OPENVPN SSL                    : 443"         |tee -a log-install.txt
+echo -e " 🔰 DROPBEAR                       : 443"         |tee -a log-install.txt
+echo -e " 🔰 STUNNEL5                       : 443,500"     |tee -a log-install.txt
+echo -e " 🔰 OPENVPN WS TLS                 : 443"         |tee -a log-install.txt
 echo -e " 🔰 SSH WS TLS                     : 443"         |tee -a log-install.txt
 echo -e " 🔰 WIREGUARD                      : 443"         |tee -a log-install.txt
 echo -e " 🔰 VLESS XTLS                     : 443"         |tee -a log-install.txt
@@ -154,9 +154,9 @@ echo -e " 🔰 SOCKS5 WS NON TLS              : 80"          |tee -a log-install
 echo -e " 🔰 SOCKS5 GRPC NON TLS            : 80"          |tee -a log-install.txt
 echo -e " 🔰 SSH WS NON TLS                 : 80,8080"     |tee -a log-install.txt
 echo -e " 🔰 OVPN WS NON TLS                : 80,8880"     |tee -a log-install.txt
-echo -e " 🔰 PORT SQUID                     : 4000,5000"   |tee -a log-install.txt
-echo -e " 🔰 PORT PRIVOXY                   : 3128,3228"   |tee -a log-install.txt
-echo -e " 🔰 PORT UDPGW                     : 99"          |tee -a log-install.txt
+echo -e " 🔰 SQUID 4                        : 4000,5000"   |tee -a log-install.txt
+echo -e " 🔰 PRIVOXY                        : 3128,3228"   |tee -a log-install.txt
+echo -e " 🔰 UDPGW                          : 99"          |tee -a log-install.txt
 echo -e " 🔰 SSTP VPN                       : 444"         |tee -a log-install.txt
 echo -e " 🔰 SHADOWSOCKS-R                  : 1444-1944"   |tee -a log-install.txt
 echo -e " 🔰 SS-OBFS TLS                    : 2444-2943"   |tee -a log-install.txt
@@ -164,8 +164,8 @@ echo -e " 🔰 SS-OBFS HTTP                   : 2944-3442"   |tee -a log-install
 echo -e " 🔰 OHP SSH                        : 8181"        |tee -a log-install.txt
 echo -e " 🔰 OHP DROPBEAR                   : 8282"        |tee -a log-install.txt
 echo -e " 🔰 OHP OVPN                       : 8383"        |tee -a log-install.txt
-echo -e " 🔰 PORT OVPN TCP                  : 700"         |tee -a log-install.txt
-echo -e " 🔰 PORT OVPN UDP                  : 800"         |tee -a log-install.txt
+echo -e " 🔰 OPENVPN TCP                    : 700"         |tee -a log-install.txt
+echo -e " 🔰 OPENVPN UDP                    : 800"         |tee -a log-install.txt
 echo -e "\033[1;36m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
 echo -e " 🔰 TROJAN H2C TLS                 : 1110"        |tee -a log-install.txt
 echo -e " 🔰 VLESS H2C TLS                  : 1120"        |tee -a log-install.txt
