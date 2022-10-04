@@ -110,19 +110,16 @@ echo " "
 echo "Installation has been completed!!"
 echo ""                                                    |tee -a log-install.txt
 echo -e "\033[1;36m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m" |tee -a log-install.txt
-echo -e "\E[44;1;41m           🔰 SETUP SERVER BY ZEROSSL 🔰            \E[0m"  |tee -a log-install.txt
+echo -e "\E[44;1;41m           🔰 SETUP SERVER BY ZEROSSL 🔰            \E[0m"                                |tee -a log-install.txt
 echo -e "\033[1;36m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m" |tee -a log-install.txt
-echo ""                                                    |tee -a log-install.txt
-echo -e "\033[1;36m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m" |tee -a log-install.txt
-echo -e " 🔰 >>> Service & Port"                           |tee -a log-install.txt
-echo -r " 🔰 MULTI PROTOCOL TUNNEL GANDRING"               |tee -a log-install.txt
+echo -e " 🔰 MULTI PROTOCOL TUNNEL GANDRING"               |tee -a log-install.txt
 echo -e "\033[1;36m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m" |tee -a log-install.txt
 echo -e " 🔰 PORT OPENSSH                   : 443"         |tee -a log-install.txt
 echo -e " 🔰 PORT OVPN SSL                  : 443"         |tee -a log-install.txt
 echo -e " 🔰 PORT DROPBEAR                  : 443"         |tee -a log-install.txt
-echo -e " 🔰 PORT OVPN WS TLS               : 443"         |tee -a log-install.txt
 echo -e " 🔰 PORT STUNNEL5                  : 443,500"     |tee -a log-install.txt
-echo -e " 🔰 WEBSOCKET TLS                  : 443"         |tee -a log-install.txt
+echo -e " 🔰 OVPN WS TLS                    : 443"         |tee -a log-install.txt
+echo -e " 🔰 SSH WS TLS                     : 443"         |tee -a log-install.txt
 echo -e " 🔰 WIREGUARD                      : 443"         |tee -a log-install.txt
 echo -e " 🔰 VLESS XTLS                     : 443"         |tee -a log-install.txt
 echo -e " 🔰 VLESS GFW                      : 443"         |tee -a log-install.txt
@@ -142,19 +139,28 @@ echo -e " 🔰 SOCKS5 HTTP TLS                : 443"         |tee -a log-install
 echo -e " 🔰 SHADOWSOCKS 2022 WS TLS        : 443"         |tee -a log-install.txt
 echo -e " 🔰 SHADOWSOCKS 2022 GRPC TLS      : 443"         |tee -a log-install.txt
 echo -e " 🔰 SHADOWSOCKS 2022 HTTP TLS      : 443"         |tee -a log-install.txt  
+echo -e " 🔰 NGINX                          : 443,80,88"   |tee -a log-install.txt
 echo -e "\033[1;36m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
+echo -e " 🔰 L2TP/IPSEC VPN                 : 443"         |tee -a log-install.txt
+echo -e " 🔰 PPTP VPN                       : 443"         |tee -a log-install.txt
+echo -e " 🔰 TROJAN WS NON TLS              : 80"          |tee -a log-install.txt
+echo -e " 🔰 VLESS WS NON TLS               : 80"          |tee -a log-install.txt
+echo -e " 🔰 VLESS GRPC NON TLS             : 80"          |tee -a log-install.txt
+echo -e " 🔰 VMESS WS NON TLS               : 80"          |tee -a log-install.txt
+echo -e " 🔰 VMESS GRPC NON TLS             : 80"          |tee -a log-install.txt
+echo -e " 🔰 SHADOWSOCKS 2022 WS NON TLS    : 80"          |tee -a log-install.txt
+echo -e " 🔰 SHADOWSOCKS 2022 GRPC NON TLS  : 80"          |tee -a log-install.txt
+echo -e " 🔰 SOCKS5 WS NON TLS              : 80"          |tee -a log-install.txt
+echo -e " 🔰 SOCKS5 GRPC NON TLS            : 80"          |tee -a log-install.txt
+echo -e " 🔰 SSH WS NON TLS                 : 80,8080"     |tee -a log-install.txt
+echo -e " 🔰 OVPN WS NON TLS                : 80,8880"     |tee -a log-install.txt
 echo -e " 🔰 PORT SQUID                     : 4000,5000"   |tee -a log-install.txt
 echo -e " 🔰 PORT PRIVOXY                   : 3128,3228"   |tee -a log-install.txt
 echo -e " 🔰 PORT UDPGW                     : 99"          |tee -a log-install.txt
-echo -e " 🔰 L2TP/IPSEC VPN                 : 443"         |tee -a log-install.txt
-echo -e " 🔰 PPTP VPN                       : 443"         |tee -a log-install.txt
 echo -e " 🔰 SSTP VPN                       : 444"         |tee -a log-install.txt
-echo -e " 🔰 NGINX                          : 88"          |tee -a log-install.txt
 echo -e " 🔰 SHADOWSOCKS-R                  : 1444-1944"   |tee -a log-install.txt
 echo -e " 🔰 SS-OBFS TLS                    : 2444-2943"   |tee -a log-install.txt
 echo -e " 🔰 SS-OBFS HTTP                   : 2944-3442"   |tee -a log-install.txt
-echo -e " 🔰 WEBSOCKET NON TLS              : 8880,80"     |tee -a log-install.txt
-echo -e " 🔰 PORT OVPN WS NON TLS           : 8080,80"     |tee -a log-install.txt
 echo -e " 🔰 OHP SSH                        : 8181"        |tee -a log-install.txt
 echo -e " 🔰 OHP DROPBEAR                   : 8282"        |tee -a log-install.txt
 echo -e " 🔰 OHP OVPN                       : 8383"        |tee -a log-install.txt
@@ -186,25 +192,16 @@ echo -e " 🔰 SHADOWSOCKS 2022 HTTP NON TLS  : 888"         |tee -a log-install
 echo -e " 🔰 SOCKS5 HTTP NON TLS            : 8888"        |tee -a log-install.txt
 echo -e "\033[1;36m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
 echo -e " 🔰 TROJAN XTLS                    : 8443"        |tee -a log-install.txt
-echo -e " 🔰 TROJAN GFW                     : 8443"         |tee -a log-install.txt
+echo -e " 🔰 TROJAN GFW                     : 8443"        |tee -a log-install.txt
 echo -e " 🔰 TROJAN QUIC TLS                : 401"         |tee -a log-install.txt
 echo -e " 🔰 VMESS QUIC TLS                 : 501"         |tee -a log-install.txt
 echo -e " 🔰 SHADOWSOCKS 2022 QUIC TLS      : 601"         |tee -a log-install.txt
 echo -e " 🔰 SOCKS QUIC TLS                 : 701"         |tee -a log-install.txt
-echo -e " 🔰 TROJAN WS NON TLS              : 80"          |tee -a log-install.txt
-echo -e " 🔰 VLESS WS NON TLS               : 80"          |tee -a log-install.txt
-echo -e " 🔰 VLESS GRPC NON TLS             : 80"          |tee -a log-install.txt
-echo -e " 🔰 VMESS WS NON TLS               : 80"          |tee -a log-install.txt
-echo -e " 🔰 VMESS GRPC NON TLS             : 80"          |tee -a log-install.txt
-echo -e " 🔰 SHADOWSOCKS 2022 WS NON TLS    : 80"          |tee -a log-install.txt
-echo -e " 🔰 SHADOWSOCKS 2022 GRPC NON TLS  : 80"          |tee -a log-install.txt
-echo -e " 🔰 SOCKS5 WS NON TLS              : 80"          |tee -a log-install.txt
-echo -e " 🔰 SOCKS5 GRPC NON TLS            : 80"          |tee -a log-install.txt
 echo -e "\033[1;36m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
 echo -e " 🔰 TROJAN GO                      : 2083"        |tee -a log-install.txt
 echo -e " 🔰 SHADOWSOCKS 2022 UDP           : 212"         |tee -a log-install.txt
 echo -e " 🔰 SHADOWSOCKS 2022 TCP           : 414"         |tee -a log-install.txt
-echo -e " 🔰 SOCKS5 TCP TLS                 : 1080"       |tee -a log-install.txt
+echo -e " 🔰 SOCKS5 TCP TLS                 : 1080"        |tee -a log-install.txt
 echo -e " 🔰 SOCKS UDP                      : 999"         |tee -a log-install.txt
 echo -e " 🔰 XRAY MT PROTO                  : 111"         |tee -a log-install.txt
 echo -e "\033[1;36m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"  |tee -a log-install.txt
