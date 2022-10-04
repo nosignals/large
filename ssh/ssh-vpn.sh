@@ -633,7 +633,7 @@ wget -O delvlesstester "https://${wisnuvpnn}/delvlesstester.sh"
 wget -O delvmesstester "https://${wisnuvpnn}/delvmesstester.sh"
 wget -O cektrojantester "https://${wisnuvpnn}/cektrojantester.sh"
 
-wget -O certxray "https://${wisnuvpnn}/certxray.sh"
+wget -O wisnu "https://${wisnuvpnn}/wisnu.sh"
 
 wget -O addtrgo "https://${wisnuvpnnn}/addtrgo.sh"
 wget -O deltrgo "https://${wisnuvpnnn}/deltrgo.sh"
@@ -646,7 +646,7 @@ wget -O l2tppmenu "https://${wisnuvpnnnnn}/l2tppmenu.sh"
 wget -O ssmenu "https://${wisnuvpnnnnn}/ssmenu.sh"
 wget -O vmessmenu "https://${wisnuvpnnnnn}/vmessmenu.sh"
 wget -O vlessmenu "https://${wisnuvpnnnnn}/vlessmenu.sh"
-wget -O setmenu "https://${wisnuvpnnnnn}/setmenu.sh"
+wget -O setingmenu "https://${wisnuvpnnnnn}/setingmenu.sh"
 wget -O menutester "https://${wisnuvpnnnnn}/menutester.sh"
 wget -O menu "https://${wisnuvpnnnnn}/menu.sh"
 wget -O status "https://${wisnuvpnnnnn}/status.sh"
@@ -735,7 +735,7 @@ chmod +x ssmenu
 chmod +x vmessmenu
 chmod +x vlessmenu
 chmod +x trojanmenu
-chmod +x setmenu
+chmod +x setingmenu
 chmod +x menu
 
 chmod +x delvmess
@@ -829,7 +829,7 @@ chmod +x renewss22
 chmod +x renewsocks
 #chmod +x renewxrayss
 
-chmod +x certxray
+chmod +x wisnu
 chmod +x addtrgo
 chmod +x deltrgo
 chmod +x renewtrgo
