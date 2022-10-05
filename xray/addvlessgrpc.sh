@@ -86,7 +86,7 @@ sed -i '/#vless-grpc-tls$/a\### '"$user $exp"'\
 },{"id": "'""$uuid""'","email": "'""$user""'"' /etc/xray/xtrojan.json
 sed -i '/#vless-grpc-nontls$/a\### '"$user $exp"'\
 },{"id": "'""$uuid""'","email": "'""$user""'"' /etc/xray/config.json
-vlessgrpc1="vless://${uuid}@${domain}:$vlgrpc?serviceName=COKRO&sni=${domain}&mode=multi&type=grpc&security=tls&encryption=none#%F0%9F%94%B0VLESS+GRPC+TLS+${user}"
+vlessgrpc1="vless://${uuid}@${domain}:$vlgrpc?serviceName=COKRO&sni=${domain3}&mode=multi&type=grpc&security=tls&encryption=none#%F0%9F%94%B0VLESS+GRPC+TLS+${user}"
 vlessgrpc2="vless://${uuid}@${domain}:$vlgrpcnon?serviceName=COKRO&sni=${domain}&mode=multi&type=grpc&security=none&encryption=none#%F0%9F%94%B0VLESS+GRPC+NONTLS+${user}"
 systemctl restart xvless.service
 systemctl restart xray.service
