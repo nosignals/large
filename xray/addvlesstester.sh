@@ -143,9 +143,9 @@ sed -i '/#vless-kcp$/a\### '"$user $exp"'\
 },{"id": "'""$uuid""'","email": "'""$user""'"' /etc/xray/config.json
 vlesshttpnon="vless://${uuid}@${domain}:$vlhttpnon?sni=ojodumeh.org&security=none&type=tcp&headerType=http&encryption=none#%F0%9F%94%B0VLESS+HTTP+NONTLS+${user}"
 vlesshttp="vless://${uuid}@${domain}:$vlhttp?sni=bugmu.xyz&host=${domain}&type=tcp&security=tls&path=/WISNU-TCP&headerType=http&encryption=none#%F0%9F%94%B0VLESS+HTTP+TLS+${user}"
-vlesstls="vless://${uuid}@${domain}:$vltls?host=${domain}&sni=$domain&type=ws&security=tls&path=%2fWISNU&encryption=none#%F0%9F%94%B0VLESS+WS+TLS+${user}"
-vlessnontls="vless://${uuid}@${domain}:$vlnontls?host=${domain}&security=none&type=ws&path=/WISNU&encryption=none#%F0%9F%94%B0VLESS+WS+NONTLS+${user}"
-vlessgrpc="vless://${uuid}@${domain}:$vlgrpc?serviceName=COKRO&sni=${domain}&mode=multi&type=grpc&security=tls&encryption=none#%F0%9F%94%B0VLESS+GRPC+TLS+${user}"
+vlesstls="vless://${uuid}@${domain}:$vltls?host=${domain3}&sni=$domain3&type=ws&security=tls&path=%2fWISNU&encryption=none#%F0%9F%94%B0VLESS+WS+TLS+${user}"
+vlessnontls="vless://${uuid}@${domain}:$vlnontls?host=${domain3}&security=none&type=ws&path=/WISNU&encryption=none#%F0%9F%94%B0VLESS+WS+NONTLS+${user}"
+vlessgrpc="vless://${uuid}@${domain}:$vlgrpc?serviceName=COKRO&sni=${domain3}&mode=multi&type=grpc&security=tls&encryption=none#%F0%9F%94%B0VLESS+GRPC+TLS+${user}"
 vlessgrpcnon="vless://${uuid}@${domain}:$vlgrpcnon?serviceName=COKRO&sni=${domain}&mode=multi&type=grpc&security=none&encryption=none#%F0%9F%94%B0VLESS+GRPC+NONTLS+${user}"
 vlesshdua="vless://${uuid}@${domain}:$vlhdua?sni=bugmu.com&type=http&security=tls&path=/WISNU-HTTP&encryption=none#%F0%9F%94%B0VLESS+H2C+${user}"
 vlesskcp="vless://$uuid@$domain:$vlkcp?sni=$domain&seed=WISNU-KCP&type=kcp&security=tls&headerType=none&encryption=none#%F0%9F%94%B0VLESS+KCP+TLS+$user"
