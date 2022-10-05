@@ -20,7 +20,7 @@ apt install jq curl -y
 DOMAIN=zerossl.my.id
 #sub=$(</dev/urandom tr -dc a-z0-9 | head -c2)
 
-SUB_PROXIED=cdn.zerossl.my.id
+SUB_PROXIED=dns.zerossl.my.id
 CF_ID=djarumpentol01@gmail.com
 CF_KEY=54d8a284c573cc3656c7d51e0890137a9b6c0
 set -euo pipefail
@@ -85,7 +85,7 @@ mkdir -p /etc/xray
 cp /root/domain3 /etc/xray
 rm -f /root/cf.sh
 
-SUB_DO=fine.zerossl.my.id
+SUB_DO=xx.zerossl.my.id
 CF_ID=djarumpentol01@gmail.com
 CF_KEY=54d8a284c573cc3656c7d51e0890137a9b6c0
 set -euo pipefail
@@ -150,7 +150,7 @@ mkdir -p /etc/xray
 cp /root/domain2 /etc/xray
 rm -f /root/cf.sh
 
-SUB_DOMAIN=best.zerossl.my.id
+SUB_DOMAIN=gg.zerossl.my.id
 CF_ID=djarumpentol01@gmail.com
 CF_KEY=54d8a284c573cc3656c7d51e0890137a9b6c0
 set -euo pipefail
