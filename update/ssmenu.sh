@@ -42,7 +42,15 @@ echo -e "15\e[1;33m) Perpanjang Masa Aktif Akun Shadowsocks 2022 \e[m "
 echo -e "\033[1;36m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
 echo -e "16\e[1;33m) Cek User Login Shadowsocks 2022 \e[m  "
 echo -e "\033[1;36m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
-echo -e "17\e[1;31m) Cek Trafik User \e[m"
+echo -e "17\e[1;33m) Buat Akun Xray Shadowsocks \e[m "
+echo -e "\033[1;36m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
+echo -e "18\e[1;33m) Hapus Akun Xray Shadowsocks \e[m "
+echo -e "\033[1;36m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
+echo -e "19\e[1;33m) Perpanjang Masa Aktif Akun Xray Shadowsocks \e[m "
+echo -e "\033[1;36m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
+echo -e "20\e[1;33m) Cek User Login Xray Shadowsocks \e[m  "
+echo -e "\033[1;36m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
+echo -e "21\e[1;31m) Cek Trafik User \e[m"
 echo -e "00\e[1;31m) Menu Utama \e[m"
 echo -e "\033[1;36m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
 echo -e "xx\e[1;31m) Keluar \e[m "
@@ -101,6 +109,18 @@ renewss22
 cekss22
 ;;
 17)
+addxrayss
+;;
+18)
+delxrayss
+;;
+19)
+renewxrayss
+;;
+20)
+cekxrayss
+;;
+21)
 trafikcek
 ;;
 0)
