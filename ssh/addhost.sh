@@ -25,4 +25,4 @@ rm -rf /etc/xray/domain3
 echo $domain > /etc/xray/domain
 echo $domain2 > /etc/xray/domain2
 echo $domain3 > /etc/xray/domain3
-setmenu
+setingmenu
