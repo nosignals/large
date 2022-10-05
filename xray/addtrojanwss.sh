@@ -92,8 +92,8 @@ sed -i '/#trojan-nontls$/a\### '"$user $exp"'\
 sed -i '/#trojan-nontls$/a\### '"$user $exp"'\
 },{"password": "'""$uuid""'","email": "'""$user""'"' /etc/xray/config.json
 
-trojantls="trojan://${uuid}@${domain}:$ttls?type=ws&security=tls&host=$domain&path=%2fGANDRING&sni=$domain#%F0%9F%94%B0TROJAN+WS+TLS+${user}"
-trojannontls="trojan://${uuid}@${domain}:$tnontls?type=ws&security=none&host=$domain&path=%2fGANDRING#%F0%9F%94%B0TROJAN+WS+NONTLS+${user}"
+trojantls="trojan://${uuid}@${domain}:$ttls?type=ws&security=tls&host=$domain3&path=%2fGANDRING&sni=$domain3#%F0%9F%94%B0TROJAN+WS+TLS+${user}"
+trojannontls="trojan://${uuid}@${domain}:$tnontls?type=ws&security=none&host=$domain3&path=%2fGANDRING#%F0%9F%94%B0TROJAN+WS+NONTLS+${user}"
 systemctl restart xvmess
 systemctl restart xray.service
 systemctl restart xtrojan.service
