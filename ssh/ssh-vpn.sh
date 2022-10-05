@@ -537,7 +537,7 @@ wget -O addtrojanhdua "https://${wisnuvpnn}/addtrojanhdua.sh"
 wget -O addtrojanquic "https://${wisnuvpnn}/addtrojanquic.sh"
 wget -O addtrojankcp "https://${wisnuvpnn}/addtrojankcp.sh"
 
-#wget -O addxrayss "https://${wisnuvpnn}/addxrayss.sh"
+wget -O addxrayss "https://${wisnuvpnn}/addxrayss.sh"
 wget -O addvmesstester "https://${wisnuvpnn}/addvmesstester.sh"
 wget -O addvlesstester "https://${wisnuvpnn}/addvlesstester.sh"
 wget -O addxtreme "https://${wisnuvpnn}/addxtreme.sh"
@@ -616,18 +616,18 @@ wget -O renewtrojanhdua "https://${wisnuvpnn}/renewtrojanhdua.sh"
 wget -O renewtrojanhttp "https://${wisnuvpnn}/renewtrojanhttp.sh"
 wget -O renewtrojanquic "https://${wisnuvpnn}/renewtrojanquic.sh"
 
-#wget -O delxrayss "https://${wisnuvpnn}/delxrayss.sh"
+wget -O delxrayss "https://${wisnuvpnn}/delxrayss.sh"
 wget -O delsocks "https://${wisnuvpnn}/delsocks.sh"
 wget -O delss22 "https://${wisnuvpnn}/delss22.sh"
 wget -O delssws "https://${wisnuvpnn}/delssws.sh"
-#wget -O cekxrayss "https://${wisnuvpnn}/cekxrayss.sh"
+wget -O cekxrayss "https://${wisnuvpnn}/cekxrayss.sh"
 wget -O cekss22 "https://${wisnuvpnn}/cekss22.sh"
 wget -O cekssws "https://${wisnuvpnn}/cekssws.sh"
 wget -O ceksocks "https://${wisnuvpnn}/ceksocks.sh"
 wget -O renewss22 "https://${wisnuvpnn}/renewss22.sh"
 wget -O renewssws "https://${wisnuvpnn}/renewssws.sh"
 wget -O renewsocks "https://${wisnuvpnn}/renewsocks.sh"
-#wget -O renewxrayss "https://${wisnuvpnn}/renewxrayss.sh"
+wget -O renewxrayss "https://${wisnuvpnn}/renewxrayss.sh"
 wget -O deltrojantester "https://${wisnuvpnn}/deltrojantester.sh"
 wget -O delvlesstester "https://${wisnuvpnn}/delvlesstester.sh"
 wget -O delvmesstester "https://${wisnuvpnn}/delvmesstester.sh"
@@ -720,7 +720,7 @@ chmod +x addtrojankcp
 chmod +x addtrojanquic
 
 chmod +x addxtreme
-#chmod +x addxrayss
+chmod +x addxrayss
 chmod +x addss22
 #chmod +x addssws
 chmod +x addsocks
@@ -765,12 +765,12 @@ chmod +x delvlesstester
 chmod +x deltrojantester
 chmod +x delvmesstester
 chmod +x delxtreme
-#chmod +x delxrayss
+chmod +x delxrayss
 chmod +x delss22
 chmod +x delssws
 chmod +x delsocks
 
-#chmod +x cekxrayss
+chmod +x cekxrayss
 chmod +x cekss22
 chmod +x ceksocks
 #chmod +x cekssws
@@ -827,7 +827,7 @@ chmod +x renewtrojankcp
 
 chmod +x renewss22
 chmod +x renewsocks
-#chmod +x renewxrayss
+chmod +x renewxrayss
 
 chmod +x wisnu
 chmod +x addtrgo
@@ -846,7 +846,7 @@ apt-get -y remove sendmail*
 apt autoremove -y
 # finishing
 cd
-chown -R www-data:www-data /home/vps/public_html
+chown -R www-data.www-data /home/vps/public_html
 
 # install badvpn
 cd
