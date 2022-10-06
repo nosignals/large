@@ -43,14 +43,13 @@ status16=$(systemctl status vnstat           | grep -i "active (running)")
 status17=$(systemctl status sslh             | grep -i "active (running)")
 status18=$(systemctl status privoxy          | grep -i "active (running)")
 status19=$(systemctl status stunnelws        | grep -i "active (running)")
-status19=$(systemctl status stunnelws        | grep -i "active (running)")
-status20=$(systemctl status openvpnws        | grep -i "active (running)")
-status21=$(systemctl status otls             | grep -i "active (running)")
-status22=$(systemctl status wg-quick@wg0     | grep -i "active (exited)")
-status23=$(systemctl status shadowsocks-libev| grep -i "active (running)")
-status23=$(systemctl status shadowsocks-libev| grep -i "active (running)")
-status24=$(systemctl status ssrmu            | grep -i "active (running)")
-status25=$(systemctl status xray             | grep -i "active (running)")
+status20=$(systemctl status nontls           | grep -i "active (running)")
+status21=$(systemctl status openvpnws        | grep -i "active (running)")
+status22=$(systemctl status otls             | grep -i "active (running)")
+status23=$(systemctl status wg-quick@wg0     | grep -i "active (exited)")
+status24=$(systemctl status shadowsocks-libev| grep -i "active (running)")
+status24=$(systemctl status shadowsocks-libev| grep -i "active (running)")
+status25=$(systemctl status ssrmu            | grep -i "active (running)")
 status26=$(systemctl status xray             | grep -i "active (running)")
 status27=$(systemctl status xray             | grep -i "active (running)")
 status28=$(systemctl status xray             | grep -i "active (running)")
@@ -140,7 +139,23 @@ else
 fi
 if [[ $status04 == "" ]]; then
       sstatus04=$ERROR
-      ingfo+=("OPENVPN")
+      ingfo+=("OPENVPN TCP")
+      dahlah+=("err4")
+else
+      sstatus04=$AKTIF
+      mantap+=("hore4")
+fi
+if [[ $status04 == "" ]]; then
+      sstatus04=$ERROR
+      ingfo+=("OPENVPN UDP")
+      dahlah+=("err4")
+else
+      sstatus04=$AKTIF
+      mantap+=("hore4")
+fi
+if [[ $status04 == "" ]]; then
+      sstatus04=$ERROR
+      ingfo+=("OPENVPN SSL")
       dahlah+=("err4")
 else
       sstatus04=$AKTIF
@@ -244,7 +259,7 @@ else
 fi
 if [[ $status17 == "" ]]; then
       sstatus17=$ERROR
-      ingfo+=("SSLH SERVICE")
+      ingfo+=("GANDRING STREAM")
       dahlah+=("err17")
 else
       sstatus17=$AKTIF
@@ -266,485 +281,517 @@ else
       sstatus19=$AKTIF
       mantap+=("hore19")
 fi
-if [[ $status19 == "" ]]; then
-      sstatus19=$ERROR
+if [[ $status20 == "" ]]; then
+      sstatus20=$ERROR
       ingfo+=("SSH WS NON TLS")
       dahlah+=("err20")
 else
-      sstatus19=$AKTIF
-      mantap+=("hore20")
-fi
-if [[ $status20 == "" ]]; then
-      sstatus20=$ERROR
-      ingfo+=("OPENVPN WS TLS")
-      dahlah+=("err21")
-else
       sstatus20=$AKTIF
-      mantap+=("hore21")
+      mantap+=("hore20")
 fi
 if [[ $status21 == "" ]]; then
       sstatus21=$ERROR
-      ingfo+=("OPENVPN WS NON TLS")
-      dahlah+=("err22")
+      ingfo+=("OPENVPN WS TLS")
+      dahlah+=("err21")
 else
       sstatus21=$AKTIF
-      mantap+=("hore22")
+      mantap+=("hore21")
 fi
 if [[ $status22 == "" ]]; then
       sstatus22=$ERROR
+      ingfo+=("OPENVPN WS NON TLS")
+      dahlah+=("err22")
+else
+      sstatus22=$AKTIF
+      mantap+=("hore22")
+fi
+if [[ $status23 == "" ]]; then
+      sstatus23=$ERROR
       ingfo+=("WIREGUARD")
       dahlah+=("err23")
 else
-      sstatus22=$AKTIF
+      sstatus23=$AKTIF
       mantap+=("hore23")
-fi
-if [[ $status23 == "" ]]; then
-      sstatus23=$ERROR
-      ingfo+=("SHADOWSOCKS OBFS")
-      dahlah+=("err24")
-else
-      sstatus23=$AKTIF
-      mantap+=("hore24")
-fi
-if [[ $status23 == "" ]]; then
-      sstatus23=$ERROR
-      ingfo+=("SHADOWSOCKS HTTP")
-      dahlah+=("err25")
-else
-      sstatus23=$AKTIF
-      mantap+=("hore25")
 fi
 if [[ $status24 == "" ]]; then
       sstatus24=$ERROR
-      ingfo+=("SHADOWSOCKSR")
-      dahlah+=("err26")
+      ingfo+=("SHADOWSOCKS OBFS")
+      dahlah+=("err24")
 else
       sstatus24=$AKTIF
-      mantap+=("hore26")
+      mantap+=("hore24")
+fi
+if [[ $status24 == "" ]]; then
+      sstatus24=$ERROR
+      ingfo+=("SHADOWSOCKS HTTP")
+      dahlah+=("err25")
+else
+      sstatus24=$AKTIF
+      mantap+=("hore25")
 fi
 if [[ $status25 == "" ]]; then
       sstatus25=$ERROR
-      ingfo+=("VMESS WS TLS")
-      dahlah+=("err27")
+      ingfo+=("SHADOWSOCKSR")
+      dahlah+=("err26")
 else
       sstatus25=$AKTIF
-      mantap+=("hore27")
+      mantap+=("hore26")
 fi
 if [[ $status26 == "" ]]; then
       sstatus26=$ERROR
-      ingfo+=("VMESS WS NON TLS")
-      dahlah+=("err28")
+      ingfo+=("VMESS WS TLS")
+      dahlah+=("err27")
 else
       sstatus26=$AKTIF
-      mantap+=("hore28")
+      mantap+=("hore27")
 fi
 if [[ $status27 == "" ]]; then
       sstatus27=$ERROR
-      ingfo+=("VMESS GRPC TLS")
-      dahlah+=("err29")
+      ingfo+=("VMESS WS NON TLS")
+      dahlah+=("err28")
 else
       sstatus27=$AKTIF
-      mantap+=("hore29")
+      mantap+=("hore28")
 fi
 if [[ $status28 == "" ]]; then
       sstatus28=$ERROR
-      ingfo+=("VMESS GRPC NON TLS")
-      dahlah+=("err30")
+      ingfo+=("VMESS GRPC TLS")
+      dahlah+=("err29")
 else
       sstatus28=$AKTIF
-      mantap+=("hore30")
+      mantap+=("hore29")
 fi
 if [[ $status29 == "" ]]; then
       sstatus29=$ERROR
-      ingfo+=("VMESS HTTP TLS")
-      dahlah+=("err31")
+      ingfo+=("VMESS GRPC NON TLS")
+      dahlah+=("err30")
 else
       sstatus29=$AKTIF
-      mantap+=("hore31")
+      mantap+=("hore30")
 fi
 if [[ $status30 == "" ]]; then
       sstatus30=$ERROR
-      ingfo+=("VMESS HTTP NON TLS")
-      dahlah+=("err32")
+      ingfo+=("VMESS HTTP TLS")
+      dahlah+=("err31")
 else
       sstatus30=$AKTIF
-      mantap+=("hore32")
+      mantap+=("hore31")
 fi
 if [[ $status31 == "" ]]; then
       sstatus31=$ERROR
-      ingfo+=("VMESS H2C TLS")
-      dahlah+=("err33")
+      ingfo+=("VMESS HTTP NON TLS")
+      dahlah+=("err32")
 else
       sstatus31=$AKTIF
-      mantap+=("hore33")
+      mantap+=("hore32")
 fi
 if [[ $status32 == "" ]]; then
       sstatus32=$ERROR
-      ingfo+=("VMESS QUIC TLS")
-      dahlah+=("err34")
+      ingfo+=("VMESS H2C TLS")
+      dahlah+=("err33")
 else
       sstatus32=$AKTIF
-      mantap+=("hore34")
+      mantap+=("hore33")
 fi
 if [[ $status33 == "" ]]; then
       sstatus33=$ERROR
-      ingfo+=("VMESS KCP TLS")
-      dahlah+=("err35")
+      ingfo+=("VMESS QUIC TLS")
+      dahlah+=("err34")
 else
       sstatus33=$AKTIF
-      mantap+=("hore35")
+      mantap+=("hore34")
 fi
 if [[ $status34 == "" ]]; then
       sstatus34=$ERROR
-      ingfo+=("VLESS WS TLS")
-      dahlah+=("err36")
+      ingfo+=("VMESS KCP TLS")
+      dahlah+=("err35")
 else
       sstatus34=$AKTIF
-      mantap+=("hore36")
+      mantap+=("hore35")
 fi
 if [[ $status35 == "" ]]; then
       sstatus35=$ERROR
-      ingfo+=("VLESS WS NON TLS")
-      dahlah+=("err37")
+      ingfo+=("VLESS WS TLS")
+      dahlah+=("err36")
 else
       sstatus35=$AKTIF
-      mantap+=("hore37")
+      mantap+=("hore36")
 fi
 if [[ $status36 == "" ]]; then
       sstatus36=$ERROR
-      ingfo+=("VLESS GRPC TLS")
-      dahlah+=("err38")
+      ingfo+=("VLESS WS NON TLS")
+      dahlah+=("err37")
 else
       sstatus36=$AKTIF
-      mantap+=("hore38")
+      mantap+=("hore37")
 fi
 if [[ $status37 == "" ]]; then
       sstatus37=$ERROR
-      ingfo+=("VLESS GRPC NON TLS")
-      dahlah+=("err39")
+      ingfo+=("VLESS GRPC TLS")
+      dahlah+=("err38")
 else
       sstatus37=$AKTIF
-      mantap+=("hore39")
+      mantap+=("hore38")
 fi
 if [[ $status38 == "" ]]; then
       sstatus38=$ERROR
-      ingfo+=("VLESS GFW TLS")
-      dahlah+=("err40")
+      ingfo+=("VLESS GRPC NON TLS")
+      dahlah+=("err39")
 else
       sstatus38=$AKTIF
-      mantap+=("hore40")
+      mantap+=("hore39")
 fi
 if [[ $status39 == "" ]]; then
       sstatus39=$ERROR
-      ingfo+=("VLESS HTTP TLS")
-      dahlah+=("err41")
+      ingfo+=("VLESS GFW TLS")
+      dahlah+=("err40")
 else
       sstatus39=$AKTIF
-      mantap+=("hore41")
+      mantap+=("hore40")
 fi
 if [[ $status40 == "" ]]; then
       sstatus40=$ERROR
-      ingfo+=("VLESS HTTP NON TLS")
-      dahlah+=("err42")
+      ingfo+=("VLESS HTTP TLS")
+      dahlah+=("err41")
 else
       sstatus40=$AKTIF
-      mantap+=("hore42")
+      mantap+=("hore41")
 fi
 if [[ $status41 == "" ]]; then
       sstatus41=$ERROR
-      ingfo+=("VLESS H2C TLS")
-      dahlah+=("err43")
+      ingfo+=("VLESS HTTP NON TLS")
+      dahlah+=("err42")
 else
       sstatus41=$AKTIF
-      mantap+=("hore43")
+      mantap+=("hore42")
 fi
 if [[ $status42 == "" ]]; then
       sstatus42=$ERROR
-      ingfo+=("VLESS QUIC TLS")
-      dahlah+=("err44")
+      ingfo+=("VLESS H2C TLS")
+      dahlah+=("err43")
 else
       sstatus42=$AKTIF
-      mantap+=("hore44")
+      mantap+=("hore43")
 fi
 if [[ $status43 == "" ]]; then
       sstatus43=$ERROR
-      ingfo+=("VLESS KCP TLS")
-      dahlah+=("err45")
+      ingfo+=("VLESS QUIC TLS")
+      dahlah+=("err44")
 else
       sstatus43=$AKTIF
-      mantap+=("hore45")
+      mantap+=("hore44")
 fi
 if [[ $status44 == "" ]]; then
       sstatus44=$ERROR
-      ingfo+=("TROJAN XTLS")
-      dahlah+=("err46")
+      ingfo+=("VLESS KCP TLS")
+      dahlah+=("err45")
 else
       sstatus44=$AKTIF
-      mantap+=("hore46")
+      mantap+=("hore45")
 fi
 if [[ $status45 == "" ]]; then
       sstatus45=$ERROR
-      ingfo+=("TROJAN GFW")
-      dahlah+=("err47")
+      ingfo+=("TROJAN XTLS")
+      dahlah+=("err46")
 else
       sstatus45=$AKTIF
-      mantap+=("hore47")
+      mantap+=("hore46")
 fi
 if [[ $status46 == "" ]]; then
       sstatus46=$ERROR
-      ingfo+=("TROJAN HTTP TLS")
-      dahlah+=("err48")
+      ingfo+=("TROJAN GFW")
+      dahlah+=("err47")
 else
       sstatus46=$AKTIF
-      mantap+=("hore48")
+      mantap+=("hore47")
 fi
 if [[ $status47 == "" ]]; then
       sstatus47=$ERROR
-      ingfo+=("TROJAN HTTP NON TLS")
-      dahlah+=("err49")
+      ingfo+=("TROJAN HTTP TLS")
+      dahlah+=("err48")
 else
       sstatus47=$AKTIF
-      mantap+=("hore49")
+      mantap+=("hore48")
 fi
 if [[ $status48 == "" ]]; then
       sstatus48=$ERROR
-      ingfo+=("TROJAN H2C TLS")
-      dahlah+=("err50")
+      ingfo+=("TROJAN HTTP NON TLS")
+      dahlah+=("err49")
 else
       sstatus48=$AKTIF
-      mantap+=("hore50")
+      mantap+=("hore49")
 fi
 if [[ $status49 == "" ]]; then
       sstatus49=$ERROR
-      ingfo+=("TROJAN KCP TLS")
-      dahlah+=("err51")
+      ingfo+=("TROJAN H2C TLS")
+      dahlah+=("err50")
 else
       sstatus49=$AKTIF
-      mantap+=("hore51")
+      mantap+=("hore50")
 fi
 if [[ $status50 == "" ]]; then
       sstatus50=$ERROR
+      ingfo+=("TROJAN KCP TLS")
+      dahlah+=("err51")
+else
+      sstatus50=$AKTIF
+      mantap+=("hore51")
+fi
+if [[ $status51 == "" ]]; then
+      sstatus51=$ERROR
       ingfo+=("TROJAN QUIC TLS")
       dahlah+=("err52")
 else
-      sstatus50=$AKTIF
+      sstatus51=$AKTIF
       mantap+=("hore52")
 fi
-if [[ $status51 == "" ]]; then
+if [[ $status52 == "" ]]; then
       sstatus51=$ERROR
       ingfo+=("TROJAN GRPC")
       dahlah+=("err53")
 else
-      sstatus51=$AKTIF
-      mantap+=("hore53")
-fi
-if [[ $status52 == "" ]]; then
-      sstatus52=$ERROR
-      ingfo+=("TROJAN WS TLS")
-      dahlah+=("err54")
-else
       sstatus52=$AKTIF
-      mantap+=("hore54")
+      mantap+=("hore53")
 fi
 if [[ $status53 == "" ]]; then
       sstatus53=$ERROR
-      ingfo+=("TROJAN WS NON TLS")
-      dahlah+=("err55")
+      ingfo+=("TROJAN WS TLS")
+      dahlah+=("err54")
 else
       sstatus53=$AKTIF
-      mantap+=("hore55")
+      mantap+=("hore54")
 fi
 if [[ $status54 == "" ]]; then
       sstatus54=$ERROR
-      ingfo+=("TROJAN GO")
-      dahlah+=("err56")
+      ingfo+=("TROJAN WS NON TLS")
+      dahlah+=("err55")
 else
       sstatus54=$AKTIF
-      mantap+=("hore56")
+      mantap+=("hore55")
 fi
 if [[ $status55 == "" ]]; then
       sstatus55=$ERROR
-      ingfo+=("XRAY MT PROTO")
-      dahlah+=("err57")
+      ingfo+=("TROJAN GO")
+      dahlah+=("err56")
 else
       sstatus55=$AKTIF
-      mantap+=("hore57")
+      mantap+=("hore56")
 fi
 if [[ $status56 == "" ]]; then
       sstatus56=$ERROR
-      ingfo+=("SOCKS5 WS TLS")
-      dahlah+=("err58")
+      ingfo+=("XRAY MT PROTO")
+      dahlah+=("err57")
 else
       sstatus56=$AKTIF
-      mantap+=("hore58")
+      mantap+=("hore57")
 fi
 if [[ $status57 == "" ]]; then
       sstatus57=$ERROR
-      ingfo+=("SOCKS5 WS NON TLS")
-      dahlah+=("err59")
+      ingfo+=("SOCKS5 WS TLS")
+      dahlah+=("err58")
 else
       sstatus57=$AKTIF
-      mantap+=("hore59")
+      mantap+=("hore58")
 fi
 if [[ $status58 == "" ]]; then
       sstatus58=$ERROR
+      ingfo+=("SOCKS5 WS NON TLS")
+      dahlah+=("err59")
+else
+      sstatus58=$AKTIF
+      mantap+=("hore59")
+fi
+if [[ $status59 == "" ]]; then
+      sstatus59=$ERROR
       ingfo+=("SOCKS5 TCP TLS")
       dahlah+=("err60")
 else
-      sstatus58=$AKTIF
+      sstatus59=$AKTIF
       mantap+=("hore60")
-fi
-if [[ $status59 == "" ]]; then
-      sstatus59=$ERROR
-      ingfo+=("SOCKS5 GRPC TLS")
-      dahlah+=("err61")
-else
-      sstatus59=$AKTIF
-      mantap+=("hore61")
-fi
-if [[ $status59 == "" ]]; then
-      sstatus59=$ERROR
-      ingfo+=("SOCKS5 GRPC NON TLS")
-      dahlah+=("err61")
-else
-      sstatus59=$AKTIF
-      mantap+=("hore61")
 fi
 if [[ $status60 == "" ]]; then
       sstatus60=$ERROR
-      ingfo+=("SOCKS5 KCP TLS")
-      dahlah+=("err62")
+      ingfo+=("SOCKS5 GRPC TLS")
+      dahlah+=("err61")
 else
       sstatus60=$AKTIF
-      mantap+=("hore62")
+      mantap+=("hore61")
 fi
 if [[ $status61 == "" ]]; then
       sstatus61=$ERROR
-      ingfo+=("SOCKS5 H2C TLS")
-      dahlah+=("err63")
+      ingfo+=("SOCKS5 GRPC NON TLS")
+      dahlah+=("err62")
 else
       sstatus61=$AKTIF
-      mantap+=("hore63")
+      mantap+=("hore62")
 fi
 if [[ $status62 == "" ]]; then
       sstatus62=$ERROR
-      ingfo+=("SOCKS5 UDP")
-      dahlah+=("err64")
+      ingfo+=("SOCKS5 KCP TLS")
+      dahlah+=("err63")
 else
       sstatus62=$AKTIF
-      mantap+=("hore64")
+      mantap+=("hore63")
 fi
 if [[ $status63 == "" ]]; then
       sstatus63=$ERROR
-      ingfo+=("SOCKS5 QUIC TLS")
-      dahlah+=("err65")
+      ingfo+=("SOCKS5 H2C TLS")
+      dahlah+=("err64")
 else
       sstatus63=$AKTIF
-      mantap+=("hore65")
+      mantap+=("hore64")
 fi
 if [[ $status64 == "" ]]; then
       sstatus64=$ERROR
-      ingfo+=("SOCKS5 HTTP TLS")
-      dahlah+=("err66")
+      ingfo+=("SOCKS5 UDP")
+      dahlah+=("err65")
 else
       sstatus64=$AKTIF
-      mantap+=("hore66")
+      mantap+=("hore65")
 fi
 if [[ $status65 == "" ]]; then
       sstatus65=$ERROR
-      ingfo+=("SOCKS5 HTTP NON TLS")
-      dahlah+=("err67")
+      ingfo+=("SOCKS5 QUIC TLS")
+      dahlah+=("err66")
 else
       sstatus65=$AKTIF
-      mantap+=("hore67")
+      mantap+=("hore66")
 fi
 if [[ $status66 == "" ]]; then
       sstatus66=$ERROR
-      ingfo+=("SS 2022 QUIC TLS")
-      dahlah+=("err68")
+      ingfo+=("SOCKS5 HTTP TLS")
+      dahlah+=("err67")
 else
       sstatus66=$AKTIF
-      mantap+=("hore68")
+      mantap+=("hore67")
 fi
 if [[ $status67 == "" ]]; then
       sstatus67=$ERROR
-      ingfo+=("SS 2022 HTTP TLS")
-      dahlah+=("err69")
+      ingfo+=("SOCKS5 HTTP NON TLS")
+      dahlah+=("err68")
 else
       sstatus67=$AKTIF
-      mantap+=("hore69")
+      mantap+=("hore68")
 fi
 if [[ $status68 == "" ]]; then
       sstatus68=$ERROR
-      ingfo+=("SS 2022 HTTP NON TLS")
-      dahlah+=("err70")
+      ingfo+=("SS 2022 QUIC TLS")
+      dahlah+=("err69")
 else
       sstatus68=$AKTIF
-      mantap+=("hore70")
+      mantap+=("hore69")
 fi
 if [[ $status69 == "" ]]; then
       sstatus69=$ERROR
-      ingfo+=("SS 2022 KCP TLS")
-      dahlah+=("err71")
+      ingfo+=("SS 2022 HTTP TLS")
+      dahlah+=("err70")
 else
       sstatus69=$AKTIF
-      mantap+=("hore71")
+      mantap+=("hore70")
 fi
 if [[ $status70 == "" ]]; then
       sstatus70=$ERROR
-      ingfo+=("SS 2022 H2C TLS")
-      dahlah+=("err72")
+      ingfo+=("SS 2022 HTTP NON TLS")
+      dahlah+=("err71")
 else
       sstatus70=$AKTIF
-      mantap+=("hore72")
+      mantap+=("hore71")
 fi
 if [[ $status71 == "" ]]; then
       sstatus71=$ERROR
-      ingfo+=("SS 2022 UDP")
-      dahlah+=("err73")
+      ingfo+=("SS 2022 KCP TLS")
+      dahlah+=("err72")
 else
       sstatus71=$AKTIF
-      mantap+=("hore73")
+      mantap+=("hore72")
 fi
 if [[ $status72 == "" ]]; then
       sstatus72=$ERROR
-      ingfo+=("SS 2022 WS TLS")
-      dahlah+=("err74")
+      ingfo+=("SS 2022 H2C TLS")
+      dahlah+=("err73")
 else
       sstatus72=$AKTIF
-      mantap+=("hore74")
+      mantap+=("hore73")
 fi
 if [[ $status73 == "" ]]; then
       sstatus73=$ERROR
-      ingfo+=("SS 2022 WS NON TLS")
-      dahlah+=("err75")
+      ingfo+=("SS 2022 UDP")
+      dahlah+=("err74")
 else
       sstatus73=$AKTIF
-      mantap+=("hore75")
+      mantap+=("hore74")
 fi
 if [[ $status74 == "" ]]; then
       sstatus74=$ERROR
-      ingfo+=("SS 2022 TCP TLS")
-      dahlah+=("err76")
+      ingfo+=("SS 2022 WS TLS")
+      dahlah+=("err75")
 else
       sstatus74=$AKTIF
-      mantap+=("hore76")
+      mantap+=("hore75")
 fi
 if [[ $status75 == "" ]]; then
       sstatus75=$ERROR
-      ingfo+=("SS 2022 GRPC TLS")
-      dahlah+=("err77")
+      ingfo+=("SS 2022 WS NON TLS")
+      dahlah+=("err76")
 else
       sstatus75=$AKTIF
-      mantap+=("hore77")
+      mantap+=("hore76")
 fi
 if [[ $status76 == "" ]]; then
       sstatus76=$ERROR
-      ingfo+=("SS 2022 GRPC NON TLS")
-      dahlah+=("err78")
+      ingfo+=("SS 2022 TCP TLS")
+      dahlah+=("err77")
 else
       sstatus76=$AKTIF
+      mantap+=("hore77")
+fi
+if [[ $status77 == "" ]]; then
+      sstatus77=$ERROR
+      ingfo+=("SS 2022 GRPC TLS")
+      dahlah+=("err78")
+else
+      sstatus77=$AKTIF
       mantap+=("hore78")
+fi
+if [[ $status78 == "" ]]; then
+      sstatus78=$ERROR
+      ingfo+=("SS 2022 GRPC NON TLS")
+      dahlah+=("err79")
+else
+      sstatus78=$AKTIF
+      mantap+=("hore79")
+fi
+if [[ $status79 == "" ]]; then
+      sstatus79=$ERROR
+      ingfo+=("SHADOWSOCKS XRAY WS TLS")
+      dahlah+=("err80")
+else
+      sstatus79=$AKTIF
+      mantap+=("hore80")
+fi
+if [[ $status80 == "" ]]; then
+      sstatus80=$ERROR
+      ingfo+=("SHADOWSOCKS XRAY WS NON TLS")
+      dahlah+=("err81")
+else
+      sstatus80=$AKTIF
+      mantap+=("hore81")
+fi
+if [[ $status81 == "" ]]; then
+      sstatus81=$ERROR
+      ingfo+=("SHADOWSOCKS XRAY TCP TLS")
+      dahlah+=("err82")
+else
+      sstatus81=$AKTIF
+      mantap+=("hore82")
+fi
+if [[ $status82 == "" ]]; then
+      sstatus82=$ERROR
+      ingfo+=("SHADOWSOCKS XRAY GRPC TLS")
+      dahlah+=("err83")
+else
+      sstatus82=$AKTIF
+      mantap+=("hore83")
 fi
 jumlah1="${#mantap[@]}"
 jumlah2="${#dahlah[@]}"
@@ -885,10 +932,8 @@ echo -e "WAKTU : $jam wib $harini"
 echo -e "\033[1;31m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
 echo -e "\E[46;1;46m              💠 STATUS LAYANAN SERVER 💠               \E[0m"
 echo -e "\033[1;31m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
-echo -e "$bl🔰 $off $bd DROPBEAR                    $off : $sstatus01🔰"
-echo -e "$bl🔰 $off $bd OPENSSH                     $off : $sstatus02🔰"
-echo -e "$bl🔰 $off $bd STUNNEL 5                   $off : $sstatus03🔰"
-echo -e "$bl🔰 $off $bd OPENVPN                     $off : $sstatus04🔰"
+echo -e "$bl🔰 $off $bd OPENVPN TCP                 $off : $sstatus04🔰"
+echo -e "$bl🔰 $off $bd OPENVPN UDP                 $off : $sstatus04🔰"
 echo -e "$bl🔰 $off $bd OHP DROPBEAR                $off : $sstatus05🔰"
 echo -e "$bl🔰 $off $bd OHP OVPN                    $off : $sstatus06🔰"
 echo -e "$bl🔰 $off $bd OHP SSH                     $off : $sstatus07🔰"
@@ -896,66 +941,46 @@ echo -e "$bl🔰 $off $bd IPSEC                       $off : $sstatus08🔰"
 echo -e "$bl🔰 $off $bd SSTP                        $off : $sstatus09🔰"
 echo -e "$bl🔰 $off $bd PPTP                        $off : $sstatus10🔰"
 echo -e "$bl🔰 $off $bd L2TP                        $off : $sstatus11🔰"
-echo -e "$bl🔰 $off $bd NGINX                       $off : $sstatus12🔰"
 echo -e "$bl🔰 $off $bd SQUID 4                     $off : $sstatus13🔰"
 echo -e "$bl🔰 $off $bd CRON                        $off : $sstatus14🔰"
 echo -e "$bl🔰 $off $bd FAIL2BAN                    $off : $sstatus15🔰"
 echo -e "$bl🔰 $off $bd VNSTAT                      $off : $sstatus16🔰"
-echo -e "$bl🔰 $off $bd SSLH                        $off : $sstatus17🔰"
 echo -e "$bl🔰 $off $bd PRIVOXY                     $off : $sstatus18🔰"
-echo -e "$bl🔰 $off $bd SSH WS TLS                  $off : $sstatus19🔰"
-echo -e "$bl🔰 $off $bd SSH WS NON TLS              $off : $sstatus19🔰"
-echo -e "$bl🔰 $off $bd OPENVPN WS TLS              $off : $sstatus20🔰"
-echo -e "$bl🔰 $off $bd OPENVPN WS NON TLS          $off : $sstatus21🔰"
-echo -e "$bl🔰 $off $bd WIREGUARD                   $off : $sstatus22🔰"
-echo -e "$bl🔰 $off $bd SHADOWSOCKS OBFS            $off : $sstatus23🔰"
-echo -e "$bl🔰 $off $bd SHADOWSOCKS HTTP            $off : $sstatus23🔰"
-echo -e "$bl🔰 $off $bd SHADOWSOCKSR                $off : $sstatus24🔰"
-echo -e "$bl🔰 $off $bd VMESS WS TLS                $off : $sstatus25🔰"
+echo -e "$bl🔰 $off $bd SSH WS NON TLS              $off : $sstatus20🔰"
+echo -e "$bl🔰 $off $bd OPENVPN WS NON TLS          $off : $sstatus22🔰"
+echo -e "$bl🔰 $off $bd SHADOWSOCKS OBFS            $off : $sstatus24🔰"
+echo -e "$bl🔰 $off $bd SHADOWSOCKS HTTP            $off : $sstatus24🔰"
+echo -e "$bl🔰 $off $bd SHADOWSOCKSR                $off : $sstatus25🔰"
 echo -e "$bl🔰 $off $bd VMESS WS NON TLS            $off : $sstatus26🔰"
-echo -e "$bl🔰 $off $bd VMESS GRPC TLS              $off : $sstatus27🔰"
 echo -e "$bl🔰 $off $bd VMESS GRPC NON TLS          $off : $sstatus28🔰"
-echo -e "$bl🔰 $off $bd VMESS HTTP TLS              $off : $sstatus29🔰"
 echo -e "$bl🔰 $off $bd VMESS HTTP NON TLS          $off : $sstatus30🔰"
 echo -e "$bl🔰 $off $bd VMESS H2C TLS               $off : $sstatus31🔰"
 echo -e "$bl🔰 $off $bd VMESS QUIC TLS              $off : $sstatus32🔰"
 echo -e "$bl🔰 $off $bd VMESS KCP TLS               $off : $sstatus33🔰"
-echo -e "$bl🔰 $off $bd VLESS WS TLS                $off : $sstatus34🔰"
 echo -e "$bl🔰 $off $bd VLESS WS NON TLS            $off : $sstatus35🔰"
-echo -e "$bl🔰 $off $bd VLESS GRPC TLS              $off : $sstatus36🔰"
 echo -e "$bl🔰 $off $bd VLESS GRPC NON TLS          $off : $sstatus37🔰"
-echo -e "$bl🔰 $off $bd VLESS GFW TLS               $off : $sstatus38🔰"
-echo -e "$bl🔰 $off $bd VLESS HTTP TLS              $off : $sstatus39🔰"
 echo -e "$bl🔰 $off $bd VLESS HTTP NON TLS          $off : $sstatus40🔰"
-echo -e "$bl🔰 $off $bd VLESS XTLS                  $off : $sstatus41🔰"
 echo -e "$bl🔰 $off $bd VLESS H2C TLS               $off : $sstatus42🔰"
 echo -e "$bl🔰 $off $bd VLESS QUIC TLS              $off : $sstatus43🔰"
 echo -e "$bl🔰 $off $bd VLESS KCP TLS               $off : $sstatus44🔰"
 echo -e "$bl🔰 $off $bd TROJAN XTLS                 $off : $sstatus45🔰"
 echo -e "$bl🔰 $off $bd TROJAN GFW                  $off : $sstatus46🔰"
-echo -e "$bl🔰 $off $bd TROJAN HTTP TLS             $off : $sstatus47🔰"
 echo -e "$bl🔰 $off $bd TROJAN HTTP NON TLS         $off : $sstatus48🔰"
 echo -e "$bl🔰 $off $bd TROJAN H2C TLS              $off : $sstatus49🔰"
 echo -e "$bl🔰 $off $bd TROJAN KCP TLS              $off : $sstatus50🔰"
 echo -e "$bl🔰 $off $bd TROJAN QUIC TLS             $off : $sstatus51🔰"
-echo -e "$bl🔰 $off $bd TROJAN GRPC TLS             $off : $sstatus52🔰"
-echo -e "$bl🔰 $off $bd TROJAN WS TLS               $off : $sstatus53🔰"
 echo -e "$bl🔰 $off $bd TROJAN WS NON TLS           $off : $sstatus54🔰"
 echo -e "$bl🔰 $off $bd TROJAN GO                   $off : $sstatus55🔰"
 echo -e "$bl🔰 $off $bd XRAY MT PROTO               $off : $sstatus56🔰"
-echo -e "$bl🔰 $off $bd SOCKS5 WS TLS               $off : $sstatus57🔰"
 echo -e "$bl🔰 $off $bd SOCKS5 WS NON TLS           $off : $sstatus58🔰"
 echo -e "$bl🔰 $off $bd SOCKS5 TCP TLS              $off : $sstatus59🔰"
-echo -e "$bl🔰 $off $bd SOCKS5 GRPC TLS             $off : $sstatus60🔰"
 echo -e "$bl🔰 $off $bd SOCKS5 GRPC NON TLS         $off : $sstatus61🔰"
 echo -e "$bl🔰 $off $bd SOCKS5 KCP TLS              $off : $sstatus62🔰"
 echo -e "$bl🔰 $off $bd SOCKS5 H2C TLS              $off : $sstatus63🔰"
 echo -e "$bl🔰 $off $bd SOCKS5 UDP                  $off : $sstatus64🔰"
 echo -e "$bl🔰 $off $bd SOCKS5 QUIC TLS             $off : $sstatus65🔰"
-echo -e "$bl🔰 $off $bd SOCKS5 HTTP TLS             $off : $sstatus66🔰"
 echo -e "$bl🔰 $off $bd SOCKS5 HTTP NON TLS         $off : $sstatus67🔰"
 echo -e "$bl🔰 $off $bd SS 2022 QUIC TLS            $off : $sstatus68🔰"
-echo -e "$bl🔰 $off $bd SS 2022 HTTP TLS            $off : $sstatus69🔰"
 echo -e "$bl🔰 $off $bd SS 2022 HTTP NON TLS        $off : $sstatus70🔰"
 echo -e "$bl🔰 $off $bd SS 2022 KCP TLS             $off : $sstatus71🔰"
 echo -e "$bl🔰 $off $bd SS 2022 H2C TLS             $off : $sstatus72🔰"
@@ -963,16 +988,43 @@ echo -e "$bl🔰 $off $bd SS 2022 UDP                 $off : $sstatus73🔰"
 echo -e "$bl🔰 $off $bd SS 2022 WS TLS              $off : $sstatus74🔰"
 echo -e "$bl🔰 $off $bd SS 2022 WS NON TLS          $off : $sstatus75🔰"
 echo -e "$bl🔰 $off $bd SS 2022 TCP TLS             $off : $sstatus76🔰"
-echo -e "$bl🔰 $off $bd SS 2022 GRPC TLS            $off : $sstatus76🔰"
-echo -e "$bl🔰 $off $bd SS 2022 GRPC NON TLS        $off : $sstatus76🔰"
+echo -e "$bl🔰 $off $bd SS 2022 GRPC NON TLS        $off : $sstatus78🔰"
+echo -e "$bl🔰 $off $bd SS XRAY WS NON TLS          $off : $sstatus80🔰"
+echo -e "$bl🔰 $off $bd 443 DROPBEAR                $off : $sstatus01🔰"
+echo -e "$bl🔰 $off $bd 443 OPENSSH                 $off : $sstatus02🔰"
+echo -e "$bl🔰 $off $bd 443 STUNNEL 5               $off : $sstatus03🔰"
+echo -e "$bl🔰 $off $bd 443 OPENVPN SSL             $off : $sstatus04🔰"
+echo -e "$bl🔰 $off $bd 443 NGINX                   $off : $sstatus12🔰"
+echo -e "$bl🔰 $off $bd 443 GANDRING STREAM         $off : $sstatus17🔰"
+echo -e "$bl🔰 $off $bd 443 SSH WS TLS              $off : $sstatus19🔰"
+echo -e "$bl🔰 $off $bd 443 OPENVPN WS TLS          $off : $sstatus21🔰"
+echo -e "$bl🔰 $off $bd 443 WIREGUARD               $off : $sstatus23🔰"
+echo -e "$bl🔰 $off $bd 443 VMESS WS TLS            $off : $sstatus26🔰"
+echo -e "$bl🔰 $off $bd 443 VMESS GRPC TLS          $off : $sstatus27🔰"
+echo -e "$bl🔰 $off $bd 443 VMESS HTTP TLS          $off : $sstatus29🔰"
+echo -e "$bl🔰 $off $bd 443 VLESS XTLS              $off : $sstatus41🔰"
+echo -e "$bl🔰 $off $bd 443 VLESS GFW TLS           $off : $sstatus38🔰"
+echo -e "$bl🔰 $off $bd 443 VLESS HTTP TLS          $off : $sstatus39🔰"
+echo -e "$bl🔰 $off $bd 443 VLESS WS TLS            $off : $sstatus34🔰"
+echo -e "$bl🔰 $off $bd 443 VLESS GRPC TLS          $off : $sstatus36🔰"
+echo -e "$bl🔰 $off $bd 443 TROJAN HTTP TLS         $off : $sstatus47🔰"
+echo -e "$bl🔰 $off $bd 443 TROJAN GRPC TLS         $off : $sstatus52🔰"
+echo -e "$bl🔰 $off $bd 443 TROJAN WS TLS           $off : $sstatus53🔰"
+echo -e "$bl🔰 $off $bd 443 SOCKS5 WS TLS           $off : $sstatus57🔰"
+echo -e "$bl🔰 $off $bd 443 SOCKS5 GRPC TLS         $off : $sstatus60🔰"
+echo -e "$bl🔰 $off $bd 443 SOCKS5 HTTP TLS         $off : $sstatus66🔰"
+echo -e "$bl🔰 $off $bd 443 SS 2022 HTTP TLS        $off : $sstatus69🔰"
+echo -e "$bl🔰 $off $bd 443 SS 2022 GRPC TLS        $off : $sstatus77🔰"
+echo -e "$bl🔰 $off $bd 443 SS XRAY WS TLS          $off : $sstatus79🔰"
+echo -e "$bl🔰 $off $bd 443 SS XRAY TCP TLS         $off : $sstatus81🔰"
+echo -e "$bl🔰 $off $bd 443 SS XRAY GRPC TLS        $off : $sstatus82🔰"
 echo -e "\033[1;31m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
-echo -e "\E[46;1;46m            🇮🇩 SOLO THE SPIRIT OF JAVA 🇮🇩           \E[0m"
+echo -e "\E[46;1;46m            🇮🇩 SOLO THE SPIRIT OF JAVA 🇮🇩               \E[0m"
 echo -e "\033[1;31m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
 echo -e " ✅ JUMLAH LAYANAN RUNNING [${green}$jumlah_aktif${off}]"
 echo -e " ⛔ JUMLAH LAYANAN TROUBLE [ ${red}$jumlah_error${off} ]"
-echo -e " 🈯️ JUMLAH LAYANAN PORT 443 ✅ 27 PROTOCOL"
+echo -e " 🔥 JUMLAH LAYANAN PORT 443 ✅ 28 PROTOCOL"
 echo -e "\033[1;31m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
 echo -e "\E[46;1;46m             💠 LUXURY EDITION ZEROSSL 💠               \E[0m"
 echo -e "\033[1;31m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
 echo -e ""
- 
