@@ -87,7 +87,7 @@ sed -i '/#vmess-http-nontls$/a\### '"$user $exp"'\
 cat>/etc/xray/vmess-$user-tls.json<<EOF
       {
       "v": "2",
-      "ps": "🔰VMESS HTTP TLS ${user}",
+      "ps": "🔥VMESS HTTP TLS ${user}",
       "add": "${domain}",
       "port": "${vmhttp}",
       "id": "${uuid}",
@@ -102,7 +102,7 @@ EOF
 cat>/etc/xray/vmess-$user-nontls.json<<EOF
       {
       "v": "2",
-      "ps": "🔰VMESS HTTP NONTLS ${user}",
+      "ps": "🔥VMESS HTTP NONTLS ${user}",
       "add": "${domain}",
       "port": "${vmhttpnon}",
       "id": "${uuid}",
@@ -130,25 +130,24 @@ service cron restart
 clear
 echo -e ""
 echo -e "\033[1;31m━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
-echo -e "\033[1;46m  🔰 AKUN VMESS HTTP 🔰   \e[m"   
+echo -e "\033[1;46m  🔥 AKUN VMESS HTTP 🔥   \e[m"   
 echo -e "\033[1;31m━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
-echo -e "🔺️Nama➡️ ${user}"
-echo -e "🔺️Host➡️ ${domain}"
-echo -e "🔺️IP➡️ ${MYIP}"
-echo -e "🔺️Port TLS➡️ ${vmhttp},8443,2096"
-echo -e "🔺️Port NON TLS➡️ ${vmhttpnon}"
-echo -e "🔺️Network➡️ tcp"
-echo -e "🔺️Host➡️ ${domain}"
-echo -e "🔺️Path➡️ /SHANUM-TCP"
-echo -e "🔺️uuId➡️ ${uuid}"
-echo -e "🔺️Dibuat➡️ $hariini"
-echo -e "🔺️Kadaluarsa➡️ $exp"
+echo -e "Nama➡️ ${user}"
+echo -e "Host➡️ ${domain}"
+echo -e "IP➡️ ${MYIP}"
+echo -e "Port TLS➡️ ${vmhttp},8443,2096"
+echo -e "Port NON TLS➡️ ${vmhttpnon}"
+echo -e "Network➡️ tcp"
+echo -e "Path➡️ /SHANUM-TCP"
+echo -e "uuId➡️ ${uuid}"
+echo -e "Dibuat➡️ $hariini"
+echo -e "Kadaluarsa➡️ $exp"
 echo -e "\033[1;31m━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
-echo -e "🔺️HTTP TLS➡️ l ${vmesshttp}"   
+echo -e "HTTP TLS➡️ ${vmesshttp}"   
 echo -e "\033[1;31m━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
-echo -e "🔺️HTTP NONTLS➡️ ${vmesshttpnon}"   
+echo -e "HTTP NONTLS➡️ ${vmesshttpnon}"   
 echo -e "\033[1;31m━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
-echo -e "\033[1;46m🔰LUXURY EDITION ZEROSSL🔰\e[m"   
+echo -e "\033[1;46m🔥LUXURY EDITION ZEROSSL🔥\e[m"   
 echo -e "\033[1;31m━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
 echo ""
 read -n 1 -s -r -p "Ketik Bebas Untuk Ke Menu Utama"
