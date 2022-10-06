@@ -90,7 +90,7 @@ sed -i '/#vless-hdua$/a\### '"$user $exp"'\
 },{"id": "'""$uuid""'","email": "'""$user""'"' /etc/xray/xvmess.json
 sed -i '/#vless-hdua-nontls$/a\### '"$user $exp"'\
 },{"id": "'""$uuid""'","email": "'""$user""'"' /etc/xray/xvless.json
-vlesshdua="vless://${uuid}@${domain}:$vlhdua?type=http&security=tls&path=/WISNU-HTTP&encryption=none#%F0%9F%94%B0VLESS+H2C+TLS+${user}"
+vlesshdua="vless://${uuid}@${domain}:$vlhdua?type=http&security=tls&path=/WISNU-HTTP&encryption=none#%F0%9F%94%A5VLESS+H2C+TLS+${user}"
 vlesshduanon="vless://${uuid}@${domain}:$vlhduanon?type=http&security=none&path=/gandring&encryption=none#${user}"
 systemctl restart xvless.service
 systemctl restart xray.service
@@ -101,23 +101,23 @@ systemctl restart xtrojan
 service cron restart
 clear
 echo -e "\033[1;31m━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
-echo -e "\033[1;46m 🔰 AKUN VLESS HTTP/2 🔰  \e[m"   
+echo -e "\033[1;46m 🔥 AKUN VLESS HTTP/2 🔥  \e[m"   
 echo -e "\033[1;31m━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
-echo -e "🔺️Nama➡️ ${user}"
-echo -e "🔺️IP/Host➡️ ${MYIP}"
-echo -e "🔺️Address➡️ ${domain}"
-echo -e "🔺️Port➡️ $vlhdua"
-echo -e "🔺️Protokol➡️ H2"
-echo -e "🔺️Path➡️ /WISNU-HTTP"
-echo -e "🔺️UserID➡️ ${uuid}"
-echo -e "🔺️Dibuat➡️ $hariini"
-echo -e "🔺️Kadaluarsa➡️ $exp"
+echo -e "Nama➡️ ${user}"
+echo -e "IP/Host➡️ ${MYIP}"
+echo -e "Address➡️ ${domain}"
+echo -e "Port➡️ $vlhdua"
+echo -e "Protokol➡️ H2"
+echo -e "Path➡️ /WISNU-HTTP"
+echo -e "UserID➡️ ${uuid}"
+echo -e "Dibuat➡️ $hariini"
+echo -e "Kadaluarsa➡️ $exp"
 echo -e "\033[1;31m━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
-echo -e "🔺️H2C TLS➡️ ${vlesshdua}"
+echo -e "H2C TLS➡️ ${vlesshdua}"
 echo -e "\033[1;31m━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
 #echo -e "✨ H2C NONTLS:${vlesshduanon}"
 #echo -e "\033[1;31m━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
-echo -e "\033[1;46m🔰LUXURY EDITION ZEROSSL🔰\e[m"   
+echo -e "\033[1;46m🔥LUXURY EDITION ZEROSSL🔥\e[m"   
 echo -e "\033[1;31m━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
 echo ""
 read -n 1 -s -r -p "Ketik Bebas Untuk Ke Menu Utama"
