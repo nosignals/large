@@ -76,8 +76,8 @@ sed -i '/#vless-xtls$/a\### '"$user $exp"'\
 },{"id": "'""$uuid""'","flow": "'""xtls-rprx-direct""'", "email": "'""$user""'"' /etc/xray/config.json
 sed -i '/#vless-xtls$/a\### '"$user $exp"'\
 },{"id": "'""$uuid""'","flow": "'""xtls-rprx-direct""'", "email": "'""$user""'"' /etc/xray/xss.json
-vlessxtls="vless://${uuid}@${domain}:$vlxtls?type=tcp&security=xtls&headerType=none&flow=xtls-rprx-splice-udp443&encryption=none#%F0%9F%94%B0VLESS+XTLS+${user}"
-vlessgfw="vless://${uuid}@${domain}:$vlxtls?security=tls&type=tcp&headerType=none&encryption=none#%F0%9F%94%B0VLESS+GFW+TLS+${user}"
+vlessxtls="vless://${uuid}@${domain}:$vlxtls?type=tcp&security=xtls&headerType=none&flow=xtls-rprx-splice-udp443&encryption=none#%F0%9F%94%A5VLESS+XTLS+${user}"
+vlessgfw="vless://${uuid}@${domain}:$vlxtls?security=tls&type=tcp&headerType=none&encryption=none#%F0%9F%94%A5VLESS+GFW+TLS+${user}"
 systemctl restart xray.service
 systemctl restart xvless.service
 systemctl restart xvmess
@@ -86,24 +86,24 @@ service cron restart
 #systemctl restart nginx
 clear
 echo -e "\033[1;31m━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
-echo -e "\033[1;46m🔰 AKUN VLESS XTLS GFW 🔰 \e[m"   
+echo -e "\033[1;46m🔥 AKUN VLESS XTLS GFW 🔥 \e[m"   
 echo -e "\033[1;31m━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
-echo -e "🔺️Nama➡️ ${user}"
-echo -e "🔺️IP/Host➡️ ${MYIP}"
-echo -e "🔺️Alamat➡️ ${domain}"
-echo -e "🔺️Port➡️ ${vlxtls}"
-echo -e "🔺️Network➡️ tcp"
-echo -e "🔺️Security➡️ xtls"
-echo -e "🔺️Flow➡️ only origin's type not supported"
-echo -e "🔺️UserID➡️ ${uuid}"
-echo -e "🔺️Dibuat➡️ $hariini"
-echo -e "🔺️Kadaluarsa➡️ $exp"
+echo -e "Nama➡️ ${user}"
+echo -e "IP/Host➡️ ${MYIP},$domain2"
+echo -e "Alamat➡️ ${domain}"
+echo -e "Port➡️ ${vlxtls}"
+echo -e "Network➡️ tcp"
+echo -e "Security➡️ xtls"
+echo -e "Flow➡️ only origin's type not supported"
+echo -e "UserID➡️ ${uuid}"
+echo -e "Dibuat➡️ $hariini"
+echo -e "Kadaluarsa➡️ $exp"
 echo -e "\033[1;31m━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
-echo -e "🔺️XTLS➡️ ${vlessxtls}"
+echo -e "XTLS➡️ ${vlessxtls}"
 echo -e "\033[1;31m━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
-echo -e "🔺️GFW➡️ ${vlessgfw}"
+echo -e "GFW➡️ ${vlessgfw}"
 echo -e "\033[1;31m━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
-echo -e "\033[1;46m🔰LUXURY EDITION ZEROSSL🔰\e[m"   
+echo -e "\033[1;46m🔥LUXURY EDITION ZEROSSL🔥\e[m"   
 echo -e "\033[1;31m━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
 echo ""
 read -n 1 -s -r -p "Ketik Bebas Untuk Ke Menu Utama"
