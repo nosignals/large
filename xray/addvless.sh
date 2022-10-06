@@ -105,7 +105,7 @@ systemctl restart xss
 service cron restart
 clear
 echo -e "\033[1;31m━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
-echo -e "\033[1;46m 🔰 AKUN VLESS WEBSOCKET 🔰\e[m"   
+echo -e "\033[1;46m 🔥 AKUN VLESS WEBSOCKET 🔥\e[m"   
 echo -e "\033[1;31m━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
 echo -e "Nama➡️ ${user}"
 echo -e "IP➡️ ${MYIP}),$domain2"
@@ -123,7 +123,7 @@ echo -e "WS TLS➡️ ${vlesstls}"
 echo -e "\033[1;31m━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
 echo -e "WS NONTLS➡️ ${vlessnontls}"
 echo -e "\033[1;31m━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
-echo -e "\033[1;46m 🔰LUXURY EDITION ZEROSSL🔰\e[m"   
+echo -e "\033[1;46m 🔥LUXURY EDITION ZEROSSL🔥\e[m"   
 echo -e "\033[1;31m━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
 echo ""
 read -n 1 -s -r -p "Ketik Bebas Untuk Ke Menu Utama"
