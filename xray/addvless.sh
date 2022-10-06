@@ -94,8 +94,8 @@ sed -i '/#vless-tls$/a\### '"$user $exp"'\
 },{"id": "'""$uuid""'","email": "'""$user""'"' /etc/xray/xtrojan.json
 sed -i '/#vless-nontls$/a\### '"$user $exp"'\
 },{"id": "'""$uuid""'","email": "'""$user""'"' /etc/xray/config.json
-vlesstls="vless://${uuid}@${domain}:$vltls?host=${domain3}&sni=${domain3}&type=ws&security=tls&path=/WISNU&encryption=none#%F0%9F%94%B0VLESS+WS+TLS+${user}"
-vlessnontls="vless://${uuid}@${domain}:$vlnontls?host=${domain3}&security=none&type=ws&path=/WISNU&encryption=none#%F0%9F%94%B0VLESS+WS+NONTLS+${user}"
+vlesstls="vless://${uuid}@${domain}:$vltls?host=${domain3}&sni=${domain3}&type=ws&security=tls&path=/WISNU&encryption=none#%F0%9F%94%A5VLESS+WS+TLS+${user}"
+vlessnontls="vless://${uuid}@${domain}:$vlnontls?host=${domain3}&security=none&type=ws&path=/WISNU&encryption=none#%F0%9F%94%A5VLESS+WS+NONTLS+${user}"
 systemctl restart xray.service
 systemctl restart xvless
 systemctl restart xvmess
