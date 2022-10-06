@@ -90,8 +90,8 @@ sed -i '/#vless-kcp-nontls$/a\### '"$user $exp"'\
 },{"id": "'""$uuid""'","email": "'""$user""'"' /etc/xray/xtrojan.json
 sed -i '/#vless-kcp$/a\### '"$user $exp"'\
 },{"id": "'""$uuid""'","email": "'""$user""'"' /etc/xray/config.json
-vlesskcp="vless://$uuid@$domain:$vlkcp?sni=$domain&seed=WISNU-KCP&type=kcp&security=tls&headerType=none&encryption=none#%F0%9F%94%B0VLESS+KCP+TLS+$user"
-vlesskcpnon="vless://$uuid@$domain:$vlkcpnon?sni=$domain&seed=WISNU-KCP&type=kcp&security=none&headerType=none&encryption=none#%F0%9F%94%B0VLESS+KCP+NONTLS+$user"
+vlesskcp="vless://$uuid@$domain:$vlkcp?sni=$domain&seed=WISNU-KCP&type=kcp&security=tls&headerType=none&encryption=none#%F0%9F%94%A5VLESS+KCP+TLS+$user"
+vlesskcpnon="vless://$uuid@$domain:$vlkcpnon?sni=$domain&seed=WISNU-KCP&type=kcp&security=none&headerType=none&encryption=none#%F0%9F%94%A5VLESS+KCP+NONTLS+$user"
 systemctl restart xvless.service
 systemctl restart xray.service
 systemctl restart xvmess
@@ -101,23 +101,23 @@ systemctl restart xtrojan
 service cron restart
 clear
 echo -e "\033[1;31m━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
-echo -e "\033[1;46m   🔰 AKUN VLESS KCP 🔰   \e[m"   
+echo -e "\033[1;46m   🔥 AKUN VLESS KCP 🔥   \e[m"   
 echo -e "\033[1;31m━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
-echo -e "🔺️Nama➡️ ${user}"
-echo -e "🔺️IP/Host➡️ ${MYIP}"
-echo -e "🔺️Address➡️ ${domain}"
-echo -e "🔺️Port➡️ $vlkcp"
-echo -e "🔺️Protokol➡️KCP"
-echo -e "🔺️Path➡️WISNU-KCP"
-echo -e "🔺️UserID➡️${uuid}"
-echo -e "🔺️Dibuat➡️$hariini"
-echo -e "🔺️Kadaluarsa➡️$exp"
+echo -e "Nama➡️ ${user}"
+echo -e "IP/Host➡️ ${MYIP}"
+echo -e "Address➡️ ${domain}"
+echo -e "Port➡️ $vlkcp"
+echo -e "Protokol➡️KCP"
+echo -e "Path➡️WISNU-KCP"
+echo -e "UserID➡️${uuid}"
+echo -e "Dibuat➡️$hariini"
+echo -e "Kadaluarsa➡️$exp"
 echo -e "\033[1;31m━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
-echo -e "🔺️KCP TLS➡️ ${vlesskcp}"
+echo -e "KCP TLS➡️ ${vlesskcp}"
 echo -e "\033[1;31m━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
-#echo -e "✨ H2C NONTLS:${vlesshduanon}"
+#echo -e "KCP NONTLS➡️ ${vlesskcpnon}"
 #echo -e "\033[1;31m━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
-echo -e "\033[1;46m🔰LUXURY EDITION ZEROSSL🔰\e[m"   
+echo -e "\033[1;46m🔥LUXURY EDITION ZEROSSL🔥\e[m"   
 echo -e "\033[1;31m━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
 echo ""
 read -n 1 -s -r -p "Ketik Bebas Untuk Ke Menu Utama"
