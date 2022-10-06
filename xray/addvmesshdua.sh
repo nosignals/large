@@ -89,7 +89,7 @@ sed -i '/#vmess-hdua$/a\### '"$user $exp"'\
 cat>/etc/xray/vmess-$user-tls.json<<EOF
       {
       "v": "0",
-      "ps": "🔰VMESS H2C TLS ${user}",
+      "ps": "🔥VMESS H2C TLS ${user}",
       "add": "${domain}",
       "port": "${vmhdua}",
       "id": "${uuid}",
@@ -119,24 +119,24 @@ service cron restart
 clear
 echo -e ""
 echo -e "\033[1;31m━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
-echo -e "\033[1;46m  🔰 AKUN VMESS HTTP/2 🔰 \e[m"   
+echo -e "\033[1;46m  🔥 AKUN VMESS HTTP/2 🔥 \e[m"   
 echo -e "\033[1;31m━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
-echo -e "🔺️Nama➡️ ${user}"
-echo -e "🔺️Host➡️ ${domain}"
-echo -e "🔺️IP➡️ ${MYIP}"
-echo -e "🔺️Port TLS➡️ ${vmhdua}"
-echo -e "🔺️Network➡️ H2"
-echo -e "🔺️Host➡️ ${domain}"
-echo -e "🔺️Path➡️ /SHANUM-HTTP"
-echo -e "🔺️Uuid➡️ ${uuid}"
-echo -e "🔺️Dibuat➡️ $hariini"
-echo -e "🔺️Kadaluarsa➡️ $exp"
+echo -e "Nama➡️ ${user}"
+echo -e "Host➡️ ${domain}"
+echo -e "IP➡️ ${MYIP}"
+echo -e "Port TLS➡️ ${vmhdua}"
+echo -e "Network➡️ H2"
+echo -e "Host➡️ ${domain}"
+echo -e "Path➡️ /SHANUM-HTTP"
+echo -e "Uuid➡️ ${uuid}"
+echo -e "Dibuat➡️ $hariini"
+echo -e "Kadaluarsa➡️ $exp"
 echo -e "\033[1;31m━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
-echo -e "🔺️H2C TLS➡️ ${vmesshdua}"   
+echo -e "H2C TLS➡️ ${vmesshdua}"   
 echo -e "\033[1;31m━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
-#echo -e "H2C NONTLS: ${vmesshduanon}"   
+#echo -e "H2C NONTLS➡️ ${vmesshduanon}"   
 #echo -e "\033[1;31m━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
-echo -e "\033[1;46m🔰LUXURY EDITION ZEROSSL🔰\e[m"   
+echo -e "\033[1;46m🔥LUXURY EDITION ZEROSSL🔥\e[m"   
 echo -e "\033[1;31m━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
 echo ""
 read -n 1 -s -r -p "Ketik Bebas Untuk Ke Menu Utama"
