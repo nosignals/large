@@ -90,7 +90,7 @@ sed -i '/#vmess-grpc-nontls$/a\### '"$user $exp"'\
 cat>/etc/xray/vmess-$user-tls.json<<EOF
       {
       "v": "4",
-      "ps": "🔰VMESS GRPC TLS ${user}",
+      "ps": "🔥VMESS GRPC TLS ${user}",
       "add": "${domain}",
       "port": "${vmgrpc}",
       "id": "${uuid}",
@@ -105,7 +105,7 @@ EOF
 cat>/etc/xray/vmess-$user-nontls.json<<EOF
       {
       "v": "4",
-      "ps": "🔰VMESS GRPC NONTLS ${user}",
+      "ps": "🔥VMESS GRPC NONTLS ${user}",
       "add": "${domain}",
       "port": "${vmgrpcnon}",
       "id": "${uuid}",
@@ -133,25 +133,25 @@ systemctl restart xtrojan
 service cron restart
 clear
 echo -e "\033[1;31m━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
-echo -e "\033[1;46m  🔰 AKUN VMESS GRPC 🔰   \e[m"   
+echo -e "\033[1;46m  🔥 AKUN VMESS GRPC 🔥   \e[m"   
 echo -e "\033[1;31m━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
-echo -e "🔺️Nama➡️ ${user}"
-echo -e "🔺️Host➡️ ${domain}"
-echo -e "🔺️IP➡️ ${MYIP},$domain2"
-echo -e "🔺️CF Host➡️${domain3}"
-echo -e "🔺️Port TLS➡️ ${vmgrpc},8443,2096,2087,2053"
-#echo -e "🔺️Port NonTLS➡️ ${vmgrpcnon}"
-echo -e "🔺️Protokol➡️ GRPC"
-echo -e "🔺️serviceName➡️ AYESHA"
-echo -e "🔺️UserId➡️ ${uuid}"
-echo -e "🔺️Dibuat➡️ $hariini"
-echo -e "🔺️Kadaluarsa➡️ $exp"
+echo -e "Nama➡️ ${user}"
+echo -e "Host➡️ ${domain}"
+echo -e "IP➡️ ${MYIP},$domain2"
+echo -e "CF Host➡️${domain3}"
+echo -e "TLS➡️ ${vmgrpc},8443,2096,2087,2053"
+#echo -e "🔺️Port NONTLS➡️ ${vmgrpcnon}"
+echo -e "Protokol➡️ GRPC"
+echo -e "serviceName➡️ AYESHA"
+echo -e "UserId➡️ ${uuid}"
+echo -e "Dibuat➡️ $hariini"
+echo -e "Kadaluarsa➡️ $exp"
 echo -e "\033[1;31m━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
-echo -e "🔺️GRPC TLS➡️ ${vmessgrpc}"
+echo -e "GRPC TLS➡️ ${vmessgrpc}"
 echo -e "\033[1;31m━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
-#echo -e "🔺️GRPC NONTLS➡️  ${vmessgrpcnon}"
+#echo -e "🔺️GRPC NONTLS➡️ ${vmessgrpcnon}"
 #echo -e "\033[1;31m━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
-echo -e "\033[1;46m🔰LUXURY EDITION ZEROSSL🔰\e[m"   
+echo -e "\033[1;46m🔥LUXURY EDITION ZEROSSL🔥\e[m"   
 echo -e "\033[1;31m━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
 echo ""
 read -n 1 -s -r -p "Ketik Bebas Untuk Ke Menu Utama"
