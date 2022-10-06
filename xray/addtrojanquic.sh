@@ -84,7 +84,7 @@ sed -i '/#trojan-quic$/a\### '"$user $exp"'\
 },{"password": "'""$uuid""'","email": "'""$user""'"' /etc/xray/xvlessjson
 sed -i '/#trojan-quic$/a\### '"$user $exp"'\
 },{"password": "'""$uuid""'","email": "'""$user""'"' /etc/xray/xvmess.json
-trojanquic="trojan://$uuid@$MYIP:$tquic?sni=$domain&quicSecurity=$domain&key=GANDRING-QUIC&security=tls&type=quic&headerType=none#%F0%9F%94%B0TROJAN+QUIC+TLS+$user"
+trojanquic="trojan://$uuid@$MYIP:$tquic?sni=$domain&quicSecurity=$domain&key=GANDRING-QUIC&security=tls&type=quic&headerType=none#%F0%9F%94%A5TROJAN+QUIC+TLS+$user"
 systemctl restart xray.service
 systemctl restart xtrojan.service
 systemctl restart xvmess.service
