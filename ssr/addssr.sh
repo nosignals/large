@@ -16,6 +16,7 @@ MYIP=$(wget -qO- ipinfo.io/ip)
 clear
 IP=$(wget -qO- ipinfo.io/ip);
 read -e -p "Username : " ssr_user
+read -e -p "Password : " user
 CLIENT_EXISTS=$(grep -w $ssr_user /usr/local/shadowsocksr/akun.conf | wc -l)
 if [[ ${CLIENT_EXISTS} == '1' ]]; then
 echo ""
@@ -55,29 +56,29 @@ echo -e "### $ssr_user $exp" >> /usr/local/shadowsocksr/akun.conf
 tmp1=$(echo -n "${ssr_password}" | base64 -w0 | sed 's/=//g;s/\//_/g;s/+/-/g')
 SSRobfs=$(echo ${ssr_obfs} | sed 's/_compatible//g')
 tmp2=$(echo -n "$domain:${ssr_port}:${ssr_protocol}:${ssr_method}:${SSRobfs}:${tmp1}/obfsparam=" | base64 -w0)
-ssr_link="ssr://${tmp2}"
+ssr_link="ssr://${tmp2}#%F0%9F%94%A5SHADOWSOCK+RR+$user"
 /etc/init.d/ssrmu restart
 systemctl restart ssrmu
 service cron restart
 IP=$(wget -qO- ifconfig.co);
 clear
 echo -e "\033[1;31m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
-echo -e "\033[1;46m    🔰 AKUN SHADOWSOCKS-RR 🔰     \e[m"   
+echo -e "\033[1;46m   🔥 AKUN SHADOWSOCKS-RR 🔥   \e[m"   
 echo -e "\033[1;31m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
-echo -e "🔺️IP➡️ ${IP},$domain"
-echo -e "🔺️Domain➡️ $domain"
-echo -e "🔺️Port➡️ ${ssr_port}"
-echo -e "🔺️Password➡️ ${ssr_password}"
-echo -e "🔺️Encryption➡️ ${ssr_method}"
-echo -e "🔺️Protocol➡️ ${Red_font_prefix}${ssr_protocol}"
-echo -e "🔺️Obfs➡️ ${Red_font_prefix}${ssr_obfs}"
-echo -e "🔺️Max Device➡️ ${ssr_protocol_param}"
-echo -e "🔺️Dibuat➡️ $hariini"
-echo -e "🔺️Kadaluarsa➡️ ${exp} "
+echo -e "IP➡️ ${IP}"
+echo -e "Domain➡️ $domain"
+echo -e "Port➡️ ${ssr_port}"
+echo -e "Password➡️ ${ssr_password}"
+echo -e "Encryption➡️ ${ssr_method}"
+echo -e "Protocol➡️ ${Red_font_prefix}${ssr_protocol}"
+echo -e "Obfs➡️ ${Red_font_prefix}${ssr_obfs}"
+echo -e "Max Device➡️ ${ssr_protocol_param}"
+echo -e "Dibuat➡️ $hariini"
+echo -e "Kadaluarsa➡️ ${exp} "
 echo -e "\033[1;31m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
-echo -e "🔺️Link SSR➡️  ${ssr_link}"
+echo -e "Link SSR➡️ ${ssr_link}"
 echo -e "\033[1;31m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
-echo -e "\033[1;46m  🔰LUXURY EDITION BY ZEROSSL🔰   \e[m"   
+echo -e "\033[1;46m  🔥LUXURY EDITION ZEROSSL🔥   \e[m"   
 echo -e "\033[1;31m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
 echo ""
 read -n 1 -s -r -p "Tekan Bebas Untuk Ke menu"            
