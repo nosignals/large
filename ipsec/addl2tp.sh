@@ -11,7 +11,7 @@ else
 PUBLIC_IP=$IP
 fi
 echo -e "\033[1;31m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
-echo -e "\E[46;1;46m        🔰 AKUN L2TP 🔰           \E[0m"
+echo -e "\E[46;1;46m        🔥 AKUN L2TP 🔥           \E[0m"
 echo -e "\033[1;31m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
 until [[ $VPN_USER =~ ^[a-zA-Z0-9_]+$ && ${CLIENT_EXISTS} == '0' ]]; do
 read -rp "Username: " -e VPN_USER
@@ -19,7 +19,7 @@ CLIENT_EXISTS=$(grep -w $VPN_USER /var/lib/wisnucs/data-user-l2tp | wc -l)
 
 if [[ ${CLIENT_EXISTS} == '1' ]]; then
 echo -e "\033[1;31m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
-echo -e "\E[46;1;46m        🔰 AKUN L2TP 🔰           \E[0m"
+echo -e "\E[46;1;46m        🔥 AKUN L2TP 🔥           \E[0m"
 echo -e "\033[1;31m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
 echo ""
 echo "A client with the specified name was already created, please choose another name."
@@ -50,19 +50,19 @@ chmod 600 /etc/ppp/chap-secrets* /etc/ipsec.d/passwd*
 echo -e "### $VPN_USER $exp">>"/var/lib/wisnucs/data-user-l2tp"
 clear
 echo -e "\033[1;31m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"  | tee -a /etc/log-create-user.log
-echo -e "\E[46;1;46m        🔰 AKUN L2TP 🔰           \E[0m"   | tee -a /etc/log-create-user.log
+echo -e "\E[46;1;46m        🔥 AKUN L2TP 🔥           \E[0m"   | tee -a /etc/log-create-user.log
 echo -e "\033[1;31m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m" | tee -a /etc/log-create-user.log
 echo -e "" | tee -a /etc/log-create-user.log
-echo -e "🔺️IP ➡️ $PUBLIC_IP" | tee -a /etc/log-create-user.log
-echo -e "🔺️Domain ➡️ $domain" | tee -a /etc/log-create-user.log
-echo -e "🔺️IPsec PSK ➡️ gandring" | tee -a /etc/log-create-user.log
-echo -e "🔺️Username ➡️ $VPN_USER" | tee -a /etc/log-create-user.log
-echo -e "🔺️Password ➡️ $VPN_PASSWORD" | tee -a /etc/log-create-user.log
-echo -e "🔺️Dibuat ➡️ $hariini" | tee -a /etc/log-create-user.log
-echo -e "🔺️Kadaluarsa ➡️ $exp" | tee -a /etc/log-create-user.log
+echo -e "IP➡️ $PUBLIC_IP" | tee -a /etc/log-create-user.log
+echo -e "Domain➡️ $domain" | tee -a /etc/log-create-user.log
+echo -e "IPsec PSK➡️ gandring" | tee -a /etc/log-create-user.log
+echo -e "Username➡️ $VPN_USER" | tee -a /etc/log-create-user.log
+echo -e "Password➡️ $VPN_PASSWORD" | tee -a /etc/log-create-user.log
+echo -e "Dibuat➡️ $hariini" | tee -a /etc/log-create-user.log
+echo -e "Kadaluarsa➡️ $exp" | tee -a /etc/log-create-user.log
 echo -e "" | tee -a /etc/log-create-user.log
 echo -e "\033[1;31m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m" | tee -a /etc/log-create-user.log
-echo -e "\E[46;1;46m    🔰LUXURY EDITION ZEROSSL🔰    \E[0m"  | tee -a /etc/log-create-user.log
+echo -e "\E[46;1;46m    🔥LUXURY EDITION ZEROSSL🔥    \E[0m"  | tee -a /etc/log-create-user.log
 echo -e "\033[1;31m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m" | tee -a /etc/log-create-user.log
 echo "" | tee -a /etc/log-create-user.log
 read -n 1 -s -r -p "Tekan Bebas Untuk Ke Menu"
