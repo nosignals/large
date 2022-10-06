@@ -95,8 +95,8 @@ sed -i '/#vless-http-nontls$/a\### '"$user $exp"'\
 },{"id": "'""$uuid""'","email": "'""$user""'"' /etc/xray/config.json
 sed -i '/#vless-http-nontls$/a\### '"$user $exp"'\
 },{"id": "'""$uuid""'","email": "'""$user""'"' /etc/xray/xvless.json
-vlesshttp="vless://${uuid}@${domain}:$vlhttp?sni=${domain}&host=${domain}&type=tcp&security=tls&path=/WISNU-TCP&headerType=http&encryption=none#%F0%9F%94%B0VLESS+HTTP+TLS+${user}"
-vlesshttpnon="vless://${uuid}@${domain}:$vlhttpnon?sni=${domain}&security=none&type=tcp&headerType=http&encryption=none#%F0%9F%94%B0VLESS+HTTP+NONTLS+${user}"
+vlesshttp="vless://${uuid}@${domain}:$vlhttp?sni=${domain}&host=${domain}&type=tcp&security=tls&path=/WISNU-TCP&headerType=http&encryption=none#%F0%9F%94%A5VLESS+HTTP+TLS+${user}"
+vlesshttpnon="vless://${uuid}@${domain}:$vlhttpnon?sni=${domain}&security=none&type=tcp&headerType=http&encryption=none#%F0%9F%94%A5VLESS+HTTP+NONTLS+${user}"
 systemctl restart xtrojan.service
 systemctl restart xvless.service
 systemctl restart xvmess
@@ -106,24 +106,24 @@ systemctl restart  xss
 service cron restart
 clear
 echo -e "\033[1;31m━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
-echo -e "\033[1;46m  🔰 AKUN VLESS HTTP 🔰   \e[m"   
+echo -e "\033[1;46m  🔥 AKUN VLESS HTTP 🔥   \e[m"   
 echo -e "\033[1;31m━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
-echo -e "🔺️Nama➡️ ${user}"
-echo -e "🔺️IP➡️ ${MYIP},$domain2"
-echo -e "🔺️Address➡️ ${domain}"
-echo -e "🔺️Port TLS➡️ $vlhttp,8443,2096"
-echo -e "🔺️Port NONTLS➡️ $vlhttpnon"
-echo -e "🔺️Protokol➡️ tcp"
-echo -e "🔺️Path➡️ /WISNU-TCP"
-echo -e "🔺️UserID➡️ ${uuid}"
-echo -e "🔺️Dibuat➡️ $hariini"
-echo -e "🔺️Kadaluarsa➡️ $exp"
+echo -e "Nama➡️ ${user}"
+echo -e "IP➡️ ${MYIP},$domain2"
+echo -e "Address➡️ ${domain}"
+echo -e "Port TLS➡️ $vlhttp,8443,2096"
+echo -e "Port NONTLS➡️ $vlhttpnon"
+echo -e "Protokol➡️ tcp"
+echo -e "Path➡️ /WISNU-TCP"
+echo -e "UserID➡️ ${uuid}"
+echo -e "Dibuat➡️ $hariini"
+echo -e "Kadaluarsa➡️ $exp"
 echo -e "\033[1;31m━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
-echo -e "🔺️HTTP TLS➡️ ${vlesshttp}"
+echo -e "HTTP TLS➡️ ${vlesshttp}"
 echo -e "\033[1;31m━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
-echo -e "🔺️HTTP NONTLS➡️ ${vlesshttpnon}"
+echo -e "HTTP NONTLS➡️ ${vlesshttpnon}"
 echo -e "\033[1;31m━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
-echo -e "\033[1;46m🔰LUXURY EDITION ZEROSSL🔰\e[m"   
+echo -e "\033[1;46m🔥LUXURY EDITION ZEROSSL🔥\e[m"   
 echo -e "\033[1;31m━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
 echo ""
 read -n 1 -s -r -p "Ketik Bebas Untuk Ke Menu Utama"
