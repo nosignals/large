@@ -89,7 +89,7 @@ sed -i '/#vmess-kcp$/a\### '"$user $exp"'\
 cat>/etc/xray/vmess-$user-tls.json<<EOF
       {
       "v": "4",
-      "ps": "🔰VMESS KCP TLS ${user}",
+      "ps": "🔥VMESS KCP TLS ${user}",
       "add": "${domain}",
       "port": "${tls}",
       "id": "${uuid}",
@@ -105,7 +105,7 @@ EOF
 cat>/etc/xray/vmess-$user-nontls.json<<EOF
       {
       "v": "4",
-      "ps": "🔰VMESS KCP NON TLS ${user}",
+      "ps": "🔥VMESS KCP NON TLS ${user}",
       "add": "${domain}",
       "port": "${tls}",
       "id": "${uuid}",
@@ -133,24 +133,24 @@ systemctl restart xss
 service cron restart
 clear
 echo -e "\033[1;31m━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
-echo -e "\033[1;46m    🔰AKUN VMESS KCP🔰    \e[m"   
+echo -e "\033[1;46m    🔥AKUN VMESS KCP🔥    \e[m"   
 echo -e "\033[1;31m━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
-echo -e "🔺️Nama➡️ ${user}"
-echo -e "🔺️IP➡️ ${MYIP}"
-echo -e "🔺️Alamat➡️ ${domain}"
-echo -e "🔺️Port TLS➡️ ${tls}"
-echo -e "🔺️Port No TLS➡️ ${nontls}"
-echo -e "🔺️Protokol➡️ KCP"
-echo -e "🔺️Path➡️ SHANUM-KCP"
-echo -e "🔺️UserID➡️ ${uuid}"
-echo -e "🔺️Dibuat➡️ $hariini"
-echo -e "🔺️Kadaluarsa➡️ $exp"
+echo -e "Nama➡️ ${user}"
+echo -e "IP➡️ ${MYIP}"
+echo -e "Alamat➡️ ${domain}"
+echo -e "Port TLS➡️ ${tls}"
+echo -e "Port No TLS➡️ ${nontls}"
+echo -e "Protokol➡️ KCP"
+echo -e "Path➡️ SHANUM-KCP"
+echo -e "UserID➡️ ${uuid}"
+echo -e "Dibuat➡️ $hariini"
+echo -e "Kadaluarsa➡️ $exp"
 echo -e "\033[1;31m━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
-echo -e "🔺️KCP TLS➡️ ${vmesskcp}"
+echo -e "KCP TLS➡️ ${vmesskcp}"
 echo -e "\033[1;31m━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
-#echo -e "🔺️KCP NONTLS➡️ ${vmesskcpnon}"
+#echo -e "KCP NONTLS➡️ ${vmesskcpnon}"
 #echo -e "\033[1;31m━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
-echo -e "\033[1;46m🔰LUXURY EDITION ZEROSSL🔰\e[m"   
+echo -e "\033[1;46m🔥LUXURY EDITION ZEROSSL🔥\e[m"   
 echo -e "\033[1;31m━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
 echo ""
 read -n 1 -s -r -p "Ketik Bebas Untuk Ke Menu Utama"
