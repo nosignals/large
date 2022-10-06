@@ -107,7 +107,7 @@ echo -e "\033[1;31m━━━━━━━━━━━━━━━━━━━━�
 echo -e "\033[1;46m🔥AKUN TROJAN WEBSOCKET 🔥\e[m"       
 echo -e "\033[1;31m━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
 echo -e "Nama➡️ ${user}"
-echo -e "IP➡️ ${MYIP},domain2"
+echo -e "IP➡️ ${MYIP},$domain2"
 echo -e "Host➡️ ${domain}"
 echo -e "CF Host➡️ ${domain3}"
 echo -e "Protocol➡️ websocket"
