@@ -65,6 +65,7 @@ clear
 echo -e "\033[1;31m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
 echo -e "\033[1;46m   🔥 AKUN SHADOWSOCKS-RR 🔥   \e[m"   
 echo -e "\033[1;31m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
+echo -e "Nama➡️ ${user}"
 echo -e "IP➡️ ${IP}"
 echo -e "Domain➡️ $domain"
 echo -e "Port➡️ ${ssr_port}"
