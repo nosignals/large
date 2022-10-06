@@ -86,8 +86,8 @@ sed -i '/#vless-grpc-tls$/a\### '"$user $exp"'\
 },{"id": "'""$uuid""'","email": "'""$user""'"' /etc/xray/xtrojan.json
 sed -i '/#vless-grpc-nontls$/a\### '"$user $exp"'\
 },{"id": "'""$uuid""'","email": "'""$user""'"' /etc/xray/config.json
-vlessgrpc1="vless://${uuid}@${domain}:$vlgrpc?serviceName=COKRO&sni=${domain3}&mode=multi&type=grpc&security=tls&encryption=none#%F0%9F%94%B0VLESS+GRPC+TLS+${user}"
-vlessgrpc2="vless://${uuid}@${domain}:$vlgrpcnon?serviceName=COKRO&sni=${domain}&mode=multi&type=grpc&security=none&encryption=none#%F0%9F%94%B0VLESS+GRPC+NONTLS+${user}"
+vlessgrpc1="vless://${uuid}@${domain}:$vlgrpc?serviceName=COKRO&sni=${domain3}&mode=multi&type=grpc&security=tls&encryption=none#%F0%9F%94%A5VLESS+GRPC+TLS+${user}"
+vlessgrpc2="vless://${uuid}@${domain}:$vlgrpcnon?serviceName=COKRO&sni=${domain}&mode=multi&type=grpc&security=none&encryption=none#%F0%9F%94%A5VLESS+GRPC+NONTLS+${user}"
 systemctl restart xvless.service
 systemctl restart xray.service
 systemctl restart xvmess
@@ -96,25 +96,25 @@ systemctl restart xtrojan
 service cron restart
 clear
 echo -e "\033[1;31m━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
-echo -e "\033[1;46m  🔰 AKUN VLESS GRPC 🔰   \e[m"   
+echo -e "\033[1;46m  🔥 AKUN VLESS GRPC 🔥   \e[m"   
 echo -e "\033[1;31m━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
-echo -e "🔺️Nama➡️ ${user}"
-echo -e "🔺️IP➡️ ${MYIP},$domain2"
-echo -e "🔺️Address➡️ ${domain}"
-echo -e "🔺️CF Host➡️${domain3}"
-echo -e "🔺️Port TLS➡️ $vlgrpc,8443,2096,2087,2053"
-#echo -e "🔺️Port NON TLS➡️ $vlgrpcnon"
-echo -e "🔺️Protokol➡️ GRPC"
-echo -e "🔺️ServiceName➡️ COKRO"
-echo -e "🔺️UserID➡️ ${uuid}"
-echo -e "🔺️Dibuat➡️ $hariini"
-echo -e "🔺️Kadaluarsa➡️ $exp"
+echo -e "Nama➡️ ${user}"
+echo -e "IP➡️ ${MYIP},$domain2"
+echo -e "Address➡️ ${domain}"
+echo -e "CF Host➡️ ${domain3}"
+echo -e "TLS➡️ $vlgrpc,8443,2096,2087,2053"
+#echo -e "NONTLS➡️ $vlgrpcnon"
+echo -e "Protokol➡️ GRPC"
+echo -e "ServiceName➡️ COKRO"
+echo -e "UserID➡️ ${uuid}"
+echo -e "Dibuat➡️ $hariini"
+echo -e "Kadaluarsa➡️ $exp"
 echo -e "\033[1;31m━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
-echo -e "🔺️TLS ➡️ ${vlessgrpc1}"
+echo -e "TLS➡️ ${vlessgrpc1}"
 echo -e "\033[1;31m━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
-#echo -e "🔺️NONTLS ➡️ ${vlessgrpc2}"
+#echo -e "NONTLS➡️ ${vlessgrpc2}"
 #echo -e "\033[1;31m━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
-echo -e "\033[1;46m🔰LUXURY EDITION ZEROSSL🔰\e[m"   
+echo -e "\033[1;46m🔥LUXURY EDITION ZEROSSL🔥\e[m"   
 echo -e "\033[1;31m━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
 echo ""
 read -n 1 -s -r -p "Ketik Bebas Untuk Ke Menu Utama"
