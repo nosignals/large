@@ -40,6 +40,7 @@ echo "Masukkan Password"
 
 until [[ $user =~ ^[a-zA-Z0-9_]+$ && ${CLIENT_EXISTS} == '0' ]]; do
 		read -rp "Password : " -e user
+                read -rp "userid : " - e userid
 		CLIENT_EXISTS=$(grep -w $user /etc/shadowsocks-libev/akun.conf | wc -l)
 
 		if [[ ${CLIENT_EXISTS} == '1' ]]; then
@@ -90,30 +91,30 @@ systemctl enable shadowsocks-libev-server@$user-http.service
 systemctl start shadowsocks-libev-server@$user-http.service
 tmp1=$(echo -n "aes-128-gcm:${user}@${MYIP}:$tls" | base64 -w0)
 tmp2=$(echo -n "aes-128-gcm:${user}@${MYIP}:$http" | base64 -w0)
-linkss1="ss://${tmp1}?plugin=obfs-local;obfs=tls;obfs-host=bing.com"
-linkss2="ss://${tmp2}?plugin=obfs-local;obfs=http;obfs-host=bing.com"
+linkss1="ss://${tmp1}?plugin=obfs-local;obfs=tls;obfs-host=$domain#%F0%9F%94%A5SS+TLS+$userid"
+linkss2="ss://${tmp2}?plugin=obfs-local;obfs=http;obfs-host=$domain#%F0%9F%94%A5SS+HTTP+$userid"
 echo -e "### $user $exp
 port_tls $tls
 port_http $http">>"/etc/shadowsocks-libev/akun.conf"
 service cron restart
 clear
 echo -e "\033[1;31m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
-echo -e "\033[1;46m     🔰 AKUN SHADOWSOCKS 🔰       \e[m"   
+echo -e "\033[1;46m     🔥 AKUN SHADOWSOCKS 🔥       \e[m"   
 echo -e "\033[1;31m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
-echo -e "🔺️IP➡️ $MYIP,$domain2"
-echo -e "🔺️Domain ➡️ $domain"
-echo -e "🔺️Port TLS ➡️ $tls"
-echo -e "🔺️Port HTTP ➡️ $http"
-echo -e "🔺️Password ➡️ $user"
-echo -e "🔺️Method ➡️ aes-128.gcm"
-echo -e "🔺️Created ➡️ $hariini"
-echo -e "🔺️Expired ➡️ $exp"
+echo -e "IP➡️ $MYIP,$domain2"
+echo -e "Domain➡️ $domain"
+echo -e "Port TLS➡️ $tls"
+echo -e "Port HTTP➡️ $http"
+echo -e "Password➡️ $user"
+echo -e "Method➡️ aes-128.gcm"
+echo -e "Dibuat➡️ $hariini"
+echo -e "Kadaluarsa➡️ $exp"
 echo -e "\033[1;31m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
-echo -e "🔺️Link TLS ➡️ $linkss1"
+echo -e "Link TLS ➡️ $linkss1"
 echo -e "\033[1;31m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
-echo -e "🔺️Link HTTP ➡️ $linkss2"
+echo -e "Link HTTP ➡️ $linkss2"
 echo -e "\033[1;31m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
-echo -e "\033[1;46m    🔰LUXURY EDITION ZEROSSL🔰    \e[m"   
+echo -e "\033[1;46m    🔥LUXURY EDITION ZEROSSL🔥    \e[m"   
 echo -e "\033[1;31m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
 echo ""
 read -n 1 -s -r -p "Ketik Bebas Untuk Ke Menu Utama"
