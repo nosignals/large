@@ -91,8 +91,8 @@ sed -i '/#trojan-kcp$/a\### '"$user $exp"'\
 },{"password": "'""$uuid""'","email": "'""$user""'"' /etc/xray/config.json
 sed -i '/#trojan-kcp-nontls$/a\### '"$user $exp"'\
 },{"password": "'""$uuid""'","email": "'""$user""'"' /etc/xray/xtrojan.json
-trojankcp="trojan://$uuid@$domain:$tkcp?sni=$domain&seed=GANDRING-KCP&security=tls&type=kcp&headerType=none#%F0%9F%94%B0TROJAN+KCP+TLS+$user"
-trojankcpnon="trojan://$uuid@$domain:$tkcpnon?sni=$domain&seed=GANDRING-KCP&security=none&type=kcp&headerType=none#%F0%9F%94%B0TROJAN+KCP+NONTLS+$user"
+trojankcp="trojan://$uuid@$domain:$tkcp?sni=$domain&seed=GANDRING-KCP&security=tls&type=kcp&headerType=none#%F0%9F%94%A5TROJAN+KCP+TLS+$user"
+trojankcpnon="trojan://$uuid@$domain:$tkcpnon?sni=$domain&seed=GANDRING-KCP&security=none&type=kcp&headerType=none#%F0%9F%94%A5TROJAN+KCP+NONTLS+$user"
 systemctl restart xray.service
 systemctl restart xtrojan.service
 systemctl restart xvmess.service
@@ -117,7 +117,7 @@ echo -e "Kadaluarsa➡️ $exp"
 echo -e "\033[1;31m━━━━━━━━━━━━━━━━\033[0m"
 echo -e "KCP TLS➡️ ${trojankcp}"
 echo -e "\033[1;31m━━━━━━━━━━━━━━━━\033[0m"
-#echo -e "🔺️KCP NONTLS➡️ ${trojankcpnon}"
+#echo -e "KCP NONTLS➡️ ${trojankcpnon}"
 echo -e "\033[1;31m━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
 echo -e "\033[1;46m🔥LUXURY EDITION ZEROSSL🔥\e[m"   
 echo -e "\033[1;31m━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
