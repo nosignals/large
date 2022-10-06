@@ -46,18 +46,18 @@ chmod 600 /etc/ppp/chap-secrets*
 echo -e "### $VPN_USER $exp">>"/var/lib/wisnucs/data-user-pptp"
 clear
 echo -e "\033[1;31m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"  | tee -a /etc/log-create-user.log
-echo -e "\E[46;1;46m        🔰 AKUN PPTP 🔰           \E[0m"   | tee -a /etc/log-create-user.log
+echo -e "\E[46;1;46m        🔥 AKUN PPTP 🔥           \E[0m"   | tee -a /etc/log-create-user.log
 echo -e "\033[1;31m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m" | tee -a /etc/log-create-user.log
 echo "" | tee -a /etc/log-create-user.log
-echo -e "🔺️IP ➡️ $PUBLIC_IP" | tee -a /etc/log-create-user.log
-echo -e "🔺️DOMAIN ➡️ $domain"
-echo -e "🔺️Username ➡️ $VPN_USER" | tee -a /etc/log-create-user.log
-echo -e "🔺️Password ➡️ $VPN_PASSWORD" | tee -a /etc/log-create-user.log
-echo -e "🔺️Dibuat ➡️ $hariini"
-echo -e "🔺️Kadaluarsa ➡️ $exp" | tee -a /etc/log-create-user.log
+echo -e "IP➡️ $PUBLIC_IP" | tee -a /etc/log-create-user.log
+echo -e "DOMAIN➡️ $domain"
+echo -e "Username➡️ $VPN_USER" | tee -a /etc/log-create-user.log
+echo -e "Password➡️ $VPN_PASSWORD" | tee -a /etc/log-create-user.log
+echo -e "Dibuat➡️ $hariini"
+echo -e "Kadaluarsa➡️ $exp" | tee -a /etc/log-create-user.log
 echo "" | tee -a /etc/log-create-user.log
 echo -e "\033[1;31m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m" | tee -a /etc/log-create-user.log
-echo -e "\E[46;1;46m    🔰LUXURY EDITION ZEROSSL🔰    \E[0m"  | tee -a /etc/log-create-user.log
+echo -e "\E[46;1;46m    🔥LUXURY EDITION ZEROSSL🔥    \E[0m"  | tee -a /etc/log-create-user.log
 echo -e "\033[1;31m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m" | tee -a /etc/log-create-user.log
 echo "" | tee -a /etc/log-create-user.log
 read -n 1 -s -r -p "Tekan Bebas Untuk Ke Menu"
