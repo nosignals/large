@@ -92,7 +92,7 @@ sed -i '/#vmess-quic$/a\### '"$user $exp"'\
 cat>/etc/xray/vmess-$user-tls.json<<EOF
       {
       "v": "4",
-      "ps": "🔰VMESS QUIC TLS ${user}",
+      "ps": "🔥VMESS QUIC TLS ${user}",
       "add": "${domain}",
       "port": "${vmquic}",
       "id": "${uuid}",
@@ -119,23 +119,23 @@ systemctl restart xss
 service cron restart
 clear
 echo -e "\033[1;31m━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
-echo -e "\033[1;46m   🔰AKUN VMESS QUIC🔰   \e[m"   
+echo -e "\033[1;46m   🔥AKUN VMESS QUIC🔥   \e[m"   
 echo -e "\033[1;31m━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
-echo -e "🔺️Nama➡️ ${user}"
-echo -e "🔺️IP/Host➡️ ${MYIP}"
-echo -e "🔺️Alamat➡️ ${domain}"
-echo -e "🔺️Port TLS➡️ ${vmquic}"
-echo -e "🔺️Protokol➡️ QUIC"
-echo -e "🔺️Path➡️ SHANUM-QUIC"
-echo -e "🔺️UserID➡️ ${uuid}"
-echo -e "🔺️Dibuat➡️ $hariini"
-echo -e "🔺️Kadaluarsa➡️ $exp"
+echo -e "Nama➡️ ${user}"
+echo -e "IP/Host➡️ ${MYIP}"
+echo -e "Alamat➡️ ${domain}"
+echo -e "Port TLS➡️ ${vmquic}"
+echo -e "Protokol➡️ QUIC"
+echo -e "Path➡️ SHANUM-QUIC"
+echo -e "UserID➡️ ${uuid}"
+echo -e "Dibuat➡️ $hariini"
+echo -e "Kadaluarsa➡️ $exp"
 echo -e "\033[1;31m━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
-echo -e "🔺️QUIC TLS➡️ ${vmessquic}"
+echo -e "QUIC TLS➡️ ${vmessquic}"
 echo -e "\033[1;31m━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
-#echo -e "✨ WS NONTLS➡️ ${vmess2}"
+#echo -e "WS NONTLS➡️ ${vmess2}"
 #echo -e "\033[1;31m━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
-echo -e "\033[1;46m🔰LUXURY EDITION ZEROSSL🔰\e[m"   
+echo -e "\033[1;46m🔥LUXURY EDITION ZEROSSL🔥\e[m"   
 echo -e "\033[1;31m━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
 echo ""
 read -n 1 -s -r -p "Ketik Bebas Untuk Ke Menu Utama"
