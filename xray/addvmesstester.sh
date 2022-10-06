@@ -140,7 +140,7 @@ sed -i '/#vmess-http-nontls$/a\### '"$user $exp"'\
 cat>/etc/xray/vmess-$user-tls.json<<EOF
       {
       "v": "4",
-      "ps": "🔰VMESS WS TLS ${user}",
+      "ps": "🔥VMESS WS TLS ${user}",
       "add": "${domain}",
       "port": "${tls}",
       "id": "${uuid}",
@@ -155,7 +155,7 @@ EOF
 cat>/etc/xray/vmess-$user-nontls.json<<EOF
       {
       "v": "4",
-      "ps": "🔰VMESS WS NONTLS ${user}",
+      "ps": "🔥VMESS WS NONTLS ${user}",
       "add": "${domain}",
       "port": "${nontls}",
       "id": "${uuid}",
@@ -177,7 +177,7 @@ rm -rf /etc/xray/vmess-$user-nontls.json
 cat>/etc/xray/vmess-$user-tls.json<<EOF
       {
       "v": "4",
-      "ps": "🔰VMESS GRPC TLS ${user}",
+      "ps": "🔥VMESS GRPC TLS ${user}",
       "add": "${domain}",
       "port": "${vmgrpc}",
       "id": "${uuid}",
@@ -192,7 +192,7 @@ EOF
 cat>/etc/xray/vmess-$user-nontls.json<<EOF
       {
       "v": "4",
-      "ps": "🔰VMESS GRPC NONTLS ${user}",
+      "ps": "🔥VMESS GRPC NONTLS ${user}",
       "add": "${domain}",
       "port": "${vmgrpcnon}",
       "id": "${uuid}",
@@ -214,7 +214,7 @@ rm -rf /etc/xray/vmess-$user-nontls.json
 cat>/etc/xray/vmess-$user-tls.json<<EOF
       {
       "v": "4",
-      "ps": "🔰VMESS QUIC TLS ${user}",
+      "ps": "🔥VMESS QUIC TLS ${user}",
       "add": "${MYIP}",
       "port": "${vmquic}",
       "id": "${uuid}",
@@ -236,7 +236,7 @@ rm -rf /etc/xray/vmess-hdua-$user-nontls.json
 cat>/etc/xray/vmess-$user-tls.json<<EOF
       {
       "v": "4",
-      "ps": "🔰VMESS H2C TLS ${user}",
+      "ps": "🔥VMESS H2C TLS ${user}",
       "add": "${domain}",
       "port": "${vmhdua}",
       "id": "${uuid}",
@@ -258,7 +258,7 @@ rm -rf /etc/xray/vmess-hdua-$user-nontls.json
 cat>/etc/xray/vmess-$user-tls.json<<EOF
       {
       "v": "4",
-      "ps": "🔰VMESS KCP TLS ${user}",
+      "ps": "🔥VMESS KCP TLS ${user}",
       "add": "${domain}",
       "port": "${vmkcp}",
       "id": "${uuid}",
@@ -278,7 +278,7 @@ rm -rf /etc/xray/vmess-$user-tls.json
 cat>/etc/xray/vmess-$user-tls.json<<EOF
       {
       "v": "4",
-      "ps": "🔰VMESS HTTP TLS ${user}",
+      "ps": "🔥VMESS HTTP TLS ${user}",
       "add": "${domain}",
       "port": "${vmhttp}",
       "id": "${uuid}",
@@ -297,7 +297,7 @@ rm -rf /etc/xray/vmess-$user-tls.json
 cat>/etc/xray/vmess-$user-nontls.json<<EOF
       {
       "v": "4",
-      "ps": "🔰VMESS HTTP NONTLS ${user}",
+      "ps": "🔥VMESS HTTP NONTLS ${user}",
       "add": "${domain}",
       "port": "${vmhttpnon}",
       "id": "${uuid}",
@@ -322,51 +322,51 @@ systemctl restart xss
 service cron restart
 clear
 echo -e "\033[1;31m━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
-echo -e "\033[1;46m  🔰AKUN VMESS TESTER🔰   \e[m"
+echo -e "\033[1;46m  🔥AKUN VMESS TESTER🔥   \e[m"
 echo -e "\033[1;31m━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
 echo -e "\033[1;31m━━━━━━━━━━━━━━━━\033[0m"
-echo -e "🔺️IP➡️ ${MYIP},$domain"
-echo -e "🔺️HOST➡️$domain2"
-echo -e "🔺️CF Host➡️${domain3}"
-echo -e "🔺️NAMA➡️ ${user}"
-echo -e "🔺️WS TLS➡️ ${tls},8443,2096,2087,2053"
-echo -e "🔺️WS NONTLS➡️ ${nontls},2095,2086,2052"
-echo -e "🔺️GRPC➡️ ${vmgrpc},8443,2096,2087,2053"
-echo -e "🔺️TCP HTTP➡️ ${vmhttp},8443,2096"
-echo -e "🔺️H2C➡️ ${vmhdua}"
-echo -e "🔺️HTTP➡️ ${vmhttpnon}"
-echo -e "🔺️QUIC➡️ ${vmquic}"
-echo -e "🔺️Protokol➡️ WS,GRPC,QUIC,KCP,H2C,HTTP"
-echo -e "🔺️Path GRPC➡️ AYESHA"
-echo -e "🔺️Path HTTP➡️ /SHANUM-TCP"
-echo -e "🔺️Path H2C➡️ SHANUM-HTTP"
-echo -e "🔺️Path WS➡️ /SHANUM"
-echo -e "🔺️Path QUIC➡️ SHANUM-QUIC"
-echo -e "🔺️UserID➡️ ${uuid}"
-echo -e "🔺️Dibuat➡️ $hariini"
-echo -e "🔺️Kadaluarsa➡️ $exp"
+echo -e "IP➡️ ${MYIP},$domain"
+echo -e "HOST➡️ $domain2"
+echo -e "CF Host➡️ ${domain3}"
+echo -e "NAMA➡️ ${user}"
+echo -e "WS TLS➡️ ${tls},8443,2096,2087,2053"
+echo -e "WS NONTLS➡️ ${nontls},2095,2086,2052"
+echo -e "GRPC➡️ ${vmgrpc},8443,2096,2087,2053"
+echo -e "TCP HTTP➡️ ${vmhttp},8443,2096"
+echo -e "H2C➡️ ${vmhdua}"
+echo -e "HTTP➡️ ${vmhttpnon}"
+echo -e "QUIC➡️ ${vmquic}"
+echo -e "Protokol➡️ WS,GRPC,QUIC,KCP,H2C,HTTP"
+echo -e "Path GRPC➡️ AYESHA"
+echo -e "Path HTTP➡️ /SHANUM-TCP"
+echo -e "Path H2C➡️ SHANUM-HTTP"
+echo -e "Path WS➡️ /SHANUM"
+echo -e "Path QUIC➡️ SHANUM-QUIC"
+echo -e "UserID➡️ ${uuid}"
+echo -e "Dibuat➡️ $hariini"
+echo -e "Kadaluarsa➡️ $exp"
 echo -e "\033[1;31m━━━━━━━━━━━━━━━━\033[0m"
-echo -e "🔺️QUIC TLS➡️ ${vmessquic}"
+echo -e "QUIC TLS➡️ ${vmessquic}"
 echo -e "\033[1;31m━━━━━━━━━━━━━━━━\033[0m"
-echo -e "🔺️WS TLS➡️ ${vmess1}"
+echo -e "WS TLS➡️ ${vmess1}"
 echo -e "\033[1;31m━━━━━━━━━━━━━━━━\033[0m"
-echo -e "🔺️WS NONTLS➡️ ${vmess2}"
+echo -e "WS NONTLS➡️ ${vmess2}"
 echo -e "\033[1;31m━━━━━━━━━━━━━━━━\033[0m"
-echo -e "🔺️GRPC TLS➡️ ${vmessgrpc}"
+echo -e "GRPC TLS➡️ ${vmessgrpc}"
 echo -e "\033[1;31m━━━━━━━━━━━━━━━━\033[0m"
-#echo -e "🔺️GRPC NONTLS➡️ ${vmessgrpcnon}"
+#echo -e "GRPC NONTLS➡️ ${vmessgrpcnon}"
 #echo -e "\033[1;31m━━━━━━━━━━━━━━━━\033[0m"
-echo -e "🔺️H2C TLS➡️ ${vmesshdua}"
+echo -e "H2C TLS➡️ ${vmesshdua}"
 echo -e "\033[1;31m━━━━━━━━━━━━━━━━\033[0m"
-echo -e "🔺️KCP TLS➡️ ${vmesskcp}"
+echo -e "KCP TLS➡️ ${vmesskcp}"
 echo -e "\033[1;31m━━━━━━━━━━━━━━━━\033[0m"
-echo -e "🔺️HTTP TLS➡️ ${vmesshttp}"
+echo -e "HTTP TLS➡️ ${vmesshttp}"
 echo -e "\033[1;31m━━━━━━━━━━━━━━━━\033[0m"
-echo -e "🔺️HTTP NONTLS➡️ ${vmesshttpnon}"
+echo -e "HTTP NONTLS➡️ ${vmesshttpnon}"
 echo -e "\033[1;31m━━━━━━━━━━━━━━━━\033[0m"
 echo -e "\033[1;31m━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
-echo -e "\033[1;46m🔰LUXURY EDITION ZEROSSL🔰\e[m"
+echo -e "\033[1;46m🔥LUXURY EDITION ZEROSSL🔥\e[m"
 echo -e "\033[1;31m━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
 echo ""
 read -n 1 -s -r -p "Ketik Bebas Untuk Ke Menu Utama"
-menu
+vmessmenu
