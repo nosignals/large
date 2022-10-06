@@ -90,7 +90,7 @@ sed -i '/#vless-quic$/a\### '"$user $exp"'\
 },{"id": "'""$uuid""'","email": "'""$user""'"' /etc/xray/xss.json
 sed -i '/#vless-quic$/a\### '"$user $exp"'\
 },{"id": "'""$uuid""'","email": "'""$user""'"' /etc/xray/config.json
-vlessquic="vless://$uuid@$MYIP:$vquic?sni=$domain&key=WISNU-QUIC&security=tls&encryption=none&headerType=none&quicSecurity=$domain&type=quic#%F0%9F%94%B0VLESS+QUIC+TLS+$user"
+vlessquic="vless://$uuid@$MYIP:$vquic?sni=$domain&key=WISNU-QUIC&security=tls&encryption=none&headerType=none&quicSecurity=$domain&type=quic#%F0%9F%94%A5VLESS+QUIC+TLS+$user"
 vlessquicnon="vless://${uuid}@${domain}:$vlhduanon?type=http&security=none&path=gandring&encryption=none#${user}"
 systemctl restart xvless.service
 systemctl restart xray.service
@@ -101,21 +101,21 @@ systemctl restart xss
 service cron restart
 clear
 echo -e "\033[1;31m━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
-echo -e "\033[1;46m   🔰 AKUN VLESS QUIC 🔰  \e[m"   
+echo -e "\033[1;46m   🔥 AKUN VLESS QUIC 🔥  \e[m"   
 echo -e "\033[1;31m━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
-echo -e "🔺️Nama➡️ ${user}"
-echo -e "🔺️IP/Host➡️ ${MYIP}"
-echo -e "🔺️Address➡️ ${domain}"
-echo -e "🔺️Port➡️ $vquic"
-echo -e "🔺️Protokol➡️ QUIC"
-echo -e "🔺️Path➡️ WISNU-QUIC"
-echo -e "🔺️UserID➡️ ${uuid}"
-echo -e "🔺️Dibuat➡️ $hariini"
-echo -e "🔺️Kadaluarsa➡️ $exp"
+echo -e "Nama➡️ ${user}"
+echo -e "IP/Host➡️ ${MYIP}"
+echo -e "Address➡️ ${domain}"
+echo -e "Port➡️ $vquic"
+echo -e "Protokol➡️ QUIC"
+echo -e "Path➡️ WISNU-QUIC"
+echo -e "UserID➡️ ${uuid}"
+echo -e "Dibuat➡️ $hariini"
+echo -e "Kadaluarsa➡️ $exp"
 echo -e "\033[1;31m━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
-echo -e "🔺️QUIC➡️ ${vlessquic}"
+echo -e "QUIC➡️ ${vlessquic}"
 echo -e "\033[1;31m━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
-echo -e "\033[1;46m🔰LUXURY EDITION ZEROSSL🔰\e[m"   
+echo -e "\033[1;46m🔥LUXURY EDITION ZEROSSL🔥\e[m"   
 echo -e "\033[1;31m━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
 echo ""
 read -n 1 -s -r -p "Ketik Bebas Untuk Ke Menu Utama"
