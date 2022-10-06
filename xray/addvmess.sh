@@ -100,7 +100,7 @@ sed -i '/#vmess-nontls$/a\### '"$user $exp"'\
 cat>/etc/xray/vmess-$user-tls.json<<EOF
       {
       "v": "4",
-      "ps": "🔰VMESS WS TLS ${user}",
+      "ps": "🔥VMESS WS TLS ${user}",
       "add": "${domain}",
       "port": "${tls}",
       "id": "${uuid}",
@@ -115,7 +115,7 @@ EOF
 cat>/etc/xray/vmess-$user-nontls.json<<EOF
       {
       "v": "4",
-      "ps": "🔰VMESS WS NONTLS ${user}",
+      "ps": "🔥VMESS WS NONTLS ${user}",
       "add": "${domain}",
       "port": "${nontls}",
       "id": "${uuid}",
@@ -142,25 +142,25 @@ systemctl restart xss
 service cron restart
 clear
 echo -e "\033[1;31m━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
-echo -e "\033[1;46m 🔰AKUN VMESS WEBSOCKET🔰 \e[m"   
+echo -e "\033[1;46m 🔥AKUN VMESS WEBSOCKET🔥 \e[m"   
 echo -e "\033[1;31m━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
-echo -e "🔺️Nama➡️ ${user}"
-echo -e "🔺️IP➡️ ${MYIP},$domain2"
-echo -e "🔺️Alamat➡️ ${domain}"
-echo -e "🔺️CF Host➡️${domain3}"
-echo -e "🔺️Port TLS➡️ ${tls},8443,2096,2087,2053"
-echo -e "🔺️Port No TLS➡️ ${nontls},2095,2086,2052"
-echo -e "🔺️Protokol➡️ WEBSOCKET"
-echo -e "🔺️Path➡️ /SHANUM"
-echo -e "🔺️UserID➡️ ${uuid}"
-echo -e "🔺️Dibuat➡️ $hariini"
-echo -e "🔺️Kadaluarsa➡️ $exp"
+echo -e "Nama➡️ ${user}"
+echo -e "IP➡️ ${MYIP},$domain2"
+echo -e "Alamat➡️ ${domain}"
+echo -e "CF Host➡️${domain3}"
+echo -e "TLS➡️ ${tls},8443,2096,2087,2053"
+echo -e "NONTLS➡️ ${nontls},2095,2086,2082,2052"
+echo -e "Protokol➡️ WEBSOCKET"
+echo -e "Path➡️ /SHANUM"
+echo -e "UserID➡️ ${uuid}"
+echo -e "Dibuat➡️ $hariini"
+echo -e "Kadaluarsa➡️ $exp"
 echo -e "\033[1;31m━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
-echo -e "🔺️WS TLS➡️ ${vmess1}"
+echo -e "WS TLS➡️ ${vmess1}"
 echo -e "\033[1;31m━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
-echo -e "🔺️WS NONTLS➡️ ${vmess2}"
+echo -e "WS NONTLS➡️ ${vmess2}"
 echo -e "\033[1;31m━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
-echo -e "\033[1;46m🔰LUXURY EDITION ZEROSSL🔰\e[m"   
+echo -e "\033[1;46m🔥LUXURY EDITION ZEROSSL🔥\e[m"   
 echo -e "\033[1;31m━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
 echo ""
 read -n 1 -s -r -p "Ketik Bebas Untuk Ke Menu Utama"
