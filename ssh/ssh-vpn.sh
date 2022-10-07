@@ -790,8 +790,6 @@ chmod +x cekvlessquic
 
 chmod +x cekvlesskcp
 chmod +x cekvlessxtls
-#chmod +x ins-sshws
-#chmod +x sshws-true
 chmod +x cektrojanxtls
 chmod +x cektrojangrpc
 chmod +x cektrojanwss
