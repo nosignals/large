@@ -22,10 +22,10 @@ echo -e "05\e[1;33m) BUAT AKUN TESTER VMESS \e[m"
 echo -e "\033[1;36m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
 echo -e "06\e[1;33m) HAPUS AKUN TESTER VMESS \e[m"
 echo -e "\033[1;36m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
-#echo -e "07\e[1;33m) BUAT AKUN TESTER AIO PORT \e[m"
-#echo -e "\033[1;36m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
-#echo -e "08\e[1;33m) HAPUS AKUN TESTER AIO PORT \e[m"
-#echo -e "\033[1;36m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
+echo -e "07\e[1;33m) BUAT AKUN TESTER AIO PORT \e[m"
+echo -e "\033[1;36m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
+echo -e "08\e[1;33m) HAPUS AKUN TESTER AIO PORT \e[m"
+echo -e "\033[1;36m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
 echo -e "07\e[1;33m) CEK USER LOGIN TESTER \e[m"
 echo -e "\033[1;36m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
 echo -e "00\e[1;31m) MENU UTAMA \e[m"
@@ -55,12 +55,12 @@ addvmesstester
 6)
 delvmesstester
 ;;
-#7)
-#addxtreme
-#;;
-#8)
-#delxtreme
-#;;
+7)
+addxtreme
+;;
+8)
+delxtreme
+;;
 7)
 cektrojantester
 ;;
