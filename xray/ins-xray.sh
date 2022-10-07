@@ -718,7 +718,7 @@ touch /etc/trojan-go/trojan-go.pid
 wget -O /usr/local/share/xray/geoip.dat https://raw.githubusercontent.com/inoyaksorojawi/large/sae/xray/geoip.dat
 wget -O /usr/local/share/xray/geosite.dat https://raw.githubusercontent.com/inoyaksorojawi/large/sae/xray/geosite.dat
 touch /usr/local/share/xray/geoip.dat
-touch /usr/local/share/xray/geoip.dat
+touch /usr/local/share/xray/geosite.dat
 # Buat Config Trojan Go
 cat > /etc/trojan-go/config.json << END
 {
@@ -803,7 +803,7 @@ cat > /etc/trojan-go/config.json << END
     "mysql": {
      "enabled": false,
       "server_addr": "localhost",
-       "server_port": 3306,
+       "server_port": 2083,
         "database": "",
          "username": "",
           "password": "",
