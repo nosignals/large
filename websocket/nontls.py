@@ -203,6 +203,8 @@ class ConnectionHandler(threading.Thread):
                 port = 300
                 port = 700
                 port = 444
+                port = 666
+                port = 22
                 port = 2083
 
         (soc_family, soc_type, proto, _, address) = socket.getaddrinfo(host, port)[0]
