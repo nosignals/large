@@ -715,8 +715,10 @@ touch /etc/trojan-go/akun.conf
 touch /var/log/trojan-go/trojan-go.log
 touch /etc/trojan-go/trojan-go.pid
 
-wget -O /etc/xray/geoip.dat https://raw.githubusercontent.com/inoyaksorojawi/large/sae/xray/geoip.dat
-wget -O /etc/xray/geosite.dat https://raw.githubusercontent.com/inoyaksorojawi/large/sae/xray/geosite.dat
+wget -O /usr/local/share/xray/geoip.dat https://raw.githubusercontent.com/inoyaksorojawi/large/sae/xray/geoip.dat
+wget -O /usr/local/share/xray/geosite.dat https://raw.githubusercontent.com/inoyaksorojawi/large/sae/xray/geosite.dat
+touch /usr/local/share/xray/geoip.dat
+touch /usr/local/share/xray/geoip.dat
 # Buat Config Trojan Go
 cat > /etc/trojan-go/config.json << END
 {
@@ -770,8 +772,8 @@ cat > /etc/trojan-go/config.json << END
         "block": [],
          "default_policy": "proxy",
           "domain_strategy": "as_is",
-           "geoip": "/etc/xray/geoip.dat",
-            "geosite": "/etc/xray/geosite.dat"
+           "geoip": "/usr/local/share/xray/geoip.dat",
+            "geosite": "/usr/local/share/xray/geosite.dat"
     },
     "websocket": {
      "enabled": true,
