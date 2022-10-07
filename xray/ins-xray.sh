@@ -45,10 +45,9 @@ xraycore_link="https://github.com/XTLS/Xray-core/releases/download/v$latest_vers
 mkdir -p /usr/bin/xray
 mkdir -p /etc/xray
 mkdir -p /etc/ssl/private
-sudo mkdir /etc/ssl/nginx
+mkdir -p /etc/ssl/nginx
 cd /etc/ssl/nginx
-sudo cp nginx-repo.crt /etc/ssl/nginx/
-sudo cp nginx-repo.key /etc/ssl/nginx/
+
 sudo apt-get install -y apt-transport-https lsb-release ca-certificates wget gnupg2 debian-archive-keyring
 sudo apt-get install -y apt-transport-https lsb-release ca-certificates wget gnupg2 ubuntu-keyring
 wget -qO - https://cs.nginx.com/static/keys/nginx_signing.key | gpg --dearmor | sudo tee /usr/share/keyrings/nginx-archive-keyring.gpg >/dev/null
@@ -59,6 +58,8 @@ sudo wget -P /etc/apt/apt.conf.d https://cs.nginx.com/static/files/90pkgs-nginx
 sudo apt-get install -y nginx-plus
 sudo apt-get install -y app-protect app-protect-attack-signatures
 sudo apt-get install -y nginx-plus nginx-plus-module-modsecurity
+sudo cp nginx-repo.crt /etc/ssl/nginx/
+sudo cp nginx-repo.key /etc/ssl/nginx/
 mkdir -p /usr/local/etc/xray
 mkdir -p /home/sstp
 mkdir -p /home/vps/public_html
@@ -73,9 +74,14 @@ chmod +x /usr/local/bin/xray
 mkdir -p /var/log/xray/
 mkdir -p /etc/xray
 chown -R /bin/www/www-data.www-data /var/log/xray
+chown -R /bin/www/www-data.www-data /etc/xray/access.log
+chown -R /bin/www/www-data.www-data /etc/xray/access.log
 chmod +x /var/log/xray
+chmod +x /etc/xray
 touch /var/log/xray/access.log
 touch /var/log/xray/error.log
+touch /etc/xray/access.log
+touch /etc/xray/error.log
 uuid=$(cat /proc/sys/kernel/random/uuid)
 #bash -c "$(curl -L https://github.com/XTLS/Xray-install/raw/main/install-release.sh)" @ install -u root
 cd /root/
@@ -99,8 +105,8 @@ alias acme.sh=~/.acme.sh/acme.sh
 --fullchain-file /etc/xray/cdn.crt \
 --key-file /etc/xray/cdn.key
 chown -R nobody:nogroup /etc/xray
-chmod 644 /etc/xray/cdn.crt
-chmod 644 /etc/xray/cdn.key
+chmod 755 /etc/xray/cdn.crt
+chmod 755 /etc/xray/cdn.key
 
 ##Generate acme certificate
 curl https://get.acme.sh | sh
@@ -113,8 +119,8 @@ alias acme.sh=~/.acme.sh/acme.sh
 --fullchain-file /etc/xray/crt.pem \
 --key-file /etc/xray/key.pem
 chown -R nobody:nogroup /etc/xray
-chmod 644 /etc/xray/crt.pem
-chmod 644 /etc/xray/key.pem
+chmod 755 /etc/xray/crt.pem
+chmod 755 /etc/xray/key.pem
 
 ##Generate acme certificate
 curl https://get.acme.sh | sh
@@ -127,8 +133,8 @@ alias acme.sh=~/.acme.sh/acme.sh
 --fullchain-file /etc/xray/xray.crt \
 --key-file /etc/xray/xray.key
 chown -R nobody:nogroup /etc/xray
-chmod 644 /etc/xray/xray.crt
-chmod 644 /etc/xray/xray.key
+chmod 755 /etc/xray/xray.crt
+chmod 755 /etc/xray/xray.key
 
 #sudo lsof -t -i tcp:80 -s tcp:listen | sudo xargs kill
 #cd /root/
