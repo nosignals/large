@@ -42,7 +42,7 @@ else:
 if args.texto:
     STATUS_TXT = args.texto
 else:
-    STATUS_TXT = '<font color="#00FFFF">W</font><font color="#6bffff">I</font><font color="#99ffff">N</font><font color="#ebffff">U</font><font color="#ebffff">D</font><font color="#ccffff">E</font><font color="#99ffff">M</font><font color="#6bffff">K</font><font color="#2effff">1</font><font color="#00FFFF">3</font>'
+    STATUS_TXT = '<font color="#00FFFF">G</font><font color="#6bffff">A</font><font color="#99ffff">N</font><font color="#ebffff">D</font><font color="#ebffff">R</font><font color="#ccffff">I</font><font color="#99ffff">N</font><font color="#6bffff">G</font><font color="#2effff">0</font><font color="#00FFFF">7</font>'
 
 RESPONSE = str('HTTP/1.1 ' + STATUS_RESP + ' <strong>' + STATUS_TXT + '</strong>\r\nContent-length: 0\r\n\r\nHTTP/1.1 200 Connection established\r\n\r\n')
 
