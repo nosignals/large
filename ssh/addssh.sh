@@ -50,6 +50,7 @@ ws2="$(cat ~/log-install.txt | grep -w "SSH WS NON TLS" | cut -d: -f2|sed 's/ //
 stunnel5port="$(cat ~/log-install.txt | grep -w "STUNNEL 5" | cut -d: -f2|sed 's/ //g')"
 opensshport="$(cat ~/log-install.txt | grep -w "OPENSSH" | cut -d: -f2|sed 's/ //g')"
 dropbearport="$(cat ~/log-install.txt | grep -w "DROPBEAR" | cut -d: -f2|sed 's/ //g')"
+dbport="$(cat ~/log-install.txt | grep -w "DROPBEAR" | cut -d: -f2|sed 's/ //g')"
 ssl="$(cat ~/log-install.txt | grep -w "STUNNEL 5" | cut -d: -f2)"
 sqd="$(cat ~/log-install.txt | grep -w "SQUID 4" | cut -d: -f2)"
 ovpn="$(netstat -nlpt | grep -i openvpn | grep -i 0.0.0.0 | awk '{print $4}' | cut -d: -f2)"
@@ -62,15 +63,16 @@ echo -e "$Pass\n$Pass\n"|passwd $Login &> /dev/null
 hariini=`date -d "0 days" +"%Y-%m-%d"`
 expi=`date -d "$masaaktif days" +"%Y-%m-%d"`
 
-systemctl restart stunnelws
-systemctl restart stunnel5
+
 systemctl restart sslh
 systemctl restart openvpnws
 systemctl restart nontls
 systemctl restart otls
-systemctl restart ssh-ohp
-systemctl restart dropbear-ohp
-systemctl restart openvpn-ohp
+#systemctl restart ssh-ohp
+systemctl restart stunnelws
+systemctl restart stunnel5
+#systemctl restart dropbear-ohp
+#systemctl restart openvpn-ohp
 systemctl restart privoxy
 #systemctl restart nginx
 echo -e "\033[1;31m━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
