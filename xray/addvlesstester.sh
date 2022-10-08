@@ -160,7 +160,7 @@ service cron restart
 #systemctl restart nginx
 clear
 echo -e "\033[1;31m━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
-echo -e "\033[1;46m 🔥 AKUN VLESS TESTER 🔥  \e[m"   
+echo -e "\033[1;46m 🔥 AKUN VLESS TESTER 🔥  \e[m"
 echo -e "\033[1;31m━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
 echo -e "\033[1;31m━━━━━━━━━━━━━━━━\033[0m"
 echo -e "Protokol➡️ WS,GRPC,HTTP,KCP,H2C,GFW,XTLS,QUIC"
@@ -211,7 +211,7 @@ echo -e "\033[1;31m━━━━━━━━━━━━━━━━\033[0m"
 echo -e "KCP TLS➡️ ${vlesskcp}"
 echo -e "\033[1;31m━━━━━━━━━━━━━━━━\033[0m"
 echo -e "\033[1;31m━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
-echo -e "\033[1;46m🔥LUXURY EDITION ZEROSSL🔥\e[m"   
+echo -e "\033[1;46m🔥LUXURY EDITION ZEROSSL🔥\e[m"
 echo -e "\033[1;31m━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
 echo ""
 read -n 1 -s -r -p "Ketik Bebas Untuk Ke Menu Utama"
