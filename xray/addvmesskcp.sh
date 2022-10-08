@@ -101,6 +101,8 @@ cat>/etc/xray/vmess-$user-tls.json<<EOF
       "tls": "tls"
 }
 EOF
+vmess_base641=$( base64 -w 0 <<< $vmess_json1)
+vmesskcp="vmess://$(base64 -w 0 /etc/xray/vmess-$user-tls.json)"
 
 cat>/etc/xray/vmess-$user-nontls.json<<EOF
       {
@@ -117,10 +119,7 @@ cat>/etc/xray/vmess-$user-nontls.json<<EOF
       "tls": "none"
 }
 EOF
-
-vmess_base641=$( base64 -w 0 <<< $vmess_json1)
 vmess_base642=$( base64 -w 0 <<< $vmess_json2)
-vmesskcp="vmess://$(base64 -w 0 /etc/xray/vmess-$user-tls.json)"
 vmesskcpnon="vmess://$(base64 -w 0 /etc/xray/vmess-$user-nontls.json)"
 rm -rf /etc/xray/vmess-$user-tls.json
 rm -rf /etc/xray/vmess-$user-nontls.json
