@@ -101,7 +101,7 @@ systemctl restart xtrojan
 service cron restart
 clear
 echo -e "\033[1;31m━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
-echo -e "\033[1;46m 🔥 AKUN VLESS HTTP/2 🔥  \e[m"   
+echo -e "\033[1;46m 🔥 AKUN VLESS HTTP/2 🔥  \e[m"
 echo -e "\033[1;31m━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
 echo -e "Nama➡️ ${user}"
 echo -e "IP/Host➡️ ${MYIP}"
