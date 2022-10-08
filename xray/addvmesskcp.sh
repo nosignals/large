@@ -91,7 +91,7 @@ cat>/etc/xray/vmess-$user-tls.json<<EOF
       "v": "4",
       "ps": "🔥VMESS KCP TLS ${user}",
       "add": "${domain}",
-      "port": "${tls}",
+      "port": "${vmkcp}",
       "id": "${uuid}",
       "aid": "0",
       "net": "kcp",
@@ -109,7 +109,7 @@ cat>/etc/xray/vmess-$user-nontls.json<<EOF
       "v": "4",
       "ps": "🔥VMESS KCP NON TLS ${user}",
       "add": "${domain}",
-      "port": "${tls}",
+      "port": "${vmkcpnon}",
       "id": "${uuid}",
       "aid": "0",
       "net": "kcp",
@@ -137,8 +137,8 @@ echo -e "\033[1;31m━━━━━━━━━━━━━━━━━━━━�
 echo -e "Nama➡️ ${user}"
 echo -e "IP➡️ ${MYIP}"
 echo -e "Alamat➡️ ${domain}"
-echo -e "Port TLS➡️ ${tls}"
-echo -e "Port No TLS➡️ ${nontls}"
+echo -e "Port TLS➡️ ${vmkcp}"
+echo -e "Port NONTLS➡️ ${vmkcpnon}"
 echo -e "Protokol➡️ KCP"
 echo -e "Path➡️ SHANUM-KCP"
 echo -e "UserID➡️ ${uuid}"
