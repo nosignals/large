@@ -99,20 +99,20 @@ echo Generate PublicKey
 sleep 0.5
 echo Generate PresharedKey
 clear
-echo -e "\033[1;31m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
-echo -e "\033[1;46m       🔥 AKUN WIREGUARD 🔥       \e[m"   
-echo -e "\033[1;31m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
+echo -e "\033[1;31m━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
+echo -e "\033[1;46m   🔥 AKUN WIREGUARD 🔥   \e[m"
+echo -e "\033[1;31m━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
 echo -e "Nama➡️ $CLIENT_NAME"
 echo -e "IP➡️ $MYIP,$domain"
 echo -e "Domain➡️ $domain"
 echo -e "Port➡️ $portwg"
 echo -e "Dibuat➡️ $hariini"
 echo -e "Kadaluarsa➡️ $exp"
-echo -e "\033[1;31m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
+echo -e "\033[1;31m━━━━━━━━━━━━━━━━━━━━━\033[0m"
 echo -e "Link WG➡️ http://$MYIP:88/$CLIENT_NAME.conf"
-echo -e "\033[1;31m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
-echo -e "\033[1;46m  🔥LUXURY EDITION BY ZEROSSL🔥   \e[m"   
-echo -e "\033[1;31m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
+echo -e "\033[1;31m━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
+echo -e "\033[1;46m🔥LUXURY EDITION ZEROSSL🔥\e[m"
+echo -e "\033[1;31m━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
 rm -f /root/wg0-client-$CLIENT_NAME.conf
 echo ""
 read -n 1 -s -r -p "Ketik Bebas Untuk Ke Menu Utama"
