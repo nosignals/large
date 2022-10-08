@@ -74,7 +74,7 @@ systemctl restart openvpn-ohp
 systemctl restart privoxy
 #systemctl restart nginx
 echo -e "\033[1;31m━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
-echo -e "\033[1;46m 🔥 AKUN SSH DAN OVPN 🔥  \e[m"   
+echo -e "\033[1;46m 🔥 AKUN SSH DAN OVPN 🔥  \e[m"
 echo -e "\033[1;31m━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
 echo -e "\033[1;31m━━━━━━━━━━━━━━━━\033[0m"
 echo -e "HOST➡️ ${domain2}"
@@ -104,7 +104,7 @@ echo -e "\033[1;31m━━━━━━━━━━━━━━━━\033[0m"
 echo -e "PILOT OVPNWS➡️ GET ws://BUGMU.COM [protocol][crlf]/HTTP/1.1[crlf]/HTTP/2[crlf]/HTTP/3[crlf]Host: $domain2 [crlf]Upgrade: Websocket[crlf]Connection: Keep-Alive[crlf]User-Agent: [ua][crlf][crlf]"
 echo -e "\033[1;31m━━━━━━━━━━━━━━━━\033[0m"
 echo -e "\033[1;31m━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
-echo -e "\033[1;46m🔥LUXURY EDITION ZEROSSL🔥\e[m"   
+echo -e "\033[1;46m🔥LUXURY EDITION ZEROSSL🔥\e[m"
 echo -e "\033[1;31m━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
 echo ""
 read -n 1 -s -r -p "Ketik Bebas Untuk Ke Menu Utama"
