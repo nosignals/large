@@ -492,7 +492,7 @@ wget -O renewssh "https://${wisnuvpn}/renewssh.sh"
 wget -O autokill "https://${wisnuvpn}/autokill.sh"
 
 wget -O ceklim "https://${wisnuvpn}/ceklim.sh"
-wget -O tendang "https://${wisnuvpn}/tendang.sh"
+wget -O gajol "https://${wisnuvpn}/gajol.sh"
 wget -O clearlog "https://${wisnuvpn}/clearlog.sh"
 wget -O changeport "https://${wisnuvpn}/changeport.sh"
 wget -O wbmn "https://${wisnuvpn}/webmin.sh"
