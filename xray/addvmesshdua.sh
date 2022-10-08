@@ -13,7 +13,7 @@ clear
 domain=$(cat /etc/xray/domain)
 vmhdua="$(cat ~/log-install.txt | grep -w "VMESS H2C TLS" | cut -d: -f2|sed 's/ //g')"
 #none="$(cat ~/log-install.txt | grep -w "Vmess None TLS" | cut -d: -f2|sed 's/ //g')"
-until [[ $user =~ ^[a-zA-Z0-9_]+$ && ${CLIENT_EXISTS} == '0' ]]; do
+until [[ $user =~ ^[a-zA-Z0-9_]+$ && ${user_EXISTS} == '0' ]]; do
 read -rp "Username : " -e user
 user_EXISTS=$(grep -w $user /etc/xray/xtrojan.json | wc -l)
 
@@ -23,7 +23,6 @@ echo -e "Username ${RED}${user}${NC} Already On VPS Please Choose Another"
 exit 1
 fi
 done
-
 until [[ $user =~ ^[a-zA-Z0-9_]+$ && ${user_EXISTS} == '0' ]]; do
 read -rp "Username : " -e user
 user_EXISTS=$(grep -w $user /etc/xray/xvmess.json | wc -l)
@@ -34,7 +33,6 @@ echo -e "Username ${RED}${user}${NC} Already On VPS Please Choose Another"
 exit 1
 fi
 done
-
 until [[ $user =~ ^[a-zA-Z0-9_]+$ && ${user_EXISTS} == '0' ]]; do
 read -rp "Username : " -e user
 user_EXISTS=$(grep -w $user /etc/xray/config.json | wc -l)
@@ -45,7 +43,6 @@ echo -e "Username ${RED}${user}${NC} Already On VPS Please Choose Another"
 exit 1
 fi
 done
-
 until [[ $user =~ ^[a-zA-Z0-9_]+$ && ${user_EXISTS} == '0' ]]; do
 read -rp "Username : " -e user
 user_EXISTS=$(grep -w $user /etc/xray/xvless.json | wc -l)
@@ -56,7 +53,6 @@ echo -e "Username ${RED}${user}${NC} Already On VPS Please Choose Another"
 exit 1
 fi
 done
-
 until [[ $user =~ ^[a-zA-Z0-9_]+$ && ${user_EXISTS} == '0' ]]; do
 read -rp "Username : " -e user
 user_EXISTS=$(grep -w $user /etc/xray/xss.json | wc -l)
@@ -107,7 +103,7 @@ vmesshdua="vmess://$(base64 -w 0 /etc/xray/vmess-$user-tls.json)"
 rm -rf /etc/xray/vmess-$user-tls.json
 rm -rf /etc/xray/vmess-$user-nontls.json
 
-systemctl daemon-reload
+#systemctl daemon-reload
 systemctl restart xvless
 systemctl restart xray
 systemctl restart xvmess
@@ -118,7 +114,7 @@ service cron restart
 clear
 echo -e ""
 echo -e "\033[1;31m━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
-echo -e "\033[1;46m  🔥 AKUN VMESS HTTP/2 🔥 \e[m"   
+echo -e "\033[1;46m  🔥 AKUN VMESS HTTP/2 🔥 \e[m"
 echo -e "\033[1;31m━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
 echo -e "Nama➡️ ${user}"
 echo -e "Host➡️ ${domain}"
@@ -131,11 +127,11 @@ echo -e "Uuid➡️ ${uuid}"
 echo -e "Dibuat➡️ $hariini"
 echo -e "Kadaluarsa➡️ $exp"
 echo -e "\033[1;31m━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
-echo -e "H2C TLS➡️ ${vmesshdua}"   
+echo -e "H2C TLS➡️ ${vmesshdua}"
 echo -e "\033[1;31m━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
-#echo -e "H2C NONTLS➡️ ${vmesshduanon}"   
+#echo -e "H2C NONTLS➡️ ${vmesshduanon}" 
 #echo -e "\033[1;31m━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
-echo -e "\033[1;46m🔥LUXURY EDITION ZEROSSL🔥\e[m"   
+echo -e "\033[1;46m🔥LUXURY EDITION ZEROSSL🔥\e[m"
 echo -e "\033[1;31m━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
 echo ""
 read -n 1 -s -r -p "Ketik Bebas Untuk Ke Menu Utama"
