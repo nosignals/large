@@ -106,7 +106,7 @@ renewvmessquic
 cekvmesshttp
 ;;
 21)
-addvmesshkcp
+addvmesskcp
 ;;
 22)
 delvmesskcp
