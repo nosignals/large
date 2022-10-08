@@ -116,7 +116,7 @@ if [ -f "/etc/openvpn/server/openvpn-gandring-ssl-ws.log" ]; then
         cat /tmp/vpn-login-udp.txt
 fi
 echo -e "\033[1;31m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
-echo "";
+echo ""
 
 rm -f /tmp/login-db-pid.txt
 rm -f /tmp/login-db.txt
