@@ -62,9 +62,9 @@ systemctl restart ssrmu
 service cron restart
 IP=$(wget -qO- ifconfig.co);
 clear
-echo -e "\033[1;31m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
-echo -e "\033[1;46m   🔥 AKUN SHADOWSOCKS-RR 🔥   \e[m"   
-echo -e "\033[1;31m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
+echo -e "\033[1;31m━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
+echo -e "\033[1;46m 🔥AKUN SHADOWSOCKS-RR🔥  \e[m"
+echo -e "\033[1;31m━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
 echo -e "Nama➡️ ${user}"
 echo -e "IP➡️ ${IP}"
 echo -e "Domain➡️ $domain"
@@ -76,11 +76,11 @@ echo -e "Obfs➡️ ${Red_font_prefix}${ssr_obfs}"
 echo -e "Max Device➡️ ${ssr_protocol_param}"
 echo -e "Dibuat➡️ $hariini"
 echo -e "Kadaluarsa➡️ ${exp} "
-echo -e "\033[1;31m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
+echo -e "\033[1;31m━━━━━━━━━━━━━━━━━━━━━\033[0m"
 echo -e "Link SSR➡️ ${ssr_link}"
-echo -e "\033[1;31m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
-echo -e "\033[1;46m  🔥LUXURY EDITION ZEROSSL🔥   \e[m"   
-echo -e "\033[1;31m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
+echo -e "\033[1;31m━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
+echo -e "\033[1;46m🔥LUXURY EDITION ZEROSSL🔥\e[m"
+echo -e "\033[1;31m━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
 echo ""
 read -n 1 -s -r -p "Tekan Bebas Untuk Ke menu"            
 ssmenu
