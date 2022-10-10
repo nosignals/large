@@ -78,9 +78,17 @@ read -p "Expired (Days) : " masaaktif
 hariini=`date -d "0 days" +"%Y-%m-%d"`
 exp=`date -d "$masaaktif days" +"%Y-%m-%d"`
 sed -i '/#trojan-xtls$/a\### '"$user $exp"'\
-},{"password": "'""$uuid""'","flow": "'""xtls-rprx-direct""'", "email": "'""$user""'"' /etc/xray/xtrojan.json
+},{"id": "'""$uuid""'","flow": "'""xtls-rprx-direct""'", "email": "'""$user""'"' /etc/xray/xvmess.json
 sed -i '/#trojan-xtls$/a\### '"$user $exp"'\
-},{"password": "'""$uuid""'","flow": "'""xtls-rprx-direct""'", "email": "'""$user""'"' /etc/xray/xvmess.json
+},{"id": "'""$uuid""'","flow": "'""xtls-rprx-origin""'", "email": "'""$user""'"' /etc/xray/xvmess.json
+sed -i '/#trojan-xtls$/a\### '"$user $exp"'\
+},{"id": "'""$uuid""'","flow": "'""xtls-rprx-splice""'", "email": "'""$user""'"' /etc/xray/xvmess.json
+sed -i '/#trojan-xtls$/a\### '"$user $exp"'\
+},{"id": "'""$uuid""'","flow": "'""xtls-rprx-direct""'", "email": "'""$user""'"' /etc/xray/xvless.json
+sed -i '/#trojan-xtls$/a\### '"$user $exp"'\
+},{"id": "'""$uuid""'","flow": "'""xtls-rprx-origin""'", "email": "'""$user""'"' /etc/xray/xvless.json
+sed -i '/#trojan-xtls$/a\### '"$user $exp"'\
+},{"id": "'""$uuid""'","flow": "'""xtls-rprx-splice""'", "email": "'""$user""'"' /etc/xray/xvless.json
 sed -i '/#trojan-gfw$/a\### '"$user $exp"'\
 },{"password": "'""$uuid""'","email": "'""$user""'"' /etc/xray/xvmess.json
 sed -i '/#trojan-gfw$/a\### '"$user $exp"'\
@@ -104,6 +112,7 @@ echo -e "Nama➡️ ${user}"
 echo -e "IP/Host➡️ ${MYIP}"
 echo -e "Alamat➡️ ${domain}"
 echo -e "Protokol➡️ tcp"
+echo -e "Flow➡️ ALL FLOW IS SUPPORTED"
 echo -e "Port XTLS➡️ ${txtls}"
 echo -e "Port GFW➡️ ${tgfw}"
 echo -e "Satpam➡️ XTLS/TLS"
