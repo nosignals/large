@@ -27,8 +27,8 @@ apt install socat cron bash-completion ntpdate -y
 ntpdate pool.ntp.org
 apt -y install chrony
 apt install zip -y
-snap install docker.io
-docker run -d --name mosdns -p 5454:53/udp -p 5454:53/tcp  sagit.io/601096721/mosdns:latest
+#snap install docker.io
+#docker run -d --name mosdns -p 5454:53/udp -p 5454:53/tcp  sagit.io/601096721/mosdns:latest
 timedatectl set-ntp true
 systemctl enable chronyd && systemctl restart chronyd
 systemctl enable chrony && systemctl restart chrony
@@ -622,32 +622,13 @@ LimitNOFILE=1000000
 WantedBy=multi-user.target
 END
 
-# / / Installation Xray Service
-cat > /etc/systemd/system/xray@.service << END
-[Unit]
-Description=XRay Service ( %i )
-Documentation=https://github.com/XTLS/Xray-core
-After=network.target nss-lookup.target
-
-[Service]
-User=root
-NoNewPrivileges=true
-ExecStart=/usr/local/bin/xray -config /etc/xray/%i.json
-Restart=on-failure
-RestartPreventExitStatus=23
-LimitNPROC=10000
-LimitNOFILE=1000000
-
-[Install]
-WantedBy=multi-user.target
-END
-
 cat > /etc/systemd/system/gandring.service <<EOF
 [Unit]
 Description=ENABLER XRAY TUNNEL
 After=network.target nss-lookup.target
 
 [Service]
+User=www-data
 Type=simple
 User=root
 NoNewPrivileges=true
@@ -858,8 +839,6 @@ EOF
 # Starting
 systemctl daemon-reload
 systemctl enable trojan-go.service
-systemctl start trojan-go
-systemctl enable trojan-go@.service
 systemctl start trojan-go
 
 # Trojan Go Uuid
