@@ -97,10 +97,18 @@ sed -i '/#vless-grpc-tls$/a\### '"$user $exp"'\
 },{"id": "'""$uuid""'","email": "'""$user""'"' /etc/xray/xvmess.json
 sed -i '/#vless-grpc-nontls$/a\### '"$user $exp"'\
 },{"id": "'""$uuid""'","email": "'""$user""'"' /etc/xray/config.json
-sed -i '/#vless-xtls$/a\#&# '"$user $exp"'\
+sed -i '/#vless-xtls$/a\### '"$user $exp"'\
 },{"id": "'""$uuid""'","flow": "'""xtls-rprx-direct""'", "email": "'""$user""'"' /etc/xray/xvmess.json
-sed -i '/#vless-xtls$/a\#&# '"$user $exp"'\
+sed -i '/#vless-xtls$/a\### '"$user $exp"'\
+},{"id": "'""$uuid""'","flow": "'""xtls-rprx-origin""'", "email": "'""$user""'"' /etc/xray/xvmess.json
+sed -i '/#vless-xtls$/a\### '"$user $exp"'\
+},{"id": "'""$uuid""'","flow": "'""xtls-rprx-splice""'", "email": "'""$user""'"' /etc/xray/xvmess.json
+sed -i '/#vless-xtls$/a\### '"$user $exp"'\
 },{"id": "'""$uuid""'","flow": "'""xtls-rprx-direct""'", "email": "'""$user""'"' /etc/xray/xvless.json
+sed -i '/#vless-xtls$/a\### '"$user $exp"'\
+},{"id": "'""$uuid""'","flow": "'""xtls-rprx-origin""'", "email": "'""$user""'"' /etc/xray/xvless.json
+sed -i '/#vless-xtls$/a\### '"$user $exp"'\
+},{"id": "'""$uuid""'","flow": "'""xtls-rprx-splice""'", "email": "'""$user""'"' /etc/xray/xvless.json
 sed -i '/#vless-hdua$/a\### '"$user $exp"'\
 },{"id": "'""$uuid""'","email": "'""$user""'"' /etc/xray/xvmess.json
 sed -i '/#vless-hdua$/a\### '"$user $exp"'\
@@ -168,7 +176,7 @@ echo -e "IP➡️ ${MYIP}, $domain"
 echo -e "Host➡️${domain2}"
 echo -e "CF Host➡️${domain3}"
 echo -e "NAMA➡️ ${user}"
-#echo -e "🔺️Flow➡️ ONLY ORIGIN'S TYPE NOT ALLOWED"
+echo -e "Flow➡️ ALL FLOW IS SUPPORTED"
 echo -e "Port GRPC➡️ $vlgrpc,8443,2096,2087,2053"
 echo -e "WS TLS➡️ $vltls,8443,2096,2087,2053"
 echo -e "WS NONTLS➡️ $vlnontls,2095,2086,2052"
