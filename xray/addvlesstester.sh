@@ -101,14 +101,14 @@ sed -i '/#vless-xtls$/a\### '"$user $exp"'\
 },{"id": "'""$uuid""'","flow": "'""xtls-rprx-direct""'", "email": "'""$user""'"' /etc/xray/xvmess.json
 sed -i '/#vless-xtls$/a\### '"$user $exp"'\
 },{"id": "'""$uuid""'","flow": "'""xtls-rprx-origin""'", "email": "'""$user""'"' /etc/xray/xvmess.json
-#sed -i '/#vless-xtls$/a\### '"$user $exp"'\
-#},{"id": "'""$uuid""'","flow": "'""xtls-rprx-splice""'", "email": "'""$user""'"' /etc/xray/xvmess.json
+sed -i '/#vless-xtls$/a\### '"$user $exp"'\
+},{"id": "'""$uuid""'","flow": "'""xtls-rprx-splice""'", "email": "'""$user""'"' /etc/xray/xvmess.json
 sed -i '/#vless-xtls$/a\### '"$user $exp"'\
 },{"id": "'""$uuid""'","flow": "'""xtls-rprx-direct""'", "email": "'""$user""'"' /etc/xray/xvless.json
 sed -i '/#vless-xtls$/a\### '"$user $exp"'\
 },{"id": "'""$uuid""'","flow": "'""xtls-rprx-origin""'", "email": "'""$user""'"' /etc/xray/xvless.json
-#sed -i '/#vless-xtls$/a\### '"$user $exp"'\
-#},{"id": "'""$uuid""'","flow": "'""xtls-rprx-splice""'", "email": "'""$user""'"' /etc/xray/xvless.json
+sed -i '/#vless-xtls$/a\### '"$user $exp"'\
+},{"id": "'""$uuid""'","flow": "'""xtls-rprx-splice""'", "email": "'""$user""'"' /etc/xray/xvless.json
 sed -i '/#vless-hdua$/a\### '"$user $exp"'\
 },{"id": "'""$uuid""'","email": "'""$user""'"' /etc/xray/xvmess.json
 sed -i '/#vless-hdua$/a\### '"$user $exp"'\
