@@ -100,9 +100,17 @@ sed -i '/#trojan-grpc$/a\### '"$user $exp"'\
 sed -i '/#trojan-grpc$/a\### '"$user $exp"'\
 },{"password": "'""$uuid""'","email": "'""$user""'"' /etc/xray/xvless.json
 sed -i '/#trojan-xtls$/a\### '"$user $exp"'\
-},{"password": "'""$uuid""'","flow": "'""xtls-rprx-direct""'", "email": "'""$user""'"' /etc/xray/xtrojan.json
+},{"id": "'""$uuid""'","flow": "'""xtls-rprx-direct""'", "email": "'""$user""'"' /etc/xray/xvmess.json
 sed -i '/#trojan-xtls$/a\### '"$user $exp"'\
-},{"password": "'""$uuid""'","flow": "'""xtls-rprx-direct""'", "email": "'""$user""'"' /etc/xray/xvmess.json
+},{"id": "'""$uuid""'","flow": "'""xtls-rprx-origin""'", "email": "'""$user""'"' /etc/xray/xvmess.json
+#sed -i '/#trojan-xtls$/a\### '"$user $exp"'\
+#},{"id": "'""$uuid""'","flow": "'""xtls-rprx-splice""'", "email": "'""$user""'"' /etc/xray/xvmess.json
+sed -i '/#trojan-xtls$/a\### '"$user $exp"'\
+},{"id": "'""$uuid""'","flow": "'""xtls-rprx-direct""'", "email": "'""$user""'"' /etc/xray/xvless.json
+sed -i '/#trojan-xtls$/a\### '"$user $exp"'\
+},{"id": "'""$uuid""'","flow": "'""xtls-rprx-origin""'", "email": "'""$user""'"' /etc/xray/xvless.json
+#sed -i '/#trojan-xtls$/a\### '"$user $exp"'\
+#},{"id": "'""$uuid""'","flow": "'""xtls-rprx-splice""'", "email": "'""$user""'"' /etc/xray/xvless.json
 sed -i '/#trojan-hdua$/a\### '"$user $exp"'\
 },{"password": "'""$uuid""'","email": "'""$user""'"' /etc/xray/xtrojan.json
 sed -i '/#trojan-hdua$/a\### '"$user $exp"'\
@@ -177,7 +185,7 @@ echo -e "HOST➡️ $domain2"
 echo -e "CF Host➡️ ${domain3}"
 echo -e "NAMA➡️ ${user}"
 echo -e "Protokol➡️ GRPC,H2C,GFW,XTLS,WS,KCP,HTTP,GO,QUIC"
-#echo -e "Flow xtls➡️ only origin type not supported"
+echo -e "Flow xtls➡️ ALL FLOW IS SUPPORTED"
 echo -e "ServiceName➡️ SATRIO"
 echo -e "Path HTTP➡️ /GANDRING-TCP"
 echo -e "Path H2C➡️ /GANDRING-HTTP"
