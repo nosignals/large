@@ -59,7 +59,19 @@ curl -sL "$xraycore_link" -o xray.zip
 unzip -q xray.zip && rm -rf xray.zip
 mv xray /usr/local/bin/xray
 chmod +x /usr/local/bin/xray
-
+apt update ; apt upgrade -y
+sudo apt-get install -y apt-transport-https lsb-release ca-certificates wget gnupg2 debian-archive-keyring
+sudo apt-get install -y apt-transport-https lsb-release ca-certificates wget gnupg2 ubuntu-keyring
+wget -qO - https://cs.nginx.com/static/keys/nginx_signing.key | gpg --dearmor | sudo tee /usr/share/keyrings/nginx-archive-keyring.gpg >/dev/null
+wget -qO - https://cs.nginx.com/static/keys/app-protect-security-updates.key | gpg --dearmor | sudo tee /usr/share/keyrings/app-protect-security-updates.gpg >/dev/null
+printf "deb [signed-by=/usr/share/keyrings/nginx-archive-keyring.gpg] https://pkgs.nginx.com/plus/ubuntu `lsb_release -cs` nginx-plus\n" | sudo tee /etc/apt/sources.list.d/nginx-plus.list
+printf "deb [signed-by=/usr/share/keyrings/nginx-archive-keyring.gpg] https://pkgs.nginx.com/modsecurity/ubuntu `lsb_release -cs` nginx-plus\n" | sudo tee /etc/apt/sources.list.d/nginx-modsecurity.list
+sudo wget -P /etc/apt/apt.conf.d https://cs.nginx.com/static/files/90pkgs-nginx
+sudo apt-get install -y nginx-plus
+sudo apt-get install -y app-protect app-protect-attack-signatures
+sudo apt-get install -y nginx-plus nginx-plus-module-modsecurity
+sudo cp nginx-repo.crt /etc/ssl/nginx/
+sudo cp nginx-repo.key /etc/ssl/nginx/
 # Make Folder XRay
 mkdir -p /var/log/xray/
 mkdir -p /etc/xray
@@ -103,7 +115,7 @@ curl https://get.acme.sh | sh
 alias acme.sh=~/.acme.sh/acme.sh
 /root/.acme.sh/acme.sh --upgrade --auto-upgrade
 /root/.acme.sh/acme.sh --set-default-ca --server letsencrypt
-/root/.acme.sh/acme.sh --issue -d "${domain3}" --standalone --keylength ec-256
+/root/.acme.sh/acme.sh --issue -d "${domain3}" --standalone --keylength ec-384
 #/root/.acme.sh/acme.sh --issue -d "${domain3}" --standalone --keylength ec-256
 /root/.acme.sh/acme.sh --install-cert -d "${domain3}" --ecc \
 --fullchain-file /etc/xray/cdn.crt \
@@ -117,7 +129,7 @@ curl https://get.acme.sh | sh
 alias acme.sh=~/.acme.sh/acme.sh
 /root/.acme.sh/acme.sh --upgrade --auto-upgrade
 /root/.acme.sh/acme.sh --set-default-ca --server letsencrypt
-/root/.acme.sh/acme.sh --issue -d "${domain2}" --standalone --keylength ec-256
+/root/.acme.sh/acme.sh --issue -d "${domain2}" --standalone --keylength ec-384
 #/root/.acme.sh/acme.sh --issue -d "${domain2}" --standalone --keylength ec-256
 /root/.acme.sh/acme.sh --install-cert -d "${domain2}" --ecc \
 --fullchain-file /etc/xray/crt.pem \
@@ -131,7 +143,7 @@ curl https://get.acme.sh | sh
 alias acme.sh=~/.acme.sh/acme.sh
 /root/.acme.sh/acme.sh --upgrade --auto-upgrade
 /root/.acme.sh/acme.sh --set-default-ca --server letsencrypt
-/root/.acme.sh/acme.sh --issue -d "${domain}" --standalone --keylength ec-256
+/root/.acme.sh/acme.sh --issue -d "${domain}" --standalone --keylength ec-384
 #/root/.acme.sh/acme.sh --issue -d "${domain}" --standalone --keylength ec-256
 /root/.acme.sh/acme.sh --install-cert -d "${domain}" --ecc \
 --fullchain-file /etc/xray/xray.crt \
@@ -165,21 +177,6 @@ chmod 755 /etc/xray/xray.key
 bash -c "$(curl -L https://github.com/XTLS/Xray-install/raw/main/install-release.sh)" @ install-geodata
 uuid=$(cat /proc/sys/kernel/random/uuid)
 domain=$(cat /root/domain)
-
-apt update ; apt upgrade -y
-sudo apt-get install -y apt-transport-https lsb-release ca-certificates wget gnupg2 debian-archive-keyring
-sudo apt-get install -y apt-transport-https lsb-release ca-certificates wget gnupg2 ubuntu-keyring
-wget -qO - https://cs.nginx.com/static/keys/nginx_signing.key | gpg --dearmor | sudo tee /usr/share/keyrings/nginx-archive-keyring.gpg >/dev/null
-wget -qO - https://cs.nginx.com/static/keys/app-protect-security-updates.key | gpg --dearmor | sudo tee /usr/share/keyrings/app-protect-security-updates.gpg >/dev/null
-printf "deb [signed-by=/usr/share/keyrings/nginx-archive-keyring.gpg] https://pkgs.nginx.com/plus/ubuntu `lsb_release -cs` nginx-plus\n" | sudo tee /etc/apt/sources.list.d/nginx-plus.list
-printf "deb [signed-by=/usr/share/keyrings/nginx-archive-keyring.gpg] https://pkgs.nginx.com/modsecurity/ubuntu `lsb_release -cs` nginx-plus\n" | sudo tee /etc/apt/sources.list.d/nginx-modsecurity.list
-sudo wget -P /etc/apt/apt.conf.d https://cs.nginx.com/static/files/90pkgs-nginx
-sudo apt-get install -y nginx-plus
-sudo add-apt-repository ppa:ondrej/nginx -y
-sudo apt-get install -y app-protect app-protect-attack-signatures
-sudo apt-get install -y nginx-plus nginx-plus-module-modsecurity
-sudo cp nginx-repo.crt /etc/ssl/nginx/
-sudo cp nginx-repo.key /etc/ssl/nginx/
 
 # // Certificate File
 path_crt="/etc/xray/xray.cer"
