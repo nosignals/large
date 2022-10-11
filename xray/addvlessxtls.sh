@@ -72,7 +72,11 @@ sed -i '/#vless-xtls$/a\### '"$user $exp"'\
 },{"id": "'""$uuid""'","flow": "'""xtls-rprx-origin""'", "email": "'""$user""'"' /etc/xray/xvmess.json
 sed -i '/#vless-xtls$/a\### '"$user $exp"'\
 },{"id": "'""$uuid""'","flow": "'""xtls-rprx-splice""'", "email": "'""$user""'"' /etc/xray/xvmess.json
+sed -i '/#vless-xtls$/a\### '"$user $exp"'\
+},{"id": "'""$uuid""'","flow": "'""xtls-rprx-vision""'", "email": "'""$user""'"' /etc/xray/xvmess.json
 
+sed -i '/#vless-xtls$/a\### '"$user $exp"'\
+},{"id": "'""$uuid""'","flow": "'""xtls-rprx-visio""'", "email": "'""$user""'"' /etc/xray/xvless.json
 sed -i '/#vless-xtls$/a\### '"$user $exp"'\
 },{"id": "'""$uuid""'","flow": "'""xtls-rprx-direct""'", "email": "'""$user""'"' /etc/xray/xvless.json
 sed -i '/#vless-xtls$/a\### '"$user $exp"'\
@@ -86,7 +90,7 @@ sed -i '/#vless-xtls$/a\### '"$user $exp"'\
 },{"id": "'""$uuid""'","flow": "'""xtls-rprx-direct""'", "email": "'""$user""'"' /etc/xray/config.json
 sed -i '/#vless-xtls$/a\### '"$user $exp"'\
 },{"id": "'""$uuid""'","flow": "'""xtls-rprx-direct""'", "email": "'""$user""'"' /etc/xray/xss.json
-vlessxtls="vless://${uuid}@${domain}:$vlxtls?type=tcp&security=xtls&headerType=none&flow=xtls-rprx-splice-udp443&encryption=none#%F0%9F%94%A5VLESS+XTLS+${user}"
+vlessxtls="vless://${uuid}@${domain}:$vlxtls?type=tcp&security=xtls&headerType=none&flow=xtls-rprx-vision-udp443&encryption=none#%F0%9F%94%A5VLESS+XTLS+${user}"
 vlessgfw="vless://${uuid}@${domain}:$vlxtls?security=tls&type=tcp&headerType=none&encryption=none#%F0%9F%94%A5VLESS+GFW+TLS+${user}"
 systemctl restart xray.service
 systemctl restart xvless.service
