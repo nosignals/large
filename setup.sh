@@ -120,12 +120,13 @@ echo -e " 🔰 DROPBEAR                       : 443"         |tee -a log-install
 echo -e " 🔰 STUNNEL 5                      : 443,500"     |tee -a log-install.txt
 echo -e " 🔰 OPENVPN WS TLS                 : 443"         |tee -a log-install.txt
 echo -e " 🔰 SSH WS TLS                     : 443"         |tee -a log-install.txt
-echo -e " 🔰 WIREGUARD                      : 443"         |tee -a log-install.txt
 echo -e " 🔰 VLESS XTLS                     : 443"         |tee -a log-install.txt
 echo -e " 🔰 VLESS GFW                      : 443"         |tee -a log-install.txt
 echo -e " 🔰 VLESS WS TLS                   : 443"         |tee -a log-install.txt
 echo -e " 🔰 VLESS GRPC TLS                 : 443"         |tee -a log-install.txt
 echo -e " 🔰 VLESS HTTP TLS                 : 443"         |tee -a log-install.txt
+echo -e " 🔰 TROJAN GFW                     : 443"         |tee -a log-install.txt
+echo -e " 🔰 TROJAN QUIC TLS                : 443"         |tee -a log-install.txt
 echo -e " 🔰 TROJAN GRPC TLS                : 443"         |tee -a log-install.txt
 echo -e " 🔰 TROJAN WS TLS                  : 443"         |tee -a log-install.txt
 echo -e " 🔰 TROJAN HTTP TLS                : 443"         |tee -a log-install.txt
@@ -161,6 +162,7 @@ echo -e " 🔰 SQUID 4                        : 4000,5000"   |tee -a log-install
 echo -e " 🔰 PRIVOXY                        : 3128,3228"   |tee -a log-install.txt
 echo -e " 🔰 UDPGW                          : 99"          |tee -a log-install.txt
 echo -e " 🔰 SSTP VPN                       : 444"         |tee -a log-install.txt
+echo -e " 🔰 WIREGUARD                      : 666"         |tee -a log-install.txt
 echo -e " 🔰 SHADOWSOCKS-R                  : 1444-1944"   |tee -a log-install.txt
 echo -e " 🔰 SS-OBFS TLS                    : 2444-2943"   |tee -a log-install.txt
 echo -e " 🔰 SS-OBFS HTTP                   : 2944-3442"   |tee -a log-install.txt
@@ -195,8 +197,6 @@ echo -e " 🔰 SHADOWSOCKS 2022 HTTP NON TLS  : 888"         |tee -a log-install
 echo -e " 🔰 SOCKS5 HTTP NON TLS            : 8888"        |tee -a log-install.txt
 echo -e "\033[1;36m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
 echo -e " 🔰 TROJAN XTLS                    : 8443"        |tee -a log-install.txt
-echo -e " 🔰 TROJAN GFW                     : 8443"        |tee -a log-install.txt
-echo -e " 🔰 TROJAN QUIC TLS                : 401"         |tee -a log-install.txt
 echo -e " 🔰 VLESS QUIC TLS                 : 441"         |tee -a log-install.txt
 echo -e " 🔰 VMESS QUIC TLS                 : 501"         |tee -a log-install.txt
 echo -e " 🔰 SHADOWSOCKS 2022 QUIC TLS      : 601"         |tee -a log-install.txt
