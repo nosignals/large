@@ -111,6 +111,12 @@ sed -i '/#trojan-xtls$/a\### '"$user $exp"'\
 },{"id": "'""$uuid""'","flow": "'""xtls-rprx-origin""'", "email": "'""$user""'"' /etc/xray/xvless.json
 sed -i '/#trojan-xtls$/a\### '"$user $exp"'\
 },{"id": "'""$uuid""'","flow": "'""xtls-rprx-splice""'", "email": "'""$user""'"' /etc/xray/xvless.json
+sed -i '/#trojan-xtls$/a\### '"$user $exp"'\
+},{"id": "'""$uuid""'","flow": "'""xtls-rprx-direct""'", "email": "'""$user""'"' /etc/xray/xtrojan.json
+sed -i '/#trojan-xtls$/a\### '"$user $exp"'\
+},{"id": "'""$uuid""'","flow": "'""xtls-rprx-origin""'", "email": "'""$user""'"' /etc/xray/xtrojan.json
+sed -i '/#trojan-xtls$/a\### '"$user $exp"'\
+},{"id": "'""$uuid""'","flow": "'""xtls-rprx-splice""'", "email": "'""$user""'"' /etc/xray/xtrojan.json
 sed -i '/#trojan-hdua$/a\### '"$user $exp"'\
 },{"password": "'""$uuid""'","email": "'""$user""'"' /etc/xray/xtrojan.json
 sed -i '/#trojan-hdua$/a\### '"$user $exp"'\
@@ -152,8 +158,8 @@ sed -i '/#trojan-kcp$/a\### '"$user $exp"'\
 
 trojanhdua="trojan://${uuid}@${domain}:$thdua?sni=jambualas.id&type=http&security=tls&path=/GANDRING-HTTP#%F0%9F%94%A5TROJAN+H2C+TLS+${user}"
 trojangrpc="trojan://${uuid}@${domain}:$tgrpc?mode=multi&security=tls&type=grpc&serviceName=SATRIO&sni=${domain3}#%F0%9F%94%A5TROJAN+GRPC+TLS+${user}"
-trojanxtls="trojan://${uuid}@${domain2}:$txtls?sni=kimcil.kepolen.net&security=xtls&type=tcp&headerType=none&flow=xtls-rprx-splice-udp443#%F0%9F%94%A5TROJAN+XTLS+${user}"
-trojangfw="trojan://$uuid@$domain2:$tgfw?sni=angeladesah.com&type=tcp&security=tls&headerType=none#%F0%9F%94%A5TROJAN+GFW+TLS+$user"
+trojanxtls="trojan://${uuid}@${domain}:$txtls?sni=kimcil.kepolen.net&security=xtls&type=tcp&headerType=none&flow=xtls-rprx-splice-udp443#%F0%9F%94%A5TROJAN+XTLS+${user}"
+trojangfw="trojan://$uuid@$domain:$tgfw?sni=angeladesah.com&type=tcp&security=tls&headerType=none#%F0%9F%94%A5TROJAN+GFW+TLS+$user"
 trojantls="trojan://${uuid}@${domain}:$ttls?type=ws&security=tls&host=$domain3&path=%2fGANDRING&sni=$domain3#%F0%9F%94%A5TROJAN+WS+TLS+${user}"
 trojannontls="trojan://${uuid}@${domain}:$tnontls?type=ws&security=none&host=$domain3&path=%2fGANDRING#%F0%9F%94%A5TROJAN+WS+NONTLS+${user}"
 trojanhttp="trojan://${uuid}@${domain}:$thttp?sni=gesekan.penghancur-janda.com&type=tcp&security=tls&host=$domain&path=/GANDRING-TCP&headerType=http#%F0%9F%94%A5+HTTP+TLS+${user}"
