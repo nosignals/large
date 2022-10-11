@@ -65,7 +65,15 @@ mkdir -p /var/log/xray/
 mkdir -p /etc/xray
 chown -R /bin/www/www-data.www-data /var/log/xray
 chown -R /bin/www/www-data.www-data /etc/xray/access.log
-chown -R /bin/www/www-data.www-data /etc/xray/access.log
+chown -R /bin/www/www-data.www-data /etc/xray/error.log
+chown -R /bin/www/www-data.www-data /etc/xray/xvless.log
+chown -R /bin/www/www-data.www-data /etc/xray/error_xvless.log
+chown -R /bin/www/www-data.www-data /etc/xray/xvmess.log
+chown -R /bin/www/www-data.www-data /etc/xray/error_xvmess.log
+chown -R /bin/www/www-data.www-data /etc/xray/xtrojan.log
+chown -R /bin/www/www-data.www-data /etc/xray/error_xtrojan.log
+chown -R /bin/www/www-data.www-data /etc/xray/xss.log
+chown -R /bin/www/www-data.www-data /etc/xray/error_xss.log
 chmod +x /var/log/xray
 chmod +x /etc/xray
 touch /var/log/xray/access.log
