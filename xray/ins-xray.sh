@@ -50,46 +50,6 @@ mkdir -p /etc/ssl/private
 mkdir -p /etc/ssl/nginx
 cd /etc/ssl/nginx
 
-sudo apt-get install -y apt-transport-https lsb-release ca-certificates wget gnupg2 debian-archive-keyring
-sudo apt-get install -y apt-transport-https lsb-release ca-certificates wget gnupg2 ubuntu-keyring
-wget -qO - https://cs.nginx.com/static/keys/nginx_signing.key | gpg --dearmor | sudo tee /usr/share/keyrings/nginx-archive-keyring.gpg >/dev/null
-wget -qO - https://cs.nginx.com/static/keys/app-protect-security-updates.key | gpg --dearmor | sudo tee /usr/share/keyrings/app-protect-security-updates.gpg >/dev/null
-printf "deb [signed-by=/usr/share/keyrings/nginx-archive-keyring.gpg] https://pkgs.nginx.com/plus/ubuntu `lsb_release -cs` nginx-plus\n" | sudo tee /etc/apt/sources.list.d/nginx-plus.list
-printf "deb [signed-by=/usr/share/keyrings/nginx-archive-keyring.gpg] https://pkgs.nginx.com/modsecurity/ubuntu `lsb_release -cs` nginx-plus\n" | sudo tee /etc/apt/sources.list.d/nginx-modsecurity.list
-sudo wget -P /etc/apt/apt.conf.d https://cs.nginx.com/static/files/90pkgs-nginx
-sudo apt-get install -y nginx-plus
-sudo apt-get install -y app-protect app-protect-attack-signatures
-sudo apt-get install -y nginx-plus nginx-plus-module-modsecurity
-sudo cp nginx-repo.crt /etc/ssl/nginx/
-sudo cp nginx-repo.key /etc/ssl/nginx/
-# Check OS version
-if [[ -e /etc/debian_version ]]; then
-	source /etc/os-release
-	OS=$ID # debian or ubuntu
-elif [[ -e /etc/centos-release ]]; then
-	source /etc/os-release
-	OS=centos
-fi
-if [[ $OS == 'ubuntu' ]]; then
-		sudo add-apt-repository ppa:ondrej/nginx -y
-		apt update ; apt upgrade -y
-		sudo apt install nginx -y
-		sudo apt install python3-certbot-nginx -y
-		systemctl daemon-reload
-        systemctl enable nginx
-elif [[ $OS == 'debian' ]]; then
-		sudo apt install gnupg2 ca-certificates lsb-release -y 
-        echo "deb http://nginx.org/packages/mainline/debian $(lsb_release -cs) nginx" | sudo tee /etc/apt/sources.list.d/nginx.list 
-        echo -e "Package: *\nPin: origin nginx.org\nPin: release o=nginx\nPin-Priority: 900\n" | sudo tee /etc/apt/preferences.d/99nginx 
-        curl -o /tmp/nginx_signing.key https://nginx.org/keys/nginx_signing.key 
-        # gpg --dry-run --quiet --import --import-options import-show /tmp/nginx_signing.key
-        sudo mv /tmp/nginx_signing.key /etc/apt/trusted.gpg.d/nginx_signing.asc
-        sudo apt update 
-        apt -y install nginx 
-        systemctl daemon-reload
-        systemctl enable nginx
-fi
-rm -f /etc/nginx/conf.d/default.conf
 mkdir -p /usr/local/etc/xray
 mkdir -p /home/sstp
 mkdir -p /home/vps/public_html
@@ -879,7 +839,46 @@ systemctl start trojan-go
 cat > /etc/trojan-go/uuid.txt << END
 $uuid
 END
-
+sudo apt-get install -y apt-transport-https lsb-release ca-certificates wget gnupg2 debian-archive-keyring
+sudo apt-get install -y apt-transport-https lsb-release ca-certificates wget gnupg2 ubuntu-keyring
+wget -qO - https://cs.nginx.com/static/keys/nginx_signing.key | gpg --dearmor | sudo tee /usr/share/keyrings/nginx-archive-keyring.gpg >/dev/null
+wget -qO - https://cs.nginx.com/static/keys/app-protect-security-updates.key | gpg --dearmor | sudo tee /usr/share/keyrings/app-protect-security-updates.gpg >/dev/null
+printf "deb [signed-by=/usr/share/keyrings/nginx-archive-keyring.gpg] https://pkgs.nginx.com/plus/ubuntu `lsb_release -cs` nginx-plus\n" | sudo tee /etc/apt/sources.list.d/nginx-plus.list
+printf "deb [signed-by=/usr/share/keyrings/nginx-archive-keyring.gpg] https://pkgs.nginx.com/modsecurity/ubuntu `lsb_release -cs` nginx-plus\n" | sudo tee /etc/apt/sources.list.d/nginx-modsecurity.list
+sudo wget -P /etc/apt/apt.conf.d https://cs.nginx.com/static/files/90pkgs-nginx
+sudo apt-get install -y nginx-plus
+sudo apt-get install -y app-protect app-protect-attack-signatures
+sudo apt-get install -y nginx-plus nginx-plus-module-modsecurity
+sudo cp nginx-repo.crt /etc/ssl/nginx/
+sudo cp nginx-repo.key /etc/ssl/nginx/
+# Check OS version
+if [[ -e /etc/debian_version ]]; then
+	source /etc/os-release
+	OS=$ID # debian or ubuntu
+elif [[ -e /etc/centos-release ]]; then
+	source /etc/os-release
+	OS=centos
+fi
+if [[ $OS == 'ubuntu' ]]; then
+		sudo add-apt-repository ppa:ondrej/nginx -y
+		apt update ; apt upgrade -y
+		sudo apt install nginx -y
+		sudo apt install python3-certbot-nginx -y
+		systemctl daemon-reload
+        systemctl enable nginx
+elif [[ $OS == 'debian' ]]; then
+		sudo apt install gnupg2 ca-certificates lsb-release -y 
+        echo "deb http://nginx.org/packages/mainline/debian $(lsb_release -cs) nginx" | sudo tee /etc/apt/sources.list.d/nginx.list 
+        echo -e "Package: *\nPin: origin nginx.org\nPin: release o=nginx\nPin-Priority: 900\n" | sudo tee /etc/apt/preferences.d/99nginx 
+        curl -o /tmp/nginx_signing.key https://nginx.org/keys/nginx_signing.key 
+        # gpg --dry-run --quiet --import --import-options import-show /tmp/nginx_signing.key
+        sudo mv /tmp/nginx_signing.key /etc/apt/trusted.gpg.d/nginx_signing.asc
+        sudo apt update 
+        apt -y install nginx 
+        systemctl daemon-reload
+        systemctl enable nginx
+fi
+rm -f /etc/nginx/conf.d/default.conf
 sudo iptables -I INPUT -m state --state NEW -m tcp -p tcp --dport 2096 -j ACCEPT
 sudo iptables -I INPUT -m state --state NEW -m tcp -p tcp --dport 2087 -j ACCEPT
 sudo iptables -I INPUT -m state --state NEW -m tcp -p tcp --dport 443 -j ACCEPT
