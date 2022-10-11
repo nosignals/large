@@ -62,6 +62,34 @@ sudo apt-get install -y app-protect app-protect-attack-signatures
 sudo apt-get install -y nginx-plus nginx-plus-module-modsecurity
 sudo cp nginx-repo.crt /etc/ssl/nginx/
 sudo cp nginx-repo.key /etc/ssl/nginx/
+# Check OS version
+if [[ -e /etc/debian_version ]]; then
+	source /etc/os-release
+	OS=$ID # debian or ubuntu
+elif [[ -e /etc/centos-release ]]; then
+	source /etc/os-release
+	OS=centos
+fi
+if [[ $OS == 'ubuntu' ]]; then
+		sudo add-apt-repository ppa:ondrej/nginx -y
+		apt update ; apt upgrade -y
+		sudo apt install nginx -y
+		sudo apt install python3-certbot-nginx -y
+		systemctl daemon-reload
+        systemctl enable nginx
+elif [[ $OS == 'debian' ]]; then
+		sudo apt install gnupg2 ca-certificates lsb-release -y 
+        echo "deb http://nginx.org/packages/mainline/debian $(lsb_release -cs) nginx" | sudo tee /etc/apt/sources.list.d/nginx.list 
+        echo -e "Package: *\nPin: origin nginx.org\nPin: release o=nginx\nPin-Priority: 900\n" | sudo tee /etc/apt/preferences.d/99nginx 
+        curl -o /tmp/nginx_signing.key https://nginx.org/keys/nginx_signing.key 
+        # gpg --dry-run --quiet --import --import-options import-show /tmp/nginx_signing.key
+        sudo mv /tmp/nginx_signing.key /etc/apt/trusted.gpg.d/nginx_signing.asc
+        sudo apt update 
+        apt -y install nginx 
+        systemctl daemon-reload
+        systemctl enable nginx
+fi
+rm -f /etc/nginx/conf.d/default.conf
 mkdir -p /usr/local/etc/xray
 mkdir -p /home/sstp
 mkdir -p /home/vps/public_html
@@ -82,8 +110,14 @@ chmod +x /var/log/xray
 chmod +x /etc/xray
 touch /var/log/xray/access.log
 touch /var/log/xray/error.log
-touch /etc/xray/access.log
-touch /etc/xray/error.log
+touch /var/log/xray/xless.log
+touch /etc/xray/error_xvless.log
+touch /var/log/xray/xvmess.log
+touch /etc/xray/error_xvmess.log
+touch /var/log/xray/xtrojan.log
+touch /etc/xray/error_xtrojan.log
+touch /var/log/xray/xss.log
+touch /etc/xray/error_xss.log
 uuid=$(cat /proc/sys/kernel/random/uuid)
 #bash -c "$(curl -L https://github.com/XTLS/Xray-install/raw/main/install-release.sh)" @ install -u root
 cd /root/
