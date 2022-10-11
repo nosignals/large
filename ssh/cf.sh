@@ -20,9 +20,9 @@ apt install jq curl -y
 DOMAIN=zerossl.my.id
 #sub=$(</dev/urandom tr -dc a-z0-9 | head -c2)
 
-SUB_PROXIED=dns.zerossl.my.id
+SUB_PROXIED=dns.gandring.my.id
 CF_ID=djarumpentol01@gmail.com
-CF_KEY=0f5138e946244020a5163e2be12fa8f2
+CF_KEY=812df471d10039bf8b03a0f42c1b85a9401d2
 set -euo pipefail
 IP=$(wget -qO- ipinfo.io/ip);
 echo "Updating DNS for ${SUB_PROXIED}..."
@@ -85,9 +85,9 @@ mkdir -p /etc/xray
 cp /root/domain3 /etc/xray
 rm -f /root/cf.sh
 
-SUB_DO=kk.zerossl.my.id
+SUB_DO=kk.gandring.my.id
 CF_ID=djarumpentol01@gmail.com
-CF_KEY=0f5138e946244020a5163e2be12fa8f2
+CF_KEY=812df471d10039bf8b03a0f42c1b85a9401d2
 set -euo pipefail
 IP=$(wget -qO- ipinfo.io/ip);
 echo "Updating DNS for ${SUB_DO}..."
@@ -150,9 +150,9 @@ mkdir -p /etc/xray
 cp /root/domain2 /etc/xray
 rm -f /root/cf.sh
 
-SUB_DOMAIN=ss.zerossl.my.id
+SUB_DOMAIN=ww.gandring.my.id
 CF_ID=djarumpentol01@gmail.com
-CF_KEY=0f5138e946244020a5163e2be12fa8f2
+CF_KEY=812df471d10039bf8b03a0f42c1b85a9401d2
 set -euo pipefail
 IP=$(wget -qO- ipinfo.io/ip);
 echo "Updating DNS for ${SUB_DOMAIN}..."
