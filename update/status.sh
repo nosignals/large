@@ -88,10 +88,10 @@ status60=$(systemctl status xray             | grep -i "active (running)")
 status61=$(systemctl status xray             | grep -i "active (running)")
 status62=$(systemctl status xray             | grep -i "active (running)")
 status63=$(systemctl status xray             | grep -i "active (running)")
-status64=$(systemctl status xvmess             | grep -i "active (running)")
+status64=$(systemctl status xvmess           | grep -i "active (running)")
 status65=$(systemctl status xray             | grep -i "active (running)")
 status66=$(systemctl status xray             | grep -i "active (running)")
-status67=$(systemctl status xvless             | grep -i "active (running)")
+status67=$(systemctl status xvless           | grep -i "active (running)")
 status68=$(systemctl status xray             | grep -i "active (running)")
 status69=$(systemctl status xray             | grep -i "active (running)")
 status70=$(systemctl status xtrojan          | grep -i "active (running)")
@@ -1004,8 +1004,8 @@ echo -e "$bl🔰 $off $bd 443 VLESS GFW TLS           $off : $sstatus38🔰"
 echo -e "$bl🔰 $off $bd 443 VLESS HTTP TLS          $off : $sstatus39🔰"
 echo -e "$bl🔰 $off $bd 443 VLESS WS TLS            $off : $sstatus34🔰"
 echo -e "$bl🔰 $off $bd 443 VLESS GRPC TLS          $off : $sstatus36🔰"
-echo -e "$bl🔰 $off $bd 443 TROJAN GFW                  $off : $sstatus46🔰"
-echo -e "$bl🔰 $off $bd 443 TROJAN QUIC TLS             $off : $sstatus51🔰"
+echo -e "$bl🔰 $off $bd 443 TROJAN GFW              $off : $sstatus46🔰"
+echo -e "$bl🔰 $off $bd 443 TROJAN QUIC TLS         $off : $sstatus51🔰"
 echo -e "$bl🔰 $off $bd 443 TROJAN HTTP TLS         $off : $sstatus47🔰"
 echo -e "$bl🔰 $off $bd 443 TROJAN GRPC TLS         $off : $sstatus52🔰"
 echo -e "$bl🔰 $off $bd 443 TROJAN WS TLS           $off : $sstatus53🔰"
