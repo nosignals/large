@@ -93,8 +93,8 @@ read -p "Expired (Days) : " masaaktif
 hariini=`date -d "0 days" +"%Y-%m-%d"`
 exp=`date -d "$masaaktif days" +"%Y-%m-%d"`
 #exp=`date -d "$masaaktif seconds" +"%Y-%m-%d"`
-sed -i '/#trojan-grpc$/a\### '"$user $exp"'\
-},{"password": "'""$uuid""'","email": "'""$user""'"' /etc/xray/xtrojan.json
+#sed -i '/#trojan-grpc$/a\### '"$user $exp"'\
+#},{"password": "'""$uuid""'","email": "'""$user""'"' /etc/xray/xtrojan.json
 sed -i '/#trojan-grpc$/a\### '"$user $exp"'\
 },{"password": "'""$uuid""'","email": "'""$user""'"' /etc/xray/xvmess.json
 sed -i '/#trojan-grpc$/a\### '"$user $exp"'\
@@ -102,21 +102,9 @@ sed -i '/#trojan-grpc$/a\### '"$user $exp"'\
 sed -i '/#trojan-xtls$/a\### '"$user $exp"'\
 },{"id": "'""$uuid""'","flow": "'""xtls-rprx-direct""'", "email": "'""$user""'"' /etc/xray/xvmess.json
 sed -i '/#trojan-xtls$/a\### '"$user $exp"'\
-},{"id": "'""$uuid""'","flow": "'""xtls-rprx-origin""'", "email": "'""$user""'"' /etc/xray/xvmess.json
-sed -i '/#trojan-xtls$/a\### '"$user $exp"'\
-},{"id": "'""$uuid""'","flow": "'""xtls-rprx-splice""'", "email": "'""$user""'"' /etc/xray/xvmess.json
-sed -i '/#trojan-xtls$/a\### '"$user $exp"'\
 },{"id": "'""$uuid""'","flow": "'""xtls-rprx-direct""'", "email": "'""$user""'"' /etc/xray/xvless.json
 sed -i '/#trojan-xtls$/a\### '"$user $exp"'\
-},{"id": "'""$uuid""'","flow": "'""xtls-rprx-origin""'", "email": "'""$user""'"' /etc/xray/xvless.json
-sed -i '/#trojan-xtls$/a\### '"$user $exp"'\
-},{"id": "'""$uuid""'","flow": "'""xtls-rprx-splice""'", "email": "'""$user""'"' /etc/xray/xvless.json
-sed -i '/#trojan-xtls$/a\### '"$user $exp"'\
 },{"id": "'""$uuid""'","flow": "'""xtls-rprx-direct""'", "email": "'""$user""'"' /etc/xray/xtrojan.json
-sed -i '/#trojan-xtls$/a\### '"$user $exp"'\
-},{"id": "'""$uuid""'","flow": "'""xtls-rprx-origin""'", "email": "'""$user""'"' /etc/xray/xtrojan.json
-sed -i '/#trojan-xtls$/a\### '"$user $exp"'\
-},{"id": "'""$uuid""'","flow": "'""xtls-rprx-splice""'", "email": "'""$user""'"' /etc/xray/xtrojan.json
 sed -i '/#trojan-hdua$/a\### '"$user $exp"'\
 },{"password": "'""$uuid""'","email": "'""$user""'"' /etc/xray/xtrojan.json
 sed -i '/#trojan-hdua$/a\### '"$user $exp"'\
@@ -131,6 +119,8 @@ sed -i '/#trojan-tls$/a\### '"$user $exp"'\
 },{"password": "'""$uuid""'","email": "'""$user""'"' /etc/xray/xtrojan.json
 sed -i '/#trojan-gfw$/a\### '"$user $exp"'\
 },{"password": "'""$uuid""'","email": "'""$user""'"' /etc/xray/xvmess.json
+sed -i '/#trojan-gfw$/a\### '"$user $exp"'\
+},{"password": "'""$uuid""'","email": "'""$user""'"' /etc/xray/xvless.json
 sed -i '/#trojan-nontls$/a\### '"$user $exp"'\
 },{"password": "'""$uuid""'","email": "'""$user""'"' /etc/xray/xtrojan.json
 sed -i '/#trojan-quic$/a\### '"$user $exp"'\
@@ -191,7 +181,7 @@ echo -e "HOST➡️ $domain2"
 echo -e "CF Host➡️ ${domain3}"
 echo -e "NAMA➡️ ${user}"
 echo -e "Protokol➡️ GRPC,H2C,GFW,XTLS,WS,KCP,HTTP,GO,QUIC"
-echo -e "Flow xtls➡️ ALL FLOW IS SUPPORTED"
+#echo -e "Flow xtls➡️ ALL FLOW IS SUPPORTED"
 echo -e "ServiceName➡️ SATRIO"
 echo -e "Path HTTP➡️ /GANDRING-TCP"
 echo -e "Path H2C➡️ /GANDRING-HTTP"
