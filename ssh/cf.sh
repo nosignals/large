@@ -17,7 +17,7 @@ MYIP=$(wget -qO- ipinfo.io/ip);
 #MYIP=$(wget -qO- https://ipv6.icanhazip.com);
 clear
 apt install jq curl -y
-DOMAIN=zerossl.my.id
+DOMAIN=gandring.my.id
 #sub=$(</dev/urandom tr -dc a-z0-9 | head -c2)
 
 SUB_PROXIED=dns.gandring.my.id
