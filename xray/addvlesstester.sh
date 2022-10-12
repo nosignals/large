@@ -100,15 +100,7 @@ sed -i '/#vless-grpc-nontls$/a\### '"$user $exp"'\
 sed -i '/#vless-xtls$/a\### '"$user $exp"'\
 },{"id": "'""$uuid""'","flow": "'""xtls-rprx-direct""'", "email": "'""$user""'"' /etc/xray/xvmess.json
 sed -i '/#vless-xtls$/a\### '"$user $exp"'\
-},{"id": "'""$uuid""'","flow": "'""xtls-rprx-origin""'", "email": "'""$user""'"' /etc/xray/xvmess.json
-sed -i '/#vless-xtls$/a\### '"$user $exp"'\
-},{"id": "'""$uuid""'","flow": "'""xtls-rprx-splice""'", "email": "'""$user""'"' /etc/xray/xvmess.json
-sed -i '/#vless-xtls$/a\### '"$user $exp"'\
 },{"id": "'""$uuid""'","flow": "'""xtls-rprx-direct""'", "email": "'""$user""'"' /etc/xray/xvless.json
-sed -i '/#vless-xtls$/a\### '"$user $exp"'\
-},{"id": "'""$uuid""'","flow": "'""xtls-rprx-origin""'", "email": "'""$user""'"' /etc/xray/xvless.json
-sed -i '/#vless-xtls$/a\### '"$user $exp"'\
-},{"id": "'""$uuid""'","flow": "'""xtls-rprx-splice""'", "email": "'""$user""'"' /etc/xray/xvless.json
 sed -i '/#vless-hdua$/a\### '"$user $exp"'\
 },{"id": "'""$uuid""'","email": "'""$user""'"' /etc/xray/xvmess.json
 sed -i '/#vless-hdua$/a\### '"$user $exp"'\
@@ -149,6 +141,11 @@ sed -i '/#vless-kcp$/a\### '"$user $exp"'\
 },{"id": "'""$uuid""'","email": "'""$user""'"' /etc/xray/xtrojan.json
 sed -i '/#vless-kcp$/a\### '"$user $exp"'\
 },{"id": "'""$uuid""'","email": "'""$user""'"' /etc/xray/config.json
+sed -i '/#vless-gfw$/a\### '"$user $exp"'\
+},{"id": "'""$uuid""'","email": "'""$user""'"' /etc/xray/xvless.json
+sed -i '/#vless-gfw$/a\### '"$user $exp"'\
+},{"id": "'""$uuid""'","email": "'""$user""'"' /etc/xray/xvmess.json
+
 vlesshttpnon="vless://${uuid}@${domain}:$vlhttpnon?sni=ojodumeh.org&security=none&type=tcp&headerType=http&encryption=none#%F0%9F%94%A5VLESS+HTTP+NONTLS+${user}"
 vlesshttp="vless://${uuid}@${domain}:$vlhttp?sni=bugmu.xyz&host=${domain}&type=tcp&security=tls&path=/WISNU-TCP&headerType=http&encryption=none#%F0%9F%94%A5VLESS+HTTP+TLS+${user}"
 vlesstls="vless://${uuid}@${domain}:$vltls?host=${domain3}&sni=$domain3&type=ws&security=tls&path=%2fWISNU&encryption=none#%F0%9F%94%A5VLESS+WS+TLS+${user}"
@@ -158,7 +155,7 @@ vlessgrpcnon="vless://${uuid}@${domain}:$vlgrpcnon?serviceName=COKRO&sni=${domai
 vlesshdua="vless://${uuid}@${domain}:$vlhdua?sni=bugmu.com&type=http&security=tls&path=/WISNU-HTTP&encryption=none#%F0%9F%94%A5VLESS+H2C+${user}"
 vlesskcp="vless://$uuid@$domain:$vlkcp?sni=$domain&seed=WISNU-KCP&type=kcp&security=tls&headerType=none&encryption=none#%F0%9F%94%A5VLESS+KCP+TLS+$user"
 vlessxtls="vless://${uuid}@${domain}:$vlxtls?sni=remang-remang.night&security=xtls&encryption=none&flow=xtls-rprx-splice-udp443#%F0%9F%94%A5VLESS+XTLS+${user}"
-vlessgfw="vless://${uuid}@${domain}:$vlxtls?sni=istimiwir.co.id&security=tls&encryption=none#%F0%9F%94%B0VLESS+GFW+${user}"
+vlessgfw="vless://${uuid}@${domain}:$443?sni=istimiwir.co.id&security=tls&encryption=none#%F0%9F%94%B0VLESS+GFW+${user}"
 vlessquic="vless://$uuid@$MYIP:$vlquic?sni=$domain&key=WISNU-QUIC&security=tls&encryption=none&headerType=none&quicSecurity=$domain&type=quic#%F0%9F%94%A5VLESS+QUIC+TLS+$user"
 systemctl restart xvless.service
 systemctl restart xray.service
@@ -176,7 +173,7 @@ echo -e "IP➡️ ${MYIP}, $domain"
 echo -e "Host➡️${domain2}"
 echo -e "CF Host➡️${domain3}"
 echo -e "NAMA➡️ ${user}"
-echo -e "Flow➡️ ALL FLOW IS SUPPORTED"
+#echo -e "Flow➡️ ALL FLOW IS SUPPORTED"
 echo -e "Port GRPC➡️ $vlgrpc,8443,2096,2087,2053"
 echo -e "WS TLS➡️ $vltls,8443,2096,2087,2053"
 echo -e "WS NONTLS➡️ $vlnontls,2095,2086,2052"
@@ -185,6 +182,7 @@ echo -e "Port HTTP NONTLS➡️ $vlhttpnon"
 echo -e "Port H2C➡️ $vlhdua"
 echo -e "Port QUIC➡️ $vlquic"
 echo -e "Port XTLS➡️ $vlxtls"
+echo -e "Port GFW➡️ 443"
 echo -e "Satpam➡️ tls,xtls"
 echo -e "Path GRPC➡️ COKRO"
 echo -e "Path HTTP➡️ /WISNU-TCP"
