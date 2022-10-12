@@ -80,28 +80,16 @@ exp=`date -d "$masaaktif days" +"%Y-%m-%d"`
 sed -i '/#trojan-xtls$/a\### '"$user $exp"'\
 },{"id": "'""$uuid""'","flow": "'""xtls-rprx-direct""'", "email": "'""$user""'"' /etc/xray/xvmess.json
 sed -i '/#trojan-xtls$/a\### '"$user $exp"'\
-},{"id": "'""$uuid""'","flow": "'""xtls-rprx-origin""'", "email": "'""$user""'"' /etc/xray/xvmess.json
-sed -i '/#trojan-xtls$/a\### '"$user $exp"'\
-},{"id": "'""$uuid""'","flow": "'""xtls-rprx-splice""'", "email": "'""$user""'"' /etc/xray/xvmess.json
-sed -i '/#trojan-xtls$/a\### '"$user $exp"'\
 },{"id": "'""$uuid""'","flow": "'""xtls-rprx-direct""'", "email": "'""$user""'"' /etc/xray/xvless.json
 sed -i '/#trojan-xtls$/a\### '"$user $exp"'\
-},{"id": "'""$uuid""'","flow": "'""xtls-rprx-origin""'", "email": "'""$user""'"' /etc/xray/xvless.json
-sed -i '/#trojan-xtls$/a\### '"$user $exp"'\
-},{"id": "'""$uuid""'","flow": "'""xtls-rprx-splice""'", "email": "'""$user""'"' /etc/xray/xvless.json
-sed -i '/#trojan-xtls$/a\### '"$user $exp"'\
 },{"id": "'""$uuid""'","flow": "'""xtls-rprx-direct""'", "email": "'""$user""'"' /etc/xray/xtrojan.json
-sed -i '/#trojan-xtls$/a\### '"$user $exp"'\
-},{"id": "'""$uuid""'","flow": "'""xtls-rprx-origin""'", "email": "'""$user""'"' /etc/xray/xtrojan.json
-sed -i '/#trojan-xtls$/a\### '"$user $exp"'\
-},{"id": "'""$uuid""'","flow": "'""xtls-rprx-splice""'", "email": "'""$user""'"' /etc/xray/xtrojan.json
 sed -i '/#trojan-gfw$/a\### '"$user $exp"'\
 },{"password": "'""$uuid""'","email": "'""$user""'"' /etc/xray/xvmess.json
 sed -i '/#trojan-gfw$/a\### '"$user $exp"'\
 },{"password": "'""$uuid""'","email": "'""$user""'"' /etc/xray/xvless.json
 sed -i '/#trojan-gfw$/a\### '"$user $exp"'\
 },{"password": "'""$uuid""'","email": "'""$user""'"' /etc/xray/xss.json
-trojanxtls="trojan://${uuid}@${domain}:$txtls?security=xtls&type=tcp&headerType=none&flow=xtls-rprx-splice-udp443#%F0%9F%94%A5TROJAN+XTLS+${user}"
+trojanxtls="trojan://${uuid}@${domain}:$txtls?security=xtls&type=tcp&headerType=none&flow=xtls-rprx-direct#%F0%9F%94%A5TROJAN+XTLS+${user}"
 trojangfw="trojan://${uuid}@${domain}:${tgfw}?type=tcp&security=tls&headerType=none#%F0%9F%94%A5TROJAN+GFW+TLS+$user"
 service cron restart
 systemctl restart xray.service
@@ -118,7 +106,7 @@ echo -e "Nama➡️ ${user}"
 echo -e "IP/Host➡️ ${MYIP}"
 echo -e "Alamat➡️ ${domain}"
 echo -e "Protokol➡️ tcp"
-echo -e "Flow➡️ ALL FLOW IS SUPPORTED"
+#echo -e "Flow➡️ ALL FLOW IS SUPPORTED"
 echo -e "Port XTLS➡️ ${txtls}"
 echo -e "Port GFW➡️ ${tgfw}"
 echo -e "Satpam➡️ XTLS/TLS"
