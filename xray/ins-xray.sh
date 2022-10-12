@@ -64,17 +64,18 @@ apt update ; apt upgrade -y
 # Make Folder XRay
 mkdir -p /var/log/xray/
 mkdir -p /etc/xray
-chown -R /bin/www/www-data.www-data /var/log/xray
-chown -R /bin/www/www-data.www-data /etc/xray/access.log
-chown -R /bin/www/www-data.www-data /etc/xray/error.log
-chown -R /bin/www/www-data.www-data /etc/xray/xvless.log
-chown -R /bin/www/www-data.www-data /etc/xray/error_xvless.log
-chown -R /bin/www/www-data.www-data /etc/xray/xvmess.log
-chown -R /bin/www/www-data.www-data /etc/xray/error_xvmess.log
-chown -R /bin/www/www-data.www-data /etc/xray/xtrojan.log
-chown -R /bin/www/www-data.www-data /etc/xray/error_xtrojan.log
-chown -R /bin/www/www-data.www-data /etc/xray/xss.log
-chown -R /bin/www/www-data.www-data /etc/xray/error_xss.log
+chown -R /var/www/www-data:www-data /var/log/xray
+chown -R /var/www/www-data:www-data /etc/xray/access.log
+chown -R /var/www/www-data:www-data /etc/xray/error.log
+chown -R /var/www/www-data:www-data /etc/xray/xvless.log
+chown -R /var/www/www-data:www-data /etc/xray/error_xvless.log
+chown -R /var/www/www-data:www-data /etc/xray/xvmess.log
+chown -R /var/www/www-data:www-data /etc/xray/error_xvmess.log
+chown -R /var/www/www-data:www-data /etc/xray/xtrojan.log
+chown -R /var/www/www-data:www-data /etc/xray/error_xtrojan.log
+chown -R /var/www/www-data:www-data /etc/xray/xss.log
+chown -R /var/www/www-data:www-data /etc/xray/error_xss.log
+sudo chown -R www-data:www-data /var/www/*
 chmod +x /var/log/xray
 chmod +x /etc/xray
 touch /var/log/xray/access.log
@@ -104,7 +105,7 @@ curl https://get.acme.sh | sh
 alias acme.sh=~/.acme.sh/acme.sh
 /root/.acme.sh/acme.sh --upgrade --auto-upgrade
 /root/.acme.sh/acme.sh --set-default-ca --server letsencrypt
-/root/.acme.sh/acme.sh --issue -d "${domain3}" --standalone --keylength ec-384
+/root/.acme.sh/acme.sh --issue -d "${domain3}" --standalone --keylength ec-256
 #/root/.acme.sh/acme.sh --issue -d "${domain3}" --standalone --keylength ec-256
 /root/.acme.sh/acme.sh --install-cert -d "${domain3}" --ecc \
 --fullchain-file /etc/xray/cdn.crt \
@@ -118,7 +119,7 @@ curl https://get.acme.sh | sh
 alias acme.sh=~/.acme.sh/acme.sh
 /root/.acme.sh/acme.sh --upgrade --auto-upgrade
 /root/.acme.sh/acme.sh --set-default-ca --server letsencrypt
-/root/.acme.sh/acme.sh --issue -d "${domain2}" --standalone --keylength ec-384
+/root/.acme.sh/acme.sh --issue -d "${domain2}" --standalone --keylength ec-256
 #/root/.acme.sh/acme.sh --issue -d "${domain2}" --standalone --keylength ec-256
 /root/.acme.sh/acme.sh --install-cert -d "${domain2}" --ecc \
 --fullchain-file /etc/xray/crt.pem \
@@ -132,7 +133,7 @@ curl https://get.acme.sh | sh
 alias acme.sh=~/.acme.sh/acme.sh
 /root/.acme.sh/acme.sh --upgrade --auto-upgrade
 /root/.acme.sh/acme.sh --set-default-ca --server letsencrypt
-/root/.acme.sh/acme.sh --issue -d "${domain}" --standalone --keylength ec-384
+/root/.acme.sh/acme.sh --issue -d "${domain}" --standalone --keylength ec-256
 #/root/.acme.sh/acme.sh --issue -d "${domain}" --standalone --keylength ec-256
 /root/.acme.sh/acme.sh --install-cert -d "${domain}" --ecc \
 --fullchain-file /etc/xray/xray.crt \
