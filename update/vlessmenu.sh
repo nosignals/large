@@ -4,7 +4,7 @@ clear
 #cat /usr/bin/bannerTROJAN | lolcat
 echo -e ""
 echo -e "\033[1;31m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
-echo -e "\E[43;1;46m   🔰 MENU VLESS XTLS GFW H2C GRPC WS HTTP & GO 🔰     \e[0m"
+echo -e "\E[43;1;46m   🔰 MENU VLESS XTLS GFW H2C GRPC WS HTTP & GO 🔰      \e[0m"
 echo -e "\033[1;31m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
 echo -e "01\e[1;33m) Buat Akun VLESS WEBSOCKET  \e[m"
 echo -e "02\e[1;33m) Hapus Akun VLESS WEBSOCKET  \e[m"
