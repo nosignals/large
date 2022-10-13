@@ -2,7 +2,7 @@
 #script by wisnu cokro satrio
 #cat /usr/bin/bannerku | lolcat
 echo -e "\033[1;31m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
-echo -e "\E[1;46m             🔰 PRESTIGE SERVER ZEROSSL 🔰                \E[0m"
+echo -e "\033[1;46m             🔰 PRESTIGE SERVER ZEROSSL 🔰              \E[0m"
 echo -e "\033[1;31m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m" 
 echo -e "01\e[0;33m) MENU LAYANAN VMESS  \e[m"
 echo -e "\033[1;36m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
