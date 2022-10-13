@@ -19,6 +19,7 @@ clear
 domain=$(cat /etc/xray/domain)
 
 vlxtls="$(cat ~/log-install.txt | grep -w "VLESS XTLS" | cut -d: -f2|sed 's/ //g')"
+vlgfw="$(cat ~/log-install.txt | grep -w "VLESS GFW" | cut -d: -f2|sed 's/ //g')"
 #nontls="$(cat ~/log-install.txt | grep -w "VLESS NON TLS" | cut -d: -f2|sed 's/ //g')"
 until [[ $user =~ ^[a-zA-Z0-9_]+$ && ${CLIENT_EXISTS} == '0' ]]; do
 		read -rp "Username : " -e user
@@ -73,7 +74,7 @@ sed -i '/#vless-xtls$/a\### '"$user $exp"'\
 },{"id": "'""$uuid""'","flow": "'""xtls-rprx-direct""'", "email": "'""$user""'"' /etc/xray/xvless.json
 
 vlessxtls="vless://${uuid}@${domain}:$vlxtls?type=tcp&security=xtls&headerType=none&flow=xtls-rprx-direct&encryption=none#%F0%9F%94%A5VLESS+XTLS+${user}"
-vlessgfw="vless://${uuid}@${domain}:$443?security=tls&type=tcp&headerType=none&encryption=none#%F0%9F%94%A5VLESS+GFW+TLS+${user}"
+vlessgfw="vless://${uuid}@${domain}:$vlgfw?security=tls&type=tcp&headerType=none&encryption=none#%F0%9F%94%A5VLESS+GFW+TLS+${user}"
 systemctl restart xray.service
 systemctl restart xvless.service
 systemctl restart xvmess
@@ -88,7 +89,7 @@ echo -e "Nama➡️ ${user}"
 echo -e "IP/Host➡️ ${MYIP},$domain2"
 echo -e "Alamat➡️ ${domain}"
 echo -e "Port XTLS➡️ ${vlxtls}"
-echo -e "Port GFW➡️ 443"
+echo -e "Port GFW➡️ $vlgfw"
 echo -e "Network➡️ tcp"
 echo -e "Security➡️ xtls,tls"
 #echo -e "Flow➡️ ALL FLOW IS SUPPORTED"
