@@ -125,7 +125,6 @@ echo -e " 🔰 VLESS GFW                      : 443"         |tee -a log-install
 echo -e " 🔰 VLESS WS TLS                   : 443"         |tee -a log-install.txt
 echo -e " 🔰 VLESS GRPC TLS                 : 443"         |tee -a log-install.txt
 echo -e " 🔰 VLESS HTTP TLS                 : 443"         |tee -a log-install.txt
-echo -e " 🔰 TROJAN GFW                     : 443"         |tee -a log-install.txt
 echo -e " 🔰 TROJAN QUIC TLS                : 443"         |tee -a log-install.txt
 echo -e " 🔰 TROJAN GRPC TLS                : 443"         |tee -a log-install.txt
 echo -e " 🔰 TROJAN WS TLS                  : 443"         |tee -a log-install.txt
@@ -146,6 +145,7 @@ echo -e " 🔰 NGINX                          : 443,80,88"   |tee -a log-install
 echo -e "\033[1;36m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
 echo -e " 🔰 L2TP/IPSEC VPN                 : 443"         |tee -a log-install.txt
 echo -e " 🔰 PPTP VPN                       : 443"         |tee -a log-install.txt
+echo -e " 🔰 TROJAN GFW                     : 443"         |tee -a log-install.txt
 echo -e " 🔰 TROJAN WS NON TLS              : 80"          |tee -a log-install.txt
 echo -e " 🔰 VLESS WS NON TLS               : 80"          |tee -a log-install.txt
 echo -e " 🔰 VLESS GRPC NON TLS             : 80"          |tee -a log-install.txt
