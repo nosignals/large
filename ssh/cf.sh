@@ -85,7 +85,7 @@ mkdir -p /etc/xray
 cp /root/domain3 /etc/xray
 rm -f /root/cf.sh
 
-SUB_DO=ww.gandring.my.id
+SUB_DO=kk.gandring.my.id
 CF_ID=djarumpentol01@gmail.com
 CF_KEY=f394cb9450eb8b55cd41a0c5bb8452007ffd3
 set -euo pipefail
@@ -150,7 +150,7 @@ mkdir -p /etc/xray
 cp /root/domain2 /etc/xray
 rm -f /root/cf.sh
 
-SUB_DOMAIN=kk.gandring.my.id
+SUB_DOMAIN=gandring.my.id
 CF_ID=djarumpentol01@gmail.com
 CF_KEY=f394cb9450eb8b55cd41a0c5bb8452007ffd3
 set -euo pipefail
