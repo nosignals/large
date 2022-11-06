@@ -20,9 +20,9 @@ apt install jq curl -y
 DOMAIN=gandring.my.id
 #sub=$(</dev/urandom tr -dc a-z0-9 | head -c2)
 
-SUB_PROXIED=pro.gandring.my.id
+SUB_PROXIED=dns.gandring.my.id
 CF_ID=djarumpentol01@gmail.com
-CF_KEY=812df471d10039bf8b03a0f42c1b85a9401d2
+CF_KEY=c888905aefb9649116660763a3d0199b9abf0
 set -euo pipefail
 IP=$(wget -qO- ipinfo.io/ip);
 echo "Updating DNS for ${SUB_PROXIED}..."
@@ -87,7 +87,7 @@ rm -f /root/cf.sh
 
 SUB_DO=gg.gandring.my.id
 CF_ID=djarumpentol01@gmail.com
-CF_KEY=812df471d10039bf8b03a0f42c1b85a9401d2
+CF_KEY=c888905aefb9649116660763a3d0199b9abf0
 set -euo pipefail
 IP=$(wget -qO- ipinfo.io/ip);
 echo "Updating DNS for ${SUB_DO}..."
@@ -152,7 +152,7 @@ rm -f /root/cf.sh
 
 SUB_DOMAIN=gandring.my.id
 CF_ID=djarumpentol01@gmail.com
-CF_KEY=812df471d10039bf8b03a0f42c1b85a9401d2
+CF_KEY=c888905aefb9649116660763a3d0199b9abf0
 set -euo pipefail
 IP=$(wget -qO- ipinfo.io/ip);
 echo "Updating DNS for ${SUB_DOMAIN}..."
