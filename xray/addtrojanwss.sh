@@ -92,8 +92,8 @@ sed -i '/#trojan-nontls$/a\### '"$user $exp"'\
 sed -i '/#trojan-nontls$/a\### '"$user $exp"'\
 },{"password": "'""$uuid""'","email": "'""$user""'"' /etc/xray/config.json
 
-trojantls="trojan://${uuid}@${domain}:$ttls?type=ws&security=tls&host=$domain3&path=%2fGANDRING&sni=$domain3#%F0%9F%94%A5TROJAN+WS+TLS+${user}"
-trojannontls="trojan://${uuid}@${domain}:$tnontls?type=ws&security=none&host=$domain3&path=%2fGANDRING#%F0%9F%94%A5TROJAN+WS+NONTLS+${user}"
+trojantls="trojan://${uuid}@${domain}:$ttls?type=ws&security=tls&host=$domain3&path=%2fworryfree/&sni=$domain3#%F0%9F%94%A5TROJAN+WS+TLS+${user}"
+trojannontls="trojan://${uuid}@${domain}:$tnontls?type=ws&security=none&host=$domain3&path=%2fworryfree/#%F0%9F%94%A5TROJAN+WS+NONTLS+${user}"
 systemctl restart xvmess
 systemctl restart xray.service
 systemctl restart xtrojan.service
@@ -111,7 +111,7 @@ echo -e "IP➡️ ${MYIP},$domain2"
 echo -e "Host➡️ ${domain}"
 echo -e "CF Host➡️ ${domain3}"
 echo -e "Protocol➡️ websocket"
-echo -e "Path➡️ /GANDRING"
+echo -e "Path➡️ /worryfree/"
 echo -e "TLS➡️ ${ttls},8443,2096,2087,2053"
 echo -e "NONTLS➡️ ${tnontls},2095,2086,2082,2052"
 echo -e "Sandi➡️ ${uuid}"
