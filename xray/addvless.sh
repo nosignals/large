@@ -114,7 +114,7 @@ echo -e "CF Host➡️ ${domain3}"
 echo -e "TLS➡️ $vltls,8443,2096,2087,2053"
 echo -e "NONTLS➡️ $vlnontls,2095,2086,2082,2052"
 echo -e "Protokol➡️ WS"
-echo -e "Path➡️ /WISNU"
+echo -e "Path➡️ /WISNU ,/worryfree ,/kuota-habis
 echo -e "User ID➡️ ${uuid}"
 echo -e "Dibuat➡️ $hariini"
 echo -e "Kadaluarsa➡️ $exp"
