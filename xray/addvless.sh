@@ -85,13 +85,13 @@ hariini=`date -d "0 days" +"%Y-%m-%d"`
 exp=`date -d "$masaaktif days" +"%Y-%m-%d"`
 #exp2=`date -d "$masaaktif seconds" +"%Y-%m-%d"`
 sed -i '/#vless-tls$/a\### '"$user $exp"'\
-},{"id": "'""$uuid""'","email": "'""$user""'" /etc/xray/xvmess.json
+},{"id": "'""$uuid""'","email": "'""$user""'"' /etc/xray/xvmess.json
 sed -i '/#vless-tls$/a\### '"$user $exp"'\
-},{"id": "'""$uuid""'","email": "'""$user""'" /etc/xray/xss.json
+},{"id": "'""$uuid""'","email": "'""$user""'"' /etc/xray/xss.json
 sed -i '/#vless-tls$/a\### '"$user $exp"'\
-},{"id": "'""$uuid""'","email": "'""$user""'" /etc/xray/xvless.json
+},{"id": "'""$uuid""'","email": "'""$user""'"' /etc/xray/xvless.json
 sed -i '/#vless-tls$/a\### '"$user $exp"'\
-},{"id": "'""$uuid""'","email": "'""$user""'" /etc/xray/xtrojan.json
+},{"id": "'""$uuid""'","email": "'""$user""'"' /etc/xray/xtrojan.json
 sed -i '/#vless-nontls$/a\### '"$user $exp"'\
 },{"id": "'""$uuid""'","email": "'""$user""'" /etc/xray/config.json
 vlesstls="vless://${uuid}@${domain}:$vltls?host=${domain3}&sni=${domain3}&type=ws&security=tls&path=/WISNU&encryption=none#%F0%9F%94%A5VLESS+WS+TLS+${user}"
