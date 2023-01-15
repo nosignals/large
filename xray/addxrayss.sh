@@ -78,20 +78,92 @@ fi
 done
 #uuid=$(openssl rand -base64 16)
 uuid=$(openssl rand -hex 7)
+cipher="aes-128-gcm"
+cipher2="aes-256-gcm"
+cipher3="chacha20-poly1305"
+cipher4="chacha20-ietf-poly1305"
+cipher5="xchacha20-poly1305"
+cipher6="xchacha20-ietf-poly1305"
 read -p "Expired (Days) : " masaaktif
 hariini=`date -d "0 days" +"%Y-%m-%d"`
 exp=`date -d "$masaaktif days" +"%Y-%m-%d"`
 sed -i '/#xrayss-tls$/a\### '"$user $exp"'\
-},{"password": "'""$uuid""'","email": "'""$user""'"' /etc/xray/xvmess.json
+},{"password": "'""$uuid""'","method": "'""$cipher""'","email": "'""$user""'"' /etc/xray/xvless.json
 sed -i '/#xrayss-tls$/a\### '"$user $exp"'\
-},{"password": "'""$uuid""'","email": "'""$user""'"' /etc/xray/xvless.json
+},{"password": "'""$uuid""'","method": "'""$cipher2""'","email": "'""$user""'"' /etc/xray/xvless.json
 sed -i '/#xrayss-tls$/a\### '"$user $exp"'\
-},{"password": "'""$uuid""'","email": "'""$user""'"' /etc/xray/xtrojan.json
-sed -i '/#xrayss-nontls$/a\### '"$user $exp"'\
-},{"password": "'""$uuid""'","email": "'""$user""'"' /etc/xray/xtrojan.json
-sed -i '/#xrayss-nontls$/a\### '"$user $exp"'\
-},{"password": "'""$uuid""'","email": "'""$user""'"' /etc/xray/config.json
+},{"password": "'""$uuid""'","method": "'""$cipher3""'","email": "'""$user""'"' /etc/xray/xvless.json
+sed -i '/#xrayss-tls$/a\### '"$user $exp"'\
+},{"password": "'""$uuid""'","method": "'""$cipher4""'","email": "'""$user""'"' /etc/xray/xvless.json
+sed -i '/#xrayss-tls$/a\### '"$user $exp"'\
+},{"password": "'""$uuid""'","method": "'""$cipher5""'","email": "'""$user""'"' /etc/xray/xvless.json
+sed -i '/#xrayss-tls$/a\### '"$user $exp"'\
+},{"password": "'""$uuid""'","method": "'""$cipher6""'","email": "'""$user""'"' /etc/xray/xvless.json
 
+sed -i '/#xrayss-tls$/a\### '"$user $exp"'\
+},{"password": "'""$uuid""'","method": "'""$cipher""'","email": "'""$user""'"' /etc/xray/xvmess.json
+sed -i '/#xrayss-tls$/a\### '"$user $exp"'\
+},{"password": "'""$uuid""'","method": "'""$cipher2""'","email": "'""$user""'"' /etc/xray/xvmess.json
+sed -i '/#xrayss-tls$/a\### '"$user $exp"'\
+},{"password": "'""$uuid""'","method": "'""$cipher3""'","email": "'""$user""'"' /etc/xray/xvmess.json
+sed -i '/#xrayss-tls$/a\### '"$user $exp"'\
+},{"password": "'""$uuid""'","method": "'""$cipher4""'","email": "'""$user""'"' /etc/xray/xvmess.json
+sed -i '/#xrayss-tls$/a\### '"$user $exp"'\
+},{"password": "'""$uuid""'","method": "'""$cipher5""'","email": "'""$user""'"' /etc/xray/xvmess.json
+sed -i '/#xrayss-tls$/a\### '"$user $exp"'\
+},{"password": "'""$uuid""'","method": "'""$cipher6""'","email": "'""$user""'"' /etc/xray/xvmess.json
+
+sed -i '/#xrayss-grpc-tls$/a\### '"$user $exp"'\
+},{"password": "'""$uuid""'","method": "'""$cipher""'","email": "'""$user""'"' /etc/xray/xvless.json
+sed -i '/#xrayss-grpc-tls$/a\### '"$user $exp"'\
+},{"password": "'""$uuid""'","method": "'""$cipher2""'","email": "'""$user""'"' /etc/xray/xvless.json
+sed -i '/#xrayss-grpc-tls$/a\### '"$user $exp"'\
+},{"password": "'""$uuid""'","method": "'""$cipher3""'","email": "'""$user""'"' /etc/xray/xvless.json
+sed -i '/#xrayss-grpc-tls$/a\### '"$user $exp"'\
+},{"password": "'""$uuid""'","method": "'""$cipher4""'","email": "'""$user""'"' /etc/xray/xvless.json
+sed -i '/#xrayss-grpc-tls$/a\### '"$user $exp"'\
+},{"password": "'""$uuid""'","method": "'""$cipher5""'","email": "'""$user""'"' /etc/xray/xvless.json
+sed -i '/#xrayss-grpc-tls$/a\### '"$user $exp"'\
+},{"password": "'""$uuid""'","method": "'""$cipher6""'","email": "'""$user""'"' /etc/xray/xvless.json
+
+sed -i '/#xrayss-grpc-tls$/a\### '"$user $exp"'\
+},{"password": "'""$uuid""'","method": "'""$cipher""'","email": "'""$user""'"' /etc/xray/xvmess.json
+sed -i '/#xrayss-grpc-tls$/a\### '"$user $exp"'\
+},{"password": "'""$uuid""'","method": "'""$cipher2""'","email": "'""$user""'"' /etc/xray/xvmess.json
+sed -i '/#xrayss-grpc-tls$/a\### '"$user $exp"'\
+},{"password": "'""$uuid""'","method": "'""$cipher3""'","email": "'""$user""'"' /etc/xray/xvmess.json
+sed -i '/#xrayss-grpc-tls$/a\### '"$user $exp"'\
+},{"password": "'""$uuid""'","method": "'""$cipher4""'","email": "'""$user""'"' /etc/xray/xvmess.json
+sed -i '/#xrayss-grpc-tls$/a\### '"$user $exp"'\
+},{"password": "'""$uuid""'","method": "'""$cipher5""'","email": "'""$user""'"' /etc/xray/xvmess.json
+sed -i '/#xrayss-grpc-tls$/a\### '"$user $exp"'\
+},{"password": "'""$uuid""'","method": "'""$cipher6""'","email": "'""$user""'"' /etc/xray/xvmess.json
+
+sed -i '/#xrayss-http$/a\### '"$user $exp"'\
+},{"password": "'""$uuid""'","method": "'""$cipher""'","email": "'""$user""'"' /etc/xray/xvless.json
+sed -i '/#xrayss-http$/a\### '"$user $exp"'\
+},{"password": "'""$uuid""'","method": "'""$cipher2""'","email": "'""$user""'"' /etc/xray/xvless.json
+sed -i '/#xrayss-http$/a\### '"$user $exp"'\
+},{"password": "'""$uuid""'","method": "'""$cipher3""'","email": "'""$user""'"' /etc/xray/xvless.json
+sed -i '/#xrayss-http$/a\### '"$user $exp"'\
+},{"password": "'""$uuid""'","method": "'""$cipher4""'","email": "'""$user""'"' /etc/xray/xvless.json
+sed -i '/#xrayss-http$/a\### '"$user $exp"'\
+},{"password": "'""$uuid""'","method": "'""$cipher5""'","email": "'""$user""'"' /etc/xray/xvless.json
+sed -i '/#xrayss-http$/a\### '"$user $exp"'\
+},{"password": "'""$uuid""'","method": "'""$cipher6""'","email": "'""$user""'"' /etc/xray/xvless.json
+
+sed -i '/#xrayss-http$/a\### '"$user $exp"'\
+},{"password": "'""$uuid""'","method": "'""$cipher""'","email": "'""$user""'"' /etc/xray/xvmess.json
+sed -i '/#xrayss-http$/a\### '"$user $exp"'\
+},{"password": "'""$uuid""'","method": "'""$cipher2""'","email": "'""$user""'"' /etc/xray/xvmess.json
+sed -i '/#xrayss-http$/a\### '"$user $exp"'\
+},{"password": "'""$uuid""'","method": "'""$cipher3""'","email": "'""$user""'"' /etc/xray/xvmess.json
+sed -i '/#xrayss-http$/a\### '"$user $exp"'\
+},{"password": "'""$uuid""'","method": "'""$cipher4""'","email": "'""$user""'"' /etc/xray/xvmess.json
+sed -i '/#xrayss-http$/a\### '"$user $exp"'\
+},{"password": "'""$uuid""'","method": "'""$cipher5""'","email": "'""$user""'"' /etc/xray/xvmess.json
+sed -i '/#xrayss-http$/a\### '"$user $exp"'\
+},{"password": "'""$uuid""'","method": "'""$cipher6""'","email": "'""$user""'"' /etc/xray/xvmess.json
 xraysstls="ss://${uuid}@${domain}:$sstls?type=ws&security=tls&host=$domain3&path=%2fBEKTI-WS&sni=$domain3#%F0%9F%94%A5TROJAN+WS+TLS+${user}"
 xrayssnontls="ss://${uuid}@${domain}:$ssnontls?type=ws&security=none&host=$domain3&path=%2fBEKTI-WS#%F0%9F%94%A5TROJAN+WS+NONTLS+${user}"
 systemctl restart xvmess
