@@ -202,7 +202,7 @@ echo -e " 🔰 VMESS QUIC TLS                 : 501"         |tee -a log-install
 echo -e " 🔰 SHADOWSOCKS 2022 QUIC TLS      : 601"         |tee -a log-install.txt
 echo -e " 🔰 SOCKS QUIC TLS                 : 701"         |tee -a log-install.txt
 echo -e "\033[1;36m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
-echo -e " 🔰 TROJAN GO                      : 2083"        |tee -a log-install.txt
+echo -e " 🔰 TROJAN GO                      : 9082"        |tee -a log-install.txt
 echo -e " 🔰 SHADOWSOCKS 2022 UDP           : 212"         |tee -a log-install.txt
 echo -e " 🔰 SHADOWSOCKS 2022 TCP           : 414"         |tee -a log-install.txt
 echo -e " 🔰 SOCKS5 TCP TLS                 : 1080"        |tee -a log-install.txt
