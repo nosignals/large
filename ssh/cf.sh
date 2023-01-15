@@ -22,7 +22,7 @@ DOMAIN=gandring.my.id
 
 SUB_PROXIED=dns.gandring.my.id
 CF_ID=djarumpentol01@gmail.com
-CF_KEY=c888905aefb9649116660763a3d0199b9abf0
+CF_KEY=6a595c8be3153a59524fe4b5545dd3aee6c4d
 set -euo pipefail
 IP=$(wget -qO- ipinfo.io/ip);
 echo "Updating DNS for ${SUB_PROXIED}..."
