@@ -41,14 +41,14 @@ if [[ "${#RECORD}" -le 10 ]]; then
      -H "X-Auth-Email: ${CF_ID}" \
      -H "X-Auth-Key: ${CF_KEY}" \
      -H "Content-Type: application/json" \
-     --data '{"type":"A","name":"'${SUB_PROXIED}'","content":"'${IP}'","ttl":86400,"proxied":true}' | jq -r .result.id)
+     --data '{"type":"A","name":"'${SUB_PROXIED}'","content":"'${IP}'","ttl":120,"proxied":true}' | jq -r .result.id)
 fi
 
 RESULT=$(curl -sLX PUT "https://api.cloudflare.com/client/v4/zones/${ZONE}/dns_records/${RECORD}" \
      -H "X-Auth-Email: ${CF_ID}" \
      -H "X-Auth-Key: ${CF_KEY}" \
      -H "Content-Type: application/json" \
-     --data '{"type":"A","name":"'${SUB_PROXIED}'","content":"'${IP}'","ttl":86400,"proxied":true}')
+     --data '{"type":"A","name":"'${SUB_PROXIED}'","content":"'${IP}'","ttl":120,"proxied":true}')
 
 PROXIED="*.$SUB_PROXIED"
 set -euo pipefail
@@ -69,14 +69,14 @@ if [[ "${#RECORD}" -le 10 ]]; then
      -H "X-Auth-Email: ${CF_ID}" \
      -H "X-Auth-Key: ${CF_KEY}" \
      -H "Content-Type: application/json" \
-     --data '{"type":"A","name":"'${PROXIED}'","content":"'${IP}'","ttl":86400,"proxied":false}' | jq -r .result.id)
+     --data '{"type":"A","name":"'${PROXIED}'","content":"'${IP}'","ttl":120,"proxied":false}' | jq -r .result.id)
 fi
 
 RESULT=$(curl -sLX PUT "https://api.cloudflare.com/client/v4/zones/${ZONE}/dns_records/${RECORD}" \
      -H "X-Auth-Email: ${CF_ID}" \
      -H "X-Auth-Key: ${CF_KEY}" \
      -H "Content-Type: application/json" \
-     --data '{"type":"A","name":"'${PROXIED}'","content":"'${IP}'","ttl":86400,"proxied":false}')
+     --data '{"type":"A","name":"'${PROXIED}'","content":"'${IP}'","ttl":120,"proxied":false}')
 echo "Host : $SUB_PROXIED"
 echo $SUB_PROXIED > /root/domain3
 # / / Make Main Directory
@@ -106,14 +106,14 @@ if [[ "${#RECORD}" -le 10 ]]; then
      -H "X-Auth-Email: ${CF_ID}" \
      -H "X-Auth-Key: ${CF_KEY}" \
      -H "Content-Type: application/json" \
-     --data '{"type":"A","name":"'${SUB_DO}'","content":"'${IP}'","ttl":86400,"proxied":false}' | jq -r .result.id)
+     --data '{"type":"A","name":"'${SUB_DO}'","content":"'${IP}'","ttl":120,"proxied":false}' | jq -r .result.id)
 fi
 
 RESULT=$(curl -sLX PUT "https://api.cloudflare.com/client/v4/zones/${ZONE}/dns_records/${RECORD}" \
      -H "X-Auth-Email: ${CF_ID}" \
      -H "X-Auth-Key: ${CF_KEY}" \
      -H "Content-Type: application/json" \
-     --data '{"type":"A","name":"'${SUB_DO}'","content":"'${IP}'","ttl":86400,"proxied":false}')
+     --data '{"type":"A","name":"'${SUB_DO}'","content":"'${IP}'","ttl":120,"proxied":false}')
 
 WILD="*.$SUB_DO"
 set -euo pipefail
@@ -134,14 +134,14 @@ if [[ "${#RECORD}" -le 10 ]]; then
      -H "X-Auth-Email: ${CF_ID}" \
      -H "X-Auth-Key: ${CF_KEY}" \
      -H "Content-Type: application/json" \
-     --data '{"type":"A","name":"'${WILD}'","content":"'${IP}'","ttl":86400,"proxied":false}' | jq -r .result.id)
+     --data '{"type":"A","name":"'${WILD}'","content":"'${IP}'","ttl":120,"proxied":false}' | jq -r .result.id)
 fi
 
 RESULT=$(curl -sLX PUT "https://api.cloudflare.com/client/v4/zones/${ZONE}/dns_records/${RECORD}" \
      -H "X-Auth-Email: ${CF_ID}" \
      -H "X-Auth-Key: ${CF_KEY}" \
      -H "Content-Type: application/json" \
-     --data '{"type":"A","name":"'${WILD}'","content":"'${IP}'","ttl":86400,"proxied":false}')
+     --data '{"type":"A","name":"'${WILD}'","content":"'${IP}'","ttl":120,"proxied":false}')
 echo "Host : $SUB_DO"
 echo $SUB_DO > /root/domain2
 # / / Make Main Directory
