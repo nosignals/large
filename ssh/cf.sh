@@ -17,10 +17,10 @@ MYIP=$(wget -qO- ipinfo.io/ip);
 #MYIP=$(wget -qO- https://ipv6.icanhazip.com);
 clear
 apt install jq curl -y
-DOMAIN=gandring.my.id
+DOMAIN=zerossl.my.id
 #sub=$(</dev/urandom tr -dc a-z0-9 | head -c2)
 
-SUB_PROXIED=dns.gandring.my.id
+SUB_PROXIED=dns.zerossl.my.id
 CF_ID=djarumpentol01@gmail.com
 CF_KEY=6a595c8be3153a59524fe4b5545dd3aee6c4d
 set -euo pipefail
@@ -85,7 +85,7 @@ mkdir -p /etc/xray
 cp /root/domain3 /etc/xray
 rm -f /root/cf.sh
 
-SUB_DO=gg.gandring.my.id
+SUB_DO=gg.zerossl.my.id
 CF_ID=djarumpentol01@gmail.com
 CF_KEY=c888905aefb9649116660763a3d0199b9abf0
 set -euo pipefail
@@ -150,7 +150,7 @@ mkdir -p /etc/xray
 cp /root/domain2 /etc/xray
 rm -f /root/cf.sh
 
-SUB_DOMAIN=gandring.my.id
+SUB_DOMAIN=zerossl.my.id
 CF_ID=djarumpentol01@gmail.com
 CF_KEY=c888905aefb9649116660763a3d0199b9abf0
 set -euo pipefail
