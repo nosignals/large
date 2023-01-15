@@ -85,11 +85,11 @@ hariini=`date -d "0 days" +"%Y-%m-%d"`
 exp=`date -d "$masaaktif days" +"%Y-%m-%d"`
 #exp2=`date -d "$masaaktif seconds" +"%Y-%m-%d"`
 #sed -i '/#trojan-grpc$/a\### '"$user $exp"'\
-#},{"password": "'""$uuid""'","email": "'""$user""'"' /etc/xray/xtrojan.json
+#},{"password": "'""$uuid""'","email": "'""$user""'" /etc/xray/xtrojan.json
 sed -i '/#trojan-grpc$/a\### '"$user $exp"'\
-},{"password": "'""$uuid""'","email": "'""$user""'"' /etc/xray/xvmess.json
+},{"password": "'""$uuid""'","email": "'""$user""'" /etc/xray/xvmess.json
 sed -i '/#trojan-grpc$/a\### '"$user $exp"'\
-},{"password": "'""$uuid""'","email": "'""$user""'"' /etc/xray/xvless.json
+},{"password": "'""$uuid""'","email": "'""$user""'" /etc/xray/xvless.json
 trojangrpc="trojan://${uuid}@${domain}:$tgrpc?mode=multi&security=tls&type=grpc&serviceName=SATRIO&sni=${domain3}#%F0%9F%94%A5TROJAN+GRPC+TLS+${user}"
 systemctl restart xray.service
 systemctl restart xtrojan.service
@@ -110,7 +110,7 @@ echo -e "Host➡️ ${domain}"
 echo -e "CF Host➡️ ${domain3}"
 echo -e "Protocol➡️ GRPC"
 echo -e "ServiceName➡️SATRIO"
-echo -e "Port➡️ ${tgrpc},8443,2096,2087,2053"
+echo -e "Port➡️ ${tgrpc},8443,2096,2087,2083,2053"
 echo -e "Sandi➡️ ${uuid}"
 echo -e "Dibuat➡️$hariini"
 echo -e "Kadaluarsa➡️ $exp"
