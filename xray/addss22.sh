@@ -20,8 +20,8 @@ domain3=$(cat /etc/xray/domain3)
 dateFromServer=$(curl -v --insecure --silent https://google.com/ 2>&1 | grep Date | sed -e 's/< Date: //')
 date=`date +"%Y-%m-%d" -d "$dateFromServer"`
 #uuid=$(cat /proc/sys/kernel/random/uuid)
-ttls="$(cat ~/log-install.txt | grep -w "SS 2022 WS TLS" | cut -d: -f2|sed 's/ //g')"
-tnontls="$(cat ~/log-install.txt | grep -w "SS 2022 WS NON TLS" | cut -d: -f2|sed 's/ //g')"
+sstls="$(cat ~/log-install.txt | grep -w "SS 2022 WS TLS" | cut -d: -f2|sed 's/ //g')"
+ssnontls="$(cat ~/log-install.txt | grep -w "SS 2022 WS NON TLS" | cut -d: -f2|sed 's/ //g')"
 until [[ $user =~ ^[a-zA-Z0-9_]+$ && ${user_EXISTS} == '0' ]]; do
 read -rp "Password : " -e user
 user_EXISTS=$(grep -w $user /etc/xray/xtrojan.json | wc -l)
@@ -82,18 +82,22 @@ read -p "Expired (Days) : " masaaktif
 hariini=`date -d "0 days" +"%Y-%m-%d"`
 exp=`date -d "$masaaktif days" +"%Y-%m-%d"`
 sed -i '/#ss-tls$/a\### '"$user $exp"'\
-},{"password": "'""GANdRinGcq34MSCDTOck0g==:$base64""'","email": "'""$user""'"' /etc/xray/xvmess.json
+},{"password": "'""$user""'","email": "'""$user""'"' /etc/xray/xvmess.json
 sed -i '/#ss-tls$/a\### '"$user $exp"'\
-},{"password": "'""GANdRinGcq34MSCDTOck0g==:$base64""'","email": "'""$user""'"' /etc/xray/xvless.json
+},{"password": "'""$user""'","email": "'""$user""'"' /etc/xray/xvless.json
 sed -i '/#ss-tls$/a\### '"$user $exp"'\
-},{"password": "'""GANdRinGcq34MSCDTOck0g==:$base64""'","email": "'""$user""'"' /etc/xray/xtrojan.json
+},{"password": "'""$user""'","email": "'""$user""'"' /etc/xray/xtrojan.json
 sed -i '/#ss-nontls$/a\### '"$user $exp"'\
-},{"password": "'""GANdRinGcq34MSCDTOck0g==:$base64""'","email": "'""$user""'"' /etc/xray/xtrojan.json
+},{"password": "'""$user""'","email": "'""$user""'"' /etc/xray/xtrojan.json
 sed -i '/#ss-nontls$/a\### '"$user $exp"'\
-},{"password": "'""GANdRinGcq34MSCDTOck0g==:$base64""'","email": "'""$user""'"' /etc/xray/config.json
+},{"password": "'""$user""'","email": "'""$user""'"' /etc/xray/config.json
 
-trojantls="trojan://GANdRinGcq34MSCDTOck0g==:$base64@${domain}:$ttls?type=ws&security=tls&host=$domain3&path=%2fGANDRING-WS&sni=$domain3#%F0%9F%94%A5TROJAN+WS+TLS+${user}"
-trojannontls="trojan://GANdRinGcq34MSCDTOck0g==:$base64@${domain}:$tnontls?type=ws&security=none&host=$domain3&path=%2fGANDRING-WS#%F0%9F%94%A5TROJAN+WS+NONTLS+${user}"
+echo GANdRinGcq34MSCDTOck0g==:$base64 > /tmp/log
+ss_base64=$(cat /tmp/log)
+echo -n "${ss_base64}" | base64 > /tmp/log1
+ss_base641=$(cat /tmp/log1)
+sstls="ss://${ss_base641}@$domain:$sstls?path=%2Fworryfree%2F&security=tls&host=%24domain&type=ws&sni=$domain#%F0%9F%94%A5SS+2022+WS+TLS+$user"
+ssnontls="ss://${ss_base641}@$domain:$ssnontls?path=%2Fworryfree%2F&security=none&host=$domain&type=ws#%F0%9F%94%A5SS+2022+WS+NON+TLS+$user"
 systemctl restart xvmess
 systemctl restart xray.service
 systemctl restart xtrojan.service
@@ -127,4 +131,3 @@ echo -e "\033[1;31m━━━━━━━━━━━━━━━━━━━━�
 echo ""
 read -n 1 -s -r -p "Ketik Bebas Untuk Ke Menu Utama"
 ssmenu
-
