@@ -25,51 +25,43 @@ ssnontls="$(cat ~/log-install.txt | grep -w "SS 2022 WS NON TLS" | cut -d: -f2|s
 until [[ $user =~ ^[a-zA-Z0-9_]+$ && ${user_EXISTS} == '0' ]]; do
 read -rp "Password : " -e user
 user_EXISTS=$(grep -w $user /etc/xray/xtrojan.json | wc -l)
-
 if [[ ${user_EXISTS} == '1' ]]; then
 echo ""
 echo -e "Username ${RED}${user}${NC} Already On VPS Please Choose Another"
 exit 1
 fi
 done
-
 until [[ $user =~ ^[a-zA-Z0-9_]+$ && ${user_EXISTS} == '0' ]]; do
 read -rp "Password : " -e user
 user_EXISTS=$(grep -w $user /etc/xray/xvmess.json | wc -l)
-
 if [[ ${user_EXISTS} == '1' ]]; then
 echo ""
 echo -e "Username ${RED}${user}${NC} Already On VPS Please Choose Another"
 exit 1
 fi
 done
-
+l
 until [[ $user =~ ^[a-zA-Z0-9_]+$ && ${user_EXISTS} == '0' ]]; do
 read -rp "Password : " -e user
 user_EXISTS=$(grep -w $user /etc/xray/config.json | wc -l)
-
 if [[ ${user_EXISTS} == '1' ]]; then
 echo ""
 echo -e "Username ${RED}${user}${NC} Already On VPS Please Choose Another"
 exit 1
 fi
 done
-
 until [[ $user =~ ^[a-zA-Z0-9_]+$ && ${user_EXISTS} == '0' ]]; do
 read -rp "Password : " -e user
 user_EXISTS=$(grep -w $user /etc/xray/xvless.json | wc -l)
-
 if [[ ${user_EXISTS} == '1' ]]; then
 echo ""
 echo -e "Username ${RED}${user}${NC} Already On VPS Please Choose Another"
 exit 1
 fi
 done
-
 until [[ $user =~ ^[a-zA-Z0-9_]+$ && ${user_EXISTS} == '0' ]]; do
 read -rp "Password : " -e user
 user_EXISTS=$(grep -w $user /etc/xray/xss.json | wc -l)
-
 if [[ ${user_EXISTS} == '1' ]]; then
 echo ""
 echo -e "Username ${RED}${user}${NC} Already On VPS Please Choose Another"
@@ -77,26 +69,27 @@ exit 1
 fi
 done
 base64=$(openssl rand -base64 16)
-uuid=$(openssl rand -hex 7)
+#uuid=$(openssl rand -hex 7)
+uuid=$base64
 read -p "Expired (Days) : " masaaktif
 hariini=`date -d "0 days" +"%Y-%m-%d"`
 exp=`date -d "$masaaktif days" +"%Y-%m-%d"`
 sed -i '/#ss-tls$/a\### '"$user $exp"'\
-},{"password": "'""$user""'","email": "'""$user""'"' /etc/xray/xvmess.json
+},{"password": "$uuid","email": "'""$user""'"' /etc/xray/xvmess.json
 sed -i '/#ss-tls$/a\### '"$user $exp"'\
-},{"password": "'""$user""'","email": "'""$user""'"' /etc/xray/xvless.json
+},{"password": "$uuid","email": "'""$user""'"' /etc/xray/xvless.json
 sed -i '/#ss-tls$/a\### '"$user $exp"'\
-},{"password": "'""$user""'","email": "'""$user""'"' /etc/xray/xtrojan.json
+},{"password": "$uuid","email": "'""$user""'"' /etc/xray/xtrojan.json
 sed -i '/#ss-nontls$/a\### '"$user $exp"'\
-},{"password": "'""$user""'","email": "'""$user""'"' /etc/xray/xtrojan.json
+},{"password": "$uuid","email": "'""$user""'"' /etc/xray/xvmess.json
 sed -i '/#ss-nontls$/a\### '"$user $exp"'\
-},{"password": "'""$user""'","email": "'""$user""'"' /etc/xray/config.json
+},{"password": "$uuid","email": "'""$user""'"' /etc/xray/config.json
 
-echo GANdRinGcq34MSCDTOck0g==:$base64 > /tmp/log
+echo 2022-blake3-aes-128-gcm:GANdRinGcq34MSCDTOck0g==:$base64 > /tmp/log
 ss_base64=$(cat /tmp/log)
 echo -n "${ss_base64}" | base64 > /tmp/log1
 ss_base641=$(cat /tmp/log1)
-sstls="ss://${ss_base641}@$domain:$sstls?path=%2Fworryfree%2F&security=tls&host=%24domain&type=ws&sni=$domain#%F0%9F%94%A5SS+2022+WS+TLS+$user"
+sstls="ss://${ss_base641}@$domain:$sstls?path=%2Fworryfree%2F&security=tls&host=$domain&type=ws&sni=$domain#%F0%9F%94%A5SS+2022+WS+TLS+$user"
 ssnontls="ss://${ss_base641}@$domain:$ssnontls?path=%2Fworryfree%2F&security=none&host=$domain&type=ws#%F0%9F%94%A5SS+2022+WS+NON+TLS+$user"
 systemctl restart xvmess
 systemctl restart xray.service
@@ -116,8 +109,8 @@ echo -e "Host➡️ ${domain}"
 echo -e "CF Host➡️ ${domain3}"
 echo -e "Protocol➡️ websocket"
 echo -e "Path➡️ /GANDRING-WS ,/worryfree/ ,/kuota-habis/"
-echo -e "TLS➡️ ${ttls},8443,2096,2087,2083,2053"
-echo -e "NONTLS➡️ ${tnontls},2095,2086,2082,2052"
+echo -e "TLS➡️ ${sstls},8443,2096,2087,2083,2053"
+echo -e "NONTLS➡️ ${ssnontls},2095,2086,2082,2052"
 echo -e "Sandi➡️ GANdRinGcq34MSCDTOck0g==:$base64"
 echo -e "Dibuat➡️ $hariini"
 echo -e "Kadaluarsa➡️ $exp"
