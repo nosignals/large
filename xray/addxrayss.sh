@@ -164,8 +164,13 @@ sed -i '/#xrayss-http$/a\### '"$user $exp"'\
 },{"password": "'""$uuid""'","method": "'""$cipher5""'","email": "'""$user""'"' /etc/xray/xvmess.json
 sed -i '/#xrayss-http$/a\### '"$user $exp"'\
 },{"password": "'""$uuid""'","method": "'""$cipher6""'","email": "'""$user""'"' /etc/xray/xvmess.json
-xraysstls="ss://${uuid}@${domain}:$sstls?type=ws&security=tls&host=$domain3&path=%2fBEKTI-WS&sni=$domain3#%F0%9F%94%A5TROJAN+WS+TLS+${user}"
-xrayssnontls="ss://${uuid}@${domain}:$ssnontls?type=ws&security=none&host=$domain3&path=%2fBEKTI-WS#%F0%9F%94%A5TROJAN+WS+NONTLS+${user}"
+
+echo $cipher:$uuid > /tmp/log
+shadowsocks_base64=$(cat /tmp/log)
+echo -n "${shadowsocks_base64}" | base64 > /tmp/log1
+shadowsocks_base641=$(cat /tmp/log1)
+xraysstls="ss://${shadowsocks_base641}@${domain}:$sstls?type=ws&security=tls&host=$domain3&path=%2fBEKTI-WS&sni=$domain3#%F0%9F%94%A5TROJAN+WS+TLS+${user}"
+xrayssnontls="ss://${shadowsocks_base641}@${domain}:$ssnontls?type=ws&security=none&host=$domain3&path=%2fBEKTI-WS#%F0%9F%94%A5TROJAN+WS+NONTLS+${user}"
 systemctl restart xvmess
 systemctl restart xray.service
 systemctl restart xtrojan.service
@@ -176,7 +181,7 @@ service cron restart
 clear
 echo -e ""
 echo -e "\033[1;31m━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
-echo -e "\033[1;46m🔥AKUN TROJAN WEBSOCKET 🔥\e[m"
+echo -e "\033[1;46m🔥AKUN SS LAWAS KOMPLET 🔥\e[m"
 echo -e "\033[1;31m━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
 echo -e "Nama➡️ ${user}"
 echo -e "IP➡️ ${MYIP},$domain2"
