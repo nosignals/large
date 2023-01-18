@@ -146,16 +146,16 @@ sed -i '/#trojan-kcp$/a\### '"$user $exp"'\
 sed -i '/#trojan-kcp$/a\### '"$user $exp"'\
 },{"password": "'""$uuid""'","email": "'""$user""'"' /etc/xray/xvless.json
 
-trojanhdua="trojan://${uuid}@${domain}:$thdua?sni=jambualas.id&type=http&security=tls&path=/GANDRING-HTTP#%F0%9F%94%A5TROJAN+H2C+TLS+${user}"
-trojangrpc="trojan://${uuid}@${domain}:$tgrpc?mode=multi&security=tls&type=grpc&serviceName=SATRIO&sni=${domain3}#%F0%9F%94%A5TROJAN+GRPC+TLS+${user}"
-trojanxtls="trojan://${uuid}@${domain}:$txtls?sni=kimcil.kepolen.net&security=xtls&type=tcp&headerType=none&flow=xtls-rprx-splice-udp443#%F0%9F%94%A5TROJAN+XTLS+${user}"
-trojangfw="trojan://$uuid@$domain:$tgfw?sni=angeladesah.com&type=tcp&security=tls&headerType=none#%F0%9F%94%A5TROJAN+GFW+TLS+$user"
-trojantls="trojan://${uuid}@${domain}:$ttls?type=ws&security=tls&host=$domain3&path=%2fGANDRING&sni=$domain3#%F0%9F%94%A5TROJAN+WS+TLS+${user}"
-trojannontls="trojan://${uuid}@${domain}:$tnontls?type=ws&security=none&host=$domain3&path=%2fGANDRING#%F0%9F%94%A5TROJAN+WS+NONTLS+${user}"
-trojanhttp="trojan://${uuid}@${domain}:$thttp?sni=gesekan.penghancur-janda.com&type=tcp&security=tls&host=$domain&path=/GANDRING-TCP&headerType=http#%F0%9F%94%A5+HTTP+TLS+${user}"
-trojanhttpnon="trojan://${uuid}@${domain}:$thttpnon?sni=gesekan.penghancur-janda.com&type=tcp&security=none&host=$domain&headerType=http#%F0%9F%94%A5TROJAN+HTTP+NONTLS+${user}"
+trojanhdua="trojan://${uuid}@${domain}:$thdua?sni=$domain&type=http&security=tls&path=/GANDRING-HTTP#%F0%9F%94%A5TROJAN+H2C+TLS+${user}"
+trojangrpc="trojan://${uuid}@${domain}:$tgrpc?mode=multi&security=tls&type=grpc&serviceName=SATRIO&sni=${domain}#%F0%9F%94%A5TROJAN+GRPC+TLS+${user}"
+trojanxtls="trojan://${uuid}@${domain}:$txtls?sni=$domain&security=xtls&type=tcp&headerType=none&flow=xtls-rprx-splice-udp443#%F0%9F%94%A5TROJAN+XTLS+${user}"
+trojangfw="trojan://$uuid@$domain:$tgfw?sni=$domain&type=tcp&security=tls&headerType=none#%F0%9F%94%A5TROJAN+GFW+TLS+$user"
+trojantls="trojan://${uuid}@${domain}:$ttls?type=ws&security=tls&host=$domain&path=%2fGANDRING&sni=$domain#%F0%9F%94%A5TROJAN+WS+TLS+${user}"
+trojannontls="trojan://${uuid}@${domain}:$tnontls?type=ws&security=none&host=$domain&path=%2fGANDRING#%F0%9F%94%A5TROJAN+WS+NONTLS+${user}"
+trojanhttp="trojan://${uuid}@${domain}:$thttp?sni=$domain&type=tcp&security=tls&host=$domain&path=/GANDRING-TCP&headerType=http#%F0%9F%94%A5+HTTP+TLS+${user}"
+trojanhttpnon="trojan://${uuid}@${domain}:$thttpnon?sni=$domain&type=tcp&security=none&host=$domain&headerType=http#%F0%9F%94%A5TROJAN+HTTP+NONTLS+${user}"
 trojanquic="trojan://$uuid@$MYIP:$tquic?sni=$domain&quicSecurity=$domain&key=GANDRING-QUIC&security=tls&type=quic&headerType=none#%F0%9F%94%A5TROJAN+QUIC+TLS+$user"
-trojankcp="trojan://$uuid@$domain:$tkcp?sni=minakdjinggo.org&seed=GANDRING-KCP&security=tls&type=kcp&headerType=none#%F0%9F%94%A5TROJAN+KCP+TLS+$user"
+trojankcp="trojan://$uuid@$domain:$tkcp?sni=$domain&seed=GANDRING-KCP&security=tls&type=kcp&headerType=none#%F0%9F%94%A5TROJAN+KCP+TLS+$user"
 
 uid=$(cat /etc/trojan-go/uuid.txt)
 sed -i '/"'""$uid""'"$/a\,"'""$user""'"' /etc/trojan-go/config.json
@@ -185,7 +185,7 @@ echo -e "Protokol➡️ GRPC,H2C,GFW,XTLS,WS,KCP,HTTP,GO,QUIC"
 echo -e "ServiceName➡️ SATRIO"
 echo -e "Path HTTP➡️ /GANDRING-TCP"
 echo -e "Path H2C➡️ /GANDRING-HTTP"
-echo -e "Path WS➡️ /GANDRING ,/worryfree/,/kuota-habis/"
+echo -e "Path WS➡️ /GANDRING ,/worryfree,/kuota-habis"
 echo -e "Path QUIC➡️ GANDRING-QUIC"
 echo -e "Path GO➡️ /gandring-go"
 echo -e "Path KCP➡️ GANDRING-KCP"
