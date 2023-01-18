@@ -98,7 +98,7 @@ cat>/etc/xray/vmess-$user-tls.json<<EOF
       "net": "grpc",
       "path": "AYESHA",
       "type": "none",
-      "host": "${domain3}",
+      "host": "${domain}",
       "tls": "tls"
 }
 EOF
