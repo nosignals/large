@@ -147,16 +147,16 @@ sed -i '/#vless-gfw$/a\### '"$user $exp"'\
 sed -i '/#vless-gfw$/a\### '"$user $exp"'\
 },{"id": "'""$uuid""'","email": "'""$user""'"' /etc/xray/xvmess.json
 
-vlesshttpnon="vless://${uuid}@${domain}:$vlhttpnon?sni=ojodumeh.org&security=none&type=tcp&headerType=http&encryption=none#%F0%9F%94%A5VLESS+HTTP+NONTLS+${user}"
-vlesshttp="vless://${uuid}@${domain}:$vlhttp?sni=bugmu.xyz&host=${domain}&type=tcp&security=tls&path=/WISNU-TCP&headerType=http&encryption=none#%F0%9F%94%A5VLESS+HTTP+TLS+${user}"
-vlesstls="vless://${uuid}@${domain}:$vltls?host=${domain3}&sni=$domain3&type=ws&security=tls&path=%2fWISNU&encryption=none#%F0%9F%94%A5VLESS+WS+TLS+${user}"
-vlessnontls="vless://${uuid}@${domain}:$vlnontls?host=${domain3}&security=none&type=ws&path=/WISNU&encryption=none#%F0%9F%94%A5VLESS+WS+NONTLS+${user}"
-vlessgrpc="vless://${uuid}@${domain}:$vlgrpc?serviceName=COKRO&sni=${domain3}&mode=multi&type=grpc&security=tls&encryption=none#%F0%9F%94%A5VLESS+GRPC+TLS+${user}"
+vlesshttpnon="vless://${uuid}@${domain}:$vlhttpnon?sni=$domain&security=none&type=tcp&headerType=http&encryption=none#%F0%9F%94%A5VLESS+HTTP+NONTLS+${user}"
+vlesshttp="vless://${uuid}@${domain}:$vlhttp?sni=$domain&host=${domain}&type=tcp&security=tls&path=/WISNU-TCP&headerType=http&encryption=none#%F0%9F%94%A5VLESS+HTTP+TLS+${user}"
+vlesstls="vless://${uuid}@${domain}:$vltls?host=${domain}&sni=$domain&type=ws&security=tls&path=%2fWISNU&encryption=none#%F0%9F%94%A5VLESS+WS+TLS+${user}"
+vlessnontls="vless://${uuid}@${domain}:$vlnontls?host=${domain}&security=none&type=ws&path=/WISNU&encryption=none#%F0%9F%94%A5VLESS+WS+NONTLS+${user}"
+vlessgrpc="vless://${uuid}@${domain}:$vlgrpc?serviceName=COKRO&sni=${domain}&mode=multi&type=grpc&security=tls&encryption=none#%F0%9F%94%A5VLESS+GRPC+TLS+${user}"
 vlessgrpcnon="vless://${uuid}@${domain}:$vlgrpcnon?serviceName=COKRO&sni=${domain}&mode=multi&type=grpc&security=none&encryption=none#%F0%9F%94%A5VLESS+GRPC+NONTLS+${user}"
-vlesshdua="vless://${uuid}@${domain}:$vlhdua?sni=bugmu.com&type=http&security=tls&path=/WISNU-HTTP&encryption=none#%F0%9F%94%A5VLESS+H2C+${user}"
+vlesshdua="vless://${uuid}@${domain}:$vlhdua?sni=$domain&type=http&security=tls&path=/WISNU-HTTP&encryption=none#%F0%9F%94%A5VLESS+H2C+${user}"
 vlesskcp="vless://$uuid@$domain:$vlkcp?sni=$domain&seed=WISNU-KCP&type=kcp&security=tls&headerType=none&encryption=none#%F0%9F%94%A5VLESS+KCP+TLS+$user"
-vlessxtls="vless://${uuid}@${domain}:$vlxtls?sni=remang-remang.night&security=xtls&encryption=none&flow=xtls-rprx-splice-udp443#%F0%9F%94%A5VLESS+XTLS+${user}"
-vlessgfw="vless://${uuid}@${domain}:$vlgfw?sni=istimiwir.co.id&security=tls&encryption=none#%F0%9F%94%B0VLESS+GFW+${user}"
+vlessxtls="vless://${uuid}@${domain}:$vlxtls?sni=$domain&security=xtls&encryption=none&flow=xtls-rprx-splice-udp443#%F0%9F%94%A5VLESS+XTLS+${user}"
+vlessgfw="vless://${uuid}@${domain}:$vlgfw?sni=$domain&security=tls&encryption=none#%F0%9F%94%B0VLESS+GFW+${user}"
 vlessquic="vless://$uuid@$MYIP:$vlquic?sni=$domain&key=WISNU-QUIC&security=tls&encryption=none&headerType=none&quicSecurity=$domain&type=quic#%F0%9F%94%A5VLESS+QUIC+TLS+$user"
 systemctl restart xvless.service
 systemctl restart xray.service
