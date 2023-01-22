@@ -20,7 +20,7 @@ apt install jq curl -y
 DOMAIN=smule.my.id
 #sub=$(</dev/urandom tr -dc a-z0-9 | head -c2)
 
-SUB_PROXIED=dns.smule.my.id
+SUB_PROXIED=cdn.smule.my.id
 CF_ID=djarumpentol01@gmail.com
 CF_KEY=6a595c8be3153a59524fe4b5545dd3aee6c4d
 set -euo pipefail
@@ -85,7 +85,7 @@ mkdir -p /etc/xray
 cp /root/domain3 /etc/xray
 rm -f /root/cf.sh
 
-SUB_DO=xxx.smule.my.id
+SUB_DO=m.smule.my.id
 CF_ID=djarumpentol01@gmail.com
 CF_KEY=6a595c8be3153a59524fe4b5545dd3aee6c4d
 set -euo pipefail
@@ -150,7 +150,7 @@ mkdir -p /etc/xray
 cp /root/domain2 /etc/xray
 rm -f /root/cf.sh
 
-SUB_DOMAIN=zzz.smule.my.id
+SUB_DOMAIN=smule.my.id
 CF_ID=djarumpentol01@gmail.com
 CF_KEY=6a595c8be3153a59524fe4b5545dd3aee6c4d
 set -euo pipefail
