@@ -40,7 +40,7 @@ echo -e "Username ${RED}${user}${NC} Already On VPS Please Choose Another"
 exit 1
 fi
 done
-l
+
 until [[ $user =~ ^[a-zA-Z0-9_]+$ && ${user_EXISTS} == '0' ]]; do
 read -rp "Password : " -e user
 user_EXISTS=$(grep -w $user /etc/xray/config.json | wc -l)
