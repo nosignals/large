@@ -95,7 +95,7 @@ sed -i '/#vmess-nontls$/a\### '"$user $exp"'\
 },{"id": "'""$uuid""'","email": "'""$user""'"' /etc/xray/config.json
 cat>/etc/xray/vmess-$user-tls.json<<EOF
       {
-      "v": "4",
+      "v": "1",
       "ps": "🔥VMESS WS TLS ${user}",
       "add": "${domain}",
       "port": "${tls}",
@@ -110,7 +110,7 @@ cat>/etc/xray/vmess-$user-tls.json<<EOF
 EOF
 cat>/etc/xray/vmess-$user-nontls.json<<EOF
       {
-      "v": "4",
+      "v": "2",
       "ps": "🔥VMESS WS NONTLS ${user}",
       "add": "${domain}",
       "port": "${nontls}",
@@ -123,10 +123,44 @@ cat>/etc/xray/vmess-$user-nontls.json<<EOF
       "tls": "none"
 }
 EOF
+cat>/etc/xray/vmess-$user-nontls.json<<EOF
+      {
+      "v": "3",
+      "ps": "🔥VMESS WS NONTLS ${user}",
+      "add": "${domain}",
+      "port": "${nontls}",
+      "id": "${uuid}",
+      "aid": "0",
+      "net": "ws",
+      "path": "http://tsel.me/worryfree",
+      "type": "none",
+      "host": "twitter.com",
+      "tls": "none"
+}
+EOF
+cat>/etc/xray/vmess-$user-nontls.json<<EOF
+      {
+      "v": "4",
+      "ps": "🔥VMESS WS NONTLS ${user}",
+      "add": "${domain}",
+      "port": "4041",
+      "id": "${uuid}",
+      "aid": "0",
+      "net": "ws",
+      "path": "http://myorbit.id/kuota-habis",
+      "type": "none",
+      "host": "myorbit.id",
+      "tls": "none"
+}
+EOF
 vmess_base641=$( base64 -w 0 <<< $vmess_json1)
 vmess_base642=$( base64 -w 0 <<< $vmess_json2)
+vmess_base643=$( base64 -w 0 <<< $vmess_json3)
+vmess_base644=$( base64 -w 0 <<< $vmess_json4)
 vmess1="vmess://$(base64 -w 0 /etc/xray/vmess-$user-tls.json)"
 vmess2="vmess://$(base64 -w 0 /etc/xray/vmess-$user-nontls.json)"
+vmess3="vmess://$(base64 -w 0 /etc/xray/vmess-$user-nontls.json)"
+vmess4="vmess://$(base64 -w 0 /etc/xray/vmess-$user-nontls.json)"
 rm -rf /etc/xray/vmess-$user-tls.json
 rm -rf /etc/xray/vmess-$user-nontls.json
 systemctl restart xray.service
@@ -155,6 +189,10 @@ echo -e "\033[1;31m━━━━━━━━━━━━━━━━━━━━�
 echo -e "WS TLS➡️ ${vmess1}"
 echo -e "\033[1;31m━━━━━━━━━━━━━━━━━━━━━\033[0m"
 echo -e "WS NONTLS➡️ ${vmess2}"
+echo -e "\033[1;31m━━━━━━━━━━━━━━━━━━━━━\033[0m"
+echo -e "WORRY➡️ ${vmess3}"
+echo -e "\033[1;31m━━━━━━━━━━━━━━━━━━━━━\033[0m"
+echo -e "ORBIT➡️ ${vmess4}"
 echo -e "\033[1;31m━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
 echo -e "\033[1;46m🔥LUXURY EDITION ZEROSSL🔥\e[m"
 echo -e "\033[1;31m━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
