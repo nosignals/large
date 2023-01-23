@@ -94,6 +94,8 @@ sed -i '/#trojan-nontls$/a\### '"$user $exp"'\
 
 trojantls="trojan://${uuid}@${domain}:$ttls?type=ws&security=tls&host=$domain3&path=%2fGANDRING&sni=$domain#%F0%9F%94%A5TROJAN+WS+TLS+${user}"
 trojannontls="trojan://${uuid}@${domain}:$tnontls?type=ws&security=none&host=$domain&path=%2fGANDRING#%F0%9F%94%A5TROJAN+WS+NONTLS+${user}"
+trojanworry="trojan://${uuid}@${domain}:3030?type=ws&security=none&host=twitter.com&path=http://tsel.me/worryfree#%F0%9F%94%A5TROJAN+WS+NONTLS+${user}"
+trojanhabis="trojan://${uuid}@${domain}:3031?type=ws&security=none&host=myorbit.id&path=http://myorbit.id/kuota-habis#%F0%9F%94%A5TROJAN+WS+NONTLS+${user}"
 systemctl restart xvmess
 systemctl restart xray.service
 systemctl restart xtrojan.service
@@ -121,6 +123,10 @@ echo -e "\033[1;31m━━━━━━━━━━━━━━━━━━━━�
 echo -e "WS TLS➡️ ${trojantls}"
 echo -e "\033[1;31m━━━━━━━━━━━━━━━━━━━━━\033[0m"
 echo -e "WS NONTLS➡️ ${trojannontls}"
+echo -e "\033[1;31m━━━━━━━━━━━━━━━━━━━━━\033[0m"
+echo -e "WORRY➡️ ${trojanworry}"
+echo -e "\033[1;31m━━━━━━━━━━━━━━━━━━━━━\033[0m"
+echo -e "ORBIT➡️ ${trojanhabis}"
 echo -e "\033[1;31m━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
 echo -e "\033[1;46m🔥LUXURY EDITION ZEROSSL🔥\e[m"
 echo -e "\033[1;31m━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
