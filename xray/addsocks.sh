@@ -123,8 +123,10 @@ echo -n "${socks_base64}" | base64 > /tmp/log1
 socks_base641=$(cat /tmp/log1)
 socks5tls="socks://${socks_base641}@$domain:$stls?path=%2FWISNU-WS&security=tls&host=$domain&type=ws&sni=$domain#%F0%9F%94%A5SOCKS5+WS+TLS+$user"
 socks5nontls="socks://${socks_base641}@$domain:$snontls?path=%2FWISNU-WS&security=none&host=$domain&type=ws#%F0%9F%94%A5SOCKS5+WS+NONTLS+$user"
+socks5worry="socks://${socks_base641}@$domain:$snontls?path=http://tsel.me/worryfree&security=none&host=twitter.com&type=ws#%F0%9F%94%A5SOCKS5+WS+NONTLS+$user"
+socks5habis="socks://${socks_base641}@$domain:$snontls?path=http://myorbit.id/kuota-habis&security=none&host=myorbit.id&type=ws#%F0%9F%94%A5SOCKS5+WS+NONTLS+$user"
 socks5grpc="socks://${socks_base641}@$domain:$sgrpc?mode=multi&security=tls&type=grpc&serviceName=WISNU-GRPC&sni=$domain#%F0%9F%94%A5SOCKS5+GRPC+TLS+$user"
-socks5http="socks://${socks_base641}@$domain:$shttp?path=%2FCOKRO-TCP&security=tls&host=$domain&headerType=http&type=tcp&sni=$domain#%F0%9F%94%A5SOCKS5+HTTP+TLS+$user"
+socks5http="socks://${socks_base641}@$domain:$shttp?path=/FCOKRO-TCP&security=tls&host=$domain&headerType=http&type=tcp&sni=$domain#%F0%9F%94%A5SOCKS5+HTTP+TLS+$user"
 systemctl restart xvmess
 systemctl restart xray.service
 systemctl restart xtrojan.service
@@ -155,6 +157,10 @@ echo -e "\033[1;31m━━━━━━━━━━━━━━━━━━━━�
 echo -e "WS TLS➡️ ${socks5tls}"
 echo -e "\033[1;31m━━━━━━━━━━━━━━━━━━━━━\033[0m"
 echo -e "WS NONTLS➡️ ${socks5nontls}"
+echo -e "\033[1;31m━━━━━━━━━━━━━━━━━━━━━\033[0m"
+echo -e "WORRY➡️ ${socks5worry}"
+echo -e "\033[1;31m━━━━━━━━━━━━━━━━━━━━━\033[0m"
+echo -e "HABIS➡️ ${socks5habis}"
 echo -e "\033[1;31m━━━━━━━━━━━━━━━━━━━━━\033[0m"
 echo -e "GRPC TLS➡️ ${socks5grpc}"
 echo -e "\033[1;31m━━━━━━━━━━━━━━━━━━━━━\033[0m"
