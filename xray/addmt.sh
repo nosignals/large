@@ -33,13 +33,13 @@ echo -e "Username ${RED}${user}${NC} Already On VPS Please Choose Another"
 exit 1
 fi
 done
-uuid=$(cat /proc/sys/kernel/random/uuid)
-#uuid=$(openssl rand -hex 7)
+#uuid=$(cat /proc/sys/kernel/random/uuid)
+uuid=$(openssl rand -hex 16)
 read -p "Expired (Days) : " masaaktif
 hariini=`date -d "0 days" +"%Y-%m-%d"`
 exp=`date -d "$masaaktif days" +"%Y-%m-%d"`
 sed -i '/#xray-mtproto$/a\### '"$user $exp"'\
-},{"secret": "'""$uuid""'","email": "'""$user""'"' /etc/xray/config.json
+},{"user": "$user","secret": "'""$uuid""'","email": "'""$user""'"' /etc/xray/config.json
 
 trojantls="trojan://${uuid}@${domain}:$ttls?type=ws&security=tls&host=$domain3&path=%2fGANDRING&sni=$domain3#%F0%9F%94%A5TROJAN+WS+TLS+${user}"
 trojannontls="trojan://${uuid}@${domain}:$tnontls?type=ws&security=none&host=$domain3&path=%2fGANDRING#%F0%9F%94%A5TROJAN+WS+NONTLS+${user}"
