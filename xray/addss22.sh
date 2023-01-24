@@ -73,6 +73,14 @@ hariini=`date -d "0 days" +"%Y-%m-%d"`
 exp=`date -d "$masaaktif days" +"%Y-%m-%d"`
 sed -i '/#ss-tls$/a\### '"$user $exp"'\
 },{"password": "'""${base64}""'","email": "'""$user""'"' /etc/xray/xvmess.json
+sed -i '/#ss-tls$/a\### '"$user $exp"'\
+},{"password": "'""${base64}""'","email": "'""$user""'"' /etc/xray/xvless.json
+sed -i '/#ss-tls$/a\### '"$user $exp"'\
+},{"password": "'""${base64}""'","email": "'""$user""'"' /etc/xray/xtrojan.json
+sed -i '/#ss-tls$/a\### '"$user $exp"'\
+},{"password": "'""${base64}""'","email": "'""$user""'"' /etc/xray/xss.json
+sed -i '/#ss-nontls$/a\### '"$user $exp"'\
+},{"password": "'""${base64}""'","email": "'""$user""'"' /etc/xray/xtrojan.json
 
 echo 2022-blake3-aes-128-gcm:GANdRinGcq34MSCDTOck0g==:${base64} > /tmp/log
 socks_base64=$(cat /tmp/log)
