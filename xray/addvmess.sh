@@ -108,6 +108,7 @@ cat>/etc/xray/vmess-$user-tls.json<<EOF
       "tls": "tls"
 }
 EOF
+
 cat>/etc/xray/vmess-$user-nontls.json<<EOF
       {
       "v": "2",
@@ -123,12 +124,13 @@ cat>/etc/xray/vmess-$user-nontls.json<<EOF
       "tls": "none"
 }
 EOF
-cat>/etc/xray/vmess-$user-nontls.json<<EOF
+
+cat>/etc/xray/vmess-$user-worry.json<<EOF
       {
       "v": "3",
       "ps": "🔥VMESS WS NONTLS ${user}",
       "add": "${domain}",
-      "port": "${nontls}",
+      "port": "4040",
       "id": "${uuid}",
       "aid": "0",
       "net": "ws",
@@ -138,7 +140,8 @@ cat>/etc/xray/vmess-$user-nontls.json<<EOF
       "tls": "none"
 }
 EOF
-cat>/etc/xray/vmess-$user-nontls.json<<EOF
+
+cat>/etc/xray/vmess-$user-habis.json<<EOF
       {
       "v": "4",
       "ps": "🔥VMESS WS NONTLS ${user}",
@@ -153,16 +156,21 @@ cat>/etc/xray/vmess-$user-nontls.json<<EOF
       "tls": "none"
 }
 EOF
+
 vmess_base641=$( base64 -w 0 <<< $vmess_json1)
 vmess_base642=$( base64 -w 0 <<< $vmess_json2)
 vmess_base643=$( base64 -w 0 <<< $vmess_json3)
 vmess_base644=$( base64 -w 0 <<< $vmess_json4)
 vmess1="vmess://$(base64 -w 0 /etc/xray/vmess-$user-tls.json)"
 vmess2="vmess://$(base64 -w 0 /etc/xray/vmess-$user-nontls.json)"
-vmess3="vmess://$(base64 -w 0 /etc/xray/vmess-$user-nontls.json)"
-vmess4="vmess://$(base64 -w 0 /etc/xray/vmess-$user-nontls.json)"
+vmess3="vmess://$(base64 -w 0 /etc/xray/vmess-$user-worry.json)"
+vmess4="vmess://$(base64 -w 0 /etc/xray/vmess-$user-habis.json)"
+
 rm -rf /etc/xray/vmess-$user-tls.json
 rm -rf /etc/xray/vmess-$user-nontls.json
+rm -rf /etc/xray/vmess-$user-worry.json
+rm -rf /etc/xray/vmess-$user-habis.json
+
 systemctl restart xray.service
 systemctl restart xvmess
 systemctl restart xvless
