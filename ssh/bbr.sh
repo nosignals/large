@@ -41,6 +41,7 @@ modprobe tcp_bbr
 Add_To_New_Line "/etc/modules-load.d/modules.conf" "tcp_bbr"
 Add_To_New_Line "/etc/sysctl.conf" "net.core.default_qdisc = fq"
 Add_To_New_Line "/etc/sysctl.conf" "net.ipv4.tcp_congestion_control = bbr"
+Add_To_New_Line "/etc/sysctl.conf" "net.ipv4.tcp_notsent_lowat = 16384"
 sysctl -p
 if [ -n "$(sysctl net.ipv4.tcp_available_congestion_control | grep bbr)" ] && [ -n "$(sysctl net.ipv4.tcp_congestion_control | grep bbr)" ] && [ -n "$(lsmod | grep "tcp_bbr")" ];then
 	echo "TCP_BBR Install Success."
@@ -68,8 +69,8 @@ Check_And_Add_Line "/etc/sysctl.conf" "net.ipv4.tcp_tw_reuse = 1"
 Check_And_Add_Line "/etc/sysctl.conf" "net.ipv4.tcp_fin_timeout = 30"
 Check_And_Add_Line "/etc/sysctl.conf" "net.ipv4.tcp_keepalive_time = 1200"
 Check_And_Add_Line "/etc/sysctl.conf" "net.ipv4.ip_local_port_range = 1024 65535"
-Check_And_Add_Line "/etc/sysctl.conf" "net.ipv4.tcp_max_syn_backlog = 16777216"
-Check_And_Add_Line "/etc/sysctl.conf" "net.ipv4.tcp_max_tw_buckets = 16777216"
+Check_And_Add_Line "/etc/sysctl.conf" "net.ipv4.tcp_max_syn_backlog = 67108864"
+Check_And_Add_Line "/etc/sysctl.conf" "net.ipv4.tcp_max_tw_buckets = 67108864"
 Check_And_Add_Line "/etc/sysctl.conf" "net.ipv4.tcp_fastopen = 1"
 Check_And_Add_Line "/etc/sysctl.conf" "net.ipv4.tcp_mem = 16777216 33554432 67108864"
 Check_And_Add_Line "/etc/sysctl.conf" "net.ipv4.tcp_rmem = 16777216 33554432 67108864"
