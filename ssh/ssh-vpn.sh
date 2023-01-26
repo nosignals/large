@@ -144,6 +144,20 @@ apt install dnsutils jq -y
 apt-get install tcpdump -y
 apt-get install dsniff -y
 apt install grepcidr -y
+sudo add-apt-repository ppa:vbernat/haproxy-2.7 -y
+    sudo apt update && apt upgrade -y
+    sudo apt install squid nginx zip pwgen openssl netcat bash-completion linux-tools-common \
+    curl socat xz-utils wget apt-transport-https gnupg gnupg2 gnupg1 dnsutils socat \
+    tar wget curl ruby zip unzip p7zip-full python3-pip haproxy libc6 util-linux build-essential \
+    msmtp-mta ca-certificates bsd-mailx iptables iptables-persistent netfilter-persistent \
+    net-tools  jq openvpn easy-rsa python3-certbot-nginx p7zip-full tuned -y
+    sudo apt-get autoremove -y
+    apt-get clean all
+    print_ok "Berhasil memasang paket yang dibutuhkan"
+}
+clear
+wget -O /etc/haproxy/haproxy.cfg "${wisnuvpn}config/haproxy.cfg" >/dev/null 2>&1
+wget -O /etc/websocket/tun.conf "${wisnuvpn}xray/tun.conf" >/dev/null 2>&1
 
 # Privoxy Ports
 Privoxy_Port1='3128'
@@ -882,11 +896,17 @@ END
 /etc/init.d/vnstat restart
 /etc/init.d/fail2ban restart
 #/etc/init.d/squid restart
+systemctl enable --now haproxy
+systemctl enable --now netfilter-persistent
+systemctl enable --now squid
+systemctl enable --now client
+systemctl enable --now server
 screen -dmS badvpn badvpn-udpgw --listen-addr 127.0.0.1:99
 #echo "0 4 * * * root clearlog && reboot" >> /etc/crontab
 echo "0 0 * * * root xp" >> /etc/crontab
 echo "0 0 * * * root delexp" >> /etc/crontab
-
+echo "*/1 * * * * root echo -n > /var/log/nginx/access.log" >/etc/cron.d/log.nginx
+echo "*/1 * * * * root echo -n > /var/log/xray/access.log" >>/etc/cron.d/log.xray
 service cron restart >/dev/null 2>&1
 service cron reload >/dev/null 2>&1
 history -c
