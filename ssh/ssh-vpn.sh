@@ -157,7 +157,7 @@ sudo add-apt-repository ppa:vbernat/haproxy-2.7 -y
 }
 clear
 wget -O /etc/haproxy/haproxy.cfg "${wisnuvpn}config/haproxy.cfg" >/dev/null 2>&1
-wget -O /etc/websocket/tun.conf "${wisnuvpn}xray/tun.conf" >/dev/null 2>&1
+wget -O /etc/xray/tun.conf "${wisnuvpn}xray/tun.conf" >/dev/null 2>&1
 
 # Privoxy Ports
 Privoxy_Port1='3128'
