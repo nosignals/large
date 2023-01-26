@@ -851,6 +851,25 @@ cd
 wget -O /usr/bin/badvpn-udpgw "https://${wisnuvpn}/badvpn-udpgw64"
 chmod +x /usr/bin/badvpn-udpgw
 sed -i '$ i\screen -dmS badvpn badvpn-udpgw --listen-addr 127.0.0.1:99' /etc/rc.local
+# Service UDPGW
+cat > /etc/systemd/system/badvpn-udpgw.service << END
+[Unit]
+Description=UDP 7300
+Documentation=https://man.archlinux.org/man/community/badvpn/badvpn.7.en
+After=syslog.target network-online.target
+
+[Service]
+User=root
+NoNewPrivileges=true
+ExecStart=/usr/sbin/badvpn --listen-addr 127.0.0.1:99 --max-clients 500
+Restart=on-failure
+RestartPreventExitStatus=23
+LimitNPROC=10000
+LimitNOFILE=1000000
+
+[Install]
+WantedBy=multi-user.target
+END
 
 /etc/init.d/nginx restart
 /etc/init.d/openvpn restart
