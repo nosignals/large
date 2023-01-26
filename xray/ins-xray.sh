@@ -49,7 +49,30 @@ mkdir -p /etc/xray
 mkdir -p /etc/ssl/private
 mkdir -p /etc/ssl/nginx
 cd /etc/ssl/nginx
+### Buat direktori xray
+function dir_xray() {
+    print_install "Membuat direktori xray"
+    mkdir -p /etc/xray
+    mkdir -p /etc/vmess
+    mkdir -p /etc/websocket
+    mkdir -p /etc/vless
+    mkdir -p /etc/trojan
+    mkdir -p /etc/shadowsocks
+    # mkdir -p /usr/sbin/xray/
+    mkdir -p /var/log/xray/
+    mkdir -p /var/www/html/
+    mkdir -p /etc/cendrawasih/
+#    chmod +x /var/log/xray
+    touch /var/log/xray/access.log
+    touch /var/log/xray/error.log
+    chmod 777 /var/log/xray/*.log
+    touch /etc/vmess/.vmess.db
+    touch /etc/vless/.vless.db
+    touch /etc/trojan/.trojan.db
+    touch /etc/ssh/.ssh.db
 
+    touch /etc/shadowsocks/.shadowsocks.db
+}
 mkdir -p /usr/local/etc/xray
 mkdir -p /home/sstp
 mkdir -p /home/vps/public_html
