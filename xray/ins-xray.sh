@@ -18,6 +18,8 @@ domain=$(cat /root/domain)
 domain2=$(cat /root/domain2)
 domain3=$(cat /root/domain3)
 apt update ; apt upgrade -y
+echo iptables-persistent iptables-persistent/autosave_v4 boolean true | debconf-set-selections
+echo iptables-persistent iptables-persistent/autosave_v6 boolean true | debconf-set-selections
 apt install python -y ; apt install python3-pip -y
 apt install iptables iptables-persistent -y
 apt install caddy -y
