@@ -62,7 +62,7 @@ echo -e "Username ${RED}${user}${NC} Already On VPS Please Choose Another"
 exit 1
 fi
 done
-cipher="2022-blake3-aes-128-gcm"
+cipher="2022-blake3-aes-128-gcm:GANdRinGcq34MSCDTOck0g=="
 sandi="GANdRinGcq34MSCDTOck0g=="
 base64=$(openssl rand -base64 16)
 pass=$sandi:$base64
@@ -82,16 +82,14 @@ sed -i '/#ss-tls$/a\### '"$user $exp"'\
 sed -i '/#ss-nontls$/a\### '"$user $exp"'\
 },{"password": "'""${base64}""'","email": "'""$user""'"' /etc/xray/xtrojan.json
 
-echo 2022-blake3-aes-128-gcm:GANdRinGcq34MSCDTOck0g==:${base64} > /tmp/log
-socks_base64=$(cat /tmp/log)
-echo -n "${socks_base64}" | base64 > /tmp/log1
+tmp1=$(echo -n "2022-blake3-aes-128-gcm:${sandi}:${base64}" | base64 -w0)
 socks_base64e=$(cat /tmp/log1)
-sstls="ss://${socks_base64e}@$domain:443?path=%2Fworryfree%2F&security=tls&host=$domain&type=ws&sni=$domain#%F0%9F%94%A5SS+2022+WS+TLS+$user"
-ssnontls="ss://${socks_base64e}@$domain:80?path=%2Fworryfree%2F&security=none&host=$domain&type=ws#%F0%9F%94%A5SS+2022+WS+NON+TLS+$user"
-ssworry="ss://${socks_base64e}@$domain:212?path=http://tsel.me/worryfree&security=none&host=212&type=ws#%F0%9F%94%A5SS+2022+WS+NON+TLS+$user"
-sshabis="ss://${socks_base64e}@$domain:515?path=http://myorbit.id/kuota-habis&security=none&host=myorbit.id&type=ws#%F0%9F%94%A5SS+2022+WS+NON+TLS+$user"
-ssgrpc="ss://${socks_base64e}@$domain:443?mode=gun&security=tls&type=grpc&serviceName=GANDRING-GRPC&sni=$domain#%F0%9F%94%A5SS+2022+GRPC+TLS+$user"
-sshttp="ss://${socks_base64e}@$domain:443?path=/GANDRING-TCP&security=tls&host=$domain&headerType=http&type=tcp&sni=$domain#%F0%9F%94%A5SS+2022+TCP+TLS+$user"
+sstls="ss://${tmp1}@$domain:443?path=%2Fworryfree%2F&security=tls&host=$domain&type=ws&sni=$domain#%F0%9F%94%A5SS+2022+WS+TLS+$user"
+ssnontls="ss://${tmp1}@$domain:80?path=%2Fworryfree%2F&security=none&host=$domain&type=ws#%F0%9F%94%A5SS+2022+WS+NON+TLS+$user"
+ssworry="ss://${tmp1}@$domain:212?path=http://tsel.me/worryfree&security=none&host=twitter.com&type=ws#%F0%9F%94%A5SS+2022+WS+NON+TLS+$user"
+sshabis="ss://${tmp1}@$domain:515?path=http://myorbit.id/kuota-habis&security=none&host=myorbit.id&type=ws#%F0%9F%94%A5SS+2022+WS+NON+TLS+$user"
+ssgrpc="ss://${tmp1}@$domain:443?mode=gun&security=tls&type=grpc&serviceName=GANDRING-GRPC&sni=$domain#%F0%9F%94%A5SS+2022+GRPC+TLS+$user"
+sshttp="ss://${tmp1}@$domain:443?path=/GANDRING-TCP&security=tls&host=$domain&headerType=http&type=tcp&sni=$domain#%F0%9F%94%A5SS+2022+TCP+TLS+$user"
 systemctl restart xvmess
 systemctl restart xray.service
 systemctl restart xtrojan.service
