@@ -17,11 +17,12 @@ clear
 domain=$(cat /root/domain)
 domain2=$(cat /root/domain2)
 domain3=$(cat /root/domain3)
-apt update ; apt upgrade -y
+apt update ; apt upgrade ; apt install -y
+apt install iptables iptables-persistent -y
+
 echo iptables-persistent iptables-persistent/autosave_v4 boolean true | debconf-set-selections
 echo iptables-persistent iptables-persistent/autosave_v6 boolean true | debconf-set-selections
 apt install python -y ; apt install python3-pip -y
-apt install iptables iptables-persistent -y
 apt install caddy -y
 apt-get install libpcre3 libpcre3-dev zlib1g-dev dbus -y
 apt install curl socat xz-utils wget apt-transport-https gnupg gnupg2 gnupg1 dnsutils lsb-release -y 
@@ -56,14 +57,13 @@ function dir_xray() {
     print_install "Membuat direktori xray"
     mkdir -p /etc/xray
     mkdir -p /etc/vmess
-    mkdir -p /etc/websocket
+    mkdir -p /etc/haproxy
     mkdir -p /etc/vless
     mkdir -p /etc/trojan
     mkdir -p /etc/shadowsocks
     # mkdir -p /usr/sbin/xray/
     mkdir -p /var/log/xray/
     mkdir -p /var/www/html/
-    mkdir -p /etc/cendrawasih/
 #    chmod +x /var/log/xray
     touch /var/log/xray/access.log
     touch /var/log/xray/error.log
@@ -84,7 +84,6 @@ curl -sL "$xraycore_link" -o xray.zip
 unzip -q xray.zip && rm -rf xray.zip
 mv xray /usr/local/bin/xray
 chmod +x /usr/local/bin/xray
-apt update ; apt upgrade -y
 
 # Make Folder XRay
 mkdir -p /var/log/xray/
