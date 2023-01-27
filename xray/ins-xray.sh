@@ -51,30 +51,10 @@ mkdir -p /usr/bin/xray
 mkdir -p /etc/xray
 mkdir -p /etc/ssl/private
 mkdir -p /etc/ssl/nginx
+mkdir -p /etc/haproxy
 cd /etc/ssl/nginx
 ### Buat direktori xray
-function dir_xray() {
-    print_install "Membuat direktori xray"
-    mkdir -p /etc/xray
-    mkdir -p /etc/vmess
-    mkdir -p /etc/haproxy
-    mkdir -p /etc/vless
-    mkdir -p /etc/trojan
-    mkdir -p /etc/shadowsocks
-    # mkdir -p /usr/sbin/xray/
-    mkdir -p /var/log/xray/
-    mkdir -p /var/www/html/
-#    chmod +x /var/log/xray
-    touch /var/log/xray/access.log
-    touch /var/log/xray/error.log
-    chmod 777 /var/log/xray/*.log
-    touch /etc/vmess/.vmess.db
-    touch /etc/vless/.vless.db
-    touch /etc/trojan/.trojan.db
-    touch /etc/ssh/.ssh.db
 
-    touch /etc/shadowsocks/.shadowsocks.db
-}
 mkdir -p /usr/local/etc/xray
 mkdir -p /home/sstp
 mkdir -p /home/vps/public_html
@@ -242,7 +222,82 @@ cat > /etc/xray/config.json << END
         },
         "quicSettings": {}
       }
+    },
+    {
+      "tag": "B",
+      "port": 111,
+      "protocol": "mtproto",
+      "settings": {
+        "users": [
+          {
+            "secret": "6caaadf4c26a01255e05a05972d1bc62"
+          }
+        ]
+      },
+      "sniffing": {
+        "enabled": true,
+        "destOverride": [
+          "http",
+          "tls"
+        ]
+      }
     }
+  ],
+  "outbounds": [
+    {
+      "protocol": "freedom",
+      "settings": {}
+    },
+    {
+      "protocol": "blackhole",
+      "settings": {},
+      "tag": "block"
+    },
+    {
+      "tag": "tg-out",
+      "protocol": "mtproto",
+      "settings": {}
+    }
+  ],
+  "routing": {
+    "rules": [
+      {
+        "type": "field",
+        "ip": [
+          "0.0.0.0/8",
+          "10.0.0.0/8",
+          "100.64.0.0/10",
+          "169.254.0.0/16",
+          "172.16.0.0/12",
+          "192.0.0.0/24",
+          "192.0.2.0/24",
+          "192.168.0.0/16",
+          "198.18.0.0/15",
+          "198.51.100.0/24",
+          "203.0.113.0/24",
+          "::1/128",
+          "fc00::/7",
+          "fe80::/10"
+        ],
+        "outboundTag": "block"
+      },
+      {
+        "type": "field",
+        "inboundTag": [
+          "B"
+        ],
+        "outboundTag": "tg-out"
+      },
+      {
+        "type": "field",
+        "outboundTag": "blocked",
+        "protocol": [
+          "bittorrent"
+        ]
+      }
+    ]
+  }
+}
 END
 
 cat > /etc/xray/tes.json << END
