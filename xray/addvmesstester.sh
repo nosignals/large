@@ -84,13 +84,13 @@ read -p "Expired (Days) : " masaaktif
 hariini=`date -d "0 days" +"%Y-%m-%d"`
 exp=`date -d "$masaaktif days" +"%Y-%m-%d"`
 sed -i '/#vmess-tls$/a\### '"$user $exp"'\
-},{"id": "'""$uuid""'"' /etc/xray/xvmess.json
+},{"id": "'""$uuid""'","alterId": '"0"',"email": "'""$user""'"' /etc/xray/xvless.json
 sed -i '/#vmess-tls$/a\### '"$user $exp"'\
-},{"id": "'""$uuid""'"' /etc/xray/xvless.json
+},{"id": "'""$uuid""'","alterId": '"0"',"email": "'""$user""'"' /etc/xray/xvmess.json
 sed -i '/#vmess-tls$/a\### '"$user $exp"'\
-},{"id": "'""$uuid""'"' /etc/xray/xtrojan.json
+},{"id": "'""$uuid""'","alterId": '"0"',"email": "'""$user""'"' /etc/xray/xtrojan.json
 sed -i '/#vmess-nontls$/a\### '"$user $exp"'\
-},{"id": "'""$uuid""'"' /etc/xray/config.json
+},{"id": "'""$uuid""'","alterId": '"0"',"email": "'""$user""'"' /etc/xray/config.json
 sed -i '/#vmess-grpc-tls$/a\### '"$user $exp"'\
 },{"id": "'""$uuid""'","alterId": '"0"',"email": "'""$user""'"' /etc/xray/config.json
 sed -i '/#vmess-grpc-tls$/a\### '"$user $exp"'\
@@ -123,7 +123,8 @@ sed -i '/#vmess-kcp$/a\### '"$user $exp"'\
 },{"id": "'""$uuid""'","alterId": '"0"',"email": "'""$user""'"' /etc/xray/xvmess.json
 sed -i '/#vmess-kcp$/a\### '"$user $exp"'\
 },{"id": "'""$uuid""'","alterId": '"0"',"email": "'""$user""'"' /etc/xray/xtrojan.json
-
+sed -i '/#vmess-kcpnon$/a\### '"$user $exp"'\
+},{"id": "'""$uuid""'","alterId": '"0"',"email": "'""$user""'"' /etc/xray/xtrojan.json
 sed -i '/#vmess-http-tls$/a\### '"$user $exp"'\
 },{"id": "'""$uuid""'","alterId": '"0"',"email": "'""$user""'"' /etc/xray/xvmess.json
 sed -i '/#vmess-http-tls$/a\### '"$user $exp"'\
