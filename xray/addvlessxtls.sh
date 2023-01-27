@@ -68,12 +68,12 @@ read -p "Expired (Days) : " masaaktif
 hariini=`date -d "0 days" +"%Y-%m-%d"`
 exp=`date -d "$masaaktif days" +"%Y-%m-%d"`
 sed -i '/#vless-xtls$/a\### '"$user $exp"'\
-},{"id": "'""$uuid""'","flow": "'""xtls-rprx-direct""'", "email": "'""$user""'"' /etc/xray/xvmess.json
+},{"id": "'""$uuid""'","flow": "'""xtls-rprx-vision""'", "email": "'""$user""'"' /etc/xray/xvless.json
 
 sed -i '/#vless-xtls$/a\### '"$user $exp"'\
-},{"id": "'""$uuid""'","flow": "'""xtls-rprx-direct""'", "email": "'""$user""'"' /etc/xray/xvless.json
+},{"id": "'""$uuid""'","flow": "'""xtls-rprx-direct""'", "email": "'""$user""'"' /etc/xray/xvmess.json
 
-vlessxtls="vless://${uuid}@${domain}:$vlxtls?type=tcp&security=xtls&headerType=none&flow=xtls-rprx-direct&encryption=none#%F0%9F%94%A5VLESS+XTLS+${user}"
+vlessxtls="vless://${uuid}@${domain}:$vlxtls?type=tcp&security=tls&headerType=none&flow=xtls-rprx-vision&encryption=none#%F0%9F%94%A5VLESS+XTLS+VISION+${user}"
 vlessgfw="vless://${uuid}@${domain}:$vlgfw?security=tls&type=tcp&headerType=none&encryption=none#%F0%9F%94%A5VLESS+GFW+TLS+${user}"
 systemctl restart xray.service
 systemctl restart xvless.service
@@ -91,7 +91,7 @@ echo -e "Alamat➡️ ${domain}"
 echo -e "Port XTLS➡️ ${vlxtls}"
 echo -e "Port GFW➡️ $vlgfw"
 echo -e "Network➡️ tcp"
-echo -e "Security➡️ xtls,tls"
+echo -e "Security➡️ tls"
 #echo -e "Flow➡️ ALL FLOW IS SUPPORTED"
 echo -e "UserID➡️ ${uuid}"
 echo -e "Dibuat➡️ $hariini"
