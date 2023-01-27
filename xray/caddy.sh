@@ -8,12 +8,11 @@ sudo apt install caddy
 ### Tambah konfigurasi Caddy
 function caddy(){
     mkdir -p /etc/caddy
-    wget -O /etc/caddy/vmess "${REPO}caddy/vmess" >/dev/null 2>&1
-    wget -O /etc/caddy/vless "${REPO}caddy/vless" >/dev/null 2>&1
-    wget -O /etc/caddy/trojan "${REPO}caddy/trojan" >/dev/null 2>&1
-    wget -O /etc/caddy/ss2022 "${REPO}caddy/ss2022" >/dev/null 2>&1
-    wget -O /etc/caddy/socks "${REPO}caddy/socks" >/dev/null 2>&1
-    wget -O /etc/caddy/ss "${REPO}caddy/ss" >/dev/null 2>&1
+    wget -O /etc/caddy/xvless "${REPO}caddy/xvless" >/dev/null 2>&1
+    wget -O /etc/caddy/xvmess "${REPO}caddy/xvmess" >/dev/null 2>&1
+    wget -O /etc/caddy/xtrojan "${REPO}caddy/xtrojan" >/dev/null 2>&1
+    wget -O /etc/caddy/xss "${REPO}caddy/xss" >/dev/null 2>&1
+    wget -O /etc/caddy/config "${REPO}caddy/config" >/dev/null 2>&1
     cat >/etc/caddy/Caddyfile <<-EOF
 $domain:443
 {
