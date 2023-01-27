@@ -17,7 +17,7 @@ clear
 domain=$(cat /root/domain)
 domain2=$(cat /root/domain2)
 domain3=$(cat /root/domain3)
-apt update ; apt upgrade ; apt install -y
+apt update ; apt upgrade -y
 apt install iptables iptables-persistent -y
 
 echo iptables-persistent iptables-persistent/autosave_v4 boolean true | debconf-set-selections
