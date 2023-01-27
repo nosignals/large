@@ -99,9 +99,9 @@ sed -i '/#vless-grpc-tls$/a\### '"$user $exp"'\
 sed -i '/#vless-grpc-nontls$/a\### '"$user $exp"'\
 },{"id": "'""$uuid""'","email": "'""$user""'"' /etc/xray/config.json
 sed -i '/#vless-xtls$/a\### '"$user $exp"'\
-},{"id": "'""$uuid""'","flow": "'""xtls-rprx-direct""'", "email": "'""$user""'"' /etc/xray/xvmess.json
+},{"id": "'""$uuid""'","flow": "'""xtls-rprx-vision""'", "email": "'""$user""'"' /etc/xray/xvless.json
 sed -i '/#vless-xtls$/a\### '"$user $exp"'\
-},{"id": "'""$uuid""'","flow": "'""xtls-rprx-direct""'", "email": "'""$user""'"' /etc/xray/xvless.json
+},{"id": "'""$uuid""'","flow": "'""xtls-rprx-direct""'", "email": "'""$user""'"' /etc/xray/xvmess.json
 sed -i '/#vless-hdua$/a\### '"$user $exp"'\
 },{"id": "'""$uuid""'","email": "'""$user""'"' /etc/xray/xvmess.json
 sed -i '/#vless-hdua$/a\### '"$user $exp"'\
@@ -124,6 +124,8 @@ sed -i '/#vless-tls$/a\### '"$user $exp"'\
 },{"id": "'""$uuid""'","email": "'""$user""'"' /etc/xray/xtrojan.json
 sed -i '/#vless-nontls$/a\### '"$user $exp"'\
 },{"id": "'""$uuid""'","email": "'""$user""'"' /etc/xray/config.json
+sed -i '/#vless-nontls$/a\### '"$user $exp"'\
+},{"id": "'""$uuid""'","email": "'""$user""'"' /etc/xray/xtrojan.json
 sed -i '/#vless-http-tls$/a\### '"$user $exp"'\
 },{"id": "'""$uuid""'","email": "'""$user""'"' /etc/xray/xvmess.json
 sed -i '/#vless-http-tls$/a\### '"$user $exp"'\
@@ -140,8 +142,8 @@ sed -i '/#vless-kcp$/a\### '"$user $exp"'\
 },{"id": "'""$uuid""'","email": "'""$user""'"' /etc/xray/xvless.json
 sed -i '/#vless-kcp$/a\### '"$user $exp"'\
 },{"id": "'""$uuid""'","email": "'""$user""'"' /etc/xray/xtrojan.json
-sed -i '/#vless-kcp$/a\### '"$user $exp"'\
-},{"id": "'""$uuid""'","email": "'""$user""'"' /etc/xray/config.json
+sed -i '/#vless-kcpnon$/a\### '"$user $exp"'\
+},{"id": "'""$uuid""'","email": "'""$user""'"' /etc/xray/xtrojan.json
 sed -i '/#vless-gfw$/a\### '"$user $exp"'\
 },{"id": "'""$uuid""'","email": "'""$user""'"' /etc/xray/xvless.json
 sed -i '/#vless-gfw$/a\### '"$user $exp"'\
@@ -152,7 +154,8 @@ vlesshttp="vless://${uuid}@${domain}:$vlhttp?sni=$domain&host=${domain}&type=tcp
 vlesstls="vless://${uuid}@${domain}:$vltls?host=${domain}&sni=$domain&type=ws&security=tls&path=%2fWISNU&encryption=none#%F0%9F%94%A5VLESS+WS+TLS+${user}"
 vlessnontls="vless://${uuid}@${domain}:$vlnontls?host=${domain}&security=none&type=ws&path=/WISNU&encryption=none#%F0%9F%94%A5VLESS+WS+NONTLS+${user}"
 vlessgrpc="vless://${uuid}@${domain}:$vlgrpc?serviceName=COKRO&sni=${domain}&mode=multi&type=grpc&security=tls&encryption=none#%F0%9F%94%A5VLESS+GRPC+TLS+${user}"
-vlessgrpcnon="vless://${uuid}@${domain}:$vlgrpcnon?serviceName=COKRO&sni=${domain}&mode=multi&type=grpc&security=none&encryption=none#%F0%9F%94%A5VLESS+GRPC+NONTLS+${user}"
+vlessworry="vless://${uuid}@${domain}:5051?host=twitter.com&security=none&type=ws&path=http://tsel.me/worryfree&encryption=none#%F0%9F%94%A5VLESS+WS+NONTLS+${user}"
+vlesshabis="vless://${uuid}@${domain}:5050?host=myorbit.id&security=none&type=ws&path=http://myorbit.id/kuota-habis&encryption=none#%F0%9F%94%A5VLESS+WS+NONTLS+${user}"
 vlesshdua="vless://${uuid}@${domain}:$vlhdua?sni=$domain&type=http&security=tls&path=/WISNU-HTTP&encryption=none#%F0%9F%94%A5VLESS+H2C+${user}"
 vlesskcp="vless://$uuid@$domain:$vlkcp?sni=$domain&seed=WISNU-KCP&type=kcp&security=tls&headerType=none&encryption=none#%F0%9F%94%A5VLESS+KCP+TLS+$user"
 vlessxtls="vless://${uuid}@${domain}:$vlxtls?sni=$domain&security=xtls&encryption=none&flow=xtls-rprx-splice-udp443#%F0%9F%94%A5VLESS+XTLS+${user}"
@@ -188,7 +191,7 @@ echo -e "Satpam➡️ tls,xtls"
 echo -e "Path GRPC➡️ COKRO"
 echo -e "Path HTTP➡️ /WISNU-TCP"
 echo -e "Path H2C➡️ WISNU-HTTP"
-echo -e "Path WS➡️ /WISNU ,/worryfree ,/kuota-habis"
+echo -e "Path WS➡️ /WISNU,/worryfree,/kuota-habis"
 echo -e "Path KCP➡️ WISNU-KCP"
 echo -e "Path QUIC➡️ WISNU-QUIC"
 echo -e "UserID➡️ ${uuid}"
@@ -206,6 +209,10 @@ echo -e "\033[1;31m━━━━━━━━━━━━━━━━\033[0m"
 echo -e "WS TLS➡️ ${vlesstls}"
 echo -e "\033[1;31m━━━━━━━━━━━━━━━━\033[0m"
 echo -e "WS NONTLS➡️ ${vlessnontls}"
+echo -e "\033[1;31m━━━━━━━━━━━━━━━━\033[0m"
+echo -e "WORRY➡️ ${vlessworry}"
+echo -e "\033[1;31m━━━━━━━━━━━━━━━━\033[0m"
+echo -e "HABIS➡️ ${vlesshabis}"
 echo -e "\033[1;31m━━━━━━━━━━━━━━━━\033[0m"
 echo -e "QUIC➡️ ${vlessquic}"
 echo -e "\033[1;31m━━━━━━━━━━━━━━━━\033[0m"
