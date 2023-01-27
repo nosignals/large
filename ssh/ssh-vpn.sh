@@ -145,17 +145,7 @@ apt-get install tcpdump -y
 apt-get install dsniff -y
 apt install grepcidr -y
 sudo add-apt-repository ppa:vbernat/haproxy-2.7 -y
-    sudo apt update && apt upgrade -y
-    sudo apt install squid nginx zip pwgen openssl netcat bash-completion linux-tools-common \
-    curl socat xz-utils wget apt-transport-https gnupg gnupg2 gnupg1 dnsutils socat \
-    tar wget curl ruby zip unzip p7zip-full python3-pip haproxy libc6 util-linux build-essential \
-    msmtp-mta ca-certificates bsd-mailx iptables iptables-persistent netfilter-persistent \
-    net-tools  jq openvpn easy-rsa python3-certbot-nginx p7zip-full tuned -y
-    sudo apt-get autoremove -y
-    apt-get clean all
-    print_ok "Berhasil memasang paket yang dibutuhkan"
-}
-clear
+
 wget -O /etc/haproxy/haproxy.cfg "${wisnuvpn}config/haproxy.cfg" >/dev/null 2>&1
 wget -O /etc/xray/tun.conf "${wisnuvpn}xray/tun.conf" >/dev/null 2>&1
 
@@ -470,17 +460,28 @@ wget https://${wisnuvpn}/bbr.sh && chmod +x bbr.sh && ./bbr.sh
 wget -O /etc/issue.net "https://${wisnuvpn}/issue.net"
 
 # blockir torrent
-iptables -A FORWARD -m string --string "get_peers" --algo bm -j DROP
-iptables -A FORWARD -m string --string "announce_peer" --algo bm -j DROP
-iptables -A FORWARD -m string --string "find_node" --algo bm -j DROP
 iptables -A FORWARD -m string --algo bm --string "BitTorrent" -j DROP
 iptables -A FORWARD -m string --algo bm --string "BitTorrent protocol" -j DROP
 iptables -A FORWARD -m string --algo bm --string "peer_id=" -j DROP
 iptables -A FORWARD -m string --algo bm --string ".torrent" -j DROP
 iptables -A FORWARD -m string --algo bm --string "announce.php?passkey=" -j DROP
+chage -I -1 -m 0 -M 99999 -E -1 vps
 iptables -A FORWARD -m string --algo bm --string "torrent" -j DROP
 iptables -A FORWARD -m string --algo bm --string "announce" -j DROP
 iptables -A FORWARD -m string --algo bm --string "info_hash" -j DROP
+iptables -A FORWARD -m string --algo bm --string "/default.ida?" -j DROP
+iptables -A FORWARD -m string --algo bm --string ".exe?/c+dir" -j DROP
+iptables -A FORWARD -m string --algo bm --string ".exe?/c_tftp" -j DROP
+iptables -A FORWARD -m string --algo kmp --string "peer_id" -j DROP
+iptables -A FORWARD -m string --algo kmp --string "BitTorrent" -j DROP
+iptables -A FORWARD -m string --algo kmp --string "BitTorrent protocol" -j DROP
+iptables -A FORWARD -m string --algo kmp --string "bittorrent-announce" -j DROP
+iptables -A FORWARD -m string --algo kmp --string "announce.php?passkey=" -j DROP
+iptables -A FORWARD -m string --algo kmp --string "find_node" -j DROP
+iptables -A FORWARD -m string --algo kmp --string "info_hash" -j DROP
+iptables -A FORWARD -m string --algo kmp --string "get_peers" -j DROP
+iptables -A FORWARD -m string --algo kmp --string "announce" -j DROP
+iptables -A FORWARD -m string --algo kmp --string "announce_peers" -j DROP
 iptables-save > /etc/iptables.up.rules
 iptables-restore -t < /etc/iptables.up.rules
 netfilter-persistent save
@@ -875,7 +876,7 @@ After=syslog.target network-online.target
 [Service]
 User=root
 NoNewPrivileges=true
-ExecStart=/usr/sbin/badvpn --listen-addr 127.0.0.1:99 --max-clients 500
+ExecStart=/usr/bin/badvpn --listen-addr 127.0.0.1:99 --max-clients 500
 Restart=on-failure
 RestartPreventExitStatus=23
 LimitNPROC=10000
