@@ -23,6 +23,7 @@ echo iptables-persistent iptables-persistent/autosave_v4 boolean true | debconf-
 echo iptables-persistent iptables-persistent/autosave_v6 boolean true | debconf-set-selections
 
 apt install iptables iptables-persistent -y
+apt install haproxy -y
 apt install caddy -y
 apt-get install libpcre3 libpcre3-dev zlib1g-dev dbus -y
 apt install curl socat xz-utils wget apt-transport-https gnupg gnupg2 gnupg1 dnsutils lsb-release -y 
@@ -725,6 +726,49 @@ LimitNOFILE=1000000
 WantedBy=multi-user.target
 EOF
 
+cat <<EOF > /etc/systemd/system/haproxy.service
+[Unit]
+Description=HAProxy Load Balancer
+Documentation=man:haproxy(1)
+Documentation=file:/usr/share/doc/haproxy/configuration.txt.gz
+After=network-online.target rsyslog.service
+Wants=network-online.target
+
+[Service]
+EnvironmentFile=-/etc/default/haproxy
+EnvironmentFile=-/etc/sysconfig/haproxy
+BindReadOnlyPaths=/dev/log:/var/lib/haproxy/dev/log
+Environment="CONFIG=/etc/haproxy/haproxy.cfg" "PIDFILE=/run/haproxy.pid" "EXTRAOPTS=-S /run/haproxy-master.sock"
+ExecStart=/usr/sbin/haproxy -Ws -f $CONFIG -p $PIDFILE $EXTRAOPTS
+ExecReload=/usr/sbin/haproxy -Ws -f $CONFIG -c -q $EXTRAOPTS
+ExecReload=/bin/kill -USR2 $MAINPID
+KillMode=mixed
+Restart=always
+SuccessExitStatus=143
+Type=notify
+
+# The following lines leverage SystemD's sandboxing options to provide
+# defense in depth protection at the expense of restricting some flexibility
+# in your setup (e.g. placement of your configuration files) or possibly
+# reduced performance. See systemd.service(5) and systemd.exec(5) for further
+# information.
+
+# NoNewPrivileges=true
+# ProtectHome=true
+# If you want to use 'ProtectSystem=strict' you should whitelist the PIDFILE,
+# any state files and any other files written using 'ReadWritePaths' or
+# 'RuntimeDirectory'.
+# ProtectSystem=true
+# ProtectKernelTunables=true
+# ProtectKernelModules=true
+# ProtectControlGroups=true
+# If your SystemD version supports them, you can add: @reboot, @swap, @sync
+# SystemCallFilter=~@cpu-emulation @keyring @module @obsolete @raw-io
+
+[Install]
+WantedBy=multi-user.target
+EOF
+
 # Restart Service
 sleep 1
 systemctl daemon-reload
@@ -765,6 +809,9 @@ systemctl daemon-reload
 systemctl enable xvmess.service
 systemctl start xvmess.service
 systemctl restart xvmess.service
+systemctl daemon-reload
+systemctl enable haproxy.service
+systemctl restart haproxy.service
 
 # Trojan Go Akun 
 mkdir -p /etc/trojan-go/
