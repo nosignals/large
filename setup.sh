@@ -162,7 +162,7 @@ echo -e " 🔰 SQUID 4                        : 4000,5000"   |tee -a log-install
 echo -e " 🔰 PRIVOXY                        : 3128,3228"   |tee -a log-install.txt
 echo -e " 🔰 UDPGW                          : 99"          |tee -a log-install.txt
 echo -e " 🔰 SSTP VPN                       : 444"         |tee -a log-install.txt
-echo -e " 🔰 WIREGUARD                      : 666"         |tee -a log-install.txt
+echo -e " 🔰 WIREGUARD                      : 51280"         |tee -a log-install.txt
 echo -e " 🔰 SHADOWSOCKS-R                  : 1444-1944"   |tee -a log-install.txt
 echo -e " 🔰 SS-OBFS TLS                    : 2444-2943"   |tee -a log-install.txt
 echo -e " 🔰 SS-OBFS HTTP                   : 2944-3442"   |tee -a log-install.txt
