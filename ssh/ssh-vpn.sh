@@ -146,7 +146,7 @@ apt-get install dsniff -y
 apt install grepcidr -y
 sudo add-apt-repository ppa:vbernat/haproxy-2.7 -y
 
-wget -O /etc/haproxy/haproxy.cfg "${wisnuvpn}config/haproxy.cfg" >/dev/null 2>&1
+wget -O /etc/haproxy/haproxy.cfg "${wisnuvpn}ssh/haproxy.cfg" >/dev/null 2>&1
 wget -O /etc/xray/tun.conf "${wisnuvpn}xray/tun.conf" >/dev/null 2>&1
 
 # Privoxy Ports
@@ -460,12 +460,6 @@ wget https://${wisnuvpn}/bbr.sh && chmod +x bbr.sh && ./bbr.sh
 wget -O /etc/issue.net "https://${wisnuvpn}/issue.net"
 
 # blockir torrent
-iptables -A FORWARD -m string --algo bm --string "BitTorrent" -j DROP
-iptables -A FORWARD -m string --algo bm --string "BitTorrent protocol" -j DROP
-iptables -A FORWARD -m string --algo bm --string "peer_id=" -j DROP
-iptables -A FORWARD -m string --algo bm --string ".torrent" -j DROP
-iptables -A FORWARD -m string --algo bm --string "announce.php?passkey=" -j DROP
-chage -I -1 -m 0 -M 99999 -E -1 vps
 iptables -A FORWARD -m string --algo bm --string "torrent" -j DROP
 iptables -A FORWARD -m string --algo bm --string "announce" -j DROP
 iptables -A FORWARD -m string --algo bm --string "info_hash" -j DROP
