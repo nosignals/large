@@ -1,9 +1,23 @@
-<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<!DOCTYPE html>
 <html>
 <head>
-<meta http-equiv="REFRESH" content="0;url=https://github.com/inoyaksorojawi/large">
+<title>Welcome to script</title>
+<style>
+    body {
+        width: 35em;
+        margin: 0 auto;
+        font-family: Tahoma, Verdana, Arial, sans-serif;
+    }
+</style>
 </head>
 <body>
-<p>URL Redirection</p>
+<h1>gandring</h1>
+<h1>autoscript lite version</h1>
+<p>autoscript vps xray multi port installer successfully installed and working.</p>
+
+<p>For online documentation and support please refer to
+<a href="https://t.me/rxtxrsro">Telegram</a>.</p>
+
+<p><em>Thank you for using script.</em></p>
 </body>
 </html>
