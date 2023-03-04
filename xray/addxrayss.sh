@@ -79,7 +79,8 @@ exit 1
 fi
 done
 #uuid=$(openssl rand -base64 16)
-uuid=$(openssl rand -hex 7)
+#uuid=$(openssl rand -hex 7)
+uuid=$(cat /proc/sys/kernel/random/uuid)
 cipher="aes-128-gcm"
 cipher2="aes-256-gcm"
 cipher3="chacha20-poly1305"
