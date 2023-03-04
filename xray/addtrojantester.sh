@@ -18,7 +18,7 @@ clear
 domain=$(cat /etc/xray/domain)
 domain2=$(cat /etc/xray/domain2)
 domain3=$(cat /etc/xray/domain3)
-#uuid=$(cat /proc/sys/kernel/random/uuid)
+uuid=$(cat /proc/sys/kernel/random/uuid)
 tquic="$(cat ~/log-install.txt | grep -w "TROJAN QUIC TLS" | cut -d: -f2|sed 's/ //g')"
 tgrpc="$(cat ~/log-install.txt | grep -w "TROJAN GRPC TLS" | cut -d: -f2|sed 's/ //g')"
 txtls="$(cat ~/log-install.txt | grep -w "TROJAN XTLS" | cut -d: -f2|sed 's/ //g')"
@@ -87,7 +87,7 @@ exit 1
 fi
 done
 #uuid=$(openssl rand -base64 16)
-uuid=$(openssl rand -hex 7)
+#uuid=$(openssl rand -hex 7)
 read -p "Expired (Days) : " masaaktif
 #read -p "Expired (Seconds) : " masaaktif
 hariini=`date -d "0 days" +"%Y-%m-%d"`
