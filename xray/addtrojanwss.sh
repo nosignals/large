@@ -19,7 +19,7 @@ domain2=$(cat /etc/xray/domain2)
 domain3=$(cat /etc/xray/domain3)
 dateFromServer=$(curl -v --insecure --silent https://google.com/ 2>&1 | grep Date | sed -e 's/< Date: //')
 date=`date +"%Y-%m-%d" -d "$dateFromServer"`
-#uuid=$(cat /proc/sys/kernel/random/uuid)
+uuid=$(cat /proc/sys/kernel/random/uuid)
 ttls="$(cat ~/log-install.txt | grep -w "TROJAN WS TLS" | cut -d: -f2|sed 's/ //g')"
 tnontls="$(cat ~/log-install.txt | grep -w "TROJAN WS NON TLS" | cut -d: -f2|sed 's/ //g')"
 until [[ $user =~ ^[a-zA-Z0-9_]+$ && ${user_EXISTS} == '0' ]]; do
@@ -77,7 +77,7 @@ exit 1
 fi
 done
 #uuid=$(openssl rand -base64 16)
-uuid=$(openssl rand -hex 7)
+#uuid=$(openssl rand -hex 7)
 read -p "Expired (Days) : " masaaktif
 hariini=`date -d "0 days" +"%Y-%m-%d"`
 exp=`date -d "$masaaktif days" +"%Y-%m-%d"`
