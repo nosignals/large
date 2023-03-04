@@ -85,7 +85,8 @@ exit 1
 fi
 done
 base64=$(openssl rand -base64 16)
-uuid=$(openssl rand -hex 7)
+#uuid=$(openssl rand -hex 7)
+uuid=$(cat /proc/sys/kernel/random/uuid)
 sandi=$uuid
 read -p "Expired (Days) : " masaaktif
 hariini=`date -d "0 days" +"%Y-%m-%d"`
