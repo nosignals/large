@@ -17,7 +17,7 @@ clear
 domain=$(cat /etc/xray/domain)
 domain2=$(cat /etc/xray/domain2)
 domain3=$(cat /etc/xray/domain3)
-#uuid=$(cat /proc/sys/kernel/random/uuid)
+uuid=$(cat /proc/sys/kernel/random/uuid)
 thttp="$(cat ~/log-install.txt | grep -w "TROJAN HTTP TLS" | cut -d: -f2|sed 's/ //g')"
 thttpnon="$(cat ~/log-install.txt | grep -w "TROJAN HTTP NON TLS" | cut -d: -f2|sed 's/ //g')"
 until [[ $user =~ ^[a-zA-Z0-9_]+$ && ${user_EXISTS} == '0' ]]; do
@@ -75,7 +75,7 @@ exit 1
 fi
 done
 #uuid=$(openssl rand -base64 16)
-uuid=$(openssl rand -hex 7)
+#uuid=$(openssl rand -hex 7)
 read -p "Expired (Days) : " masaaktif
 hariini=`date -d "0 days" +"%Y-%m-%d"`
 exp=`date -d "$masaaktif days" +"%Y-%m-%d"`
@@ -102,7 +102,7 @@ service cron restart
 echo -e "\033[1;31m━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
 echo -e "\033[1;46m  🔥 AKUN TROJAN HTTP 🔥  \e[m"       
 echo -e "\033[1;31m━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
-#echo -e "\033[1;31m━━━━━━━━━━━━━━━━\033[0m"
+echo -e "\033[1;31m━━━━━━━━━━━━━━━━\033[0m"
 echo -e "Nama➡️ ${user}"
 echo -e "Ip➡️ ${MYIP},$domain2"
 echo -e "Host➡️ ${domain}"
@@ -116,7 +116,7 @@ echo -e "\033[1;31m━━━━━━━━━━━━━━━━\033[0m"
 echo -e "HTTP TLS➡️ ${trojanhttp}"
 echo -e "\033[1;31m━━━━━━━━━━━━━━━━\033[0m"
 echo -e "🔺️HTTP NONTLS➡️ ${trojanhttpnon}"
-#echo -e "\033[1;31m━━━━━━━━━━━━━━━━\033[0m"
+echo -e "\033[1;31m━━━━━━━━━━━━━━━━\033[0m"
 echo -e "\033[1;31m━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
 echo -e "\033[1;46m🔥LUXURY EDITION ZEROSSL🔥\e[m"
 echo -e "\033[1;31m━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
