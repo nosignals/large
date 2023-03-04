@@ -20,8 +20,8 @@ domain2=$(cat /etc/xray/domain2)
 domain3=$(cat /etc/xray/domain3)
 dateFromServer=$(curl -v --insecure --silent https://google.com/ 2>&1 | grep Date | sed -e 's/< Date: //')
 date=`date +"%Y-%m-%d" -d "$dateFromServer"`
-#uuid=$(cat /proc/sys/kernel/random/uuid)
-uuid=$(openssl rand -hex 7)
+uuid=$(cat /proc/sys/kernel/random/uuid)
+#uuid=$(openssl rand -hex 7)
 tgrpc="$(cat ~/log-install.txt | grep -w "TROJAN GRPC" | cut -d: -f2|sed 's/ //g')"
 until [[ $user =~ ^[a-zA-Z0-9_]+$ && ${user_EXISTS} == '0' ]]; do
 read -rp "Password : " -e user
@@ -78,7 +78,8 @@ exit 1
 fi
 done
 #uuid=$(openssl rand -base64 16)
-uuid=$(openssl rand -hex 7)
+#uuid=$(openssl rand -hex 7)
+uuid=$(cat /proc/sys/kernel/random/uuid)
 read -p "Expired (Days) : " masaaktif
 #read -p "Expired (Seconds) : " masaaktif
 hariini=`date -d "0 days" +"%Y-%m-%d"`
@@ -103,7 +104,7 @@ echo -e ""
 echo -e "\033[1;31m━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
 echo -e "\033[1;46m  🔥 AKUN TROJAN GRPC 🔥  \e[m"
 echo -e "\033[1;31m━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
-#echo -e "\033[1;31m━━━━━━━━━━━━━━━━\033[0m"
+echo -e "\033[1;31m━━━━━━━━━━━━━━━━\033[0m"
 echo -e "Nama➡️ ${user}"
 echo -e "IP➡️ ${MYIP},$domain2"
 echo -e "Host➡️ ${domain}"
