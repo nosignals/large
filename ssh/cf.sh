@@ -17,10 +17,10 @@ MYIP=$(wget -qO- ipinfo.io/ip);
 #MYIP=$(wget -qO- https://ipv6.icanhazip.com);
 clear
 apt install jq curl -y
-DOMAIN=gandring.my.id
+DOMAIN=gandring.xyz
 #sub=$(</dev/urandom tr -dc a-z0-9 | head -c2)
 
-SUB_PROXIED=dns.gandring.xyz
+SUB_PROXIED=cdn.gandring.xyz
 CF_ID=djarumpentol01@gmail.com
 CF_KEY=6a595c8be3153a59524fe4b5545dd3aee6c4d
 set -euo pipefail
@@ -85,7 +85,7 @@ mkdir -p /etc/xray
 cp /root/domain3 /etc/xray
 rm -f /root/cf.sh
 
-SUB_DO=m.gandring.xyz
+SUB_DO=z.gandring.xyz
 CF_ID=djarumpentol01@gmail.com
 CF_KEY=6a595c8be3153a59524fe4b5545dd3aee6c4d
 set -euo pipefail
